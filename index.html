@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Ové - From someday to today. The investing app built for beginners with €1 minimum and 2-minute setup.">
-    <link rel="icon" type="image/x-icon" href="ove-favicon-final.ico">
+    <meta name="description" content="Ové - From someday to today. The investing app built for beginners with €10 minimum and 2-minute setup.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>Ové - From someday to today</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,11 +26,7 @@
             --border-hover: rgba(59, 130, 246, 0.3);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -153,13 +147,10 @@
         .feature-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             border-radius: 24px;
             padding: 1px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -174,9 +165,7 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1);
         }
 
-        .feature-card:hover::before {
-            opacity: 1;
-        }
+        .feature-card:hover::before { opacity: 1; }
 
         .icon-wrapper {
             width: 60px;
@@ -198,10 +187,7 @@
             box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
         }
 
-        .icon {
-            width: 28px;
-            height: 28px;
-        }
+        .icon { width: 28px; height: 28px; }
 
         .feature-card h3 {
             font-size: 1.35rem;
@@ -265,9 +251,7 @@
             font-weight: 300;
         }
 
-        .email-input::placeholder {
-            color: rgba(148, 163, 184, 0.7);
-        }
+        .email-input::placeholder { color: rgba(148, 163, 184, 0.7); }
 
         .submit-button {
             padding: 0 2rem;
@@ -292,9 +276,7 @@
             box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
         }
 
-        .submit-button:active {
-            transform: translateY(0);
-        }
+        .submit-button:active { transform: translateY(0); }
 
         .btn-icon {
             width: 18px;
@@ -302,9 +284,7 @@
             transition: transform 0.3s ease;
         }
 
-        .submit-button:hover .btn-icon {
-            transform: translateX(4px);
-        }
+        .submit-button:hover .btn-icon { transform: translateX(4px); }
 
         .success-message {
             margin-top: 1rem;
@@ -324,27 +304,13 @@
         }
 
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 860px) {
@@ -355,17 +321,11 @@
                 margin-right: auto;
                 gap: 1.5rem;
             }
-
-            .feature-card {
-                padding: 2rem 1.5rem;
-            }
+            .feature-card { padding: 2rem 1.5rem; }
         }
 
         @media (max-width: 500px) {
-            .tagline {
-                font-size: 2.75rem;
-            }
-
+            .tagline { font-size: 2.75rem; }
             .input-group {
                 flex-direction: column;
                 border-radius: 20px;
@@ -373,12 +333,7 @@
                 border: none;
                 padding: 0;
             }
-
-            .input-group:focus-within {
-                box-shadow: none;
-                background: transparent;
-            }
-
+            .input-group:focus-within { box-shadow: none; background: transparent; }
             .email-input {
                 width: 100%;
                 background: rgba(255, 255, 255, 0.05);
@@ -388,12 +343,10 @@
                 padding: 1.25rem 1.5rem;
                 text-align: center;
             }
-
             .email-input:focus {
                 border-color: var(--accent-color);
                 box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
             }
-
             .submit-button {
                 width: 100%;
                 padding: 1.25rem 2rem;
@@ -402,14 +355,13 @@
         }
     </style>
 </head>
-
 <body>
     <div class="glow-bg"></div>
     <main class="container">
         <header class="header">
             <h1 class="logo">Ové</h1>
         </header>
-
+        
         <section class="hero">
             <h2 class="tagline">From someday to today.</h2>
             <p class="sub-tagline">The investing app built for the 91% of Europeans who haven't started yet.</p>
@@ -418,55 +370,43 @@
         <section class="features">
             <div class="feature-card" style="--delay: 0.1s">
                 <div class="icon-wrapper">
-                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                        </path>
-                    </svg>
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
-                <h3>€1 minimum</h3>
+                <h3>€10 minimum</h3>
                 <p>Start with whatever you have. No pressure, no hefty entry fees. Just your first step.</p>
             </div>
             <div class="feature-card" style="--delay: 0.2s">
                 <div class="icon-wrapper">
-                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <h3>2-minute setup</h3>
                 <p>Fast, seamless onboarding. No paperwork, no confusing forms. Done before your coffee gets cold.</p>
             </div>
             <div class="feature-card" style="--delay: 0.3s">
                 <div class="icon-wrapper">
-                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                    </svg>
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                 </div>
                 <h3>Built for beginners</h3>
-                <p>No jargon. No complexity. Just plain language and simple choices — because experts already have
-                    enough apps.</p>
+                <p>No jargon. No complexity. Just plain language and simple choices — because experts already have enough apps.</p>
             </div>
         </section>
 
         <section class="waitlist">
             <p class="waitlist-text">Be the first to know when we launch.</p>
             <div id="waitlist-wrapper">
-                <button id="show-waitlist-btn" class="submit-button"
-                    style="margin: 0 auto; padding: 1rem 2.5rem; font-size: 1.05rem; border-radius: 9999px;">
+                <button id="show-waitlist-btn" class="submit-button" style="margin: 0 auto; padding: 1rem 2.5rem; font-size: 1.05rem; border-radius: 9999px;">
                     Join the Ové Waitlist →
                 </button>
             </div>
         </section>
         <script async src="https://tally.so/widgets/embed.js"></script>
         <script>
-            document.getElementById('show-waitlist-btn').addEventListener('click', function () {
+            document.getElementById('show-waitlist-btn').addEventListener('click', function() {
                 document.getElementById('waitlist-wrapper').innerHTML = '<iframe data-tally-src="https://tally.so/embed/WOoKja?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="120" frameborder="0" marginheight="0" marginwidth="0" title="Ové Waitlist"></iframe>';
                 Tally.loadEmbeds();
             });
         </script>
-
+        
         <footer class="footer">
             <p>&copy; <span id="year"></span> Ové. All rights reserved.</p>
         </footer>
@@ -474,5 +414,4 @@
 
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
-
 </html>
