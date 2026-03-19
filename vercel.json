@@ -1,9 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "routes": [
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/concept", "dest": "/concept.html" },
-    { "src": "/vision", "dest": "/vision.html" }
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/concept", "destination": "/concept.html" },
+    { "source": "/vision", "destination": "/vision.html" }
   ]
 }
