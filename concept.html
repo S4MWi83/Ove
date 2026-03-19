@@ -19,525 +19,189 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --deep: #060f1e;
-            --blue: #3b82f6;
-            --blue-dim: rgba(59,130,246,0.15);
-            --blue-glow: rgba(59,130,246,0.35);
-            --cream: #f0ece4;
-            --muted: #7a8fa8;
-            --border: rgba(255,255,255,0.07);
-            --card: rgba(255,255,255,0.03);
+            --deep:#060f1e; --blue:#3b82f6; --blue-dim:rgba(59,130,246,0.15);
+            --blue-glow:rgba(59,130,246,0.35); --cream:#f0ece4;
+            --muted:#7a8fa8; --border:rgba(255,255,255,0.07); --card:rgba(255,255,255,0.03);
+            --green:#4ade80;
         }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'DM Sans',sans-serif; background:var(--deep); color:var(--cream); min-height:100vh; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+        body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.4; }
+        .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; }
+        .orb-1 { width:55vw; height:55vw; top:-18vw; left:50%; transform:translateX(-50%); background:radial-gradient(circle,rgba(59,130,246,0.13),transparent 70%); }
+        .orb-2 { width:28vw; height:28vw; bottom:8%; right:-6%; background:radial-gradient(circle,rgba(59,130,246,0.07),transparent 70%); }
+        .wrap { max-width:1080px; margin:0 auto; padding:0 2rem; position:relative; z-index:1; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        /* NAV */
+        nav { display:flex; align-items:center; justify-content:space-between; padding:2rem 0; opacity:0; animation:fadeDown 0.6s ease forwards 0.1s; }
+        .nav-logo { font-family:'Instrument Serif',serif; font-size:1.8rem; color:var(--cream); text-decoration:none; position:relative; }
+        .nav-logo span { display:inline-block; width:6px; height:6px; background:var(--blue); border-radius:50%; position:absolute; top:6px; right:-9px; box-shadow:0 0 8px var(--blue-glow); }
+        .nav-links { display:flex; align-items:center; gap:1.5rem; }
+        .nav-link { font-size:0.85rem; font-weight:400; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+        .nav-link:hover, .nav-link.active { color:var(--cream); }
+        .nav-home { font-size:0.85rem; color:var(--muted); text-decoration:none; display:flex; align-items:center; gap:0.35rem; transition:color 0.2s; padding-right:1.5rem; border-right:1px solid var(--border); }
+        .nav-home:hover { color:var(--cream); }
+        .nav-cta { font-size:0.8rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue); background:var(--blue-dim); border:1px solid rgba(59,130,246,0.2); padding:0.4rem 1rem; border-radius:999px; cursor:default; font-family:'DM Sans',sans-serif; }
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--deep);
-            color: var(--cream);
-            min-height: 100vh;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+        /* HERO */
+        .hero { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:calc(100vh - 120px); padding:4rem 0 6rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.3s; }
+        .hero-eyebrow { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:2rem; }
+        .hero-headline { font-family:'Instrument Serif',serif; font-size:clamp(2.8rem,6vw,5.5rem); line-height:1.06; letter-spacing:-0.02em; margin-bottom:1.5rem; }
+        .hero-headline em { font-style:italic; color:#93c5fd; }
+        .hero-sub { font-size:clamp(1rem,2vw,1.15rem); color:var(--muted); font-weight:300; max-width:400px; line-height:1.75; margin-bottom:3.5rem; }
 
-        body::before {
-            content: '';
-            position: fixed; inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none; z-index: 0; opacity: 0.4;
-        }
+        /* DEMO LAUNCH BUTTON */
+        .demo-launch-btn { position:relative; display:inline-flex; align-items:center; gap:1rem; background:transparent; color:var(--cream); font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:500; padding:0.9rem 1.75rem 0.9rem 1rem; border-radius:999px; border:none; cursor:pointer; transition:all 0.4s ease; letter-spacing:0.12em; text-transform:uppercase; outline:none; }
+        .demo-launch-btn::before { content:''; position:absolute; inset:0; border-radius:999px; border:1px solid rgba(59,130,246,0.35); transition:all 0.4s ease; pointer-events:none; }
+        .demo-launch-btn::after { content:''; position:absolute; inset:3px; border-radius:999px; border:1px solid rgba(59,130,246,0.15); transition:all 0.4s ease; pointer-events:none; }
+        .demo-launch-btn:hover::before { border-color:rgba(59,130,246,0.7); box-shadow:0 0 20px rgba(59,130,246,0.2),inset 0 0 20px rgba(59,130,246,0.05); }
+        .demo-launch-btn:hover::after { border-color:rgba(59,130,246,0.35); }
+        .demo-launch-btn:hover { color:white; }
+        .demo-btn-icon { position:relative; z-index:1; width:38px; height:38px; border-radius:50%; background:rgba(59,130,246,0.15); border:1px solid rgba(59,130,246,0.35); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.4s ease; box-shadow:0 0 12px rgba(59,130,246,0.2); }
+        .demo-launch-btn:hover .demo-btn-icon { background:rgba(59,130,246,0.3); border-color:rgba(59,130,246,0.6); box-shadow:0 0 20px rgba(59,130,246,0.4); }
+        .demo-btn-icon svg { color:var(--blue); transition:transform 0.3s ease; }
+        .demo-launch-btn:hover .demo-btn-icon svg { transform:scale(1.15); }
+        .demo-btn-label { position:relative; z-index:1; }
+        .demo-btn-label-main { font-size:0.9rem; color:var(--cream); letter-spacing:0.06em; font-weight:500; transition:color 0.3s; }
+        .demo-launch-btn:hover .demo-btn-label-main { color:white; }
 
-        .orb {
-            position: fixed; border-radius: 50%;
-            filter: blur(80px); pointer-events: none; z-index: 0;
-        }
-        .orb-1 {
-            width: 55vw; height: 55vw; top: -18vw; left: 50%;
-            transform: translateX(-50%);
-            background: radial-gradient(circle, rgba(59,130,246,0.13), transparent 70%);
-        }
-        .orb-2 {
-            width: 28vw; height: 28vw; bottom: 8%; right: -6%;
-            background: radial-gradient(circle, rgba(59,130,246,0.07), transparent 70%);
-        }
+        /* WAITLIST STRIP */
+        .waitlist-strip { margin-bottom:6rem; background:linear-gradient(135deg,rgba(59,130,246,0.08) 0%,rgba(10,22,40,0.5) 100%); border:1px solid rgba(59,130,246,0.15); border-radius:28px; padding:3rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; position:relative; overflow:hidden; }
+        .waitlist-strip::before { content:''; position:absolute; top:-50%; left:50%; transform:translateX(-50%); width:60%; height:100%; background:radial-gradient(ellipse,rgba(59,130,246,0.1) 0%,transparent 70%); pointer-events:none; }
+        .waitlist-strip-text { position:relative; }
+        .waitlist-strip-title { font-family:'Instrument Serif',serif; font-size:clamp(1.5rem,3vw,2rem); margin-bottom:0.4rem; }
+        .waitlist-strip-sub { font-size:0.95rem; color:var(--muted); font-weight:300; }
+        .cta-btn { display:inline-flex; align-items:center; gap:0.6rem; background:var(--blue); color:white; font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:500; padding:0.9rem 2.2rem; border-radius:999px; border:none; cursor:pointer; transition:all 0.3s ease; box-shadow:0 4px 20px rgba(59,130,246,0.3); flex-shrink:0; }
+        .cta-btn:hover { background:#2563eb; transform:translateY(-2px); box-shadow:0 8px 30px rgba(59,130,246,0.45); }
+        .cta-btn svg { transition:transform 0.3s ease; }
+        .cta-btn:hover svg { transform:translateX(3px); }
 
-        .wrap {
-            max-width: 1080px; margin: 0 auto;
-            padding: 0 2rem; position: relative; z-index: 1;
-        }
+        /* FOOTER */
+        footer { border-top:1px solid var(--border); padding:2.5rem 0; display:flex; align-items:center; justify-content:space-between; color:var(--muted); font-size:0.85rem; font-weight:300; flex-wrap:wrap; gap:1rem; }
+        .footer-links { display:flex; gap:1.5rem; }
+        .footer-links a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
+        .footer-links a:hover { color:var(--cream); }
 
-        /* ── NAV ── */
-        nav {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 2rem 0; opacity: 0;
-            animation: fadeDown 0.6s ease forwards 0.1s;
-        }
-        .nav-logo {
-            font-family: 'Instrument Serif', serif; font-size: 1.8rem;
-            color: var(--cream); text-decoration: none; position: relative;
-        }
-        .nav-logo span {
-            display: inline-block; width: 6px; height: 6px;
-            background: var(--blue); border-radius: 50%;
-            position: absolute; top: 6px; right: -9px;
-            box-shadow: 0 0 8px var(--blue-glow);
-        }
-        .nav-links { display: flex; align-items: center; gap: 1.5rem; }
-        .nav-link { font-size: 0.85rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-        .nav-link:hover { color: var(--cream); }
-        .nav-link.active { color: var(--cream); }
-        .nav-home {
-            font-size: 0.85rem; font-weight: 400; color: var(--muted);
-            text-decoration: none; display: flex; align-items: center; gap: 0.35rem;
-            transition: color 0.2s; padding-right: 1.5rem; border-right: 1px solid var(--border);
-        }
-        .nav-home:hover { color: var(--cream); }
-        .nav-cta {
-            font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em;
-            text-transform: uppercase; color: var(--blue); background: var(--blue-dim);
-            border: 1px solid rgba(59,130,246,0.2); padding: 0.4rem 1rem;
-            border-radius: 999px; cursor: default; font-family: 'DM Sans', sans-serif;
-        }
+        /* ═══ DEMO MODAL ═══ */
+        .demo-overlay { display:none; position:fixed; inset:0; background:rgba(6,15,30,0.92); backdrop-filter:blur(10px); z-index:200; align-items:center; justify-content:center; padding:2rem; }
+        .demo-overlay.open { display:flex; }
+        .demo-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.18); border-radius:28px; width:100%; max-width:460px; position:relative; overflow:hidden; box-shadow:0 40px 100px rgba(0,0,0,0.6); animation:scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+        .demo-progress { height:3px; background:rgba(255,255,255,0.05); }
+        .demo-progress-bar { height:100%; background:linear-gradient(90deg,var(--blue),#60a5fa); transition:width 0.5s cubic-bezier(0.4,0,0.2,1); width:0%; }
+        .demo-close { position:absolute; top:1.25rem; right:1.25rem; background:rgba(255,255,255,0.06); border:1px solid var(--border); border-radius:50%; width:30px; height:30px; display:flex; align-items:center; justify-content:center; color:var(--muted); cursor:pointer; font-size:0.9rem; transition:all 0.2s; z-index:10; }
+        .demo-close:hover { background:rgba(255,255,255,0.1); color:var(--cream); }
+        .demo-steps-indicator { display:flex; gap:6px; padding:1.5rem 2rem 0; }
+        .demo-step-dot { height:3px; border-radius:2px; background:rgba(255,255,255,0.1); flex:1; transition:all 0.4s ease; }
+        .demo-step-dot.active { background:var(--blue); }
+        .demo-step-dot.done { background:rgba(59,130,246,0.4); }
+        .demo-panel { display:none; padding:1.75rem 2rem 2rem; }
+        .demo-panel.active { display:block; animation:panelIn 0.3s ease; }
+        .demo-eyebrow { font-size:0.7rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--blue); margin-bottom:0.6rem; }
+        .demo-title { font-family:'Instrument Serif',serif; font-size:1.75rem; line-height:1.15; margin-bottom:0.4rem; }
+        .demo-sub { font-size:0.88rem; color:var(--muted); font-weight:300; line-height:1.65; margin-bottom:1.5rem; }
 
-        /* ── HERO ── */
-        .hero {
-            display: flex; flex-direction: column; align-items: center;
-            justify-content: center; text-align: center;
-            min-height: calc(100vh - 120px);
-            padding: 4rem 0 6rem;
-            opacity: 0; animation: fadeUp 0.8s ease forwards 0.3s;
-        }
+        /* STEP 1 */
+        .demo-form { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:1.5rem; }
+        .demo-field label { display:block; font-size:0.72rem; color:var(--muted); font-weight:400; margin-bottom:0.3rem; letter-spacing:0.05em; text-transform:uppercase; }
+        .demo-input { background:rgba(255,255,255,0.04); border:1px solid rgba(59,130,246,0.15); border-radius:12px; padding:0.75rem 1rem; font-size:0.95rem; color:var(--cream); font-family:'DM Sans',sans-serif; display:flex; align-items:center; gap:0.5rem; }
+        .demo-input-real { background:rgba(255,255,255,0.05); border:1px solid rgba(59,130,246,0.25); border-radius:12px; padding:0.75rem 1rem; font-size:0.95rem; color:var(--cream); font-family:'DM Sans',sans-serif; width:100%; outline:none; transition:border-color 0.2s,box-shadow 0.2s; caret-color:var(--blue); }
+        .demo-input-real::placeholder { color:rgba(122,143,168,0.4); }
+        .demo-input-real:focus { border-color:rgba(59,130,246,0.6); box-shadow:0 0 0 3px rgba(59,130,246,0.08); }
+        .demo-input-check { margin-left:auto; width:16px; height:16px; background:rgba(74,222,128,0.15); border:1px solid rgba(74,222,128,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:var(--green); flex-shrink:0; transition:opacity 0.2s; }
 
-        .hero-eyebrow {
-            font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em;
-            text-transform: uppercase; color: var(--blue); margin-bottom: 2rem;
-        }
+        /* STEP 2 */
+        .demo-slider-wrap { margin-bottom:1.5rem; }
+        .demo-slider-header { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:1rem; }
+        .demo-slider-amount { font-family:'Instrument Serif',serif; font-size:3rem; color:var(--cream); line-height:1; letter-spacing:-0.02em; transition:all 0.15s ease; }
+        .demo-slider-amount span { font-size:1.4rem; color:var(--muted); }
+        .demo-slider-mo { font-size:0.82rem; color:var(--muted); font-weight:300; }
+        .demo-slider { -webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px; background:rgba(255,255,255,0.08); outline:none; cursor:pointer; }
+        .demo-slider::-webkit-slider-thumb { -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; box-shadow:0 0 12px rgba(59,130,246,0.6); transition:transform 0.15s; border:2px solid rgba(255,255,255,0.2); }
+        .demo-slider::-webkit-slider-thumb:hover, .demo-slider:active::-webkit-slider-thumb { transform:scale(1.25); }
+        .demo-slider::-moz-range-thumb { width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; border:2px solid rgba(255,255,255,0.2); box-shadow:0 0 12px rgba(59,130,246,0.6); }
+        .demo-slider-labels { display:flex; justify-content:space-between; font-size:0.7rem; color:var(--muted); margin-top:0.5rem; font-weight:300; }
+        .demo-custom-wrap { margin:1rem 0 1rem; }
+        .demo-custom-label { display:block; font-size:0.72rem; color:var(--muted); font-weight:400; margin-bottom:0.3rem; letter-spacing:0.05em; text-transform:uppercase; }
+        .demo-custom-input-wrap { display:flex; align-items:center; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.2s; }
+        .demo-custom-input-wrap:focus-within { border-color:rgba(59,130,246,0.4); }
+        .demo-custom-euro { padding:0.75rem 0.5rem 0.75rem 1rem; font-size:0.95rem; color:var(--muted); }
+        .demo-custom-input { flex:1; background:none; border:none; outline:none; padding:0.75rem 1rem 0.75rem 0; font-size:0.95rem; color:var(--cream); font-family:'DM Sans',sans-serif; caret-color:var(--blue); }
+        .demo-custom-input::placeholder { color:rgba(122,143,168,0.4); }
+        .demo-custom-input::-webkit-outer-spin-button, .demo-custom-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+        .demo-projection { margin-bottom:1.5rem; padding:1.25rem; background:rgba(74,222,128,0.05); border:1px solid rgba(74,222,128,0.12); border-radius:14px; }
+        .demo-proj-number { font-family:'Instrument Serif',serif; font-size:2.4rem; color:var(--green); line-height:1; margin-bottom:0.4rem; letter-spacing:-0.02em; transition:all 0.3s ease; }
+        .demo-proj-label { font-size:0.82rem; color:var(--muted); font-weight:300; line-height:1.5; }
 
-        .hero-headline {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.8rem, 6vw, 5.5rem);
-            line-height: 1.06; letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
-        }
-        .hero-headline em { font-style: italic; color: #93c5fd; }
+        /* STEP 3 */
+        .demo-portfolios { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:1.5rem; }
+        .demo-portfolio { border:1px solid var(--border); border-left:3px solid transparent; border-radius:16px; padding:1rem 1.25rem; cursor:pointer; transition:all 0.2s ease; background:rgba(255,255,255,0.02); position:relative; }
+        .demo-portfolio[data-p="steady"] { --p-color:#4ade80; }
+        .demo-portfolio[data-p="balanced"] { --p-color:#3b82f6; }
+        .demo-portfolio[data-p="growth"] { --p-color:#f97316; }
+        .demo-portfolio:hover { border-color:rgba(255,255,255,0.1); border-left-color:var(--p-color); }
+        .demo-portfolio.active { border-color:rgba(255,255,255,0.1); border-left-color:var(--p-color); background:rgba(255,255,255,0.04); box-shadow:inset 3px 0 12px -4px var(--p-color); }
+        .demo-p-badge { position:absolute; top:-1px; right:1rem; font-size:0.65rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--blue); background:#0b1829; padding:0 0.5rem; }
+        .demo-p-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:0.35rem; }
+        .demo-p-name { font-size:0.95rem; font-weight:500; color:var(--cream); }
+        .demo-p-risk { font-size:0.73rem; color:var(--muted); font-weight:300; margin-top:0.15rem; }
+        .demo-p-proj { font-size:0.82rem; color:var(--p-color); font-weight:500; white-space:nowrap; opacity:0.9; }
+        .demo-p-alloc { font-size:0.75rem; color:var(--muted); font-weight:300; letter-spacing:0.02em; }
 
-        .hero-sub {
-            font-size: clamp(1rem, 2vw, 1.15rem);
-            color: var(--muted); font-weight: 300;
-            max-width: 400px; line-height: 1.75;
-            margin-bottom: 3.5rem;
-        }
+        /* BUTTONS */
+        .demo-btn-row { display:flex; gap:0.65rem; align-items:center; }
+        .demo-back-btn { display:flex; align-items:center; justify-content:center; gap:0.4rem; background:rgba(255,255,255,0.04); border:1px solid var(--border); color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.9rem; padding:0.95rem 1.1rem; border-radius:14px; cursor:pointer; transition:all 0.2s ease; flex-shrink:0; }
+        .demo-back-btn:hover { background:rgba(255,255,255,0.07); color:var(--cream); border-color:rgba(255,255,255,0.15); }
+        .demo-next-btn { display:flex; align-items:center; justify-content:center; gap:0.6rem; flex:1; background:var(--blue); color:white; font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:500; padding:0.95rem 1.5rem; border-radius:14px; border:none; cursor:pointer; transition:all 0.25s ease; box-shadow:0 4px 20px rgba(59,130,246,0.25); }
+        .demo-next-btn:hover { background:#2563eb; transform:translateY(-1px); box-shadow:0 6px 24px rgba(59,130,246,0.4); }
+        .demo-next-btn svg { transition:transform 0.2s ease; }
+        .demo-next-btn:hover svg { transform:translateX(3px); }
+        .demo-next-btn.full { width:100%; }
 
-        /* ── DEMO BUTTON ── */
-        .demo-launch-btn {
-            position: relative;
-            display: inline-flex; align-items: center; gap: 1rem;
-            background: transparent;
-            color: var(--cream);
-            font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500;
-            padding: 0.9rem 1.75rem 0.9rem 1rem;
-            border-radius: 999px; border: none; cursor: pointer;
-            transition: all 0.4s ease;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            outline: none;
-        }
+        /* DONE SCREEN */
+        .demo-done-icon { width:56px; height:56px; border-radius:50%; background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.3); display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:var(--green); margin-bottom:1.25rem; box-shadow:0 0 24px rgba(74,222,128,0.15); animation:popIn 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+        @keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+        .demo-receipt { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:18px; overflow:hidden; margin-bottom:1.75rem; }
+        .demo-receipt-hero { padding:1.5rem; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; }
+        .demo-receipt-proj { font-family:'Instrument Serif',serif; font-size:2.8rem; color:var(--green); line-height:1; letter-spacing:-0.02em; margin-bottom:0.3rem; }
+        .demo-receipt-proj-label { font-size:0.78rem; color:var(--muted); font-weight:300; }
+        .demo-receipt-rows { padding:0.75rem 1.25rem; }
+        .demo-receipt-row { display:flex; justify-content:space-between; align-items:center; padding:0.55rem 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+        .demo-receipt-row:last-child { border-bottom:none; }
+        .demo-receipt-key { font-size:0.78rem; color:var(--muted); font-weight:300; text-transform:uppercase; letter-spacing:0.06em; }
+        .demo-receipt-val { font-size:0.9rem; color:var(--cream); font-weight:500; }
+        .demo-restart { width:100%; margin-top:0.65rem; background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.85rem; cursor:pointer; transition:color 0.2s; padding:0.5rem; }
+        .demo-restart:hover { color:var(--cream); }
 
-        /* outer ring */
-        .demo-launch-btn::before {
-            content: '';
-            position: absolute; inset: 0;
-            border-radius: 999px;
-            border: 1px solid rgba(59,130,246,0.35);
-            transition: all 0.4s ease;
-            pointer-events: none;
-        }
+        /* TALLY MODAL */
+        .tally-overlay { display:none; position:fixed; inset:0; background:rgba(6,15,30,0.88); backdrop-filter:blur(8px); z-index:300; align-items:center; justify-content:center; padding:2rem; }
+        .tally-overlay.open { display:flex; }
+        .tally-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.2); border-radius:24px; padding:2.5rem; width:100%; max-width:480px; position:relative; animation:scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+        .tally-modal-title { font-family:'Instrument Serif',serif; font-size:1.75rem; margin-bottom:0.5rem; }
+        .tally-modal-sub { font-size:0.9rem; color:var(--muted); font-weight:300; margin-bottom:1.75rem; line-height:1.6; }
+        .tally-close { position:absolute; top:1.25rem; right:1.25rem; background:rgba(255,255,255,0.06); border:1px solid var(--border); border-radius:50%; width:30px; height:30px; display:flex; align-items:center; justify-content:center; color:var(--muted); cursor:pointer; font-size:0.9rem; transition:all 0.2s; }
+        .tally-close:hover { background:rgba(255,255,255,0.1); color:var(--cream); }
 
-        /* inner glow ring */
-        .demo-launch-btn::after {
-            content: '';
-            position: absolute; inset: 3px;
-            border-radius: 999px;
-            border: 1px solid rgba(59,130,246,0.15);
-            transition: all 0.4s ease;
-            pointer-events: none;
-        }
+        /* ANIMATIONS */
+        @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes scaleIn { from{opacity:0;transform:scale(0.94)} to{opacity:1;transform:scale(1)} }
+        @keyframes panelIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+        .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
+        .reveal.visible { opacity:1; transform:translateY(0); }
 
-        .demo-launch-btn:hover::before {
-            border-color: rgba(59,130,246,0.7);
-            box-shadow: 0 0 20px rgba(59,130,246,0.2), inset 0 0 20px rgba(59,130,246,0.05);
-        }
-        .demo-launch-btn:hover::after {
-            border-color: rgba(59,130,246,0.35);
-        }
-        .demo-launch-btn:hover { color: white; }
-
-        /* the icon circle */
-        .demo-btn-icon {
-            position: relative; z-index: 1;
-            width: 38px; height: 38px; border-radius: 50%;
-            background: rgba(59,130,246,0.15);
-            border: 1px solid rgba(59,130,246,0.35);
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
-            transition: all 0.4s ease;
-            box-shadow: 0 0 12px rgba(59,130,246,0.2);
-        }
-        .demo-launch-btn:hover .demo-btn-icon {
-            background: rgba(59,130,246,0.3);
-            border-color: rgba(59,130,246,0.6);
-            box-shadow: 0 0 20px rgba(59,130,246,0.4);
-        }
-        .demo-btn-icon svg { color: var(--blue); transition: transform 0.3s ease; }
-        .demo-launch-btn:hover .demo-btn-icon svg { transform: scale(1.15); }
-
-        .demo-btn-label {
-            position: relative; z-index: 1;
-            display: flex; flex-direction: column; align-items: flex-start; gap: 0.1rem;
-        }
-        .demo-btn-label-top {
-            font-size: 0.65rem; color: var(--blue);
-            letter-spacing: 0.18em; font-weight: 500;
-        }
-        .demo-btn-label-main {
-            font-size: 0.9rem; color: var(--cream);
-            letter-spacing: 0.06em; font-weight: 500;
-            transition: color 0.3s;
-        }
-        .demo-launch-btn:hover .demo-btn-label-main { color: white; }
-
-        .demo-nudge {
-            margin-top: 1.25rem; font-size: 0.78rem;
-            color: rgba(122,143,168,0.7); font-weight: 300;
-            letter-spacing: 0.04em;
-        }
-
-        /* ── WAITLIST STRIP ── */
-        .waitlist-strip {
-            margin-bottom: 6rem;
-            background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(10,22,40,0.5) 100%);
-            border: 1px solid rgba(59,130,246,0.15);
-            border-radius: 28px; padding: 3rem;
-            display: flex; align-items: center; justify-content: space-between;
-            gap: 2rem; flex-wrap: wrap; position: relative; overflow: hidden;
-        }
-        .waitlist-strip::before {
-            content: ''; position: absolute; top: -50%; left: 50%;
-            transform: translateX(-50%); width: 60%; height: 100%;
-            background: radial-gradient(ellipse, rgba(59,130,246,0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .waitlist-strip-text { position: relative; }
-        .waitlist-strip-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.4rem;
-        }
-        .waitlist-strip-sub { font-size: 0.95rem; color: var(--muted); font-weight: 300; }
-
-        .cta-btn {
-            display: inline-flex; align-items: center; gap: 0.6rem;
-            background: var(--blue); color: white; font-family: 'DM Sans', sans-serif;
-            font-size: 1rem; font-weight: 500; padding: 0.9rem 2.2rem;
-            border-radius: 999px; border: none; cursor: pointer;
-            transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(59,130,246,0.3);
-            text-decoration: none; flex-shrink: 0; position: relative;
-        }
-        .cta-btn:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(59,130,246,0.45); }
-        .cta-btn svg { transition: transform 0.3s ease; }
-        .cta-btn:hover svg { transform: translateX(3px); }
-
-        /* ── FOOTER ── */
-        footer {
-            border-top: 1px solid var(--border); padding: 2.5rem 0;
-            display: flex; align-items: center; justify-content: space-between;
-            color: var(--muted); font-size: 0.85rem; font-weight: 300;
-            flex-wrap: wrap; gap: 1rem;
-        }
-        .footer-links { display: flex; gap: 1.5rem; }
-        .footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-        .footer-links a:hover { color: var(--cream); }
-
-        /* ── DEMO MODAL ── */
-        .demo-overlay {
-            display: none; position: fixed; inset: 0;
-            background: rgba(6,15,30,0.92); backdrop-filter: blur(10px);
-            z-index: 200; align-items: center; justify-content: center; padding: 2rem;
-        }
-        .demo-overlay.open { display: flex; }
-
-        .demo-modal {
-            background: #0b1829;
-            border: 1px solid rgba(59,130,246,0.18);
-            border-radius: 28px; width: 100%; max-width: 460px;
-            position: relative; overflow: hidden;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
-            animation: scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
-        }
-
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.94); }
-            to   { opacity: 1; transform: scale(1); }
-        }
-
-        .demo-progress { height: 3px; background: rgba(255,255,255,0.05); }
-        .demo-progress-bar {
-            height: 100%; background: linear-gradient(90deg, var(--blue), #60a5fa);
-            transition: width 0.5s cubic-bezier(0.4,0,0.2,1); width: 0%;
-        }
-
-        .demo-close {
-            position: absolute; top: 1.25rem; right: 1.25rem;
-            background: rgba(255,255,255,0.06); border: 1px solid var(--border);
-            border-radius: 50%; width: 30px; height: 30px;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--muted); cursor: pointer; font-size: 0.9rem;
-            transition: all 0.2s; z-index: 10;
-        }
-        .demo-close:hover { background: rgba(255,255,255,0.1); color: var(--cream); }
-
-        .demo-steps-indicator { display: flex; gap: 6px; padding: 1.5rem 2rem 0; }
-        .demo-step-dot {
-            height: 3px; border-radius: 2px; background: rgba(255,255,255,0.1);
-            flex: 1; transition: all 0.4s ease;
-        }
-        .demo-step-dot.active { background: var(--blue); }
-        .demo-step-dot.done { background: rgba(59,130,246,0.4); }
-
-        .demo-panel { display: none; padding: 1.75rem 2rem 2rem; }
-        .demo-panel.active { display: block; animation: panelIn 0.3s ease; }
-
-        @keyframes panelIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .demo-eyebrow {
-            font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em;
-            text-transform: uppercase; color: var(--blue); margin-bottom: 0.6rem;
-        }
-        .demo-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.75rem; line-height: 1.15; margin-bottom: 0.4rem;
-        }
-        .demo-sub {
-            font-size: 0.88rem; color: var(--muted); font-weight: 300;
-            line-height: 1.65; margin-bottom: 1.75rem;
-        }
-
-        /* Step 1 — form */
-        .demo-form { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.75rem; }
-        .demo-field label {
-            display: block; font-size: 0.72rem; color: var(--muted);
-            font-weight: 400; margin-bottom: 0.3rem; letter-spacing: 0.05em; text-transform: uppercase;
-        }
-        .demo-input {
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(59,130,246,0.15);
-            border-radius: 12px; padding: 0.75rem 1rem;
-            font-size: 0.95rem; color: var(--cream); font-family: 'DM Sans', sans-serif;
-            display: flex; align-items: center; gap: 0.5rem;
-        }
-        .demo-input-check {
-            margin-left: auto; width: 16px; height: 16px;
-            background: rgba(74,222,128,0.15); border: 1px solid rgba(74,222,128,0.3);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 0.6rem; color: #4ade80; flex-shrink: 0;
-        }
-
-        /* Step 2 — amounts */
-        .demo-amounts { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
-        .demo-amount-btn {
-            padding: 0.55rem 1rem; border-radius: 10px;
-            border: 1px solid var(--border); background: rgba(255,255,255,0.03);
-            color: var(--muted); font-family: 'DM Sans', sans-serif;
-            font-size: 0.9rem; cursor: pointer; transition: all 0.2s ease;
-        }
-        .demo-amount-btn:hover { border-color: rgba(59,130,246,0.3); color: var(--cream); }
-        .demo-amount-btn.active {
-            border-color: rgba(59,130,246,0.5); background: rgba(59,130,246,0.1); color: var(--cream);
-        }
-        .demo-input.demo-input-real {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(59,130,246,0.3);
-            border-radius: 12px; padding: 0.75rem 1rem;
-            font-size: 0.95rem; color: var(--cream);
-            font-family: 'DM Sans', sans-serif; width: 100%;
-            outline: none; transition: border-color 0.2s;
-            caret-color: var(--blue);
-        }
-        .demo-input.demo-input-real::placeholder { color: rgba(122,143,168,0.5); }
-        .demo-input.demo-input-real:focus { border-color: rgba(59,130,246,0.6); }
-
-        .demo-projection {
-            margin-bottom: 1.5rem;
-            padding: 1.25rem 1.25rem;
-            background: rgba(74,222,128,0.05);
-            border: 1px solid rgba(74,222,128,0.12);
-            border-radius: 14px;
-            transition: all 0.3s ease;
-        }
-        .demo-proj-number {
-            font-family: 'Instrument Serif', serif;
-            font-size: 2.4rem;
-            color: #4ade80;
-            line-height: 1;
-            margin-bottom: 0.4rem;
-            letter-spacing: -0.02em;
-        }
-        .demo-proj-label {
-            font-size: 0.82rem;
-            color: var(--muted);
-            font-weight: 300;
-            line-height: 1.5;
-        }
-
-        .demo-custom-wrap { margin-bottom: 1rem; }
-        .demo-custom-label {
-            display: block; font-size: 0.72rem; color: var(--muted);
-            font-weight: 400; margin-bottom: 0.35rem;
-            letter-spacing: 0.05em; text-transform: uppercase;
-        }
-        .demo-custom-input-wrap {
-            display: flex; align-items: center;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid var(--border); border-radius: 12px;
-            overflow: hidden; transition: border-color 0.2s;
-        }
-        .demo-custom-input-wrap:focus-within { border-color: rgba(59,130,246,0.4); }
-        .demo-custom-euro { padding: 0.75rem 0.5rem 0.75rem 1rem; font-size: 0.95rem; color: var(--muted); }
-        .demo-custom-input {
-            flex: 1; background: none; border: none; outline: none;
-            padding: 0.75rem 1rem 0.75rem 0;
-            font-size: 0.95rem; color: var(--cream);
-            font-family: 'DM Sans', sans-serif; caret-color: var(--blue);
-        }
-        .demo-custom-input::placeholder { color: rgba(122,143,168,0.4); }
-        .demo-custom-input::-webkit-outer-spin-button,
-        .demo-custom-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-
-        .demo-amount-display {
-            display: flex; align-items: center; justify-content: space-between;
-            margin-bottom: 0.75rem; padding: 1.1rem 1.25rem;
-            background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.15);
-            border-radius: 14px;
-        }
-        .demo-amount-label { font-size: 0.85rem; color: var(--muted); font-weight: 300; }
-        .demo-amount-value {
-            font-family: 'Instrument Serif', serif; font-size: 2.2rem;
-            color: var(--cream); transition: all 0.2s ease;
-        }
-
-        /* Step 3 — portfolios */
-        .demo-portfolios { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.75rem; }
-        .demo-portfolio {
-            border: 1px solid var(--border); border-radius: 16px;
-            padding: 1rem 1.25rem; cursor: pointer;
-            transition: all 0.2s ease; background: rgba(255,255,255,0.02); position: relative;
-        }
-        .demo-portfolio:hover { border-color: rgba(59,130,246,0.25); background: rgba(59,130,246,0.03); }
-        .demo-portfolio.active { border-color: rgba(59,130,246,0.45); background: rgba(59,130,246,0.08); }
-        .demo-p-badge {
-            position: absolute; top: -1px; right: 1rem;
-            font-size: 0.65rem; font-weight: 500; letter-spacing: 0.06em;
-            text-transform: uppercase; color: var(--blue);
-            background: #0b1829; padding: 0 0.5rem;
-        }
-        .demo-p-alloc {
-            font-size: 0.75rem; color: var(--muted); font-weight: 300;
-            margin-bottom: 0.65rem; letter-spacing: 0.02em;
-        }
-        .demo-p-proj {
-            font-size: 0.82rem; color: #93c5fd;
-            font-weight: 500; white-space: nowrap;
-        }
-        .demo-p-name { font-size: 0.95rem; font-weight: 500; color: var(--cream); }
-        .demo-p-risk { font-size: 0.73rem; color: var(--muted); font-weight: 300; margin-top: 0.15rem; }
-        .demo-p-return { font-size: 0.85rem; color: #93c5fd; font-weight: 400; }
-        .demo-p-bar-wrap { height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
-        .demo-p-bar { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
-
-        /* Next button */
-        .demo-next-btn {
-            width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.6rem;
-            background: var(--blue); color: white; font-family: 'DM Sans', sans-serif;
-            font-size: 1rem; font-weight: 500; padding: 0.95rem 1.5rem;
-            border-radius: 14px; border: none; cursor: pointer;
-            transition: all 0.25s ease; box-shadow: 0 4px 20px rgba(59,130,246,0.25);
-        }
-        .demo-next-btn:hover { background: #2563eb; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(59,130,246,0.4); }
-        .demo-next-btn svg { transition: transform 0.2s ease; }
-        .demo-next-btn:hover svg { transform: translateX(3px); }
-
-        /* Done screen */
-        .demo-done-icon {
-            width: 52px; height: 52px; border-radius: 50%;
-            background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.25);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem; color: #4ade80; margin-bottom: 1.25rem;
-        }
-        .demo-done-note {
-            font-size: 0.85rem; color: var(--muted); font-weight: 300;
-            font-style: italic; margin-bottom: 1.75rem; line-height: 1.6;
-        }
-        .demo-restart {
-            width: 100%; margin-top: 0.65rem; background: none; border: none;
-            color: var(--muted); font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem; cursor: pointer; transition: color 0.2s; padding: 0.5rem;
-        }
-        .demo-restart:hover { color: var(--cream); }
-
-        /* ── TALLY MODAL ── */
-        .tally-overlay {
-            display: none; position: fixed; inset: 0;
-            background: rgba(6,15,30,0.88); backdrop-filter: blur(8px);
-            z-index: 300; align-items: center; justify-content: center; padding: 2rem;
-        }
-        .tally-overlay.open { display: flex; }
-        .tally-modal {
-            background: #0b1829; border: 1px solid rgba(59,130,246,0.2);
-            border-radius: 24px; padding: 2.5rem; width: 100%; max-width: 480px;
-            position: relative; animation: scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
-        }
-        .tally-modal-title { font-family: 'Instrument Serif', serif; font-size: 1.75rem; margin-bottom: 0.5rem; }
-        .tally-modal-sub { font-size: 0.9rem; color: var(--muted); font-weight: 300; margin-bottom: 1.75rem; line-height: 1.6; }
-        .tally-close {
-            position: absolute; top: 1.25rem; right: 1.25rem;
-            background: rgba(255,255,255,0.06); border: 1px solid var(--border);
-            border-radius: 50%; width: 30px; height: 30px;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--muted); cursor: pointer; font-size: 0.9rem; transition: all 0.2s;
-        }
-        .tally-close:hover { background: rgba(255,255,255,0.1); color: var(--cream); }
-
-        /* ── ANIMATIONS ── */
-        @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-16px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 560px) {
-            nav { padding: 1.5rem 0; }
-            .hero { min-height: auto; padding: 3rem 0 4rem; }
-            .waitlist-strip { padding: 2rem; flex-direction: column; align-items: flex-start; }
-            .demo-modal { border-radius: 20px; }
-            .demo-panel { padding: 1.5rem 1.5rem 1.75rem; }
+        @media(max-width:560px) {
+            nav{padding:1.5rem 0} .hero{min-height:auto;padding:3rem 0 4rem}
+            .waitlist-strip{padding:2rem;flex-direction:column;align-items:flex-start}
+            .demo-modal{border-radius:20px} .demo-panel{padding:1.5rem 1.5rem 1.75rem}
         }
     </style>
 </head>
 <body>
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
-
     <div class="wrap">
 
-        <!-- NAV -->
         <nav>
             <a href="/" class="nav-logo">Ové<span></span></a>
             <div class="nav-links">
@@ -551,22 +215,18 @@
             </div>
         </nav>
 
-        <!-- HERO -->
         <div class="hero">
             <p class="hero-eyebrow">How it works</p>
             <h1 class="hero-headline">Three steps.<br>Then you're <em>investing.</em></h1>
             <p class="hero-sub">The demo is completely free, and quick.</p>
-            <button class="demo-launch-btn" id="open-demo" onclick="document.getElementById('demo-overlay').classList.add('open');document.querySelectorAll('.demo-panel').forEach(p=>p.classList.remove('active'));document.getElementById('demo-step-1').classList.add('active');document.getElementById('demo-progress-bar').style.width='25%';document.querySelectorAll('.demo-step-dot').forEach((d,i)=>{d.classList.remove('active','done');if(i===0)d.classList.add('active');})">
+            <button class="demo-launch-btn" onclick="demoOpen()">
                 <div class="demo-btn-icon">
                     <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
-                <div class="demo-btn-label">
-                    <span class="demo-btn-label-main">Try the demo</span>
-                </div>
+                <div class="demo-btn-label"><span class="demo-btn-label-main">Try the demo</span></div>
             </button>
         </div>
 
-        <!-- WAITLIST STRIP -->
         <div class="waitlist-strip reveal">
             <div class="waitlist-strip-text">
                 <p class="waitlist-strip-title">Your someday is today.</p>
@@ -578,101 +238,100 @@
             </button>
         </div>
 
-        <!-- FOOTER -->
         <footer>
             <span>© <span id="year"></span> Ové. All rights reserved.</span>
-            <div class="footer-links">
-                <a href="https://x.com/BeginOve" target="_blank">@BeginOve on X</a>
-            </div>
+            <div class="footer-links"><a href="https://x.com/BeginOve" target="_blank">@BeginOve on X</a></div>
         </footer>
-
     </div>
 
     <!-- DEMO MODAL -->
-    <div class="demo-overlay" id="demo-overlay">
+    <div class="demo-overlay" id="demo-overlay" onclick="if(event.target===this)demoClose()">
         <div class="demo-modal">
-            <div class="demo-progress">
-                <div class="demo-progress-bar" id="demo-progress-bar"></div>
-            </div>
-            <button class="demo-close" id="demo-close" onclick="document.getElementById('demo-overlay').classList.remove('open')">✕</button>
+            <div class="demo-progress"><div class="demo-progress-bar" id="demo-progress-bar"></div></div>
+            <button class="demo-close" onclick="demoClose()">✕</button>
             <div class="demo-steps-indicator">
-                <div class="demo-step-dot active" id="dot-1"></div>
-                <div class="demo-step-dot" id="dot-2"></div>
-                <div class="demo-step-dot" id="dot-3"></div>
+                <div class="demo-step-dot"></div>
+                <div class="demo-step-dot"></div>
+                <div class="demo-step-dot"></div>
             </div>
 
-            <!-- Step 1: Sign up -->
-            <div class="demo-panel active" id="demo-step-1">
+            <!-- STEP 1 -->
+            <div class="demo-panel" id="demo-step-1">
                 <p class="demo-eyebrow">Step 1 of 3</p>
-                <h2 class="demo-title">Let's get you started.</h2>
-                <p class="demo-sub">Just your name. That's all we need to begin.</p>
+                <h2 class="demo-title">What's your name?</h2>
+                <p class="demo-sub">Just your first name. Nothing else.</p>
                 <div class="demo-form">
                     <div class="demo-field">
                         <label>First name</label>
-                        <input class="demo-input demo-input-real" id="demo-name-input" type="text" placeholder="Your first name" maxlength="20" autocomplete="off" />
+                        <input class="demo-input-real" id="demo-name-input" type="text" placeholder="e.g. Sara" maxlength="20" autocomplete="off" />
                     </div>
                     <div class="demo-field">
                         <label>Email</label>
-                        <div class="demo-input"><span id="demo-email-display">@example.com</span> <div class="demo-input-check" id="demo-email-check" style="opacity:0;">✓</div></div>
+                        <div class="demo-input"><span id="demo-email-display">@example.com</span><div class="demo-input-check" id="demo-email-check" style="opacity:0">✓</div></div>
                     </div>
                     <div class="demo-field">
                         <label>Country</label>
                         <div class="demo-input">🇩🇪 Germany <div class="demo-input-check">✓</div></div>
                     </div>
                 </div>
-                <button class="demo-next-btn" id="demo-next-1" onclick="demoGo(2)">
+                <button class="demo-next-btn full" onclick="demoGo(2)">
                     Continue
                     <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
             </div>
 
-            <!-- Step 2: Deposit -->
+            <!-- STEP 2 -->
             <div class="demo-panel" id="demo-step-2">
                 <p class="demo-eyebrow">Step 2 of 3</p>
-                <h2 class="demo-title">How much to start with?</h2>
-                <p class="demo-sub">You can always add more later. No pressure.</p>
-                <div class="demo-amounts">
-                    <button class="demo-amount-btn" data-amount="10">€10</button>
-                    <button class="demo-amount-btn" data-amount="25">€25</button>
-                    <button class="demo-amount-btn active" data-amount="50">€50</button>
-                    <button class="demo-amount-btn" data-amount="100">€100</button>
-                    <button class="demo-amount-btn" data-amount="250">€250</button>
+                <h2 class="demo-title">How much per month?</h2>
+                <p class="demo-sub">Drag to choose, or type your own amount.</p>
+                <div class="demo-slider-wrap">
+                    <div class="demo-slider-header">
+                        <div>
+                            <div class="demo-slider-amount"><span>€</span><span id="demo-slider-val">50</span></div>
+                            <div class="demo-slider-mo">per month</div>
+                        </div>
+                    </div>
+                    <input class="demo-slider" id="demo-slider" type="range" min="5" max="500" step="5" value="50" oninput="demoSetAmount(this.value,false)" />
+                    <div class="demo-slider-labels"><span>€5</span><span>€500</span></div>
                 </div>
                 <div class="demo-custom-wrap">
                     <label class="demo-custom-label">Or enter your own</label>
                     <div class="demo-custom-input-wrap">
                         <span class="demo-custom-euro">€</span>
-                        <input class="demo-custom-input" id="demo-custom-amount" type="number" min="1" max="99999" placeholder="e.g. 75" />
+                        <input class="demo-custom-input" id="demo-custom-amount" type="number" min="1" max="99999" placeholder="e.g. 75" oninput="demoSetCustomAmount(this.value)" />
                     </div>
                 </div>
-                <div class="demo-amount-display">
-                    <span class="demo-amount-label">Monthly deposit</span>
-                    <span class="demo-amount-value" id="demo-amount-value">€50</span>
-                </div>
-                <div class="demo-projection" id="demo-projection">
+                <div class="demo-projection">
                     <div class="demo-proj-number" id="demo-proj-number">~€9,000</div>
-                    <div class="demo-proj-label" id="demo-proj-text">from just €50/mo over 10 years at 8%</div>
+                    <div class="demo-proj-label" id="demo-proj-text">from €50/mo over 10 years at 8%</div>
                 </div>
-                <button class="demo-next-btn" id="demo-next-2" onclick="demoGo(3)">
-                    Continue
-                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </button>
+                <div class="demo-btn-row">
+                    <button class="demo-back-btn" onclick="demoGo(1)">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                        Back
+                    </button>
+                    <button class="demo-next-btn" onclick="demoGo(3)">
+                        Continue
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
             </div>
 
-            <!-- Step 3: Portfolio -->
+            <!-- STEP 3 -->
             <div class="demo-panel" id="demo-step-3">
                 <p class="demo-eyebrow">Step 3 of 3</p>
                 <h2 class="demo-title">Pick your risk level.</h2>
                 <p class="demo-sub">Three options. No wrong answer.</p>
                 <div class="demo-portfolios">
-                    <div class="demo-portfolio" data-p="steady" data-rate="0.05">
+                    <div class="demo-portfolio" data-p="steady" onclick="demoSelectPortfolio(this)">
                         <div class="demo-p-top">
                             <div><p class="demo-p-name">Steady</p><p class="demo-p-risk">Low risk · est. 4–6%</p></div>
                             <span class="demo-p-proj" id="proj-steady">—</span>
                         </div>
                         <div class="demo-p-alloc">70% bonds · 20% stocks · 10% cash</div>
                     </div>
-                    <div class="demo-portfolio active" data-p="balanced" data-rate="0.08">
+                    <div class="demo-portfolio active" data-p="balanced" onclick="demoSelectPortfolio(this)">
                         <div class="demo-p-badge">Most popular</div>
                         <div class="demo-p-top">
                             <div><p class="demo-p-name">Balanced</p><p class="demo-p-risk">Medium risk · est. 7–9%</p></div>
@@ -680,7 +339,7 @@
                         </div>
                         <div class="demo-p-alloc">60% stocks · 30% bonds · 10% cash</div>
                     </div>
-                    <div class="demo-portfolio" data-p="growth" data-rate="0.11">
+                    <div class="demo-portfolio" data-p="growth" onclick="demoSelectPortfolio(this)">
                         <div class="demo-p-top">
                             <div><p class="demo-p-name">Growth</p><p class="demo-p-risk">Higher risk · est. 10–12%</p></div>
                             <span class="demo-p-proj" id="proj-growth">—</span>
@@ -688,95 +347,156 @@
                         <div class="demo-p-alloc">90% stocks · 8% bonds · 2% cash</div>
                     </div>
                 </div>
-                <button class="demo-next-btn" id="demo-next-3" onclick="demoGo('done')">
-                    Start investing
-                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </button>
+                <div class="demo-btn-row">
+                    <button class="demo-back-btn" onclick="demoGo(2)">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                        Back
+                    </button>
+                    <button class="demo-next-btn" onclick="demoGo('done')">
+                        Start investing
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
             </div>
 
-            <!-- Done -->
+            <!-- DONE -->
             <div class="demo-panel" id="demo-step-done">
                 <div class="demo-done-icon">✓</div>
-                <h2 class="demo-title" id="demo-done-title">You're investing, Sara.</h2>
-                <p class="demo-sub" id="demo-done-sub">€50 in Balanced. Your money is working.</p>
-                <p class="demo-done-note">That's it. That's really all it takes.</p>
-                <button class="demo-next-btn" onclick="document.getElementById('demo-overlay').classList.remove('open');demoOpenWaitlist()">
+                <h2 class="demo-title" id="demo-done-title">You're investing.</h2>
+                <p class="demo-sub" style="margin-bottom:1.25rem">That's it. That's really all it takes.</p>
+                <div class="demo-receipt">
+                    <div class="demo-receipt-hero">
+                        <div class="demo-receipt-proj" id="receipt-proj">—</div>
+                        <div class="demo-receipt-proj-label">estimated value in 10 years</div>
+                    </div>
+                    <div class="demo-receipt-rows">
+                        <div class="demo-receipt-row">
+                            <span class="demo-receipt-key">Investor</span>
+                            <span class="demo-receipt-val" id="receipt-name">—</span>
+                        </div>
+                        <div class="demo-receipt-row">
+                            <span class="demo-receipt-key">Monthly</span>
+                            <span class="demo-receipt-val" id="receipt-amount">—</span>
+                        </div>
+                        <div class="demo-receipt-row">
+                            <span class="demo-receipt-key">Portfolio</span>
+                            <span class="demo-receipt-val" id="receipt-portfolio">—</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="demo-next-btn full" onclick="demoClose();demoOpenWaitlist()">
                     Join the real waitlist
                     <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
-                <button class="demo-restart" onclick="demoGo(1)">↩ Restart demo</button>
+                <button class="demo-restart" onclick="demoOpen()">↩ Restart demo</button>
             </div>
         </div>
     </div>
 
     <!-- WAITLIST MODAL -->
-    <div class="tally-overlay" id="tally-overlay">
+    <div class="tally-overlay" id="tally-overlay" onclick="if(event.target===this)this.classList.remove('open')">
         <div class="tally-modal">
-            <button class="tally-close" id="close-waitlist">✕</button>
+            <button class="tally-close" onclick="document.getElementById('tally-overlay').classList.remove('open')">✕</button>
             <p class="tally-modal-title">Your someday is today.</p>
             <p class="tally-modal-sub">No payment, no commitment — just your spot in line.</p>
             <div id="tally-embed-target"></div>
         </div>
     </div>
+
     <script>
         var demoPortfolio = 'balanced';
         var demoAmount = 50;
+        var portfolioRates = { steady:0.05, balanced:0.08, growth:0.11 };
+        var portfolioNames = { steady:'Steady', balanced:'Balanced', growth:'Growth' };
 
-        function demoGetName() {
-            var input = document.getElementById('demo-name-input');
-            return (input && input.value.trim()) ? input.value.trim() : 'you';
+        function calcFV(m, r, months) { var rm=r/12; return Math.round(m*((Math.pow(1+rm,months)-1)/rm)); }
+        function fmt(v) { return v>=1000 ? '~\u20ac'+Math.round(v/1000)+',000' : '\u20ac'+v; }
+
+        function demoOpen() {
+            demoAmount = 50; demoPortfolio = 'balanced';
+            document.getElementById('demo-overlay').classList.add('open');
+            document.getElementById('demo-name-input').value = '';
+            document.getElementById('demo-email-display').textContent = '@example.com';
+            document.getElementById('demo-email-check').style.opacity = '0';
+            document.getElementById('demo-slider').value = 50;
+            document.getElementById('demo-slider-val').textContent = '50';
+            document.getElementById('demo-custom-amount').value = '';
+            demoUpdateProjection();
+            document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.toggle('active', p.dataset.p==='balanced'); });
+            demoGo(1);
+            setTimeout(function(){ document.getElementById('demo-name-input').focus(); }, 350);
         }
 
-        function demoUpdateProjection(amount) {
-            var monthly = parseFloat(amount);
-            var r = 0.08 / 12;
-            var n = 10 * 12;
-            var future = Math.round(monthly * ((Math.pow(1 + r, n) - 1) / r));
-            var formatted = future >= 1000 ? '~\u20ac' + Math.round(future / 1000) + ',000' : '\u20ac' + future;
-            var numEl = document.getElementById('demo-proj-number');
-            var labelEl = document.getElementById('demo-proj-text');
-            if (numEl) numEl.textContent = formatted;
-            if (labelEl) labelEl.textContent = 'from just \u20ac' + monthly + '/mo over 10 years at 8%';
+        function demoClose() { document.getElementById('demo-overlay').classList.remove('open'); }
+
+        function demoGo(step) {
+            document.querySelectorAll('.demo-panel').forEach(function(p){ p.classList.remove('active'); });
+            document.querySelectorAll('.demo-step-dot').forEach(function(d,i){
+                d.classList.remove('active','done');
+                if (step !== 'done') { if (i+1<step) d.classList.add('done'); if (i+1===step) d.classList.add('active'); }
+                else d.classList.add('done');
+            });
+            var id = step==='done' ? 'demo-step-done' : 'demo-step-'+step;
+            document.getElementById(id).classList.add('active');
+            var prog = {1:'25%', 2:'58%', 3:'83%', done:'100%'};
+            document.getElementById('demo-progress-bar').style.width = prog[step] || '100%';
+            if (step===3) demoUpdatePortfolioProjections();
+            if (step==='done') demoFillReceipt();
+        }
+
+        function demoSetAmount(val, fromCustom) {
+            val = Math.round(parseFloat(val));
+            if (!val || val < 1) return;
+            demoAmount = val;
+            document.getElementById('demo-slider-val').textContent = val;
+            document.getElementById('demo-slider').value = Math.min(val, 500);
+            if (!fromCustom) document.getElementById('demo-custom-amount').value = '';
+            demoUpdateProjection();
+        }
+
+        function demoSetCustomAmount(val) {
+            var v = parseFloat(val);
+            if (v && v > 0) demoSetAmount(v, true);
+        }
+
+        function demoUpdateProjection() {
+            var fv = calcFV(parseFloat(demoAmount)||50, 0.08, 120);
+            document.getElementById('demo-proj-number').textContent = fmt(fv);
+            document.getElementById('demo-proj-text').textContent = 'from \u20ac'+demoAmount+'/mo over 10 years at 8%';
         }
 
         function demoUpdatePortfolioProjections() {
             var monthly = parseFloat(demoAmount) || 50;
-            var rates = { steady: 0.05, balanced: 0.08, growth: 0.11 };
-            for (var key in rates) {
-                var r = rates[key] / 12;
-                var n = 12;
-                var fv = Math.round(monthly * ((Math.pow(1 + r, n) - 1) / r));
-                var formatted = fv >= 1000
-                    ? 'Ca. \u20ac' + (fv / 1000).toFixed(1) + 'k'
-                    : 'Ca. \u20ac' + fv;
-                var el = document.getElementById('proj-' + key);
-                if (el) el.textContent = formatted + ' / 1yr';
+            for (var key in portfolioRates) {
+                var fv = calcFV(monthly, portfolioRates[key], 12);
+                var formatted = fv >= 1000 ? '+\u20ac'+(fv/1000).toFixed(1)+'k' : '+\u20ac'+fv;
+                document.getElementById('proj-'+key).textContent = formatted+' / 1yr';
             }
         }
 
-        function demoGo(step) {
-            var panels = document.querySelectorAll('.demo-panel');
-            for (var i = 0; i < panels.length; i++) panels[i].classList.remove('active');
-            var dots = document.querySelectorAll('.demo-step-dot');
-            for (var i = 0; i < dots.length; i++) {
-                dots[i].classList.remove('active', 'done');
-                if (step !== 'done') {
-                    if (i + 1 < step) dots[i].classList.add('done');
-                    if (i + 1 === step) dots[i].classList.add('active');
-                } else { dots[i].classList.add('done'); }
+        function demoSelectPortfolio(el) {
+            document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.remove('active'); });
+            el.classList.add('active');
+            demoPortfolio = el.dataset.p;
+        }
+
+        function demoFillReceipt() {
+            var name = document.getElementById('demo-name-input').value.trim();
+            var displayName = name ? name.charAt(0).toUpperCase()+name.slice(1) : 'You';
+            document.getElementById('demo-done-title').textContent = 'You\u2019re investing, '+displayName+'.';
+            document.getElementById('receipt-name').textContent = displayName;
+            document.getElementById('receipt-amount').textContent = '\u20ac'+demoAmount+'/mo';
+            document.getElementById('receipt-portfolio').textContent = portfolioNames[demoPortfolio];
+            var target = calcFV(parseFloat(demoAmount)||50, portfolioRates[demoPortfolio], 120);
+            var t0 = performance.now(), dur = 1200;
+            function tick(t) {
+                var p = Math.min((t-t0)/dur, 1);
+                var ease = 1-Math.pow(1-p, 3);
+                var cur = Math.round(target*ease);
+                document.getElementById('receipt-proj').textContent = fmt(cur);
+                if (p < 1) requestAnimationFrame(tick);
             }
-            var id = step === 'done' ? 'demo-step-done' : 'demo-step-' + step;
-            document.getElementById(id).classList.add('active');
-            var prog = { 1: '25%', 2: '58%', 3: '83%', done: '100%' };
-            document.getElementById('demo-progress-bar').style.width = prog[step] || '100%';
-            if (step === 3) demoUpdatePortfolioProjections();
-            if (step === 'done') {
-                var names = { steady: 'Steady', balanced: 'Balanced', growth: 'Growth' };
-                var name = demoGetName();
-                var displayName = name.charAt(0).toUpperCase() + name.slice(1);
-                document.getElementById('demo-done-title').textContent = 'You\u2019re investing, ' + displayName + '.';
-                document.getElementById('demo-done-sub').textContent = '\u20ac' + demoAmount + ' in ' + names[demoPortfolio] + '. Your money is working.';
-            }
+            requestAnimationFrame(tick);
         }
 
         function demoOpenWaitlist() {
@@ -791,76 +511,20 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('year').textContent = new Date().getFullYear();
+            demoUpdateProjection();
 
-            // Sync email field with name input
-            var nameInput = document.getElementById('demo-name-input');
-            var emailDisplay = document.getElementById('demo-email-display');
-            var emailCheck = document.getElementById('demo-email-check');
-            if (nameInput && emailDisplay) {
-                nameInput.addEventListener('input', function() {
-                    var name = nameInput.value.trim().toLowerCase();
-                    if (name) {
-                        emailDisplay.textContent = name + '@example.com';
-                        if (emailCheck) emailCheck.style.opacity = '1';
-                    } else {
-                        emailDisplay.textContent = '@example.com';
-                        if (emailCheck) emailCheck.style.opacity = '0';
-                    }
-                });
-            }
-            demoUpdateProjection(demoAmount);
-
-            // Custom amount input
-            var customInput = document.getElementById('demo-custom-amount');
-            if (customInput) {
-                customInput.addEventListener('input', function() {
-                    var val = parseFloat(customInput.value);
-                    if (val && val > 0) {
-                        document.querySelectorAll('.demo-amount-btn').forEach(function(b) { b.classList.remove('active'); });
-                        demoAmount = val;
-                        document.getElementById('demo-amount-value').textContent = '\u20ac' + val;
-                        demoUpdateProjection(val);
-                    }
-                });
-            }
-
-            document.querySelectorAll('.demo-amount-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('.demo-amount-btn').forEach(function(b) { b.classList.remove('active'); });
-                    btn.classList.add('active');
-                    demoAmount = btn.dataset.amount;
-                    document.getElementById('demo-amount-value').textContent = '\u20ac' + demoAmount;
-                    var ci = document.getElementById('demo-custom-amount');
-                    if (ci) ci.value = '';
-                    demoUpdateProjection(demoAmount);
-                });
+            document.getElementById('demo-name-input').addEventListener('input', function() {
+                var n = this.value.trim().toLowerCase();
+                document.getElementById('demo-email-display').textContent = n ? n+'@example.com' : '@example.com';
+                document.getElementById('demo-email-check').style.opacity = n ? '1' : '0';
             });
 
-            document.querySelectorAll('.demo-portfolio').forEach(function(p) {
-                p.addEventListener('click', function() {
-                    document.querySelectorAll('.demo-portfolio').forEach(function(x) { x.classList.remove('active'); });
-                    p.classList.add('active');
-                    demoPortfolio = p.dataset.p;
-                });
-            });
-
-            document.getElementById('demo-overlay').addEventListener('click', function(e) {
-                if (e.target === this) this.classList.remove('open');
-            });
-            document.getElementById('tally-overlay').addEventListener('click', function(e) {
-                if (e.target === this) this.classList.remove('open');
-            });
             document.getElementById('open-waitlist-strip').addEventListener('click', demoOpenWaitlist);
-            document.getElementById('close-waitlist').addEventListener('click', function() {
-                document.getElementById('tally-overlay').classList.remove('open');
-            });
 
             var ro = new IntersectionObserver(function(entries) {
-                entries.forEach(function(e) {
-                    if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
-                });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
+                entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('visible'); ro.unobserve(e.target); } });
+            }, {threshold:0.1});
+            document.querySelectorAll('.reveal').forEach(function(el){ ro.observe(el); });
         });
     </script>
 </body>
