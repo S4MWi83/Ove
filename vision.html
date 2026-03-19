@@ -78,16 +78,35 @@
             top: 5px; right: -8px;
         }
 
-        .nav-back {
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-home {
             font-size: 0.85rem;
+            font-weight: 400;
             color: var(--muted);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.35rem;
+            transition: color 0.2s;
+            padding-right: 1.5rem;
+            border-right: 1px solid rgba(255,255,255,0.07);
+        }
+        .nav-home:hover { color: var(--cream); }
+
+        .nav-link {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--muted);
+            text-decoration: none;
             transition: color 0.2s;
         }
-        .nav-back:hover { color: var(--cream); }
+        .nav-link:hover { color: var(--cream); }
+        .nav-link.active { color: var(--cream); }
 
         .nav-actions {
             display: flex;
@@ -427,9 +446,14 @@
     <div class="wrap">
 
         <nav>
-            <a href="index.html" class="nav-logo">Ové<span></span></a>
-            <div class="nav-actions">
-                <a href="index.html" class="nav-back">← Back to site</a>
+            <a href="/" class="nav-logo">Ové<span></span></a>
+            <div class="nav-links">
+                <a href="/" class="nav-home">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    Home
+                </a>
+                <a href="concept.html" class="nav-link">Concept</a>
+                <a href="vision.html" class="nav-link active">Vision</a>
                 <a href="ove-product-concept.pdf" class="download-btn" download>↓ Download PDF</a>
             </div>
         </nav>
