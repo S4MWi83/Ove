@@ -197,6 +197,15 @@
             .waitlist-strip{padding:2rem;flex-direction:column;align-items:flex-start}
             .demo-modal{border-radius:20px} .demo-panel{padding:1.5rem 1.5rem 1.75rem}
         }
+
+        @media (max-width: 640px) {
+            nav { padding: 1.25rem 0; flex-wrap: wrap; gap: 0.75rem; }
+            .nav-logo { font-size: 1.5rem; }
+            .nav-links { gap: 0.85rem; }
+            .nav-link { font-size: 0.78rem; }
+            .nav-home { font-size: 0.78rem; padding-right: 0.85rem; }
+            .nav-pill, .nav-cta { font-size: 0.7rem; padding: 0.3rem 0.7rem; letter-spacing: 0.05em; }
+        }
     </style>
 </head>
 <body>
@@ -211,8 +220,8 @@
                     <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                     Home
                 </a>
-                <a href="concept.html" class="nav-link active">Concept</a>
-                <a href="vision.html" class="nav-link">Vision</a>
+                <a href="/concept.html" class="nav-link active">Concept</a>
+                <a href="/vision.html" class="nav-link">Vision</a>
                 <span class="nav-cta">Waitlist open</span>
             </div>
         </nav>
