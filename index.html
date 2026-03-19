@@ -3,61 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="pdHL7JSkBEX0cpQubnaZQqXLTDfgfNF0wMto-3flwV4" />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVSFPMXDRR"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-CVSFPMXDRR');
-    </script>
-    <title>Ové — From someday to today</title>
-    <meta name="description" content="91% of Europeans haven't started investing yet. Ové changes that — pick a portfolio, deposit from €10, and you're investing in under 2 minutes. Zero jargon. No bank switching.">
-    <meta name="keywords" content="investing app Europe, beginner investing, simple investing, ETF Europe, start investing, Ové">
-    <meta name="author" content="Ové">
-    <link rel="canonical" href="https://getove.vercel.app/">
+    <title>Ové — Vision & Product Concept</title>
+    <meta name="description" content="The full vision behind Ové — why we're building the investing app Europe has been waiting for.">
     <link rel="icon" type="image/svg+xml" href="ove-favicon-e.svg">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://getove.vercel.app/">
-    <meta property="og:title" content="Ové — From someday to today">
-    <meta property="og:description" content="91% of Europeans haven't started investing yet. Ové gets complete beginners investing in under 2 minutes, from €10, with zero jargon.">
-    <meta property="og:image" content="https://getove.vercel.app/ove-x-header.png">
-    <meta property="og:image:width" content="1500">
-    <meta property="og:image:height" content="500">
-    <meta property="og:site_name" content="Ové">
-    <meta property="og:locale" content="en_EU">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@BeginOve">
-    <meta name="twitter:creator" content="@BeginOve">
-    <meta name="twitter:title" content="Ové — From someday to today">
-    <meta name="twitter:description" content="91% of Europeans haven't started investing yet. Ové gets complete beginners investing in under 2 minutes, from €10, with zero jargon.">
-    <meta name="twitter:image" content="https://getove.vercel.app/ove-x-header.png">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Ové",
-      "url": "https://getove.vercel.app",
-      "description": "Ové is an investing app built for complete beginners in Europe. Get started in under 2 minutes, from €10, with zero jargon.",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
-      "creator": { "@type": "Organization", "name": "Ové", "url": "https://getove.vercel.app", "sameAs": "https://x.com/BeginOve" }
-    }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <script async src="https://tally.so/widgets/embed.js"></script>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
     <style>
         :root {
+            --midnight: #0a1628;
             --deep: #060f1e;
             --blue: #3b82f6;
-            --blue-dim: rgba(59,130,246,0.15);
-            --blue-glow: rgba(59,130,246,0.35);
+            --blue-dim: rgba(59,130,246,0.12);
             --cream: #f0ece4;
-            --muted: #7a8fa8;
+            --muted: #9db5cc;
             --border: rgba(255,255,255,0.07);
+            --card: rgba(255,255,255,0.03);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -67,19 +30,8 @@
             font-family: 'DM Sans', sans-serif;
             background: var(--deep);
             color: var(--cream);
-            min-height: 100vh;
-            overflow-x: hidden;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.4;
         }
 
         .orb {
@@ -90,48 +42,42 @@
             z-index: 0;
         }
         .orb-1 {
-            width: 60vw; height: 60vw;
-            top: -20vw; left: 50%;
+            width: 50vw; height: 50vw;
+            top: -15vw; left: 50%;
             transform: translateX(-50%);
-            background: radial-gradient(circle, rgba(59,130,246,0.13), transparent 70%);
+            background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%);
         }
 
         .wrap {
-            max-width: 1080px;
+            max-width: 760px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 2rem 6rem;
             position: relative;
             z-index: 1;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
-        /* ── NAV ── */
+        /* NAV */
         nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 2rem 0;
-            opacity: 0;
-            animation: fadeDown 0.6s ease forwards 0.1s;
+            padding: 2rem 0 4rem;
         }
 
         .nav-logo {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--cream);
             text-decoration: none;
             position: relative;
         }
         .nav-logo span {
             display: inline-block;
-            width: 6px; height: 6px;
+            width: 5px; height: 5px;
             background: var(--blue);
             border-radius: 50%;
             position: absolute;
-            top: 6px; right: -9px;
-            box-shadow: 0 0 8px var(--blue-glow);
+            top: 5px; right: -8px;
         }
 
         .nav-links {
@@ -139,6 +85,20 @@
             align-items: center;
             gap: 1.5rem;
         }
+
+        .nav-home {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s;
+            padding-right: 1.5rem;
+            border-right: 1px solid rgba(255,255,255,0.07);
+        }
+        .nav-home:hover { color: var(--cream); }
 
         .nav-link {
             font-size: 0.85rem;
@@ -148,270 +108,614 @@
             transition: color 0.2s;
         }
         .nav-link:hover { color: var(--cream); }
+        .nav-link.active { color: var(--cream); }
 
-        .nav-pill {
-            font-size: 0.8rem;
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .download-btn {
+            font-size: 0.85rem;
             font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
             color: var(--blue);
             background: var(--blue-dim);
             border: 1px solid rgba(59,130,246,0.2);
-            padding: 0.4rem 1rem;
+            padding: 0.45rem 1.1rem;
             border-radius: 999px;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .download-btn:hover {
+            background: rgba(59,130,246,0.2);
         }
 
-        /* ── HERO ── */
+        /* HERO */
         .hero {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 4rem 0 6rem;
-        }
-
-        .hero-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: var(--muted);
-            margin-bottom: 2.5rem;
+            margin-bottom: 5rem;
             opacity: 0;
-            animation: fadeUp 0.6s ease forwards 0.3s;
-        }
-        .hero-eyebrow::before, .hero-eyebrow::after {
-            content: '';
-            display: block;
-            width: 32px; height: 1px;
-            background: var(--border);
+            animation: fadeUp 0.7s ease forwards 0.2s;
         }
 
-        .hero-headline {
+        .hero-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-title {
             font-family: 'Instrument Serif', serif;
-            font-size: clamp(3.6rem, 8vw, 7rem);
-            line-height: 1.03;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.75rem;
-            opacity: 0;
-            animation: fadeUp 0.7s ease forwards 0.4s;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
         }
-        .hero-headline em {
+
+        .hero-title em {
             font-style: italic;
             color: #93c5fd;
         }
 
         .hero-sub {
-            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            font-size: 1.1rem;
             color: var(--muted);
             font-weight: 300;
-            max-width: 460px;
-            margin: 0 auto 3.5rem;
+            max-width: 540px;
             line-height: 1.7;
-            opacity: 0;
-            animation: fadeUp 0.7s ease forwards 0.5s;
         }
 
-        .hero-cta {
+        /* SECTIONS */
+        .section {
+            margin-bottom: 4rem;
             opacity: 0;
-            animation: fadeUp 0.7s ease forwards 0.6s;
+            animation: fadeUp 0.7s ease forwards;
+        }
+
+        .section-label {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.2;
+        }
+
+        .section p {
+            color: var(--muted);
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .section p strong {
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        /* DIVIDER */
+        .divider {
+            width: 48px;
+            height: 1px;
+            background: rgba(59,130,246,0.3);
+            margin: 3rem 0;
+        }
+
+        /* STAT BLOCKS */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .stat-num {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2rem;
+            color: var(--cream);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-label {
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        /* STEPS */
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 1.5rem 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 1.25rem;
+            padding-bottom: 2rem;
+            position: relative;
+        }
+        .step:last-child { padding-bottom: 0; }
+
+        .step-num {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: var(--blue-dim);
+            border: 1px solid rgba(59,130,246,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--blue);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-connector {
+            position: absolute;
+            left: 15px;
+            top: 34px;
+            width: 1px;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(59,130,246,0.2), transparent);
+        }
+        .step:last-child .step-connector { display: none; }
+
+        .step-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--cream);
+            margin-bottom: 0.3rem;
+        }
+
+        .step-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        /* TABLE */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        td:first-child { color: var(--cream); font-weight: 400; }
+
+        tr.highlight td {
+            color: var(--cream);
+            background: var(--blue-dim);
+        }
+
+        /* LIST */
+        .check-list {
+            list-style: none;
+            margin: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .check-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        .check-list li::before {
+            content: '→';
+            color: var(--blue);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* QUOTE */
+        .quote-block {
+            border-left: 2px solid var(--blue);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: var(--card);
+            border-radius: 0 12px 12px 0;
+        }
+
+        .quote-block p {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--cream) !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        .quote-block span {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            margin-top: 4rem;
+        }
+
+        .cta-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-sub {
+            color: var(--muted);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
         }
 
         .cta-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.5rem;
             background: var(--blue);
             color: white;
             font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 500;
-            padding: 0.95rem 2.4rem;
+            padding: 0.8rem 2rem;
             border-radius: 999px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 24px rgba(59,130,246,0.35);
             text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 4px 20px rgba(59,130,246,0.3);
         }
         .cta-btn:hover {
             background: #2563eb;
             transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(59,130,246,0.5);
-        }
-        .cta-btn svg { transition: transform 0.3s ease; }
-        .cta-btn:hover svg { transform: translateX(3px); }
-
-        .cta-nudge {
-            display: block;
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            color: var(--muted);
-            font-weight: 300;
         }
 
-        /* ── FOOTER ── */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 2rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: var(--muted);
-            font-size: 0.85rem;
-            font-weight: 300;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .footer-links { display: flex; gap: 1.5rem; }
-        .footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-        .footer-links a:hover { color: var(--cream); }
-
-        /* ── TALLY MODAL ── */
-        .tally-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(6,15,30,0.85);
-            backdrop-filter: blur(6px);
-            z-index: 100;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-        .tally-overlay.open { display: flex; }
-
-        .tally-modal {
-            background: #0a1628;
-            border: 1px solid rgba(59,130,246,0.2);
-            border-radius: 24px;
-            padding: 2.5rem;
-            width: 100%;
-            max-width: 480px;
-            position: relative;
-            animation: fadeUp 0.3s ease;
-        }
-
-        .tally-modal-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-        }
-        .tally-modal-sub {
-            font-size: 0.9rem;
-            color: var(--muted);
-            font-weight: 300;
-            margin-bottom: 1.75rem;
-            line-height: 1.6;
-        }
-
-        .tally-close {
-            position: absolute;
-            top: 1.25rem; right: 1.25rem;
-            background: none;
-            border: none;
-            color: var(--muted);
-            cursor: pointer;
-            font-size: 1.25rem;
-            line-height: 1;
-            transition: color 0.2s;
-            padding: 0.25rem;
-        }
-        .tally-close:hover { color: var(--cream); }
-
-        /* ── ANIMATIONS ── */
-        @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-16px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
+        /* ANIMATIONS */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
-            to   { opacity: 1; transform: translateY(0); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 560px) {
-            nav { padding: 1.5rem 0; }
-            .hero { padding: 2rem 0 4rem; }
+        .s1 { animation-delay: 0.3s; }
+        .s2 { animation-delay: 0.4s; }
+        .s3 { animation-delay: 0.5s; }
+        .s4 { animation-delay: 0.6s; }
+        .s5 { animation-delay: 0.7s; }
+        .s6 { animation-delay: 0.8s; }
+        .s7 { animation-delay: 0.9s; }
+        .s8 { animation-delay: 1.0s; }
+        .s9 { animation-delay: 1.1s; }
+
+        @media (max-width: 600px) {
+            .stats { grid-template-columns: 1fr 1fr; }
+            .hero-title { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
     <div class="orb orb-1"></div>
+    <div class="wrap" role="main">
 
-    <div class="wrap">
-        <!-- NAV -->
         <nav>
             <a href="/" class="nav-logo">Ové<span></span></a>
             <div class="nav-links">
+                <a href="/" class="nav-home">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    Home
+                </a>
                 <a href="concept.html" class="nav-link">Concept</a>
-                <a href="vision.html" class="nav-link">Vision</a>
-                <span class="nav-pill">Waitlist open</span>
+                <a href="vision.html" class="nav-link active">Vision</a>
+                <a href="ove-product-concept.pdf" class="download-btn" download>↓ Download PDF</a>
             </div>
         </nav>
 
         <!-- HERO -->
-        <section class="hero">
-            <p class="hero-eyebrow">For the 91% of Europeans who haven't started yet</p>
-            <h1 class="hero-headline">
-                From <em>someday</em><br>to today.
-            </h1>
-            <p class="hero-sub">
-                Investing for complete beginners. Under 2 minutes. From €10. Zero jargon.
-            </p>
-            <div class="hero-cta">
-                <button class="cta-btn" id="open-waitlist">
-                    Join the waitlist
-                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </button>
-                <span class="cta-nudge">No payment, no commitment — launching soon.</span>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer>
-            <span>© <span id="year"></span> Ové. All rights reserved.</span>
-            <div class="footer-links">
-                <a href="https://x.com/BeginOve" target="_blank">@BeginOve on X</a>
-            </div>
-        </footer>
-    </div>
-
-    <!-- WAITLIST MODAL -->
-    <div class="tally-overlay" id="tally-overlay">
-        <div class="tally-modal">
-            <button class="tally-close" id="close-waitlist">✕</button>
-            <p class="tally-modal-title">Your someday is today.</p>
-            <p class="tally-modal-sub">No payment, no commitment — just your spot in line.</p>
-            <div id="tally-embed-target"></div>
+        <div class="hero">
+            <p class="hero-label">Vision & Product Concept</p>
+            <h1 class="hero-title">The investing app<br>Europe has been <em>waiting for.</em></h1>
+            <p class="hero-sub">Most Europeans keep their savings in a bank account where inflation quietly eats away at it year after year. Ové is a simple way to put that money to work instead — no jargon, no complexity, no bank switching. Just a straightforward way to finally start.</p>
         </div>
+
+        <div class="divider"></div>
+
+        <!-- THE PROBLEM -->
+        <div class="section s1">
+            <p class="section-label">The Problem</p>
+            <h2 class="section-title">320 million Europeans haven't started investing. Yet.</h2>
+            <p>Only 9% of Europeans own stock directly (ECB). In the US it's 21%. The gap isn't money or knowledge — it's friction. A 2026 ESMA report confirms it: multiple regulatory and non-regulatory barriers combine to stop people before they even open an app.</p>
+            <p>And when they do open an app? ETFs. CFDs. Derivatives. Margin trading. A sign-up process that feels like switching banks. They close it within 5 minutes. Every time.</p>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <p class="stat-num">91%</p>
+                    <p class="stat-label">of Europeans have never invested directly</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-num">320M</p>
+                    <p class="stat-label">people stuck in "I'll start next month"</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-num">2026</p>
+                    <p class="stat-label">ESMA report confirms friction is the barrier</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- THE SOLUTION -->
+        <div class="section s2">
+            <p class="section-label">The Solution</p>
+            <h2 class="section-title">Three steps. Then you're investing.</h2>
+            <p>Ové removes every unnecessary choice from the onboarding experience. Regulatory compliance is handled invisibly so the user never has to think about it.</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-connector"></div>
+                    <div>
+                        <p class="step-title">Sign up — smooth and fast</p>
+                        <p class="step-desc">Nothing like opening a bank account. First name, email, done. KYC handled seamlessly in the background.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-connector"></div>
+                    <div>
+                        <p class="step-title">Pick a risk level</p>
+                        <p class="step-desc">Steady, Balanced, or Growth. Three options — not three hundred. Ové explains each in plain English.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-connector"></div>
+                    <div>
+                        <p class="step-title">You're invested</p>
+                        <p class="step-desc">Ové handles everything else automatically. Your money is working. You're done.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- PORTFOLIOS -->
+        <div class="section s3">
+            <p class="section-label">Core Portfolios</p>
+            <h2 class="section-title">Three options. No overwhelm.</h2>
+            <p>Users never pick individual stocks or ETFs. Ové handles allocation automatically.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Risk</th>
+                            <th>Allocation</th>
+                            <th>Est. Return</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Steady</td>
+                            <td>Low</td>
+                            <td>70% Bonds, 20% Stocks, 10% Cash</td>
+                            <td>~4–6%/yr</td>
+                        </tr>
+                        <tr>
+                            <td>Balanced</td>
+                            <td>Medium</td>
+                            <td>60% Stocks, 30% Bonds, 10% Cash</td>
+                            <td>~7–9%/yr</td>
+                        </tr>
+                        <tr>
+                            <td>Growth</td>
+                            <td>Higher</td>
+                            <td>90% Stocks, 8% Bonds, 2% Cash</td>
+                            <td>~10–12%/yr</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- USER JOURNEY -->
+        <div class="section s4">
+            <p class="section-label">User Journey</p>
+            <h2 class="section-title">Beginner today. Experienced investor in 6 months.</h2>
+            <p>After 6 consecutive months of investing, users unlock <strong>Ové Experienced</strong> — optional access to individual stocks and ETFs alongside their core portfolio. It's never forced. Just available when they're ready.</p>
+
+            <div class="quote-block">
+                <p>"6 months ago you took your first step. Look at you now. Ready to take the wheel?"</p>
+                <span>— The Experienced Ové unlock notification</span>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- REGULATORY -->
+        <div class="section s5">
+            <p class="section-label">Regulatory Compliance</p>
+            <h2 class="section-title">Compliance as a feature, not a checkbox.</h2>
+            <p>Regulatory complexity is one of the biggest barriers to investing in Europe (ESMA 2026). Ové absorbs this entirely on behalf of the user. MiFID II compliance, KYC, AML — all handled invisibly. The user never sees a form they don't understand.</p>
+            <p>This is a core product principle, not an afterthought. It's also a key trust signal — especially for the 91% who are wary of new financial services.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- COMPETITIVE -->
+        <div class="section s6">
+            <p class="section-label">Competitive Landscape</p>
+            <h2 class="section-title">The position nobody is occupying.</h2>
+            <p>Every existing app in Europe was built for the 9% who already invest. Ové is built for the 91% who haven't started.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>App</th>
+                            <th>Beginner Focus</th>
+                            <th>Europe</th>
+                            <th>Verdict</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Trading 212</td>
+                            <td>Low</td>
+                            <td>✅</td>
+                            <td>Too complex</td>
+                        </tr>
+                        <tr>
+                            <td>eToro</td>
+                            <td>Low</td>
+                            <td>✅</td>
+                            <td>Built for traders</td>
+                        </tr>
+                        <tr>
+                            <td>Revolut</td>
+                            <td>Low</td>
+                            <td>✅</td>
+                            <td>Super-app, not focused</td>
+                        </tr>
+                        <tr>
+                            <td>Bitpanda</td>
+                            <td>Low–Medium</td>
+                            <td>✅</td>
+                            <td>Inspiration — but 3,000+ choices</td>
+                        </tr>
+                        <tr>
+                            <td>Robinhood EU</td>
+                            <td>Low</td>
+                            <td>⚠️ Partial</td>
+                            <td>Tokenized only, not beginner focused</td>
+                        </tr>
+                        <tr>
+                            <td>Acorns</td>
+                            <td>High</td>
+                            <td>❌ US only</td>
+                            <td>Closest concept — wrong continent</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td>Ové</td>
+                            <td>Very High</td>
+                            <td>✅</td>
+                            <td>Unoccupied position</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- BUSINESS MODEL -->
+        <div class="section s7">
+            <p class="section-label">Business Model</p>
+            <h2 class="section-title">Simple. Scales with users.</h2>
+            <p><strong>0.5% AUM fee</strong> — charged annually, taken monthly in small increments. Invisible to the user at small portfolio sizes. Scales naturally as portfolios grow.</p>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <p class="stat-num">€150M</p>
+                    <p class="stat-label">AUM at 100k users with €1,500 avg portfolio</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-num">€750k</p>
+                    <p class="stat-label">Annual revenue from 0.5% fee at that scale</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-num">€5M</p>
+                    <p class="stat-label">AUM needed to reach profitability</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- WHAT OVE IS NOT -->
+        <div class="section s8">
+            <p class="section-label">What Ové is NOT</p>
+            <h2 class="section-title">Clarity of purpose.</h2>
+            <ul class="check-list">
+                <li>Not a trading platform</li>
+                <li>Not a bank</li>
+                <li>Not built for experts</li>
+                <li>Not trying to compete with Trading 212 or eToro on features</li>
+                <li>Not trying to be everything to everyone</li>
+            </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- VISION -->
+        <div class="section s9">
+            <p class="section-label">Vision</p>
+            <h2 class="section-title">From someday to today.</h2>
+            <p>Every European who wants to invest but hasn't started yet — that's our user. Not the trader. Not the expert. The person who keeps saying someday.</p>
+            <p>We turn someday into today.</p>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <a href="index.html" class="cta-btn">
+                ← Back to home
+            </a>
+        </div>
+
     </div>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        const overlay = document.getElementById('tally-overlay');
-        const embedTarget = document.getElementById('tally-embed-target');
-        let loaded = false;
-
-        document.getElementById('open-waitlist').addEventListener('click', () => {
-            overlay.classList.add('open');
-            if (!loaded) {
-                embedTarget.innerHTML = '<iframe data-tally-src="https://tally.so/embed/WOoKja?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="160" frameborder="0" marginheight="0" marginwidth="0" title="Ové Waitlist"></iframe>';
-                if (window.Tally) Tally.loadEmbeds();
-                loaded = true;
-            }
-        });
-
-        document.getElementById('close-waitlist').addEventListener('click', () => {
-            overlay.classList.remove('open');
-        });
-
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) overlay.classList.remove('open');
-        });
-    </script>
 </body>
 </html>
