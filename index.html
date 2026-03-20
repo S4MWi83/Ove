@@ -347,6 +347,17 @@
             .nav-home { font-size: 0.78rem; padding-right: 0.85rem; }
             .nav-pill, .nav-cta { font-size: 0.7rem; padding: 0.3rem 0.7rem; letter-spacing: 0.05em; }
         }
+
+        /* LANG SWITCHER */
+        .lang-switcher { position: relative; }
+        .lang-btn { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.6rem; cursor: pointer; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s; }
+        .lang-btn:hover { color: var(--cream); border-color: rgba(255,255,255,0.15); }
+        .lang-dropdown { display: none; position: absolute; top: calc(100% + 8px); right: 0; background: #0d1f38; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; min-width: 130px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); z-index: 100; }
+        .lang-switcher.open .lang-dropdown { display: block; }
+        .lang-option { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 1rem; font-size: 0.82rem; color: var(--muted); cursor: pointer; transition: all 0.15s; border: none; background: none; width: 100%; font-family: 'DM Sans', sans-serif; text-align: left; }
+        .lang-option:hover { background: rgba(255,255,255,0.05); color: var(--cream); }
+        .lang-option.active { color: var(--cream); background: rgba(59,130,246,0.1); }
+        .lang-flag { font-size: 1rem; }
     </style>
 </head>
 <body>
@@ -357,27 +368,36 @@
         <nav>
             <a href="/" class="nav-logo">Ové<span></span></a>
             <div class="nav-links">
-                <a href="/concept.html" class="nav-link">Concept</a>
+                <a href="/concept.html" class="nav-link" data-i18n="nav_concept">Concept</a>
                 <a href="/vision.html" class="nav-link">Vision</a>
-                <span class="nav-pill">Waitlist open</span>
+                <span class="nav-pill" data-i18n="nav_waitlist">Waitlist open</span>
+                <div class="lang-switcher" id="lang-switcher">
+                    <button class="lang-btn" id="lang-btn">🌐 EN ▾</button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button class="lang-option active" data-lang="en">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="sv">🇸🇪 Svenska</button>
+                        <button class="lang-option" data-lang="es">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="de">🇩🇪 Deutsch</button>
+                    </div>
+                </div>
             </div>
         </nav>
 
         <!-- HERO -->
         <section class="hero">
-            <p class="hero-eyebrow">For the 91% of Europeans who haven't started yet</p>
+            <p class="hero-eyebrow" data-i18n="eyebrow">For the 91% of Europeans who haven't started yet</p>
             <h1 class="hero-headline">
-                From <em>someday</em><br>to today.
+                <span data-i18n="headline_1">From</span> <em data-i18n="headline_2">someday</em><br><span data-i18n="headline_3">to today.</span>
             </h1>
             <p class="hero-sub">
-                Investing for complete beginners. Under 2 minutes. From €10. Zero jargon.
+                <span data-i18n="sub">Investing for complete beginners. Under 2 minutes. From €10. Zero jargon.</span>
             </p>
             <div class="hero-cta">
                 <button class="cta-btn" id="open-waitlist">
-                    Join the waitlist
+                    <span data-i18n="cta">Join the waitlist</span>
                     <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
-                <span class="cta-nudge">No payment, no commitment — launching soon.</span>
+                <span class="cta-nudge" data-i18n="nudge">No payment, no commitment — launching soon.</span>
             </div>
         </section>
 
@@ -394,8 +414,8 @@
     <div class="tally-overlay" id="tally-overlay">
         <div class="tally-modal">
             <button class="tally-close" id="close-waitlist">✕</button>
-            <p class="tally-modal-title">Your someday is today.</p>
-            <p class="tally-modal-sub">No payment, no commitment — just your spot in line.</p>
+            <p class="tally-modal-title" data-i18n="modal_title">Your someday is today.</p>
+            <p class="tally-modal-sub" data-i18n="modal_sub">No payment, no commitment — just your spot in line.</p>
             <div id="tally-embed-target"></div>
         </div>
     </div>
@@ -425,5 +445,48 @@
         });
     </script>
     <script async src="https://tally.so/widgets/embed.js"></script>
+
+    <script>
+        var translations = {
+            en: { nav_concept: "Concept", nav_waitlist: "Waitlist open", eyebrow: "For the 91% of Europeans who haven't started yet", headline_1: "From", headline_2: "someday", headline_3: "to today.", sub: "Investing for complete beginners. Under 2 minutes. From €10. Zero jargon.", cta: "Join the waitlist", nudge: "No payment, no commitment — launching soon.", modal_title: "Your someday is today.", modal_sub: "No payment, no commitment — just your spot in line.", flag: "🇬🇧", code: "EN" },
+            sv: { nav_concept: "Koncept", nav_waitlist: "Öppen väntelista", eyebrow: "För de 91% av européerna som inte börjat än", headline_1: "Från", headline_2: "en dag", headline_3: "till idag.", sub: "Investering för nybörjare. Under 2 minuter. Från €10. Utan krångel.", cta: "Gå med i väntelistan", nudge: "Ingen betalning, inget åtagande — lanseras snart.", modal_title: "Din dag är idag.", modal_sub: "Ingen betalning, inget åtagande — bara din plats i kön.", flag: "🇸🇪", code: "SV" },
+            es: { nav_concept: "Concepto", nav_waitlist: "Lista de espera abierta", eyebrow: "Para el 91% de los europeos que aún no han empezado", headline_1: "De", headline_2: "algún día", headline_3: "al hoy.", sub: "Inversión para principiantes. Menos de 2 minutos. Desde €10. Sin jerga.", cta: "Unirse a la lista de espera", nudge: "Sin pago, sin compromiso — próximamente.", modal_title: "Tu algún día es hoy.", modal_sub: "Sin pago, sin compromiso — solo tu lugar en la lista.", flag: "🇪🇸", code: "ES" },
+            de: { nav_concept: "Konzept", nav_waitlist: "Warteliste offen", eyebrow: "Für die 91% der Europäer, die noch nicht angefangen haben", headline_1: "Von", headline_2: "irgendwann", headline_3: "zu heute.", sub: "Investieren für absolute Anfänger. Unter 2 Minuten. Ab €10. Kein Fachjargon.", cta: "Zur Warteliste anmelden", nudge: "Keine Zahlung, keine Verpflichtung — bald verfügbar.", modal_title: "Dein Irgendwann ist heute.", modal_sub: "Keine Zahlung, keine Verpflichtung — nur dein Platz.", flag: "🇩🇪", code: "DE" }
+        };
+
+        var currentLang = localStorage.getItem('ove-lang') || 'en';
+
+        function applyLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('ove-lang', lang);
+            var t = translations[lang];
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n');
+                if (t[key]) el.textContent = t[key];
+            });
+            document.getElementById('lang-btn').textContent = t.flag + ' ' + t.code + ' ▾';
+            document.querySelectorAll('.lang-option').forEach(function(opt) {
+                opt.classList.toggle('active', opt.dataset.lang === lang);
+            });
+            document.getElementById('lang-switcher').classList.remove('open');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('lang-btn').addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.getElementById('lang-switcher').classList.toggle('open');
+            });
+            document.querySelectorAll('.lang-option').forEach(function(opt) {
+                opt.addEventListener('click', function() { applyLang(opt.dataset.lang); });
+            });
+            document.addEventListener('click', function() {
+                document.getElementById('lang-switcher').classList.remove('open');
+            });
+            var saved = localStorage.getItem('ove-lang') || 'en';
+            if (!translations[saved]) saved = 'en';
+            if (saved !== 'en') applyLang(saved);
+            else document.getElementById('lang-btn').textContent = '\uD83C\uDDEC\uD83C\uDDE7 EN \u25be';
+        });
+    </script>
 </body>
 </html>
