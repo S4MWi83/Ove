@@ -374,12 +374,12 @@
                 <a href="/vision.html" class="nav-link">Vision</a>
                 <span class="nav-pill" data-i18n="nav_waitlist">Waitlist open</span>
                 <div class="lang-switcher" id="lang-switcher">
-                    <button class="lang-btn" id="lang-btn">🌐 EN ▾</button>
+                    <button class="lang-btn" id="lang-btn"><img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'><rect width='60' height='30' fill='%23012169'/><path d='M0 0l60 30M60 0L0 30' stroke='%23fff' stroke-width='6'/><path d='M0 0l60 30M60 0L0 30' stroke='%23C8102E' stroke-width='4'/><path d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/><path d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/></svg>" width="20" height="13" style="vertical-align:middle;margin-right:5px;border-radius:2px"> <span id="lang-code">EN</span> ▾</button>
                     <div class="lang-dropdown" id="lang-dropdown">
-                        <button class="lang-option active" data-lang="en">🇬🇧 English</button>
-                        <button class="lang-option" data-lang="sv">🇸🇪 Svenska</button>
-                        <button class="lang-option" data-lang="es">🇪🇸 Español</button>
-                        <button class="lang-option" data-lang="de">🇩🇪 Deutsch</button>
+                        <button class="lang-option active" data-lang="en">English</button>
+                        <button class="lang-option" data-lang="sv">Svenska</button>
+                        <button class="lang-option" data-lang="es">Español</button>
+                        <button class="lang-option" data-lang="de">Deutsch</button>
                     </div>
                 </div>
             </div>
@@ -450,14 +450,20 @@
 
     <script>
         var translations = {
-            en: { nav_concept: "Concept", nav_waitlist: "Waitlist open", eyebrow: "For the 91% of Europeans who haven't started yet", headline_1: "From", headline_2: "someday", headline_3: "to today.", sub: "Investing for complete beginners. Under 2 minutes. From €10. Zero jargon.", cta: "Join the waitlist", nudge: "No payment, no commitment — launching soon.", modal_title: "Your someday is today.", modal_sub: "No payment, no commitment — just your spot in line.", flag: "🇬🇧", code: "EN" },
-            sv: { nav_concept: "Koncept", nav_waitlist: "Öppen väntelista", eyebrow: "För de 91% av européerna som inte börjat än", headline_1: "Från", headline_2: "en dag", headline_3: "till idag.", sub: "Investering för nybörjare. Under 2 minuter. Från €10. Utan krångel.", cta: "Gå med i väntelistan", nudge: "Ingen betalning, inget åtagande — lanseras snart.", modal_title: "Din dag är idag.", modal_sub: "Ingen betalning, inget åtagande — bara din plats i kön.", flag: "🇸🇪", code: "SV" },
-            es: { nav_concept: "Concepto", nav_waitlist: "Lista de espera abierta", eyebrow: "Para el 91% de los europeos que aún no han empezado", headline_1: "De", headline_2: "algún día", headline_3: "al hoy.", sub: "Inversión para principiantes. Menos de 2 minutos. Desde €10. Sin jerga.", cta: "Unirse a la lista de espera", nudge: "Sin pago, sin compromiso — próximamente.", modal_title: "Tu algún día es hoy.", modal_sub: "Sin pago, sin compromiso — solo tu lugar en la lista.", flag: "🇪🇸", code: "ES" },
-            de: { nav_concept: "Konzept", nav_waitlist: "Warteliste offen", eyebrow: "Für die 91% der Europäer, die noch nicht angefangen haben", headline_1: "Von", headline_2: "irgendwann", headline_3: "zu heute.", sub: "Investieren für absolute Anfänger. Unter 2 Minuten. Ab €10. Kein Fachjargon.", cta: "Zur Warteliste anmelden", nudge: "Keine Zahlung, keine Verpflichtung — bald verfügbar.", modal_title: "Dein Irgendwann ist heute.", modal_sub: "Keine Zahlung, keine Verpflichtung — nur dein Platz.", flag: "🇩🇪", code: "DE" }
+            en: { nav_concept: "Concept", nav_waitlist: "Waitlist open", eyebrow: "For the 91% of Europeans who haven't started yet", headline_1: "From", headline_2: "someday", headline_3: "to today.", sub: "Investing for complete beginners. Under 2 minutes. From €10. Zero jargon.", cta: "Join the waitlist", nudge: "No payment, no commitment — launching soon.", modal_title: "Your someday is today.", modal_sub: "No payment, no commitment — just your spot in line.", flag: "🇬🇧", code: "EN", fi: "gb" },
+            sv: { nav_concept: "Koncept", nav_waitlist: "Öppen väntelista", eyebrow: "För de 91% av européerna som inte börjat än", headline_1: "Från", headline_2: "en dag", headline_3: "till idag.", sub: "Investering för nybörjare. Under 2 minuter. Från €10. Utan krångel.", cta: "Gå med i väntelistan", nudge: "Ingen betalning, inget åtagande — lanseras snart.", modal_title: "Din dag är idag.", modal_sub: "Ingen betalning, inget åtagande — bara din plats i kön.", flag: "🇸🇪", code: "SV", fi: "se" },
+            es: { nav_concept: "Concepto", nav_waitlist: "Lista de espera abierta", eyebrow: "Para el 91% de los europeos que aún no han empezado", headline_1: "De", headline_2: "algún día", headline_3: "al hoy.", sub: "Inversión para principiantes. Menos de 2 minutos. Desde €10. Sin jerga.", cta: "Unirse a la lista de espera", nudge: "Sin pago, sin compromiso — próximamente.", modal_title: "Tu algún día es hoy.", modal_sub: "Sin pago, sin compromiso — solo tu lugar en la lista.", flag: "🇪🇸", code: "ES", fi: "es" },
+            de: { nav_concept: "Konzept", nav_waitlist: "Warteliste offen", eyebrow: "Für die 91% der Europäer, die noch nicht angefangen haben", headline_1: "Von", headline_2: "irgendwann", headline_3: "zu heute.", sub: "Investieren für absolute Anfänger. Unter 2 Minuten. Ab €10. Kein Fachjargon.", cta: "Zur Warteliste anmelden", nudge: "Keine Zahlung, keine Verpflichtung — bald verfügbar.", modal_title: "Dein Irgendwann ist heute.", modal_sub: "Keine Zahlung, keine Verpflichtung — nur dein Platz.", flag: "🇩🇪", code: "DE", fi: "de" }
         };
 
         var currentLang = localStorage.getItem('ove-lang') || 'en';
 
+        var flagSrc = {
+            gb: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 30%22%3E%3CclipPath id=%22a%22%3E%3Cpath d=%22M0 0v30h60V0z%22/%3E%3C/clipPath%3E%3CclipPath id=%22b%22%3E%3Cpath d=%22M30 15h30v15zv15H0zH0V0zV0h30z%22/%3E%3C/clipPath%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath d=%22M0 0v30h60V0z%22 fill=%22%23012169%22/%3E%3Cpath d=%22M0 0l60 30m0-30L0 30%22 stroke=%22%23fff%22 stroke-width=%226%22/%3E%3Cpath d=%22M0 0l60 30m0-30L0 30%22 clip-path=%22url(%23b)%22 stroke=%22%23C8102E%22 stroke-width=%224%22/%3E%3Cpath d=%22M30 0v30M0 15h60%22 stroke=%22%23fff%22 stroke-width=%2210%22/%3E%3Cpath d=%22M30 0v30M0 15h60%22 stroke=%22%23C8102E%22 stroke-width=%226%22/%3E%3C/g%3E%3C/svg%3E',
+            se: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 10%22%3E%3Crect width=%2216%22 height=%2210%22 fill=%22%23006AA7%22/%3E%3Crect x=%224%22 width=%222%22 height=%2210%22 fill=%22%23FECC02%22/%3E%3Crect y=%224%22 width=%2216%22 height=%222%22 fill=%22%23FECC02%22/%3E%3C/svg%3E',
+            es: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 3 2%22%3E%3Crect width=%223%22 height=%222%22 fill=%22%23c60b1e%22/%3E%3Crect y=%22.5%22 width=%223%22 height=%221%22 fill=%22%23ffc400%22/%3E%3C/svg%3E',
+            de: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 5 3%22%3E%3Crect width=%225%22 height=%223%22/%3E%3Crect y=%221%22 width=%225%22 height=%222%22 fill=%22%23D00%22/%3E%3Crect y=%222%22 width=%225%22 height=%221%22 fill=%22%23FFCE00%22/%3E%3C/svg%3E'
+        };
         function applyLang(lang) {
             currentLang = lang;
             localStorage.setItem('ove-lang', lang);
@@ -466,7 +472,7 @@
                 var key = el.getAttribute('data-i18n');
                 if (t[key]) el.textContent = t[key];
             });
-            document.getElementById('lang-btn').textContent = t.flag + ' ' + t.code + ' ▾';
+            document.getElementById('lang-btn').innerHTML = '<span class="fi fi-' + t.fi + '"></span> ' + t.code + ' \u25be';
             document.querySelectorAll('.lang-option').forEach(function(opt) {
                 opt.classList.toggle('active', opt.dataset.lang === lang);
             });
@@ -486,8 +492,7 @@
             });
             var saved = localStorage.getItem('ove-lang') || 'en';
             if (!translations[saved]) saved = 'en';
-            if (saved !== 'en') applyLang(saved);
-            else document.getElementById('lang-btn').textContent = '\uD83C\uDDEC\uD83C\uDDE7 EN \u25be';
+            applyLang(saved);
         });
     </script>
 </body>
