@@ -405,6 +405,22 @@
 
         /* FOOTER BUILD IN PUBLIC */
         .footer-built { font-size: 0.78rem; color: var(--muted); font-weight: 300; opacity: 0.7; }
+
+        /* THIS IS ME SECTION */
+        .this-is-me { max-width: 480px; margin: 0 auto 5rem; text-align: center; opacity: 0; animation: fadeUp 0.7s ease forwards 0.7s; }
+        .this-is-me-title { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
+        .this-is-me-items { display: flex; flex-direction: column; gap: 0.75rem; }
+        .this-is-me-item { font-family: 'Instrument Serif', serif; font-size: clamp(1.1rem, 2.5vw, 1.35rem); color: var(--cream); font-style: italic; line-height: 1.5; opacity: 0.85; }
+
+        /* HOW IT WORKS SECTION */
+        .how-it-works { max-width: 480px; margin: 0 auto 6rem; opacity: 0; animation: fadeUp 0.7s ease forwards 0.8s; }
+        .how-it-works-title { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.75rem; text-align: center; }
+        .how-steps { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; }
+        .how-step { display: flex; align-items: center; gap: 1.25rem; }
+        .how-step-num { width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(59,130,246,0.3); background: rgba(59,130,246,0.08); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--blue); font-weight: 500; flex-shrink: 0; }
+        .how-step-text { font-size: 1rem; color: var(--cream); font-weight: 300; line-height: 1.5; }
+        .how-step-text strong { font-weight: 500; color: var(--cream); }
+        .how-tagline { text-align: center; font-size: 0.88rem; color: var(--muted); font-weight: 300; font-style: italic; }
     </style>
 </head>
 <body>
@@ -434,10 +450,10 @@
         <section class="hero">
             <p class="hero-eyebrow" data-i18n="eyebrow">For people who've been "about to start" for years</p>
             <h1 class="hero-headline">
-                <span data-i18n="headline_1">You've been meaning</span><br><span data-i18n="headline_2">to start investing.</span><br><em data-i18n="headline_3">Today's the day.</em>
+                <span data-i18n="headline_1">You've been</span><br><em data-i18n="headline_2">'about to start</em><br><span data-i18n="headline_3">investing' for years.</span>
             </h1>
             <p class="hero-sub">
-                <span data-i18n="sub">No finance knowledge needed. From €10. Done in under 2 minutes.</span>
+                <span data-i18n="sub">You open an app, don't understand anything, and close it again. Ové makes it simple — start with €10, no finance knowledge needed.</span>
             </p>
             <div class="trust-pills">
                 <span class="trust-pill"><span class="trust-pill-dot green"></span><span data-i18n="trust_4">No app to download</span></span>
@@ -447,11 +463,41 @@
             </div>
             <div class="hero-cta">
                 <button class="cta-btn" id="open-waitlist">
-                    <span class="cta-btn-label" data-i18n="cta">I want to start investing</span>
+                    <span class="cta-btn-label" data-i18n="cta">I want to start investing (finally)</span>
                 </button>
                 <span class="cta-nudge" data-i18n="nudge">Spots are limited — be first when we launch.</span>
             </div>
         </section>
+
+        <!-- THIS IS ME -->
+        <div class="this-is-me">
+            <p class="this-is-me-title" data-i18n="tim_title">If this sounds like you</p>
+            <div class="this-is-me-items">
+                <p class="this-is-me-item" data-i18n="tim_1">"I feel like I should have started already"</p>
+                <p class="this-is-me-item" data-i18n="tim_2">"I don't know what to choose"</p>
+                <p class="this-is-me-item" data-i18n="tim_3">"I'm afraid of doing something wrong"</p>
+            </div>
+        </div>
+
+        <!-- HOW IT WORKS -->
+        <div class="how-it-works">
+            <p class="how-it-works-title" data-i18n="hiw_title">How it works</p>
+            <div class="how-steps">
+                <div class="how-step">
+                    <div class="how-step-num">1</div>
+                    <p class="how-step-text"><strong data-i18n="hiw_1a">Pick 1 of 3 simple options.</strong> <span data-i18n="hiw_1b">No research needed.</span></p>
+                </div>
+                <div class="how-step">
+                    <div class="how-step-num">2</div>
+                    <p class="how-step-text"><strong data-i18n="hiw_2a">Start with €10.</strong> <span data-i18n="hiw_2b">No minimum beyond that.</span></p>
+                </div>
+                <div class="how-step">
+                    <div class="how-step-num">3</div>
+                    <p class="how-step-text"><strong data-i18n="hiw_3a">You're done.</strong> <span data-i18n="hiw_3b">Your money works from day one.</span></p>
+                </div>
+            </div>
+            <p class="how-tagline" data-i18n="hiw_tagline">No confusion. No wrong decisions. Just done.</p>
+        </div>
 
         <!-- FOOTER -->
         <footer>
@@ -500,10 +546,10 @@
 
     <script>
         var translations = {
-            en: { nav_concept: "Concept", nav_waitlist: "Waitlist open", eyebrow: "For people who've been \"about to start\" for years", headline_1: "You've been meaning", headline_2: "to start investing.", headline_3: "Today's the day.", sub: "No finance knowledge needed. From €10. Done in under 2 minutes.", cta: "I want to start investing", nudge: "Spots are limited — be first when we launch.", modal_title: "Your someday is today.", modal_sub: "No payment, no commitment — just your spot in line.", flag: "🇬🇧", trust_4: "No app to download", trust_1: "Built in public", trust_2: "Not handling funds yet", trust_3: "Free to join", footer_built: "Building in public.", code: "EN", fi: "gb" },
-            sv: { nav_concept: "Koncept", nav_waitlist: "Öppen väntelista", eyebrow: "För dig som har tänkt börja investera i år", headline_1: "Du har länge tänkt", headline_2: "börja investera.", headline_3: "Idag är dagen.", sub: "Inga finanskunskaper behövs. Från €10. Klart på under 2 minuter.", cta: "Jag vill börja investera", nudge: "Platserna är begränsade — var först när vi lanserar.", modal_title: "Din dag är idag.", modal_sub: "Ingen betalning, inget åtagande — bara din plats i kön.", flag: "🇸🇪", trust_4: "Ingen app att ladda ner", trust_1: "Bygger öppet", trust_2: "Hanterar inga pengar ännu", trust_3: "Gratis att gå med", footer_built: "Bygger öppet.", code: "SV", fi: "se" },
-            es: { nav_concept: "Concepto", nav_waitlist: "Lista de espera abierta", eyebrow: "Para los que llevan años a punto de empezar", headline_1: "Llevas tiempo pensando", headline_2: "en invertir.", headline_3: "Hoy es el día.", sub: "Sin conocimientos financieros. Desde €10. Listo en menos de 2 minutos.", cta: "Quiero empezar a invertir", nudge: "Los cupos son limitados — sé el primero cuando lancemos.", modal_title: "Tu algún día es hoy.", modal_sub: "Sin pago, sin compromiso — solo tu lugar en la lista.", flag: "🇪🇸", trust_4: "Sin app que descargar", trust_1: "Construido en público", trust_2: "Sin gestión de fondos aún", trust_3: "Gratis unirse", footer_built: "Construyendo en público.", code: "ES", fi: "es" },
-            de: { nav_concept: "Konzept", nav_waitlist: "Warteliste offen", eyebrow: "Für alle, die schon lange anfangen wollten", headline_1: "Du wolltest schon lange", headline_2: "investieren.", headline_3: "Heute ist der Tag.", sub: "Kein Finanzwissen nötig. Ab €10. In unter 2 Minuten erledigt.", cta: "Ich will endlich investieren", nudge: "Plätze sind begrenzt — sei Erster, wenn wir starten.", modal_title: "Dein Irgendwann ist heute.", modal_sub: "Keine Zahlung, keine Verpflichtung — nur dein Platz.", flag: "🇩🇪", trust_4: "Keine App herunterladen", trust_1: "Öffentlich entwickelt", trust_2: "Noch keine Geldverwaltung", trust_3: "Kostenlos beitreten", footer_built: "Öffentlich entwickelt.", code: "DE", fi: "de" }
+            en: { nav_concept: "Concept", nav_waitlist: "Waitlist open", eyebrow: "For people who've been \"about to start\" for years", headline_1: "You've been", headline_2: "'about to start", headline_3: "investing' for years.", sub: "You open an app, don’t understand anything, and close it again. Ové makes it simple — start with €10, no finance knowledge needed.", cta: "I want to start investing (finally)", nudge: "Spots are limited — be first when we launch.", modal_title: "Your someday is today.", modal_sub: "No payment, no commitment — just your spot in line.", flag: "🇬🇧", trust_4: "No app to download", trust_1: "Built in public", trust_2: "Not handling funds yet", trust_3: "Free to join", footer_built: "Building in public.", tim_title: "If this sounds like you", tim_1: "“I feel like I should have started already”", tim_2: "“I don’t know what to choose”", tim_3: "“I’m afraid of doing something wrong”", hiw_title: "How it works", hiw_1a: "Pick 1 of 3 simple options.", hiw_1b: "No research needed.", hiw_2a: "Start with €10.", hiw_2b: "No minimum beyond that.", hiw_3a: "You're done.", hiw_3b: "Your money works from day one.", hiw_tagline: "No confusion. No wrong decisions. Just done.", code: "EN", fi: "gb" },
+            sv: { nav_concept: "Koncept", nav_waitlist: "Öppen väntelista", eyebrow: "För dig som har tänkt börja investera i år", headline_1: "Du har länge", headline_2: "tyckt att du borde", headline_3: "börja investera.", sub: "Du öppnar en app, förstår ingenting och stänger den igen. Ové gör det enkelt — börja med €10, inga finanskunskaper behövs.", cta: "Jag vill börja investera (omsider)", nudge: "Platserna är begränsade — var först när vi lanserar.", modal_title: "Din dag är idag.", modal_sub: "Ingen betalning, inget åtagande — bara din plats i kön.", flag: "🇸🇪", trust_4: "Ingen app att ladda ner", trust_1: "Bygger öppet", trust_2: "Hanterar inga pengar ännu", trust_3: "Gratis att gå med", footer_built: "Bygger öppet.", tim_title: "Känner du igen dig?", tim_1: "“Jag borde ha börjat redan”", tim_2: "“Jag vet inte vad jag ska välja”", tim_3: "“Jag är rädd att göra fel”", hiw_title: "Så fungerar det", hiw_1a: "Välj 1 av 3 enkla alternativ.", hiw_1b: "Ingen research behövs.", hiw_2a: "Börja med €10.", hiw_2b: "Inget minimum utöver det.", hiw_3a: "Klart.", hiw_3b: "Dina pengar jobbar från dag ett.", hiw_tagline: "Ingen förvirring. Inga felaktiga beslut. Bara klart.", code: "SV", fi: "se" },
+            es: { nav_concept: "Concepto", nav_waitlist: "Lista de espera abierta", eyebrow: "Para los que llevan años a punto de empezar", headline_1: "Llevas años", headline_2: "a punto de empezar", headline_3: "a invertir.", sub: "Abres una app, no entiendes nada y la cierras. Ové lo hace simple — empieza con €10, sin conocimientos financieros.", cta: "Quiero empezar a invertir (por fin)", nudge: "Los cupos son limitados — sé el primero cuando lancemos.", modal_title: "Tu algún día es hoy.", modal_sub: "Sin pago, sin compromiso — solo tu lugar en la lista.", flag: "🇪🇸", trust_4: "Sin app que descargar", trust_1: "Construido en público", trust_2: "Sin gestión de fondos aún", trust_3: "Gratis unirse", footer_built: "Construyendo en público.", tim_title: "¿Te suena familiar?", tim_1: "“Debерía haber empezado ya”", tim_2: "“No sé qué elegir”", tim_3: "“Tengo miedo de hacer algo mal”", hiw_title: "Cómo funciona", hiw_1a: "Elige 1 de 3 opciones simples.", hiw_1b: "Sin investigación.", hiw_2a: "Empieza con €10.", hiw_2b: "Sin mínimo adicional.", hiw_3a: "Listo.", hiw_3b: "Tu dinero trabaja desde el primer día.", hiw_tagline: "Sin confusión. Sin decisiones erróneas. Simplemente hecho.", code: "ES", fi: "es" },
+            de: { nav_concept: "Konzept", nav_waitlist: "Warteliste offen", eyebrow: "Für alle, die schon lange anfangen wollten", headline_1: "Du wolltest schon", headline_2: "lange anfangen,", headline_3: "zu investieren.", sub: "Du öffnest eine App, verstehst nichts und schließt sie wieder. Ové macht es einfach — starte mit €10, kein Finanzwissen nötig.", cta: "Ich will endlich investieren", nudge: "Plätze sind begrenzt — sei Erster, wenn wir starten.", modal_title: "Dein Irgendwann ist heute.", modal_sub: "Keine Zahlung, keine Verpflichtung — nur dein Platz.", flag: "🇩🇪", trust_4: "Keine App herunterladen", trust_1: "Öffentlich entwickelt", trust_2: "Noch keine Geldverwaltung", trust_3: "Kostenlos beitreten", footer_built: "Öffentlich entwickelt.", tim_title: "Klingt das vertraut?", tim_1: "“Ich hätte längst anfangen sollen”", tim_2: "“Ich weiß nicht, was ich wählen soll”", tim_3: "“Ich habe Angst, etwas falsch zu machen”", hiw_title: "So funktioniert es", hiw_1a: "Wähle 1 von 3 einfachen Optionen.", hiw_1b: "Keine Recherche nötig.", hiw_2a: "Starte mit €10.", hiw_2b: "Kein weiteres Minimum.", hiw_3a: "Fertig.", hiw_3b: "Dein Geld arbeitet ab Tag eins.", hiw_tagline: "Keine Verwirrung. Keine falschen Entscheidungen. Einfach erledigt.", code: "DE", fi: "de" }
         };
 
         var currentLang = localStorage.getItem('ove-lang') || 'en';
