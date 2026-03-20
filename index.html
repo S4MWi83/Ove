@@ -396,6 +396,15 @@
         .lang-option:hover { background: rgba(255,255,255,0.05); color: var(--cream); }
         .lang-option.active { color: var(--cream); background: rgba(59,130,246,0.1); }
         .lang-flag { font-size: 1rem; }
+
+        /* TRUST PILLS */
+        .trust-pills { display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+        .trust-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 400; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 0.35rem 0.85rem; border-radius: 999px; letter-spacing: 0.02em; }
+        .trust-pill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blue); opacity: 0.7; flex-shrink: 0; }
+        .trust-pill-dot.green { background: #4ade80; }
+
+        /* FOOTER BUILD IN PUBLIC */
+        .footer-built { font-size: 0.78rem; color: var(--muted); font-weight: 300; opacity: 0.7; }
     </style>
 </head>
 <body>
@@ -430,6 +439,12 @@
             <p class="hero-sub">
                 <span data-i18n="sub">Investing for complete beginners. Under 2 minutes. From €10. Zero jargon.</span>
             </p>
+            <div class="trust-pills">
+                <span class="trust-pill"><span class="trust-pill-dot green"></span><span data-i18n="trust_4">No app to download</span></span>
+                <span class="trust-pill"><span class="trust-pill-dot green"></span><span data-i18n="trust_1">Built in public</span></span>
+                <span class="trust-pill"><span class="trust-pill-dot"></span><span data-i18n="trust_2">Not handling funds yet</span></span>
+                <span class="trust-pill"><span class="trust-pill-dot"></span><span data-i18n="trust_3">Free to join</span></span>
+            </div>
             <div class="hero-cta">
                 <button class="cta-btn" id="open-waitlist">
                     <span class="cta-btn-label" data-i18n="cta">Join the waitlist</span>
@@ -440,7 +455,7 @@
 
         <!-- FOOTER -->
         <footer>
-            <span>© <span id="year"></span> Ové. All rights reserved.</span>
+            <span>© <span id="year"></span> Ové. All rights reserved. <span class="footer-built" data-i18n="footer_built">— Building in public.</span></span>
             <div class="footer-links">
                 <a href="https://x.com/BeginOve" target="_blank">@BeginOve on X</a>
             </div>
@@ -485,10 +500,10 @@
 
     <script>
         var translations = {
-            en: { nav_concept: "Concept", nav_waitlist: "Waitlist open", eyebrow: "For the 91% of Europeans who haven't started yet", headline_1: "From", headline_2: "someday", headline_3: "to today.", sub: "Investing for complete beginners. Under 2 minutes. From €10. Zero jargon.", cta: "Join the waitlist", nudge: "Spots are limited — be first when we launch.", modal_title: "Your someday is today.", modal_sub: "No payment, no commitment — just your spot in line.", flag: "🇬🇧", code: "EN", fi: "gb" },
-            sv: { nav_concept: "Koncept", nav_waitlist: "Öppen väntelista", eyebrow: "För de 91% av européerna som inte börjat än", headline_1: "Från", headline_2: "en dag", headline_3: "till idag.", sub: "Investering för nybörjare. Under 2 minuter. Från €10. Utan krångel.", cta: "Gå med i väntelistan", nudge: "Platserna är begränsade — var först när vi lanserar.", modal_title: "Din dag är idag.", modal_sub: "Ingen betalning, inget åtagande — bara din plats i kön.", flag: "🇸🇪", code: "SV", fi: "se" },
-            es: { nav_concept: "Concepto", nav_waitlist: "Lista de espera abierta", eyebrow: "Para el 91% de los europeos que aún no han empezado", headline_1: "De", headline_2: "algún día", headline_3: "al hoy.", sub: "Inversión para principiantes. Menos de 2 minutos. Desde €10. Sin jerga.", cta: "Unirse a la lista de espera", nudge: "Los cupos son limitados — sé el primero cuando lancemos.", modal_title: "Tu algún día es hoy.", modal_sub: "Sin pago, sin compromiso — solo tu lugar en la lista.", flag: "🇪🇸", code: "ES", fi: "es" },
-            de: { nav_concept: "Konzept", nav_waitlist: "Warteliste offen", eyebrow: "Für die 91% der Europäer, die noch nicht angefangen haben", headline_1: "Von", headline_2: "irgendwann", headline_3: "zu heute.", sub: "Investieren für absolute Anfänger. Unter 2 Minuten. Ab €10. Kein Fachjargon.", cta: "Zur Warteliste anmelden", nudge: "Plätze sind begrenzt — sei Erster, wenn wir starten.", modal_title: "Dein Irgendwann ist heute.", modal_sub: "Keine Zahlung, keine Verpflichtung — nur dein Platz.", flag: "🇩🇪", code: "DE", fi: "de" }
+            en: { nav_concept: "Concept", nav_waitlist: "Waitlist open", eyebrow: "For the 91% of Europeans who haven't started yet", headline_1: "From", headline_2: "someday", headline_3: "to today.", sub: "Investing for complete beginners. Under 2 minutes. From €10. Zero jargon.", cta: "Join the waitlist", nudge: "Spots are limited — be first when we launch.", modal_title: "Your someday is today.", modal_sub: "No payment, no commitment — just your spot in line.", flag: "🇬🇧", trust_4: "No app to download", trust_1: "Built in public", trust_2: "Not handling funds yet", trust_3: "Free to join", footer_built: "Building in public.", code: "EN", fi: "gb" },
+            sv: { nav_concept: "Koncept", nav_waitlist: "Öppen väntelista", eyebrow: "För de 91% av européerna som inte börjat än", headline_1: "Från", headline_2: "en dag", headline_3: "till idag.", sub: "Investering för nybörjare. Under 2 minuter. Från €10. Utan krångel.", cta: "Gå med i väntelistan", nudge: "Platserna är begränsade — var först när vi lanserar.", modal_title: "Din dag är idag.", modal_sub: "Ingen betalning, inget åtagande — bara din plats i kön.", flag: "🇸🇪", trust_4: "Ingen app att ladda ner", trust_1: "Bygger öppet", trust_2: "Hanterar inga pengar ännu", trust_3: "Gratis att gå med", footer_built: "Bygger öppet.", code: "SV", fi: "se" },
+            es: { nav_concept: "Concepto", nav_waitlist: "Lista de espera abierta", eyebrow: "Para el 91% de los europeos que aún no han empezado", headline_1: "De", headline_2: "algún día", headline_3: "al hoy.", sub: "Inversión para principiantes. Menos de 2 minutos. Desde €10. Sin jerga.", cta: "Unirse a la lista de espera", nudge: "Los cupos son limitados — sé el primero cuando lancemos.", modal_title: "Tu algún día es hoy.", modal_sub: "Sin pago, sin compromiso — solo tu lugar en la lista.", flag: "🇪🇸", trust_4: "Sin app que descargar", trust_1: "Construido en público", trust_2: "Sin gestión de fondos aún", trust_3: "Gratis unirse", footer_built: "Construyendo en público.", code: "ES", fi: "es" },
+            de: { nav_concept: "Konzept", nav_waitlist: "Warteliste offen", eyebrow: "Für die 91% der Europäer, die noch nicht angefangen haben", headline_1: "Von", headline_2: "irgendwann", headline_3: "zu heute.", sub: "Investieren für absolute Anfänger. Unter 2 Minuten. Ab €10. Kein Fachjargon.", cta: "Zur Warteliste anmelden", nudge: "Plätze sind begrenzt — sei Erster, wenn wir starten.", modal_title: "Dein Irgendwann ist heute.", modal_sub: "Keine Zahlung, keine Verpflichtung — nur dein Platz.", flag: "🇩🇪", trust_4: "Keine App herunterladen", trust_1: "Öffentlich entwickelt", trust_2: "Noch keine Geldverwaltung", trust_3: "Kostenlos beitreten", footer_built: "Öffentlich entwickelt.", code: "DE", fi: "de" }
         };
 
         var currentLang = localStorage.getItem('ove-lang') || 'en';
