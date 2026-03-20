@@ -225,29 +225,65 @@
         }
 
         .cta-btn {
+            position: relative;
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
-            background: var(--blue);
-            color: white;
+            gap: 1rem;
+            background: transparent;
+            color: var(--cream);
             font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            padding: 0.95rem 2.4rem;
+            padding: 1.1rem 3rem;
             border-radius: 999px;
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 24px rgba(59,130,246,0.35);
+            transition: all 0.4s ease;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            outline: none;
             text-decoration: none;
         }
-        .cta-btn:hover {
-            background: #2563eb;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(59,130,246,0.5);
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            border: 1px solid rgba(59,130,246,0.35);
+            transition: all 0.4s ease;
+            pointer-events: none;
         }
-        .cta-btn svg { transition: transform 0.3s ease; }
-        .cta-btn:hover svg { transform: translateX(3px); }
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border-radius: 999px;
+            border: 1px solid rgba(59,130,246,0.15);
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+        .cta-btn:hover::before { border-color: rgba(59,130,246,0.7); box-shadow: 0 0 20px rgba(59,130,246,0.2), inset 0 0 20px rgba(59,130,246,0.05); }
+        .cta-btn:hover::after { border-color: rgba(59,130,246,0.35); }
+        .cta-btn:hover { color: white; }
+        .cta-btn-icon {
+            position: relative;
+            z-index: 1;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(59,130,246,0.15);
+            border: 1px solid rgba(59,130,246,0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 12px rgba(59,130,246,0.2);
+        }
+        .cta-btn:hover .cta-btn-icon { background: rgba(59,130,246,0.3); border-color: rgba(59,130,246,0.6); box-shadow: 0 0 20px rgba(59,130,246,0.4); }
+        .cta-btn-icon svg { color: var(--blue); transition: transform 0.3s ease; }
+        .cta-btn:hover .cta-btn-icon svg { transform: scale(1.15); }
+        .cta-btn-label { position: relative; z-index: 1; }
 
         .cta-nudge {
             display: block;
@@ -396,8 +432,7 @@
             </p>
             <div class="hero-cta">
                 <button class="cta-btn" id="open-waitlist">
-                    <span data-i18n="cta">Join the waitlist</span>
-                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span class="cta-btn-label" data-i18n="cta">Join the waitlist</span>
                 </button>
                 <span class="cta-nudge" data-i18n="nudge">No payment, no commitment — launching soon.</span>
             </div>
