@@ -374,7 +374,7 @@
                 <a href="/vision.html" class="nav-link">Vision</a>
                 <span class="nav-pill" data-i18n="nav_waitlist">Waitlist open</span>
                 <div class="lang-switcher" id="lang-switcher">
-                    <button class="lang-btn" id="lang-btn"><img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'><rect width='60' height='30' fill='%23012169'/><path d='M0 0l60 30M60 0L0 30' stroke='%23fff' stroke-width='6'/><path d='M0 0l60 30M60 0L0 30' stroke='%23C8102E' stroke-width='4'/><path d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/><path d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/></svg>" width="20" height="13" style="vertical-align:middle;margin-right:5px;border-radius:2px"> <span id="lang-code">EN</span> ▾</button>
+                    <button class="lang-btn" id="lang-btn">&#127760; <span id="lang-code">EN</span> &#9660;</button>
                     <div class="lang-dropdown" id="lang-dropdown">
                         <button class="lang-option active" data-lang="en">English</button>
                         <button class="lang-option" data-lang="sv">Svenska</button>
@@ -472,7 +472,7 @@
                 var key = el.getAttribute('data-i18n');
                 if (t[key]) el.textContent = t[key];
             });
-            document.getElementById('lang-btn').innerHTML = '<span class="fi fi-' + t.fi + '"></span> ' + t.code + ' \u25be';
+            document.getElementById('lang-code').textContent = t.code;
             document.querySelectorAll('.lang-option').forEach(function(opt) {
                 opt.classList.toggle('active', opt.dataset.lang === lang);
             });
