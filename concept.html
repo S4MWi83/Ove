@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ové — Vision & Product Concept</title>
-    <meta name="description" content="The full vision behind Ové — why we're building the investing app Europe has been waiting for.">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVSFPMXDRR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CVSFPMXDRR');
+    </script>
+    <title>Concept — Ové</title>
+    <meta name="description" content="How Ové works — three steps, zero jargon.">
+    <link rel="canonical" href="https://meetove.pro/concept.html">
     <link rel="icon" type="image/svg+xml" href="ove-favicon-e.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,466 +21,204 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
     <style>
         :root {
-            --midnight: #0a1628;
-            --deep: #060f1e;
-            --blue: #3b82f6;
-            --blue-dim: rgba(59,130,246,0.12);
-            --cream: #f0ece4;
-            --muted: #9db5cc;
-            --border: rgba(255,255,255,0.07);
-            --card: rgba(255,255,255,0.03);
+            --deep:#060f1e; --blue:#3b82f6; --blue-dim:rgba(59,130,246,0.15);
+            --blue-glow:rgba(59,130,246,0.35); --cream:#f0ece4;
+            --muted:#9db5cc; --border:rgba(255,255,255,0.07); --card:rgba(255,255,255,0.03);
+            --green:#4ade80;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--deep);
-            color: var(--cream);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-            z-index: 0;
-        }
-        .orb-1 {
-            width: 50vw; height: 50vw;
-            top: -15vw; left: 50%;
-            transform: translateX(-50%);
-            background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%);
-        }
-
-        .wrap {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 0 2rem 6rem;
-            position: relative;
-            z-index: 1;
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'DM Sans',sans-serif; background:var(--deep); color:var(--cream); min-height:100vh; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+        body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.4; }
+        .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; }
+        .orb-1 { width:55vw; height:55vw; top:-18vw; left:50%; transform:translateX(-50%); background:radial-gradient(circle,rgba(59,130,246,0.13),transparent 70%); }
+        .orb-2 { width:28vw; height:28vw; bottom:8%; right:-6%; background:radial-gradient(circle,rgba(59,130,246,0.07),transparent 70%); }
+        .wrap { max-width:1080px; margin:0 auto; padding:0 2rem; position:relative; z-index:1; }
 
         /* NAV */
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 2rem 0 4rem;
-        }
+        nav { display:flex; align-items:center; justify-content:space-between; padding:2rem 0; opacity:0; animation:fadeDown 0.6s ease forwards 0.1s; position:relative; z-index:500; }
+        .nav-logo { font-family:'Instrument Serif',serif; font-size:1.8rem; color:var(--cream); text-decoration:none; position:relative; }
+        .nav-logo span { display:inline-block; width:6px; height:6px; background:var(--blue); border-radius:50%; position:absolute; top:6px; right:-9px; box-shadow:0 0 8px var(--blue-glow); }
+        .nav-links { display:flex; align-items:center; gap:1.5rem; }
+        .nav-link { font-size:0.85rem; font-weight:400; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+        .nav-link:hover, .nav-link.active { color:var(--cream); }
+        .nav-home { font-size:0.85rem; color:var(--muted); text-decoration:none; display:flex; align-items:center; gap:0.35rem; transition:color 0.2s; padding-right:1.5rem; border-right:1px solid var(--border); }
+        .nav-home:hover { color:var(--cream); }
+        .nav-cta { font-size:0.8rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue); background:var(--blue-dim); border:1px solid rgba(59,130,246,0.2); padding:0.4rem 1rem; border-radius:999px; cursor:default; font-family:'DM Sans',sans-serif; }
 
-        .nav-logo {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.6rem;
-            color: var(--cream);
-            text-decoration: none;
-            position: relative;
-        }
-        .nav-logo span {
-            display: inline-block;
-            width: 5px; height: 5px;
-            background: var(--blue);
-            border-radius: 50%;
-            position: absolute;
-            top: 5px; right: -8px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .nav-home {
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: var(--muted);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
-            transition: color 0.2s;
-            padding-right: 1.5rem;
-            border-right: 1px solid rgba(255,255,255,0.07);
-        }
-        .nav-home:hover { color: var(--cream); }
-
-        .nav-link {
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: var(--muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .nav-link:hover { color: var(--cream); }
-        .nav-link.active { color: var(--cream); }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .download-btn {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--blue);
-            background: var(--blue-dim);
-            border: 1px solid rgba(59,130,246,0.2);
-            padding: 0.45rem 1.1rem;
-            border-radius: 999px;
-            text-decoration: none;
-            transition: all 0.2s;
-            font-family: 'DM Sans', sans-serif;
-        }
-        .download-btn:hover {
-            background: rgba(59,130,246,0.2);
-        }
+        /* LANG SWITCHER */
+        .lang-switcher { position:relative; }
+        .lang-btn { background:none; border:1px solid var(--border); border-radius:8px; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.8rem; padding:0.3rem 0.6rem; cursor:pointer; display:flex; align-items:center; gap:0.3rem; transition:all 0.2s; white-space:nowrap; }
+        .lang-btn:hover { color:var(--cream); border-color:rgba(255,255,255,0.15); }
+        .lang-dropdown { display:none; position:absolute; top:calc(100% + 8px); right:0; background:#0d1f38; border:1px solid var(--border); border-radius:12px; overflow:hidden; min-width:130px; box-shadow:0 8px 32px rgba(0,0,0,0.4); z-index:999; }
+        .lang-switcher.open .lang-dropdown { display:block; }
+        .lang-option { display:flex; align-items:center; gap:0.6rem; padding:0.65rem 1rem; font-size:0.82rem; color:var(--muted); cursor:pointer; transition:all 0.15s; border:none; background:none; width:100%; font-family:'DM Sans',sans-serif; text-align:left; }
+        .lang-option:hover { background:rgba(255,255,255,0.05); color:var(--cream); }
+        .lang-option.active { color:var(--cream); background:rgba(59,130,246,0.1); }
 
         /* HERO */
-        .hero {
-            margin-bottom: 5rem;
-            opacity: 0;
-            animation: fadeUp 0.7s ease forwards 0.2s;
-        }
+        .hero { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:calc(100vh - 120px); padding:4rem 0 6rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.3s; }
+        .hero-eyebrow { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:2rem; }
+        .hero-headline { font-family:'Instrument Serif',serif; font-size:clamp(2.8rem,6vw,5.5rem); line-height:1.06; letter-spacing:-0.02em; margin-bottom:1.5rem; }
+        .hero-headline em { font-style:italic; color:#93c5fd; }
+        .hero-sub { font-size:clamp(1rem,2vw,1.15rem); color:var(--muted); font-weight:300; max-width:400px; line-height:1.75; margin-bottom:3.5rem; }
 
-        .hero-label {
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--blue);
-            margin-bottom: 1.25rem;
-        }
+        /* DEMO LAUNCH BUTTON */
+        .demo-launch-btn { position:relative; display:inline-flex; align-items:center; gap:1rem; background:transparent; color:var(--cream); font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:500; padding:0.9rem 1.75rem 0.9rem 1rem; border-radius:999px; border:none; cursor:pointer; transition:all 0.4s ease; letter-spacing:0.12em; text-transform:uppercase; outline:none; }
+        .demo-launch-btn::before { content:''; position:absolute; inset:0; border-radius:999px; border:1px solid rgba(59,130,246,0.35); transition:all 0.4s ease; pointer-events:none; }
+        .demo-launch-btn::after { content:''; position:absolute; inset:3px; border-radius:999px; border:1px solid rgba(59,130,246,0.15); transition:all 0.4s ease; pointer-events:none; }
+        .demo-launch-btn:hover::before { border-color:rgba(59,130,246,0.7); box-shadow:0 0 20px rgba(59,130,246,0.2),inset 0 0 20px rgba(59,130,246,0.05); }
+        .demo-launch-btn:hover::after { border-color:rgba(59,130,246,0.35); }
+        .demo-launch-btn:hover { color:white; }
+        .demo-btn-icon { position:relative; z-index:1; width:38px; height:38px; border-radius:50%; background:rgba(59,130,246,0.15); border:1px solid rgba(59,130,246,0.35); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.4s ease; box-shadow:0 0 12px rgba(59,130,246,0.2); }
+        .demo-launch-btn:hover .demo-btn-icon { background:rgba(59,130,246,0.3); border-color:rgba(59,130,246,0.6); box-shadow:0 0 20px rgba(59,130,246,0.4); }
+        .demo-btn-icon svg { color:var(--blue); transition:transform 0.3s ease; }
+        .demo-launch-btn:hover .demo-btn-icon svg { transform:scale(1.15); }
+        .demo-btn-label { position:relative; z-index:1; }
+        .demo-btn-label-main { font-size:0.9rem; color:var(--cream); letter-spacing:0.06em; font-weight:500; transition:color 0.3s; }
+        .demo-launch-btn:hover .demo-btn-label-main { color:white; }
 
-        .hero-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
+        /* WAITLIST STRIP */
+        .waitlist-strip { margin-bottom:6rem; background:linear-gradient(135deg,rgba(59,130,246,0.08) 0%,rgba(10,22,40,0.5) 100%); border:1px solid rgba(59,130,246,0.15); border-radius:28px; padding:3rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; position:relative; overflow:hidden; }
+        .waitlist-strip::before { content:''; position:absolute; top:-50%; left:50%; transform:translateX(-50%); width:60%; height:100%; background:radial-gradient(ellipse,rgba(59,130,246,0.1) 0%,transparent 70%); pointer-events:none; }
+        .waitlist-strip-text { position:relative; }
+        .waitlist-strip-title { font-family:'Instrument Serif',serif; font-size:clamp(1.5rem,3vw,2rem); margin-bottom:0.4rem; }
+        .waitlist-strip-sub { font-size:0.95rem; color:var(--muted); font-weight:300; }
+        .cta-btn { display:inline-flex; align-items:center; gap:0.6rem; background:var(--blue); color:white; font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:500; padding:0.9rem 2.2rem; border-radius:999px; border:none; cursor:pointer; transition:all 0.3s ease; box-shadow:0 4px 20px rgba(59,130,246,0.3); flex-shrink:0; }
+        .cta-btn:hover { background:#2563eb; transform:translateY(-2px); box-shadow:0 8px 30px rgba(59,130,246,0.45); }
+        .cta-btn svg { transition:transform 0.3s ease; }
+        .cta-btn:hover svg { transform:translateX(3px); }
 
-        .hero-title em {
-            font-style: italic;
-            color: #93c5fd;
-        }
+        /* FOOTER */
+        footer { border-top:1px solid var(--border); padding:2.5rem 0; display:flex; align-items:center; justify-content:space-between; color:var(--muted); font-size:0.85rem; font-weight:300; flex-wrap:wrap; gap:1rem; }
+        .footer-links { display:flex; gap:1.5rem; }
+        .footer-links a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
+        .footer-links a:hover { color:var(--cream); }
 
-        .hero-sub {
-            font-size: 1.1rem;
-            color: var(--muted);
-            font-weight: 300;
-            max-width: 540px;
-            line-height: 1.7;
-        }
+        /* DEMO OVERLAY */
+        .demo-overlay { display:none; position:fixed; inset:0; background:rgba(6,15,30,0.92); backdrop-filter:blur(10px); z-index:200; align-items:center; justify-content:center; padding:2rem; }
+        .demo-overlay.open { display:flex; }
+        .demo-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.18); border-radius:28px; width:100%; max-width:460px; position:relative; overflow:hidden; box-shadow:0 40px 100px rgba(0,0,0,0.6); animation:scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+        .demo-progress { height:3px; background:rgba(255,255,255,0.05); }
+        .demo-progress-bar { height:100%; background:linear-gradient(90deg,var(--blue),#60a5fa); transition:width 0.5s cubic-bezier(0.4,0,0.2,1); width:0%; }
+        .demo-close { position:absolute; top:1.25rem; right:1.25rem; background:rgba(255,255,255,0.06); border:1px solid var(--border); border-radius:50%; width:30px; height:30px; display:flex; align-items:center; justify-content:center; color:var(--muted); cursor:pointer; font-size:0.9rem; transition:all 0.2s; z-index:10; }
+        .demo-close:hover { background:rgba(255,255,255,0.1); color:var(--cream); }
+        .demo-steps-indicator { display:flex; gap:6px; padding:1.5rem 2rem 0; }
+        .demo-step-dot { height:3px; border-radius:2px; background:rgba(255,255,255,0.1); flex:1; transition:all 0.4s ease; }
+        .demo-step-dot.active { background:var(--blue); }
+        .demo-step-dot.done { background:rgba(59,130,246,0.4); }
+        .demo-panel { display:none; padding:1.75rem 2rem 2rem; }
+        .demo-panel.active { display:block; animation:panelIn 0.3s ease; }
+        .demo-eyebrow { font-size:0.7rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--blue); margin-bottom:0.6rem; }
+        .demo-title { font-family:'Instrument Serif',serif; font-size:1.75rem; line-height:1.15; margin-bottom:0.4rem; }
+        .demo-sub { font-size:0.88rem; color:var(--muted); font-weight:300; line-height:1.65; margin-bottom:1.5rem; }
 
-        /* SECTIONS */
-        .section {
-            margin-bottom: 4rem;
-            opacity: 0;
-            animation: fadeUp 0.7s ease forwards;
-        }
+        /* STEP 1 */
+        .demo-form { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:1.5rem; }
+        .demo-field label { display:block; font-size:0.72rem; color:var(--muted); font-weight:400; margin-bottom:0.3rem; letter-spacing:0.05em; text-transform:uppercase; }
+        .demo-input { background:rgba(255,255,255,0.04); border:1px solid rgba(59,130,246,0.15); border-radius:12px; padding:0.75rem 1rem; font-size:0.95rem; color:var(--cream); font-family:'DM Sans',sans-serif; display:flex; align-items:center; gap:0.5rem; }
+        .demo-input-real { background:rgba(255,255,255,0.05); border:1px solid rgba(59,130,246,0.25); border-radius:12px; padding:0.75rem 1rem; font-size:0.95rem; color:var(--cream); font-family:'DM Sans',sans-serif; width:100%; outline:none; transition:border-color 0.2s,box-shadow 0.2s; caret-color:var(--blue); }
+        .demo-input-real::placeholder { color:rgba(122,143,168,0.4); }
+        .demo-input-real:focus { border-color:rgba(59,130,246,0.6); box-shadow:0 0 0 3px rgba(59,130,246,0.08); }
+        .demo-input-check { margin-left:auto; width:16px; height:16px; background:rgba(74,222,128,0.15); border:1px solid rgba(74,222,128,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:var(--green); flex-shrink:0; transition:opacity 0.2s; }
 
-        .section-label {
-            font-size: 0.72rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--blue);
-            margin-bottom: 0.75rem;
-        }
+        /* STEP 2 */
+        .demo-slider-wrap { margin-bottom:1.5rem; }
+        .demo-slider-header { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:1rem; }
+        .demo-slider-amount { font-family:'Instrument Serif',serif; font-size:3rem; color:var(--cream); line-height:1; letter-spacing:-0.02em; transition:all 0.15s ease; }
+        .demo-slider-amount span { font-size:1.4rem; color:var(--muted); }
+        .demo-slider-mo { font-size:0.82rem; color:var(--muted); font-weight:300; }
+        .demo-slider { -webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px; background:rgba(255,255,255,0.08); outline:none; cursor:pointer; }
+        .demo-slider::-webkit-slider-thumb { -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; box-shadow:0 0 12px rgba(59,130,246,0.6); transition:transform 0.15s; border:2px solid rgba(255,255,255,0.2); }
+        .demo-slider::-webkit-slider-thumb:hover { transform:scale(1.25); }
+        .demo-slider::-moz-range-thumb { width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; border:2px solid rgba(255,255,255,0.2); box-shadow:0 0 12px rgba(59,130,246,0.6); }
+        .demo-slider-labels { display:flex; justify-content:space-between; font-size:0.7rem; color:var(--muted); margin-top:0.5rem; font-weight:300; }
+        .demo-custom-wrap { margin:1rem 0 1rem; }
+        .demo-custom-label { display:block; font-size:0.72rem; color:var(--muted); font-weight:400; margin-bottom:0.3rem; letter-spacing:0.05em; text-transform:uppercase; }
+        .demo-custom-input-wrap { display:flex; align-items:center; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.2s; }
+        .demo-custom-input-wrap:focus-within { border-color:rgba(59,130,246,0.4); }
+        .demo-custom-euro { padding:0.75rem 0.5rem 0.75rem 1rem; font-size:0.95rem; color:var(--muted); }
+        .demo-custom-input { flex:1; background:none; border:none; outline:none; padding:0.75rem 1rem 0.75rem 0; font-size:0.95rem; color:var(--cream); font-family:'DM Sans',sans-serif; caret-color:var(--blue); }
+        .demo-custom-input::placeholder { color:rgba(122,143,168,0.4); }
+        .demo-custom-input::-webkit-outer-spin-button, .demo-custom-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+        .demo-projection { margin-bottom:1.5rem; padding:1.25rem; background:rgba(74,222,128,0.05); border:1px solid rgba(74,222,128,0.12); border-radius:14px; }
+        .demo-proj-number { font-family:'Instrument Serif',serif; font-size:2.4rem; color:var(--green); line-height:1; margin-bottom:0.4rem; letter-spacing:-0.02em; transition:all 0.3s ease; }
+        .demo-proj-label { font-size:0.82rem; color:var(--muted); font-weight:300; line-height:1.5; }
 
-        .section-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1.25rem;
-            line-height: 1.2;
-        }
+        /* STEP 3 */
+        .demo-portfolios { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:1.5rem; }
+        .demo-portfolio { border:1px solid var(--border); border-left:3px solid transparent; border-radius:16px; padding:1rem 1.25rem; cursor:pointer; transition:all 0.2s ease; background:rgba(255,255,255,0.02); position:relative; }
+        .demo-portfolio[data-p="steady"] { --p-color:#4ade80; }
+        .demo-portfolio[data-p="balanced"] { --p-color:#3b82f6; }
+        .demo-portfolio[data-p="growth"] { --p-color:#f97316; }
+        .demo-portfolio:hover { border-color:rgba(255,255,255,0.1); border-left-color:var(--p-color); }
+        .demo-portfolio.active { border-color:rgba(255,255,255,0.1); border-left-color:var(--p-color); background:rgba(255,255,255,0.04); box-shadow:inset 3px 0 12px -4px var(--p-color); }
+        .demo-p-badge { position:absolute; top:-1px; right:1rem; font-size:0.65rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--blue); background:#0b1829; padding:0 0.5rem; }
+        .demo-p-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:0.35rem; }
+        .demo-p-name { font-size:0.95rem; font-weight:500; color:var(--cream); }
+        .demo-p-risk { font-size:0.73rem; color:var(--muted); font-weight:300; margin-top:0.15rem; }
+        .demo-p-proj { font-size:0.82rem; color:var(--p-color); font-weight:500; white-space:nowrap; opacity:0.9; }
+        .demo-p-alloc { font-size:0.75rem; color:var(--muted); font-weight:300; letter-spacing:0.02em; }
 
-        .section p {
-            color: var(--muted);
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
+        /* BUTTONS */
+        .demo-btn-row { display:flex; gap:0.65rem; align-items:center; }
+        .demo-back-btn { display:flex; align-items:center; justify-content:center; gap:0.4rem; background:rgba(255,255,255,0.04); border:1px solid var(--border); color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.9rem; padding:0.95rem 1.1rem; border-radius:14px; cursor:pointer; transition:all 0.2s ease; flex-shrink:0; }
+        .demo-back-btn:hover { background:rgba(255,255,255,0.07); color:var(--cream); border-color:rgba(255,255,255,0.15); }
+        .demo-next-btn { display:flex; align-items:center; justify-content:center; gap:0.6rem; flex:1; background:var(--blue); color:white; font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:500; padding:0.95rem 1.5rem; border-radius:14px; border:none; cursor:pointer; transition:all 0.25s ease; box-shadow:0 4px 20px rgba(59,130,246,0.25); }
+        .demo-next-btn:hover { background:#2563eb; transform:translateY(-1px); box-shadow:0 6px 24px rgba(59,130,246,0.4); }
+        .demo-next-btn svg { transition:transform 0.2s ease; }
+        .demo-next-btn:hover svg { transform:translateX(3px); }
+        .demo-next-btn.full { width:100%; }
 
-        .section p strong {
-            color: var(--cream);
-            font-weight: 500;
-        }
+        /* DONE */
+        .demo-done-icon { width:56px; height:56px; border-radius:50%; background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.3); display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:var(--green); margin-bottom:1.25rem; box-shadow:0 0 24px rgba(74,222,128,0.15); animation:popIn 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+        @keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+        .demo-receipt { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:18px; overflow:hidden; margin-bottom:1.75rem; }
+        .demo-receipt-hero { padding:1.5rem; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; }
+        .demo-receipt-proj { font-family:'Instrument Serif',serif; font-size:2.8rem; color:var(--green); line-height:1; letter-spacing:-0.02em; margin-bottom:0.3rem; }
+        .demo-receipt-proj-label { font-size:0.78rem; color:var(--muted); font-weight:300; }
+        .demo-receipt-rows { padding:0.75rem 1.25rem; }
+        .demo-receipt-row { display:flex; justify-content:space-between; align-items:center; padding:0.55rem 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+        .demo-receipt-row:last-child { border-bottom:none; }
+        .demo-receipt-key { font-size:0.78rem; color:var(--muted); font-weight:300; text-transform:uppercase; letter-spacing:0.06em; }
+        .demo-receipt-val { font-size:0.9rem; color:var(--cream); font-weight:500; }
+        .demo-restart { width:100%; margin-top:0.65rem; background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.85rem; cursor:pointer; transition:color 0.2s; padding:0.5rem; }
+        .demo-restart:hover { color:var(--cream); }
 
-        /* DIVIDER */
-        .divider {
-            width: 48px;
-            height: 1px;
-            background: rgba(59,130,246,0.3);
-            margin: 3rem 0;
-        }
-
-        /* STAT BLOCKS */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            margin: 2rem 0;
-        }
-
-        .stat-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem;
-        }
-
-        .stat-num {
-            font-family: 'Instrument Serif', serif;
-            font-size: 2rem;
-            color: var(--cream);
-            line-height: 1;
-            margin-bottom: 0.4rem;
-        }
-
-        .stat-label {
-            font-size: 0.82rem;
-            color: var(--muted);
-            font-weight: 300;
-            line-height: 1.4;
-        }
-
-        /* STEPS */
-        .steps {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            margin: 1.5rem 0;
-        }
-
-        .step {
-            display: flex;
-            gap: 1.25rem;
-            padding-bottom: 2rem;
-            position: relative;
-        }
-        .step:last-child { padding-bottom: 0; }
-
-        .step-num {
-            width: 32px; height: 32px;
-            border-radius: 50%;
-            background: var(--blue-dim);
-            border: 1px solid rgba(59,130,246,0.25);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.78rem;
-            font-weight: 500;
-            color: var(--blue);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .step-connector {
-            position: absolute;
-            left: 15px;
-            top: 34px;
-            width: 1px;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(59,130,246,0.2), transparent);
-        }
-        .step:last-child .step-connector { display: none; }
-
-        .step-title {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--cream);
-            margin-bottom: 0.3rem;
-        }
-
-        .step-desc {
-            font-size: 0.9rem;
-            color: var(--muted);
-            font-weight: 300;
-        }
-
-        /* TABLE */
-        .table-wrap {
-            overflow-x: auto;
-            margin: 1.5rem 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-
-        th {
-            text-align: left;
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--muted);
-        }
-
-        td {
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-            color: var(--muted);
-            font-weight: 300;
-        }
-
-        td:first-child { color: var(--cream); font-weight: 400; }
-
-        tr.highlight td {
-            color: var(--cream);
-            background: var(--blue-dim);
-        }
-
-        /* LIST */
-        .check-list {
-            list-style: none;
-            margin: 1rem 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-
-        .check-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            font-size: 0.95rem;
-            color: var(--muted);
-            font-weight: 300;
-        }
-
-        .check-list li::before {
-            content: '→';
-            color: var(--blue);
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-
-        /* QUOTE */
-        .quote-block {
-            border-left: 2px solid var(--blue);
-            padding: 1rem 1.5rem;
-            margin: 2rem 0;
-            background: var(--card);
-            border-radius: 0 12px 12px 0;
-        }
-
-        .quote-block p {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            font-size: 1.1rem;
-            color: var(--cream) !important;
-            margin-bottom: 0.5rem !important;
-        }
-
-        .quote-block span {
-            font-size: 0.8rem;
-            color: var(--muted);
-        }
-
-        /* CTA */
-        .cta-section {
-            text-align: center;
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .cta-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .cta-sub {
-            color: var(--muted);
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .cta-btn {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: transparent;
-            color: var(--cream);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 500;
-            padding: 1.3rem 2.5rem;
-            border-radius: 999px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            outline: none;
-            text-decoration: none;
-        }
-        .cta-btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 999px;
-            border: 1px solid rgba(59,130,246,0.35);
-            transition: all 0.4s ease;
-            pointer-events: none;
-        }
-        .cta-btn::after {
-            content: '';
-            position: absolute;
-            inset: 3px;
-            border-radius: 999px;
-            border: 1px solid rgba(59,130,246,0.15);
-            transition: all 0.4s ease;
-            pointer-events: none;
-        }
-        .cta-btn:hover::before { border-color: rgba(59,130,246,0.7); box-shadow: 0 0 20px rgba(59,130,246,0.2), inset 0 0 20px rgba(59,130,246,0.05); }
-        .cta-btn:hover::after { border-color: rgba(59,130,246,0.35); }
-        .cta-btn:hover { color: white; }
+        /* TALLY */
+        .tally-overlay { display:none; position:fixed; inset:0; background:rgba(6,15,30,0.88); backdrop-filter:blur(8px); z-index:300; align-items:center; justify-content:center; padding:2rem; }
+        .tally-overlay.open { display:flex; }
+        .tally-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.2); border-radius:24px; padding:2.5rem; width:100%; max-width:480px; position:relative; animation:scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+        .tally-modal-title { font-family:'Instrument Serif',serif; font-size:1.75rem; margin-bottom:0.5rem; }
+        .tally-modal-sub { font-size:0.9rem; color:var(--muted); font-weight:300; margin-bottom:1.75rem; line-height:1.6; }
+        .tally-close { position:absolute; top:1.25rem; right:1.25rem; background:rgba(255,255,255,0.06); border:1px solid var(--border); border-radius:50%; width:30px; height:30px; display:flex; align-items:center; justify-content:center; color:var(--muted); cursor:pointer; font-size:0.9rem; transition:all 0.2s; }
+        .tally-close:hover { background:rgba(255,255,255,0.1); color:var(--cream); }
 
         /* ANIMATIONS */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes scaleIn { from{opacity:0;transform:scale(0.94)} to{opacity:1;transform:scale(1)} }
+        @keyframes panelIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+        .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
+        .reveal.visible { opacity:1; transform:translateY(0); }
 
-        .s1 { animation-delay: 0.3s; }
-        .s2 { animation-delay: 0.4s; }
-        .s3 { animation-delay: 0.5s; }
-        .s4 { animation-delay: 0.6s; }
-        .s5 { animation-delay: 0.7s; }
-        .s6 { animation-delay: 0.8s; }
-        .s7 { animation-delay: 0.9s; }
-        .s8 { animation-delay: 1.0s; }
-        .s9 { animation-delay: 1.1s; }
-
-        @media (max-width: 600px) {
-            .stats { grid-template-columns: 1fr 1fr; }
-            .hero-title { font-size: 2.2rem; }
-        }
-
-        @media (max-width: 640px) {
-            nav { padding: 1.25rem 0; flex-wrap: wrap; gap: 0.75rem; }
-            .nav-logo { font-size: 1.5rem; }
-            .nav-links { gap: 0.85rem; }
-            .nav-link { font-size: 0.78rem; }
-            .nav-home { font-size: 0.78rem; padding-right: 0.85rem; }
-            .nav-pill, .nav-cta { font-size: 0.7rem; padding: 0.3rem 0.7rem; letter-spacing: 0.05em; }
+        @media(max-width:640px) {
+            nav { padding:1.25rem 0; flex-wrap:wrap; gap:0.75rem; }
+            .nav-logo { font-size:1.5rem; }
+            .nav-links { gap:0.85rem; }
+            .nav-link { font-size:0.78rem; }
+            .nav-home { font-size:0.78rem; padding-right:0.85rem; }
+            .nav-cta { font-size:0.7rem; padding:0.3rem 0.7rem; }
+            .hero { min-height:auto; padding:3rem 0 4rem; }
+            .waitlist-strip { padding:2rem; flex-direction:column; align-items:flex-start; }
+            .demo-modal { border-radius:20px; }
+            .demo-panel { padding:1.5rem 1.5rem 1.75rem; }
         }
     </style>
 </head>
 <body>
     <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
     <div class="wrap" role="main">
 
         <nav>
@@ -482,280 +228,327 @@
                     <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                     Home
                 </a>
-                <a href="/concept.html" class="nav-link">Concept</a>
-                <a href="/vision.html" class="nav-link active">Vision</a>
-                <a href="ove-product-concept.pdf" class="download-btn" download>↓ Download PDF</a>
+                <a href="/concept.html" class="nav-link active" data-i18n="nav_concept">Concept</a>
+                <a href="/vision.html" class="nav-link">Vision</a>
+                <span class="nav-cta" data-i18n="nav_waitlist">Waitlist open</span>
+                <div class="lang-switcher" id="lang-switcher">
+                    <button class="lang-btn" id="lang-btn">&#127760; <span id="lang-code">EN</span> &#9660;</button>
+                    <div class="lang-dropdown">
+                        <button class="lang-option active" data-lang="en">English</button>
+                        <button class="lang-option" data-lang="sv">Svenska</button>
+                        <button class="lang-option" data-lang="es">Español</button>
+                        <button class="lang-option" data-lang="de">Deutsch</button>
+                    </div>
+                </div>
             </div>
         </nav>
 
-        <!-- HERO -->
         <div class="hero">
-            <p class="hero-label">Vision & Product Concept</p>
-            <h1 class="hero-title">The investing app<br>Europe has been <em>waiting for.</em></h1>
-            <p class="hero-sub">Most Europeans keep their savings in a bank account where inflation quietly eats away at it year after year. Ové is a simple way to put that money to work instead — no jargon, no complexity, no bank switching. Just a straightforward way to finally start.</p>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- THE PROBLEM -->
-        <div class="section s1">
-            <p class="section-label">The Problem</p>
-            <h2 class="section-title">320 million Europeans haven't started investing. Yet.</h2>
-            <p>Only 9% of Europeans own stock directly (ECB). In the US it's 21%. The gap isn't money or knowledge — it's friction. A 2026 ESMA report confirms it: multiple regulatory and non-regulatory barriers combine to stop people before they even open an app.</p>
-            <p>And when they do open an app? ETFs. CFDs. Derivatives. Margin trading. A sign-up process that feels like switching banks. They close it within 5 minutes. Every time.</p>
-
-            <div class="stats">
-                <div class="stat-card">
-                    <p class="stat-num">91%</p>
-                    <p class="stat-label">of Europeans have never invested directly</p>
+            <p class="hero-eyebrow" data-i18n="eyebrow">How it works</p>
+            <h1 class="hero-headline">
+                <span data-i18n="headline_1">Three steps.</span><br>
+                <span data-i18n="headline_2">Then you're </span><em data-i18n="headline_3">investing.</em>
+            </h1>
+            <p class="hero-sub" data-i18n="sub">The demo is completely free, and goes fast.</p>
+            <button class="demo-launch-btn" onclick="demoOpen()">
+                <div class="demo-btn-icon">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
-                <div class="stat-card">
-                    <p class="stat-num">320M</p>
-                    <p class="stat-label">people stuck in "I'll start next month"</p>
-                </div>
-                <div class="stat-card">
-                    <p class="stat-num">2026</p>
-                    <p class="stat-label">ESMA report confirms friction is the barrier</p>
-                </div>
-            </div>
+                <div class="demo-btn-label"><span class="demo-btn-label-main" data-i18n="demo_btn">Try the demo</span></div>
+            </button>
         </div>
 
-        <div class="divider"></div>
 
-        <!-- THE SOLUTION -->
-        <div class="section s2">
-            <p class="section-label">The Solution</p>
-            <h2 class="section-title">Three steps. Then you're investing.</h2>
-            <p>Ové removes every unnecessary choice from the onboarding experience. Regulatory compliance is handled invisibly so the user never has to think about it.</p>
 
-            <div class="steps">
-                <div class="step">
-                    <div class="step-num">1</div>
-                    <div class="step-connector"></div>
-                    <div>
-                        <p class="step-title">Sign up — smooth and fast</p>
-                        <p class="step-desc">Nothing like opening a bank account. First name, email, done. KYC handled seamlessly in the background.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">2</div>
-                    <div class="step-connector"></div>
-                    <div>
-                        <p class="step-title">Pick a risk level</p>
-                        <p class="step-desc">Steady, Balanced, or Growth. Three options — not three hundred. Ové explains each in plain English.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-num">3</div>
-                    <div class="step-connector"></div>
-                    <div>
-                        <p class="step-title">You're invested</p>
-                        <p class="step-desc">Ové handles everything else automatically. Your money is working. You're done.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- PORTFOLIOS -->
-        <div class="section s3">
-            <p class="section-label">Core Portfolios</p>
-            <h2 class="section-title">Three options. No overwhelm.</h2>
-            <p>Users never pick individual stocks or ETFs. Ové handles allocation automatically.</p>
-
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Risk</th>
-                            <th>Allocation</th>
-                            <th>Est. Return</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Steady</td>
-                            <td>Low</td>
-                            <td>70% Bonds, 20% Stocks, 10% Cash</td>
-                            <td>~4–6%/yr</td>
-                        </tr>
-                        <tr>
-                            <td>Balanced</td>
-                            <td>Medium</td>
-                            <td>60% Stocks, 30% Bonds, 10% Cash</td>
-                            <td>~7–9%/yr</td>
-                        </tr>
-                        <tr>
-                            <td>Growth</td>
-                            <td>Higher</td>
-                            <td>90% Stocks, 8% Bonds, 2% Cash</td>
-                            <td>~10–12%/yr</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- USER JOURNEY -->
-        <div class="section s4">
-            <p class="section-label">User Journey</p>
-            <h2 class="section-title">Beginner today. Hands-off investor in 6 months.</h2>
-            <p>Ové is built around a clear emotional arc — not just a product, but a path.</p>
-
-            <div class="quote-block">
-                <p>"6 months ago you took your first step. Your money has been working ever since. Ready for the next level?"</p>
-                <span>— The Ové Adventure unlock notification</span>
-            </div>
-
-            <p>After 6 consecutive months of investing, users unlock <strong>Ové Adventure</strong> — a milestone moment that marks the transition from beginner to confident investor. From here, users can optionally activate <strong>Ové Advisor</strong>.</p>
-
-            <p><strong>Ové Advisor</strong> is a full robo-advisor — inspired by Vanguard and Betterment — for €4.99/month. It automatically rebalances the portfolio, adjusts risk exposure as markets shift, and optimises for long-term growth. Zero decisions required from the user. Their money, truly working for them.</p>
-
-            <p>The journey in three chapters:</p>
-            <ul class="check-list">
-                <li><strong>Ové</strong> — Start simple. Pick 1 of 3 options, invest from €10, no jargon. Month 0.</li>
-                <li><strong>Ové Adventure</strong> — Unlock after 6 months. A reward for showing up consistently.</li>
-                <li><strong>Ové Advisor</strong> — Optional add-on at €4.99/mo. Automated, intelligent, hands-off portfolio management.</li>
-            </ul>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- REGULATORY -->
-        <div class="section s5">
-            <p class="section-label">Regulatory Compliance</p>
-            <h2 class="section-title">Compliance as a feature, not a checkbox.</h2>
-            <p>Regulatory complexity is one of the biggest barriers to investing in Europe (ESMA 2026). Ové absorbs this entirely on behalf of the user. MiFID II compliance, KYC, AML — all handled invisibly. The user never sees a form they don't understand.</p>
-            <p>This is a core product principle, not an afterthought. It's also a key trust signal — especially for the 91% who are wary of new financial services.</p>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- COMPETITIVE -->
-        <div class="section s6">
-            <p class="section-label">Competitive Landscape</p>
-            <h2 class="section-title">The position nobody is occupying.</h2>
-            <p>Every existing app in Europe was built for the 9% who already invest. Ové is built for the 91% who haven't started.</p>
-
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>App</th>
-                            <th>Beginner Focus</th>
-                            <th>Europe</th>
-                            <th>Verdict</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Trading 212</td>
-                            <td>Low</td>
-                            <td>✅</td>
-                            <td>Too complex</td>
-                        </tr>
-                        <tr>
-                            <td>eToro</td>
-                            <td>Low</td>
-                            <td>✅</td>
-                            <td>Built for traders</td>
-                        </tr>
-                        <tr>
-                            <td>Revolut</td>
-                            <td>Low</td>
-                            <td>✅</td>
-                            <td>Super-app, not focused</td>
-                        </tr>
-                        <tr>
-                            <td>Bitpanda</td>
-                            <td>Low–Medium</td>
-                            <td>✅</td>
-                            <td>Inspiration — but 3,000+ choices</td>
-                        </tr>
-                        <tr>
-                            <td>Robinhood EU</td>
-                            <td>Low</td>
-                            <td>⚠️ Partial</td>
-                            <td>Tokenized only, not beginner focused</td>
-                        </tr>
-                        <tr>
-                            <td>Acorns</td>
-                            <td>High</td>
-                            <td>❌ US only</td>
-                            <td>Closest concept — wrong continent</td>
-                        </tr>
-                        <tr class="highlight">
-                            <td>Ové</td>
-                            <td>Very High</td>
-                            <td>✅</td>
-                            <td>Unoccupied position</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- BUSINESS MODEL -->
-        <div class="section s7">
-            <p class="section-label">Business Model</p>
-            <h2 class="section-title">Simple. Scales with users.</h2>
-            <p><strong>0.5% AUM fee</strong> — charged annually, taken monthly in small increments. Invisible to the user at small portfolio sizes. Scales naturally as portfolios grow.</p>
-            <p><strong>Ové Advisor — €4.99/month</strong> — unlocked after 6 months. A premium robo-advisor tier for users ready to go fully hands-off. High conversion expected given the emotional milestone of the unlock.</p>
-
-            <div class="stats">
-                <div class="stat-card">
-                    <p class="stat-num">€150M</p>
-                    <p class="stat-label">AUM at 100k users with €1,500 avg portfolio</p>
-                </div>
-                <div class="stat-card">
-                    <p class="stat-num">€750k</p>
-                    <p class="stat-label">Annual revenue from 0.5% AUM fee at that scale</p>
-                </div>
-                <div class="stat-card">
-                    <p class="stat-num">€600k</p>
-                    <p class="stat-label">Additional annual revenue if 10k users take Ové Advisor</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- WHAT OVE IS NOT -->
-        <div class="section s8">
-            <p class="section-label">What Ové is NOT</p>
-            <h2 class="section-title">Clarity of purpose.</h2>
-            <ul class="check-list">
-                <li>Not a bank</li>
-                <li>Not built for experts</li>
-                <li>Not trying to compete with Trading 212 or eToro on features</li>
-                <li>Not trying to be everything to everyone</li>
-            </ul>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- VISION -->
-        <div class="section s9">
-            <p class="section-label">Vision</p>
-            <h2 class="section-title">From someday to today. From today to always.</h2>
-            <p>Every European who wants to invest but hasn't started yet — that's our user. Not the trader. Not the expert. The person who keeps saying someday.</p>
-            <p>We turn someday into today. And today into a habit. And a habit into a fully automated, intelligent portfolio that works while they sleep.</p>
-            <p>Ové isn't just a beginner app. It's the beginning of a lifetime of investing — with a clear, rewarding path from the first €10 to a hands-off portfolio managed by Ové Advisor.</p>
-        </div>
-
-        <!-- CTA -->
-        <div class="cta-section">
-            <a href="https://x.com/BeginOve" target="_blank" class="cta-btn">
-                Contact Ové on X <span style="text-transform:none">@BeginOve</span>
-            </a>
-        </div>
-
+        <footer>
+            <span>© <span id="year"></span> Ové. All rights reserved.</span>
+            <div class="footer-links"><a href="https://x.com/BeginOve" target="_blank">@BeginOve on X</a></div>
+        </footer>
     </div>
+
+    <!-- DEMO MODAL -->
+    <div class="demo-overlay" id="demo-overlay" onclick="if(event.target===this)demoClose()">
+        <div class="demo-modal">
+            <div class="demo-progress"><div class="demo-progress-bar" id="demo-progress-bar"></div></div>
+            <button class="demo-close" onclick="demoClose()">✕</button>
+            <div class="demo-steps-indicator">
+                <div class="demo-step-dot"></div>
+                <div class="demo-step-dot"></div>
+                <div class="demo-step-dot"></div>
+            </div>
+            <div class="demo-panel" id="demo-step-1">
+                <p class="demo-eyebrow">Step 1 of 3</p>
+                <h2 class="demo-title" data-i18n="step1_title">What's your name?</h2>
+                <p class="demo-sub" data-i18n="step1_sub">Just your first name. Nothing else.</p>
+                <div class="demo-form">
+                    <div class="demo-field">
+                        <label>First name</label>
+                        <input class="demo-input-real" id="demo-name-input" type="text" placeholder="e.g. Sara" maxlength="20" autocomplete="off" />
+                    </div>
+                    <div class="demo-field">
+                        <label>Email</label>
+                        <div class="demo-input"><span id="demo-email-display">@example.com</span><div class="demo-input-check" id="demo-email-check" style="opacity:0">✓</div></div>
+                    </div>
+                    <div class="demo-field">
+                        <label>Country</label>
+                        <div class="demo-input">DE · Germany <div class="demo-input-check">✓</div></div>
+                    </div>
+                </div>
+                <button class="demo-next-btn full" onclick="demoGo(2)">
+                    Continue <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+            <div class="demo-panel" id="demo-step-2">
+                <p class="demo-eyebrow">Step 2 of 3</p>
+                <h2 class="demo-title" data-i18n="step2_title">How much per month?</h2>
+                <p class="demo-sub" data-i18n="step2_sub">Drag to choose, or type your own amount.</p>
+                <div class="demo-slider-wrap">
+                    <div class="demo-slider-header">
+                        <div>
+                            <div class="demo-slider-amount"><span>€</span><span id="demo-slider-val">50</span></div>
+                            <div class="demo-slider-mo">per month</div>
+                        </div>
+                    </div>
+                    <input class="demo-slider" id="demo-slider" type="range" min="5" max="500" step="5" value="50" oninput="demoSetAmount(this.value,false)" />
+                    <div class="demo-slider-labels"><span>€5</span><span>€500</span></div>
+                </div>
+                <div class="demo-custom-wrap">
+                    <label class="demo-custom-label">Or enter your own</label>
+                    <div class="demo-custom-input-wrap">
+                        <span class="demo-custom-euro">€</span>
+                        <input class="demo-custom-input" id="demo-custom-amount" type="number" min="1" max="99999" placeholder="e.g. 75" oninput="demoSetCustomAmount(this.value)" />
+                    </div>
+                </div>
+                <div class="demo-projection">
+                    <div class="demo-proj-number" id="demo-proj-number">~€9,000</div>
+                    <div class="demo-proj-label" id="demo-proj-text">from €50/mo over 10 years at 8%</div>
+                </div>
+                <div class="demo-btn-row">
+                    <button class="demo-back-btn" onclick="demoGo(1)"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg> Back</button>
+                    <button class="demo-next-btn" onclick="demoGo(3)">Continue <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                </div>
+            </div>
+            <div class="demo-panel" id="demo-step-3">
+                <p class="demo-eyebrow">Step 3 of 3</p>
+                <h2 class="demo-title" data-i18n="step3_title">Pick your risk level.</h2>
+                <p class="demo-sub" data-i18n="step3_sub">Three options. No wrong answer.</p>
+                <div class="demo-portfolios">
+                    <div class="demo-portfolio" data-p="steady" onclick="demoSelectPortfolio(this)">
+                        <div class="demo-p-top"><div><p class="demo-p-name">Steady</p><p class="demo-p-risk">Low risk · est. 4–6%</p></div><span class="demo-p-proj" id="proj-steady">—</span></div>
+                        <div class="demo-p-alloc">70% bonds · 20% stocks · 10% cash</div>
+                    </div>
+                    <div class="demo-portfolio active" data-p="balanced" onclick="demoSelectPortfolio(this)">
+                        <div class="demo-p-badge">Most popular</div>
+                        <div class="demo-p-top"><div><p class="demo-p-name">Balanced</p><p class="demo-p-risk">Medium risk · est. 7–9%</p></div><span class="demo-p-proj" id="proj-balanced">—</span></div>
+                        <div class="demo-p-alloc">60% stocks · 30% bonds · 10% cash</div>
+                    </div>
+                    <div class="demo-portfolio" data-p="growth" onclick="demoSelectPortfolio(this)">
+                        <div class="demo-p-top"><div><p class="demo-p-name">Growth</p><p class="demo-p-risk">Higher risk · est. 10–12%</p></div><span class="demo-p-proj" id="proj-growth">—</span></div>
+                        <div class="demo-p-alloc">90% stocks · 8% bonds · 2% cash</div>
+                    </div>
+                </div>
+                <div class="demo-btn-row">
+                    <button class="demo-back-btn" onclick="demoGo(2)"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg> Back</button>
+                    <button class="demo-next-btn" onclick="demoGo('done')">Start investing <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                </div>
+            </div>
+            <div class="demo-panel" id="demo-step-done">
+                <div class="demo-done-icon">✓</div>
+                <h2 class="demo-title" id="demo-done-title">You're investing.</h2>
+                <p class="demo-sub" style="margin-bottom:1.25rem" data-i18n="done_sub">That's it. That's really all it takes.</p>
+                <div class="demo-receipt">
+                    <div class="demo-receipt-hero">
+                        <div class="demo-receipt-proj" id="receipt-proj">—</div>
+                        <div class="demo-receipt-proj-label" data-i18n="receipt_label">estimated value in 10 years</div>
+                    </div>
+                    <div class="demo-receipt-rows">
+                        <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_investor">Investor</span><span class="demo-receipt-val" id="receipt-name">—</span></div>
+                        <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_monthly">Monthly</span><span class="demo-receipt-val" id="receipt-amount">—</span></div>
+                        <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_portfolio">Portfolio</span><span class="demo-receipt-val" id="receipt-portfolio">—</span></div>
+                    </div>
+                </div>
+                <button class="demo-next-btn full" onclick="demoClose();demoOpenWaitlist()" data-i18n="join_waitlist">Join the real waitlist</button>
+                <button class="demo-restart" onclick="demoOpen()" data-i18n="restart">↩ Restart demo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WAITLIST MODAL -->
+    <div class="tally-overlay" id="tally-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+        <div class="tally-modal">
+            <button class="tally-close" onclick="document.getElementById('tally-overlay').classList.remove('open')">✕</button>
+            <p class="tally-modal-title" data-i18n="modal_title">Your someday is today.</p>
+            <p class="tally-modal-sub" data-i18n="modal_sub">No payment, no commitment — just your spot in line.</p>
+            <div id="tally-embed-target"></div>
+        </div>
+    </div>
+
+    <script>
+        var demoPortfolio = 'balanced';
+        var demoAmount = 50;
+        var portfolioRates = { steady:0.05, balanced:0.08, growth:0.11 };
+        var portfolioNames = { steady:'Steady', balanced:'Balanced', growth:'Growth' };
+
+        function calcFV(m,r,months){ var rm=r/12; return Math.round(m*((Math.pow(1+rm,months)-1)/rm)); }
+        function fmt(v){ return v>=1000 ? '~\u20ac'+Math.round(v/1000)+',000' : '\u20ac'+v; }
+
+        function demoOpen(){
+            demoAmount=50; demoPortfolio='balanced';
+            document.getElementById('demo-overlay').classList.add('open');
+            document.getElementById('demo-name-input').value='';
+            document.getElementById('demo-email-display').textContent='@example.com';
+            document.getElementById('demo-email-check').style.opacity='0';
+            document.getElementById('demo-slider').value=50;
+            document.getElementById('demo-slider-val').textContent='50';
+            document.getElementById('demo-custom-amount').value='';
+            demoUpdateProjection();
+            document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.toggle('active',p.dataset.p==='balanced'); });
+            demoGo(1);
+            setTimeout(function(){ document.getElementById('demo-name-input').focus(); },350);
+        }
+
+        function demoClose(){ document.getElementById('demo-overlay').classList.remove('open'); }
+
+        function demoGo(step){
+            document.querySelectorAll('.demo-panel').forEach(function(p){ p.classList.remove('active'); });
+            document.querySelectorAll('.demo-step-dot').forEach(function(d,i){
+                d.classList.remove('active','done');
+                if(step!=='done'){ if(i+1<step)d.classList.add('done'); if(i+1===step)d.classList.add('active'); }
+                else d.classList.add('done');
+            });
+            var id=step==='done'?'demo-step-done':'demo-step-'+step;
+            document.getElementById(id).classList.add('active');
+            var prog={1:'25%',2:'58%',3:'83%',done:'100%'};
+            document.getElementById('demo-progress-bar').style.width=prog[step]||'100%';
+            if(step===3)demoUpdatePortfolioProjections();
+            if(step==='done')demoFillReceipt();
+        }
+
+        function demoSetAmount(val,fromCustom){
+            val=Math.round(parseFloat(val));
+            if(!val||val<1)return;
+            demoAmount=val;
+            document.getElementById('demo-slider-val').textContent=val;
+            document.getElementById('demo-slider').value=Math.min(val,500);
+            if(!fromCustom)document.getElementById('demo-custom-amount').value='';
+            demoUpdateProjection();
+        }
+
+        function demoSetCustomAmount(val){
+            var v=parseFloat(val);
+            if(v&&v>0)demoSetAmount(v,true);
+        }
+
+        function demoUpdateProjection(){
+            var fv=calcFV(parseFloat(demoAmount)||50,0.08,120);
+            document.getElementById('demo-proj-number').textContent=fmt(fv);
+            document.getElementById('demo-proj-text').textContent='from \u20ac'+demoAmount+'/mo over 10 years at 8%';
+        }
+
+        function demoUpdatePortfolioProjections(){
+            var monthly=parseFloat(demoAmount)||50;
+            for(var key in portfolioRates){
+                var fv=calcFV(monthly,portfolioRates[key],12);
+                var f=fv>=1000?'+\u20ac'+(fv/1000).toFixed(1)+'k':'+\u20ac'+fv;
+                document.getElementById('proj-'+key).textContent=f+' / 1yr';
+            }
+        }
+
+        function demoSelectPortfolio(el){
+            document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.remove('active'); });
+            el.classList.add('active');
+            demoPortfolio=el.dataset.p;
+        }
+
+        function demoFillReceipt(){
+            var name=document.getElementById('demo-name-input').value.trim();
+            var dn=name?name.charAt(0).toUpperCase()+name.slice(1):'You';
+            document.getElementById('demo-done-title').textContent='You\u2019re investing, '+dn+'.';
+            document.getElementById('receipt-name').textContent=dn;
+            document.getElementById('receipt-amount').textContent='\u20ac'+demoAmount+'/mo';
+            document.getElementById('receipt-portfolio').textContent=portfolioNames[demoPortfolio];
+            var target=calcFV(parseFloat(demoAmount)||50,portfolioRates[demoPortfolio],120);
+            var t0=performance.now(),dur=1200;
+            function tick(t){
+                var p=Math.min((t-t0)/dur,1),ease=1-Math.pow(1-p,3);
+                document.getElementById('receipt-proj').textContent=fmt(Math.round(target*ease));
+                if(p<1)requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+
+        function demoOpenWaitlist(){
+            document.getElementById('tally-overlay').classList.add('open');
+            var t=document.getElementById('tally-embed-target');
+            if(!t.dataset.loaded){
+                t.innerHTML='<iframe data-tally-src="https://tally.so/embed/WOoKja?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="160" frameborder="0" marginheight="0" marginwidth="0" title="Ov\u00e9 Waitlist"></iframe>';
+                if(window.Tally)Tally.loadEmbeds();
+                t.dataset.loaded='1';
+            }
+        }
+
+        // TRANSLATIONS
+        var T = {
+            en:{ nav_concept:"Concept", nav_waitlist:"Waitlist open", eyebrow:"How it works", headline_1:"Three steps.", headline_2:"Then you\u2019re ", headline_3:"investing.", sub:"The demo is completely free, and goes fast.", demo_btn:"Try the demo", step1_title:"What\u2019s your name?", step1_sub:"Just your first name. Nothing else.", step2_title:"How much per month?", step2_sub:"Drag to choose, or type your own amount.", step3_title:"Pick your risk level.", step3_sub:"Three options. No wrong answer.", done_sub:"That\u2019s it. That\u2019s really all it takes.", strip_title:"Your someday is today.", strip_sub:"No payment, no commitment \u2014 just your spot in line.", cta_waitlist:"Join the waitlist", modal_title:"Your someday is today.", modal_sub:"No payment, no commitment \u2014 just your spot in line.", receipt_label:"estimated value in 10 years", receipt_investor:"Investor", receipt_monthly:"Monthly", receipt_portfolio:"Portfolio", join_waitlist:"Join the real waitlist", restart:"\u21a9 Restart demo", flag:"\uD83C\uDDEC\uD83C\uDDE7", code:"EN", fi:"gb" },
+            sv:{ nav_concept:"Koncept", nav_waitlist:"\u00d6ppen v\u00e4ntelista", eyebrow:"S\u00e5 h\u00e4r fungerar det", headline_1:"Tre steg.", headline_2:"Sen \u00e4r du ", headline_3:"investerad.", sub:"Demon är helt gratis och går snabbt.", demo_btn:"Prova demon", step1_title:"Vad heter du?", step1_sub:"Bara ditt f\u00f6rnamn. Inget annat.", step2_title:"Hur mycket per m\u00e5nad?", step2_sub:"Dra f\u00f6r att v\u00e4lja, eller ange ett eget belopp.", step3_title:"V\u00e4lj din riskniv\u00e5.", step3_sub:"Tre alternativ. Inget fel svar.", done_sub:"Det \u00e4r allt. Det \u00e4r verkligen allt som kr\u00e4vs.", strip_title:"Din dag \u00e4r idag.", strip_sub:"Ingen betalning, inget \u00e5tagande \u2014 bara din plats i k\u00f6n.", cta_waitlist:"G\u00e5 med i v\u00e4ntelistan", modal_title:"Din dag \u00e4r idag.", modal_sub:"Ingen betalning, inget \u00e5tagande \u2014 bara din plats i k\u00f6n.", receipt_label:"uppskattat v\u00e4rde om 10 \u00e5r", receipt_investor:"Investerare", receipt_monthly:"M\u00e5nadsbelopp", receipt_portfolio:"Portf\u00f6lj", join_waitlist:"G\u00e5 med i riktiga v\u00e4ntelistan", restart:"\u21a9 Starta om demon", flag:"\uD83C\uDDF8\uD83C\uDDEA", code:"SV", fi:"se" },
+            es:{ nav_concept:"Concepto", nav_waitlist:"Lista de espera abierta", eyebrow:"C\u00f3mo funciona", headline_1:"Tres pasos.", headline_2:"Y ya est\u00e1s ", headline_3:"invirtiendo.", sub:"La demo es completamente gratuita y va rápido.", demo_btn:"Probar la demo", step1_title:"\u00bfC\u00f3mo te llamas?", step1_sub:"Solo tu nombre. Nada m\u00e1s.", step2_title:"\u00bfCu\u00e1nto por mes?", step2_sub:"Arrastra para elegir, o escribe tu propio importe.", step3_title:"Elige tu nivel de riesgo.", step3_sub:"Tres opciones. No hay respuesta incorrecta.", done_sub:"Eso es todo. Realmente es todo lo que se necesita.", strip_title:"Tu alg\u00fan d\u00eda es hoy.", strip_sub:"Sin pago, sin compromiso \u2014 solo tu lugar en la lista.", cta_waitlist:"Unirse a la lista de espera", modal_title:"Tu alg\u00fan d\u00eda es hoy.", modal_sub:"Sin pago, sin compromiso \u2014 solo tu lugar.", receipt_label:"valor estimado en 10 a\u00f1os", receipt_investor:"Inversor", receipt_monthly:"Mensual", receipt_portfolio:"Cartera", join_waitlist:"Unirse a la lista real", restart:"\u21a9 Reiniciar demo", flag:"\uD83C\uDDEA\uD83C\uDDF8", code:"ES", fi:"es" },
+            de:{ nav_concept:"Konzept", nav_waitlist:"Warteliste offen", eyebrow:"Wie es funktioniert", headline_1:"Drei Schritte.", headline_2:"Und du ", headline_3:"investierst.", sub:"Die Demo ist komplett kostenlos und geht schnell.", demo_btn:"Demo ausprobieren", step1_title:"Wie hei\u00dft du?", step1_sub:"Nur dein Vorname. Nichts weiter.", step2_title:"Wie viel pro Monat?", step2_sub:"Ziehe den Regler oder gib deinen eigenen Betrag ein.", step3_title:"W\u00e4hle dein Risikoniveau.", step3_sub:"Drei Optionen. Keine falsche Antwort.", done_sub:"Das war es. Wirklich alles, was es braucht.", strip_title:"Dein Irgendwann ist heute.", strip_sub:"Keine Zahlung, keine Verpflichtung \u2014 nur dein Platz.", cta_waitlist:"Zur Warteliste anmelden", modal_title:"Dein Irgendwann ist heute.", modal_sub:"Keine Zahlung, keine Verpflichtung \u2014 nur dein Platz.", receipt_label:"gesch\u00e4tzter Wert in 10 Jahren", receipt_investor:"Investor", receipt_monthly:"Monatlich", receipt_portfolio:"Portfolio", join_waitlist:"Zur echten Warteliste", restart:"\u21a9 Demo neu starten", flag:"\uD83C\uDDE9\uD83C\uDDEA", code:"DE", fi:"de" }
+        };
+
+        var flagSrc = {
+            gb: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 30%22%3E%3CclipPath id=%22a%22%3E%3Cpath d=%22M0 0v30h60V0z%22/%3E%3C/clipPath%3E%3CclipPath id=%22b%22%3E%3Cpath d=%22M30 15h30v15zv15H0zH0V0zV0h30z%22/%3E%3C/clipPath%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath d=%22M0 0v30h60V0z%22 fill=%22%23012169%22/%3E%3Cpath d=%22M0 0l60 30m0-30L0 30%22 stroke=%22%23fff%22 stroke-width=%226%22/%3E%3Cpath d=%22M0 0l60 30m0-30L0 30%22 clip-path=%22url(%23b)%22 stroke=%22%23C8102E%22 stroke-width=%224%22/%3E%3Cpath d=%22M30 0v30M0 15h60%22 stroke=%22%23fff%22 stroke-width=%2210%22/%3E%3Cpath d=%22M30 0v30M0 15h60%22 stroke=%22%23C8102E%22 stroke-width=%226%22/%3E%3C/g%3E%3C/svg%3E',
+            se: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 10%22%3E%3Crect width=%2216%22 height=%2210%22 fill=%22%23006AA7%22/%3E%3Crect x=%224%22 width=%222%22 height=%2210%22 fill=%22%23FECC02%22/%3E%3Crect y=%224%22 width=%2216%22 height=%222%22 fill=%22%23FECC02%22/%3E%3C/svg%3E',
+            es: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 3 2%22%3E%3Crect width=%223%22 height=%222%22 fill=%22%23c60b1e%22/%3E%3Crect y=%22.5%22 width=%223%22 height=%221%22 fill=%22%23ffc400%22/%3E%3C/svg%3E',
+            de: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 5 3%22%3E%3Crect width=%225%22 height=%223%22/%3E%3Crect y=%221%22 width=%225%22 height=%222%22 fill=%22%23D00%22/%3E%3Crect y=%222%22 width=%225%22 height=%221%22 fill=%22%23FFCE00%22/%3E%3C/svg%3E'
+        };
+        function applyLang(lang){
+            var t=T[lang];
+            if(!t)return;
+            localStorage.setItem('ove-lang',lang);
+            document.querySelectorAll('[data-i18n]').forEach(function(el){
+                var k=el.getAttribute('data-i18n');
+                if(t[k]!==undefined)el.textContent=t[k];
+            });
+            document.getElementById('lang-code').textContent=t.code;
+            document.querySelectorAll('.lang-option').forEach(function(o){
+                o.classList.toggle('active',o.dataset.lang===lang);
+            });
+            document.getElementById('lang-switcher').classList.remove('open');
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+            document.getElementById('year').textContent=new Date().getFullYear();
+            demoUpdateProjection();
+
+            document.getElementById('demo-name-input').addEventListener('input',function(){
+                var n=this.value.trim().toLowerCase();
+                document.getElementById('demo-email-display').textContent=n?n+'@example.com':'@example.com';
+                document.getElementById('demo-email-check').style.opacity=n?'1':'0';
+            });
+
+
+
+            document.getElementById('lang-btn').addEventListener('click',function(e){
+                e.stopPropagation();
+                document.getElementById('lang-switcher').classList.toggle('open');
+            });
+            document.querySelectorAll('.lang-option').forEach(function(o){
+                o.addEventListener('click',function(e){ e.stopPropagation(); applyLang(o.dataset.lang); });
+            });
+            document.addEventListener('click',function(){
+                document.getElementById('lang-switcher').classList.remove('open');
+            });
+
+            var saved = localStorage.getItem('ove-lang') || 'en';
+            if (!T[saved]) saved = 'en';
+            applyLang(saved);
+
+            var ro=new IntersectionObserver(function(entries){
+                entries.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);} });
+            },{threshold:0.1});
+            document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+        });
+    </script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
