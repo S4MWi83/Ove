@@ -11,7 +11,7 @@
       gtag('config', 'G-CVSFPMXDRR');
     </script>
     <title>Concept — Ové</title>
-    <meta name="description" content="How Ové works — three steps, zero jargon. Built for the 91% of Europeans who haven't started investing yet.">
+    <meta name="description" content="How Ové works — three steps, zero jargon.">
     <link rel="canonical" href="https://getove.vercel.app/concept.html">
     <link rel="icon" type="image/svg+xml" href="ove-favicon-e.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,7 @@
         .wrap { max-width:1080px; margin:0 auto; padding:0 2rem; position:relative; z-index:1; }
 
         /* NAV */
-        nav { display:flex; align-items:center; justify-content:space-between; padding:2rem 0; opacity:0; animation:fadeDown 0.6s ease forwards 0.1s; }
+        nav { display:flex; align-items:center; justify-content:space-between; padding:2rem 0; opacity:0; animation:fadeDown 0.6s ease forwards 0.1s; position:relative; z-index:50; }
         .nav-logo { font-family:'Instrument Serif',serif; font-size:1.8rem; color:var(--cream); text-decoration:none; position:relative; }
         .nav-logo span { display:inline-block; width:6px; height:6px; background:var(--blue); border-radius:50%; position:absolute; top:6px; right:-9px; box-shadow:0 0 8px var(--blue-glow); }
         .nav-links { display:flex; align-items:center; gap:1.5rem; }
@@ -45,6 +45,16 @@
         .nav-home { font-size:0.85rem; color:var(--muted); text-decoration:none; display:flex; align-items:center; gap:0.35rem; transition:color 0.2s; padding-right:1.5rem; border-right:1px solid var(--border); }
         .nav-home:hover { color:var(--cream); }
         .nav-cta { font-size:0.8rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue); background:var(--blue-dim); border:1px solid rgba(59,130,246,0.2); padding:0.4rem 1rem; border-radius:999px; cursor:default; font-family:'DM Sans',sans-serif; }
+
+        /* LANG SWITCHER */
+        .lang-switcher { position:relative; }
+        .lang-btn { background:none; border:1px solid var(--border); border-radius:8px; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.8rem; padding:0.3rem 0.6rem; cursor:pointer; display:flex; align-items:center; gap:0.3rem; transition:all 0.2s; white-space:nowrap; }
+        .lang-btn:hover { color:var(--cream); border-color:rgba(255,255,255,0.15); }
+        .lang-dropdown { display:none; position:absolute; top:calc(100% + 8px); right:0; background:#0d1f38; border:1px solid var(--border); border-radius:12px; overflow:hidden; min-width:130px; box-shadow:0 8px 32px rgba(0,0,0,0.4); z-index:999; }
+        .lang-switcher.open .lang-dropdown { display:block; }
+        .lang-option { display:flex; align-items:center; gap:0.6rem; padding:0.65rem 1rem; font-size:0.82rem; color:var(--muted); cursor:pointer; transition:all 0.15s; border:none; background:none; width:100%; font-family:'DM Sans',sans-serif; text-align:left; }
+        .lang-option:hover { background:rgba(255,255,255,0.05); color:var(--cream); }
+        .lang-option.active { color:var(--cream); background:rgba(59,130,246,0.1); }
 
         /* HERO */
         .hero { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:calc(100vh - 120px); padding:4rem 0 6rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.3s; }
@@ -85,7 +95,7 @@
         .footer-links a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
         .footer-links a:hover { color:var(--cream); }
 
-        /* ═══ DEMO MODAL ═══ */
+        /* DEMO OVERLAY */
         .demo-overlay { display:none; position:fixed; inset:0; background:rgba(6,15,30,0.92); backdrop-filter:blur(10px); z-index:200; align-items:center; justify-content:center; padding:2rem; }
         .demo-overlay.open { display:flex; }
         .demo-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.18); border-radius:28px; width:100%; max-width:460px; position:relative; overflow:hidden; box-shadow:0 40px 100px rgba(0,0,0,0.6); animation:scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
@@ -120,7 +130,7 @@
         .demo-slider-mo { font-size:0.82rem; color:var(--muted); font-weight:300; }
         .demo-slider { -webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px; background:rgba(255,255,255,0.08); outline:none; cursor:pointer; }
         .demo-slider::-webkit-slider-thumb { -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; box-shadow:0 0 12px rgba(59,130,246,0.6); transition:transform 0.15s; border:2px solid rgba(255,255,255,0.2); }
-        .demo-slider::-webkit-slider-thumb:hover, .demo-slider:active::-webkit-slider-thumb { transform:scale(1.25); }
+        .demo-slider::-webkit-slider-thumb:hover { transform:scale(1.25); }
         .demo-slider::-moz-range-thumb { width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; border:2px solid rgba(255,255,255,0.2); box-shadow:0 0 12px rgba(59,130,246,0.6); }
         .demo-slider-labels { display:flex; justify-content:space-between; font-size:0.7rem; color:var(--muted); margin-top:0.5rem; font-weight:300; }
         .demo-custom-wrap { margin:1rem 0 1rem; }
@@ -160,7 +170,7 @@
         .demo-next-btn:hover svg { transform:translateX(3px); }
         .demo-next-btn.full { width:100%; }
 
-        /* DONE SCREEN */
+        /* DONE */
         .demo-done-icon { width:56px; height:56px; border-radius:50%; background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.3); display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:var(--green); margin-bottom:1.25rem; box-shadow:0 0 24px rgba(74,222,128,0.15); animation:popIn 0.5s cubic-bezier(0.34,1.56,0.64,1); }
         @keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
         .demo-receipt { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:18px; overflow:hidden; margin-bottom:1.75rem; }
@@ -175,7 +185,7 @@
         .demo-restart { width:100%; margin-top:0.65rem; background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.85rem; cursor:pointer; transition:color 0.2s; padding:0.5rem; }
         .demo-restart:hover { color:var(--cream); }
 
-        /* TALLY MODAL */
+        /* TALLY */
         .tally-overlay { display:none; position:fixed; inset:0; background:rgba(6,15,30,0.88); backdrop-filter:blur(8px); z-index:300; align-items:center; justify-content:center; padding:2rem; }
         .tally-overlay.open { display:flex; }
         .tally-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.2); border-radius:24px; padding:2.5rem; width:100%; max-width:480px; position:relative; animation:scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
@@ -192,19 +202,17 @@
         .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
         .reveal.visible { opacity:1; transform:translateY(0); }
 
-        @media(max-width:560px) {
-            nav{padding:1.5rem 0} .hero{min-height:auto;padding:3rem 0 4rem}
-            .waitlist-strip{padding:2rem;flex-direction:column;align-items:flex-start}
-            .demo-modal{border-radius:20px} .demo-panel{padding:1.5rem 1.5rem 1.75rem}
-        }
-
-        @media (max-width: 640px) {
-            nav { padding: 1.25rem 0; flex-wrap: wrap; gap: 0.75rem; }
-            .nav-logo { font-size: 1.5rem; }
-            .nav-links { gap: 0.85rem; }
-            .nav-link { font-size: 0.78rem; }
-            .nav-home { font-size: 0.78rem; padding-right: 0.85rem; }
-            .nav-pill, .nav-cta { font-size: 0.7rem; padding: 0.3rem 0.7rem; letter-spacing: 0.05em; }
+        @media(max-width:640px) {
+            nav { padding:1.25rem 0; flex-wrap:wrap; gap:0.75rem; }
+            .nav-logo { font-size:1.5rem; }
+            .nav-links { gap:0.85rem; }
+            .nav-link { font-size:0.78rem; }
+            .nav-home { font-size:0.78rem; padding-right:0.85rem; }
+            .nav-cta { font-size:0.7rem; padding:0.3rem 0.7rem; }
+            .hero { min-height:auto; padding:3rem 0 4rem; }
+            .waitlist-strip { padding:2rem; flex-direction:column; align-items:flex-start; }
+            .demo-modal { border-radius:20px; }
+            .demo-panel { padding:1.5rem 1.5rem 1.75rem; }
         }
     </style>
 </head>
@@ -220,31 +228,43 @@
                     <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                     Home
                 </a>
-                <a href="/concept.html" class="nav-link active">Concept</a>
+                <a href="/concept.html" class="nav-link active" data-i18n="nav_concept">Concept</a>
                 <a href="/vision.html" class="nav-link">Vision</a>
-                <span class="nav-cta">Waitlist open</span>
+                <span class="nav-cta" data-i18n="nav_waitlist">Waitlist open</span>
+                <div class="lang-switcher" id="lang-switcher">
+                    <button class="lang-btn" id="lang-btn">🌐 EN ▾</button>
+                    <div class="lang-dropdown">
+                        <button class="lang-option active" data-lang="en">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="sv">🇸🇪 Svenska</button>
+                        <button class="lang-option" data-lang="es">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="de">🇩🇪 Deutsch</button>
+                    </div>
+                </div>
             </div>
         </nav>
 
         <div class="hero">
-            <p class="hero-eyebrow">How it works</p>
-            <h1 class="hero-headline">Three steps.<br>Then you're <em>investing.</em></h1>
-            <p class="hero-sub">The demo is completely free, and quick.</p>
+            <p class="hero-eyebrow" data-i18n="eyebrow">How it works</p>
+            <h1 class="hero-headline">
+                <span data-i18n="headline_1">Three steps.</span><br>
+                <span data-i18n="headline_2">Then you're </span><em data-i18n="headline_3">investing.</em>
+            </h1>
+            <p class="hero-sub" data-i18n="sub">The demo is completely free, and quick.</p>
             <button class="demo-launch-btn" onclick="demoOpen()">
                 <div class="demo-btn-icon">
                     <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
-                <div class="demo-btn-label"><span class="demo-btn-label-main">Try the demo</span></div>
+                <div class="demo-btn-label"><span class="demo-btn-label-main" data-i18n="demo_btn">Try the demo</span></div>
             </button>
         </div>
 
         <div class="waitlist-strip reveal">
             <div class="waitlist-strip-text">
-                <p class="waitlist-strip-title">Your someday is today.</p>
-                <p class="waitlist-strip-sub">No payment, no commitment — just your spot in line.</p>
+                <p class="waitlist-strip-title" data-i18n="strip_title">Your someday is today.</p>
+                <p class="waitlist-strip-sub" data-i18n="strip_sub">No payment, no commitment — just your spot in line.</p>
             </div>
             <button class="cta-btn" id="open-waitlist-strip">
-                Join the waitlist
+                <span data-i18n="cta_waitlist">Join the waitlist</span>
                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
         </div>
@@ -265,12 +285,10 @@
                 <div class="demo-step-dot"></div>
                 <div class="demo-step-dot"></div>
             </div>
-
-            <!-- STEP 1 -->
             <div class="demo-panel" id="demo-step-1">
                 <p class="demo-eyebrow">Step 1 of 3</p>
-                <h2 class="demo-title">What's your name?</h2>
-                <p class="demo-sub">Just your first name. Nothing else.</p>
+                <h2 class="demo-title" data-i18n="step1_title">What's your name?</h2>
+                <p class="demo-sub" data-i18n="step1_sub">Just your first name. Nothing else.</p>
                 <div class="demo-form">
                     <div class="demo-field">
                         <label>First name</label>
@@ -286,16 +304,13 @@
                     </div>
                 </div>
                 <button class="demo-next-btn full" onclick="demoGo(2)">
-                    Continue
-                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    Continue <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
             </div>
-
-            <!-- STEP 2 -->
             <div class="demo-panel" id="demo-step-2">
                 <p class="demo-eyebrow">Step 2 of 3</p>
-                <h2 class="demo-title">How much per month?</h2>
-                <p class="demo-sub">Drag to choose, or type your own amount.</p>
+                <h2 class="demo-title" data-i18n="step2_title">How much per month?</h2>
+                <p class="demo-sub" data-i18n="step2_sub">Drag to choose, or type your own amount.</p>
                 <div class="demo-slider-wrap">
                     <div class="demo-slider-header">
                         <div>
@@ -318,88 +333,51 @@
                     <div class="demo-proj-label" id="demo-proj-text">from €50/mo over 10 years at 8%</div>
                 </div>
                 <div class="demo-btn-row">
-                    <button class="demo-back-btn" onclick="demoGo(1)">
-                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg>
-                        Back
-                    </button>
-                    <button class="demo-next-btn" onclick="demoGo(3)">
-                        Continue
-                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </button>
+                    <button class="demo-back-btn" onclick="demoGo(1)"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg> Back</button>
+                    <button class="demo-next-btn" onclick="demoGo(3)">Continue <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
             </div>
-
-            <!-- STEP 3 -->
             <div class="demo-panel" id="demo-step-3">
                 <p class="demo-eyebrow">Step 3 of 3</p>
-                <h2 class="demo-title">Pick your risk level.</h2>
-                <p class="demo-sub">Three options. No wrong answer.</p>
+                <h2 class="demo-title" data-i18n="step3_title">Pick your risk level.</h2>
+                <p class="demo-sub" data-i18n="step3_sub">Three options. No wrong answer.</p>
                 <div class="demo-portfolios">
                     <div class="demo-portfolio" data-p="steady" onclick="demoSelectPortfolio(this)">
-                        <div class="demo-p-top">
-                            <div><p class="demo-p-name">Steady</p><p class="demo-p-risk">Low risk · est. 4–6%</p></div>
-                            <span class="demo-p-proj" id="proj-steady">—</span>
-                        </div>
+                        <div class="demo-p-top"><div><p class="demo-p-name">Steady</p><p class="demo-p-risk">Low risk · est. 4–6%</p></div><span class="demo-p-proj" id="proj-steady">—</span></div>
                         <div class="demo-p-alloc">70% bonds · 20% stocks · 10% cash</div>
                     </div>
                     <div class="demo-portfolio active" data-p="balanced" onclick="demoSelectPortfolio(this)">
                         <div class="demo-p-badge">Most popular</div>
-                        <div class="demo-p-top">
-                            <div><p class="demo-p-name">Balanced</p><p class="demo-p-risk">Medium risk · est. 7–9%</p></div>
-                            <span class="demo-p-proj" id="proj-balanced">—</span>
-                        </div>
+                        <div class="demo-p-top"><div><p class="demo-p-name">Balanced</p><p class="demo-p-risk">Medium risk · est. 7–9%</p></div><span class="demo-p-proj" id="proj-balanced">—</span></div>
                         <div class="demo-p-alloc">60% stocks · 30% bonds · 10% cash</div>
                     </div>
                     <div class="demo-portfolio" data-p="growth" onclick="demoSelectPortfolio(this)">
-                        <div class="demo-p-top">
-                            <div><p class="demo-p-name">Growth</p><p class="demo-p-risk">Higher risk · est. 10–12%</p></div>
-                            <span class="demo-p-proj" id="proj-growth">—</span>
-                        </div>
+                        <div class="demo-p-top"><div><p class="demo-p-name">Growth</p><p class="demo-p-risk">Higher risk · est. 10–12%</p></div><span class="demo-p-proj" id="proj-growth">—</span></div>
                         <div class="demo-p-alloc">90% stocks · 8% bonds · 2% cash</div>
                     </div>
                 </div>
                 <div class="demo-btn-row">
-                    <button class="demo-back-btn" onclick="demoGo(2)">
-                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg>
-                        Back
-                    </button>
-                    <button class="demo-next-btn" onclick="demoGo('done')">
-                        Start investing
-                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </button>
+                    <button class="demo-back-btn" onclick="demoGo(2)"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg> Back</button>
+                    <button class="demo-next-btn" onclick="demoGo('done')">Start investing <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
             </div>
-
-            <!-- DONE -->
             <div class="demo-panel" id="demo-step-done">
                 <div class="demo-done-icon">✓</div>
                 <h2 class="demo-title" id="demo-done-title">You're investing.</h2>
-                <p class="demo-sub" style="margin-bottom:1.25rem">That's it. That's really all it takes.</p>
+                <p class="demo-sub" style="margin-bottom:1.25rem" data-i18n="done_sub">That's it. That's really all it takes.</p>
                 <div class="demo-receipt">
                     <div class="demo-receipt-hero">
                         <div class="demo-receipt-proj" id="receipt-proj">—</div>
-                        <div class="demo-receipt-proj-label">estimated value in 10 years</div>
+                        <div class="demo-receipt-proj-label" data-i18n="receipt_label">estimated value in 10 years</div>
                     </div>
                     <div class="demo-receipt-rows">
-                        <div class="demo-receipt-row">
-                            <span class="demo-receipt-key">Investor</span>
-                            <span class="demo-receipt-val" id="receipt-name">—</span>
-                        </div>
-                        <div class="demo-receipt-row">
-                            <span class="demo-receipt-key">Monthly</span>
-                            <span class="demo-receipt-val" id="receipt-amount">—</span>
-                        </div>
-                        <div class="demo-receipt-row">
-                            <span class="demo-receipt-key">Portfolio</span>
-                            <span class="demo-receipt-val" id="receipt-portfolio">—</span>
-                        </div>
+                        <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_investor">Investor</span><span class="demo-receipt-val" id="receipt-name">—</span></div>
+                        <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_monthly">Monthly</span><span class="demo-receipt-val" id="receipt-amount">—</span></div>
+                        <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_portfolio">Portfolio</span><span class="demo-receipt-val" id="receipt-portfolio">—</span></div>
                     </div>
                 </div>
-                <button class="demo-next-btn full" onclick="demoClose();demoOpenWaitlist()">
-                    Join the real waitlist
-                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </button>
-                <button class="demo-restart" onclick="demoOpen()">↩ Restart demo</button>
+                <button class="demo-next-btn full" onclick="demoClose();demoOpenWaitlist()" data-i18n="join_waitlist">Join the real waitlist</button>
+                <button class="demo-restart" onclick="demoOpen()" data-i18n="restart">↩ Restart demo</button>
             </div>
         </div>
     </div>
@@ -408,8 +386,8 @@
     <div class="tally-overlay" id="tally-overlay" onclick="if(event.target===this)this.classList.remove('open')">
         <div class="tally-modal">
             <button class="tally-close" onclick="document.getElementById('tally-overlay').classList.remove('open')">✕</button>
-            <p class="tally-modal-title">Your someday is today.</p>
-            <p class="tally-modal-sub">No payment, no commitment — just your spot in line.</p>
+            <p class="tally-modal-title" data-i18n="modal_title">Your someday is today.</p>
+            <p class="tally-modal-sub" data-i18n="modal_sub">No payment, no commitment — just your spot in line.</p>
             <div id="tally-embed-target"></div>
         </div>
     </div>
@@ -420,122 +398,158 @@
         var portfolioRates = { steady:0.05, balanced:0.08, growth:0.11 };
         var portfolioNames = { steady:'Steady', balanced:'Balanced', growth:'Growth' };
 
-        function calcFV(m, r, months) { var rm=r/12; return Math.round(m*((Math.pow(1+rm,months)-1)/rm)); }
-        function fmt(v) { return v>=1000 ? '~\u20ac'+Math.round(v/1000)+',000' : '\u20ac'+v; }
+        function calcFV(m,r,months){ var rm=r/12; return Math.round(m*((Math.pow(1+rm,months)-1)/rm)); }
+        function fmt(v){ return v>=1000 ? '~\u20ac'+Math.round(v/1000)+',000' : '\u20ac'+v; }
 
-        function demoOpen() {
-            demoAmount = 50; demoPortfolio = 'balanced';
+        function demoOpen(){
+            demoAmount=50; demoPortfolio='balanced';
             document.getElementById('demo-overlay').classList.add('open');
-            document.getElementById('demo-name-input').value = '';
-            document.getElementById('demo-email-display').textContent = '@example.com';
-            document.getElementById('demo-email-check').style.opacity = '0';
-            document.getElementById('demo-slider').value = 50;
-            document.getElementById('demo-slider-val').textContent = '50';
-            document.getElementById('demo-custom-amount').value = '';
+            document.getElementById('demo-name-input').value='';
+            document.getElementById('demo-email-display').textContent='@example.com';
+            document.getElementById('demo-email-check').style.opacity='0';
+            document.getElementById('demo-slider').value=50;
+            document.getElementById('demo-slider-val').textContent='50';
+            document.getElementById('demo-custom-amount').value='';
             demoUpdateProjection();
-            document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.toggle('active', p.dataset.p==='balanced'); });
+            document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.toggle('active',p.dataset.p==='balanced'); });
             demoGo(1);
-            setTimeout(function(){ document.getElementById('demo-name-input').focus(); }, 350);
+            setTimeout(function(){ document.getElementById('demo-name-input').focus(); },350);
         }
 
-        function demoClose() { document.getElementById('demo-overlay').classList.remove('open'); }
+        function demoClose(){ document.getElementById('demo-overlay').classList.remove('open'); }
 
-        function demoGo(step) {
+        function demoGo(step){
             document.querySelectorAll('.demo-panel').forEach(function(p){ p.classList.remove('active'); });
             document.querySelectorAll('.demo-step-dot').forEach(function(d,i){
                 d.classList.remove('active','done');
-                if (step !== 'done') { if (i+1<step) d.classList.add('done'); if (i+1===step) d.classList.add('active'); }
+                if(step!=='done'){ if(i+1<step)d.classList.add('done'); if(i+1===step)d.classList.add('active'); }
                 else d.classList.add('done');
             });
-            var id = step==='done' ? 'demo-step-done' : 'demo-step-'+step;
+            var id=step==='done'?'demo-step-done':'demo-step-'+step;
             document.getElementById(id).classList.add('active');
-            var prog = {1:'25%', 2:'58%', 3:'83%', done:'100%'};
-            document.getElementById('demo-progress-bar').style.width = prog[step] || '100%';
-            if (step===3) demoUpdatePortfolioProjections();
-            if (step==='done') demoFillReceipt();
+            var prog={1:'25%',2:'58%',3:'83%',done:'100%'};
+            document.getElementById('demo-progress-bar').style.width=prog[step]||'100%';
+            if(step===3)demoUpdatePortfolioProjections();
+            if(step==='done')demoFillReceipt();
         }
 
-        function demoSetAmount(val, fromCustom) {
-            val = Math.round(parseFloat(val));
-            if (!val || val < 1) return;
-            demoAmount = val;
-            document.getElementById('demo-slider-val').textContent = val;
-            document.getElementById('demo-slider').value = Math.min(val, 500);
-            if (!fromCustom) document.getElementById('demo-custom-amount').value = '';
+        function demoSetAmount(val,fromCustom){
+            val=Math.round(parseFloat(val));
+            if(!val||val<1)return;
+            demoAmount=val;
+            document.getElementById('demo-slider-val').textContent=val;
+            document.getElementById('demo-slider').value=Math.min(val,500);
+            if(!fromCustom)document.getElementById('demo-custom-amount').value='';
             demoUpdateProjection();
         }
 
-        function demoSetCustomAmount(val) {
-            var v = parseFloat(val);
-            if (v && v > 0) demoSetAmount(v, true);
+        function demoSetCustomAmount(val){
+            var v=parseFloat(val);
+            if(v&&v>0)demoSetAmount(v,true);
         }
 
-        function demoUpdateProjection() {
-            var fv = calcFV(parseFloat(demoAmount)||50, 0.08, 120);
-            document.getElementById('demo-proj-number').textContent = fmt(fv);
-            document.getElementById('demo-proj-text').textContent = 'from \u20ac'+demoAmount+'/mo over 10 years at 8%';
+        function demoUpdateProjection(){
+            var fv=calcFV(parseFloat(demoAmount)||50,0.08,120);
+            document.getElementById('demo-proj-number').textContent=fmt(fv);
+            document.getElementById('demo-proj-text').textContent='from \u20ac'+demoAmount+'/mo over 10 years at 8%';
         }
 
-        function demoUpdatePortfolioProjections() {
-            var monthly = parseFloat(demoAmount) || 50;
-            for (var key in portfolioRates) {
-                var fv = calcFV(monthly, portfolioRates[key], 12);
-                var formatted = fv >= 1000 ? '+\u20ac'+(fv/1000).toFixed(1)+'k' : '+\u20ac'+fv;
-                document.getElementById('proj-'+key).textContent = formatted+' / 1yr';
+        function demoUpdatePortfolioProjections(){
+            var monthly=parseFloat(demoAmount)||50;
+            for(var key in portfolioRates){
+                var fv=calcFV(monthly,portfolioRates[key],12);
+                var f=fv>=1000?'+\u20ac'+(fv/1000).toFixed(1)+'k':'+\u20ac'+fv;
+                document.getElementById('proj-'+key).textContent=f+' / 1yr';
             }
         }
 
-        function demoSelectPortfolio(el) {
+        function demoSelectPortfolio(el){
             document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.remove('active'); });
             el.classList.add('active');
-            demoPortfolio = el.dataset.p;
+            demoPortfolio=el.dataset.p;
         }
 
-        function demoFillReceipt() {
-            var name = document.getElementById('demo-name-input').value.trim();
-            var displayName = name ? name.charAt(0).toUpperCase()+name.slice(1) : 'You';
-            document.getElementById('demo-done-title').textContent = 'You\u2019re investing, '+displayName+'.';
-            document.getElementById('receipt-name').textContent = displayName;
-            document.getElementById('receipt-amount').textContent = '\u20ac'+demoAmount+'/mo';
-            document.getElementById('receipt-portfolio').textContent = portfolioNames[demoPortfolio];
-            var target = calcFV(parseFloat(demoAmount)||50, portfolioRates[demoPortfolio], 120);
-            var t0 = performance.now(), dur = 1200;
-            function tick(t) {
-                var p = Math.min((t-t0)/dur, 1);
-                var ease = 1-Math.pow(1-p, 3);
-                var cur = Math.round(target*ease);
-                document.getElementById('receipt-proj').textContent = fmt(cur);
-                if (p < 1) requestAnimationFrame(tick);
+        function demoFillReceipt(){
+            var name=document.getElementById('demo-name-input').value.trim();
+            var dn=name?name.charAt(0).toUpperCase()+name.slice(1):'You';
+            document.getElementById('demo-done-title').textContent='You\u2019re investing, '+dn+'.';
+            document.getElementById('receipt-name').textContent=dn;
+            document.getElementById('receipt-amount').textContent='\u20ac'+demoAmount+'/mo';
+            document.getElementById('receipt-portfolio').textContent=portfolioNames[demoPortfolio];
+            var target=calcFV(parseFloat(demoAmount)||50,portfolioRates[demoPortfolio],120);
+            var t0=performance.now(),dur=1200;
+            function tick(t){
+                var p=Math.min((t-t0)/dur,1),ease=1-Math.pow(1-p,3);
+                document.getElementById('receipt-proj').textContent=fmt(Math.round(target*ease));
+                if(p<1)requestAnimationFrame(tick);
             }
             requestAnimationFrame(tick);
         }
 
-        function demoOpenWaitlist() {
+        function demoOpenWaitlist(){
             document.getElementById('tally-overlay').classList.add('open');
-            var t = document.getElementById('tally-embed-target');
-            if (!t.dataset.loaded) {
-                t.innerHTML = '<iframe data-tally-src="https://tally.so/embed/WOoKja?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="160" frameborder="0" marginheight="0" marginwidth="0" title="Ové Waitlist"></iframe>';
-                if (window.Tally) Tally.loadEmbeds();
-                t.dataset.loaded = '1';
+            var t=document.getElementById('tally-embed-target');
+            if(!t.dataset.loaded){
+                t.innerHTML='<iframe data-tally-src="https://tally.so/embed/WOoKja?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="160" frameborder="0" marginheight="0" marginwidth="0" title="Ov\u00e9 Waitlist"></iframe>';
+                if(window.Tally)Tally.loadEmbeds();
+                t.dataset.loaded='1';
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('year').textContent = new Date().getFullYear();
+        // TRANSLATIONS
+        var T = {
+            en:{ nav_concept:"Concept", nav_waitlist:"Waitlist open", eyebrow:"How it works", headline_1:"Three steps.", headline_2:"Then you\u2019re ", headline_3:"investing.", sub:"The demo is completely free, and quick.", demo_btn:"Try the demo", step1_title:"What\u2019s your name?", step1_sub:"Just your first name. Nothing else.", step2_title:"How much per month?", step2_sub:"Drag to choose, or type your own amount.", step3_title:"Pick your risk level.", step3_sub:"Three options. No wrong answer.", done_sub:"That\u2019s it. That\u2019s really all it takes.", strip_title:"Your someday is today.", strip_sub:"No payment, no commitment \u2014 just your spot in line.", cta_waitlist:"Join the waitlist", modal_title:"Your someday is today.", modal_sub:"No payment, no commitment \u2014 just your spot in line.", receipt_label:"estimated value in 10 years", receipt_investor:"Investor", receipt_monthly:"Monthly", receipt_portfolio:"Portfolio", join_waitlist:"Join the real waitlist", restart:"\u21a9 Restart demo", flag:"\uD83C\uDDEC\uD83C\uDDE7", code:"EN" },
+            sv:{ nav_concept:"Koncept", nav_waitlist:"\u00d6ppen v\u00e4ntelista", eyebrow:"S\u00e5 h\u00e4r fungerar det", headline_1:"Tre steg.", headline_2:"Sen \u00e4r du ", headline_3:"investerad.", sub:"Demon \u00e4r helt gratis och snabb.", demo_btn:"Prova demon", step1_title:"Vad heter du?", step1_sub:"Bara ditt f\u00f6rnamn. Inget annat.", step2_title:"Hur mycket per m\u00e5nad?", step2_sub:"Dra f\u00f6r att v\u00e4lja, eller ange ett eget belopp.", step3_title:"V\u00e4lj din riskniv\u00e5.", step3_sub:"Tre alternativ. Inget fel svar.", done_sub:"Det \u00e4r allt. Det \u00e4r verkligen allt som kr\u00e4vs.", strip_title:"Din dag \u00e4r idag.", strip_sub:"Ingen betalning, inget \u00e5tagande \u2014 bara din plats i k\u00f6n.", cta_waitlist:"G\u00e5 med i v\u00e4ntelistan", modal_title:"Din dag \u00e4r idag.", modal_sub:"Ingen betalning, inget \u00e5tagande \u2014 bara din plats i k\u00f6n.", receipt_label:"uppskattat v\u00e4rde om 10 \u00e5r", receipt_investor:"Investerare", receipt_monthly:"M\u00e5nadsbelopp", receipt_portfolio:"Portf\u00f6lj", join_waitlist:"G\u00e5 med i riktiga v\u00e4ntelistan", restart:"\u21a9 Starta om demon", flag:"\uD83C\uDDF8\uD83C\uDDEA", code:"SV" },
+            es:{ nav_concept:"Concepto", nav_waitlist:"Lista de espera abierta", eyebrow:"C\u00f3mo funciona", headline_1:"Tres pasos.", headline_2:"Y ya est\u00e1s ", headline_3:"invirtiendo.", sub:"La demo es completamente gratuita y r\u00e1pida.", demo_btn:"Probar la demo", step1_title:"\u00bfC\u00f3mo te llamas?", step1_sub:"Solo tu nombre. Nada m\u00e1s.", step2_title:"\u00bfCu\u00e1nto por mes?", step2_sub:"Arrastra para elegir, o escribe tu propio importe.", step3_title:"Elige tu nivel de riesgo.", step3_sub:"Tres opciones. No hay respuesta incorrecta.", done_sub:"Eso es todo. Realmente es todo lo que se necesita.", strip_title:"Tu alg\u00fan d\u00eda es hoy.", strip_sub:"Sin pago, sin compromiso \u2014 solo tu lugar en la lista.", cta_waitlist:"Unirse a la lista de espera", modal_title:"Tu alg\u00fan d\u00eda es hoy.", modal_sub:"Sin pago, sin compromiso \u2014 solo tu lugar.", receipt_label:"valor estimado en 10 a\u00f1os", receipt_investor:"Inversor", receipt_monthly:"Mensual", receipt_portfolio:"Cartera", join_waitlist:"Unirse a la lista real", restart:"\u21a9 Reiniciar demo", flag:"\uD83C\uDDEA\uD83C\uDDF8", code:"ES" },
+            de:{ nav_concept:"Konzept", nav_waitlist:"Warteliste offen", eyebrow:"Wie es funktioniert", headline_1:"Drei Schritte.", headline_2:"Und du ", headline_3:"investierst.", sub:"Die Demo ist komplett kostenlos und schnell.", demo_btn:"Demo ausprobieren", step1_title:"Wie hei\u00dft du?", step1_sub:"Nur dein Vorname. Nichts weiter.", step2_title:"Wie viel pro Monat?", step2_sub:"Ziehe den Regler oder gib deinen eigenen Betrag ein.", step3_title:"W\u00e4hle dein Risikoniveau.", step3_sub:"Drei Optionen. Keine falsche Antwort.", done_sub:"Das war es. Wirklich alles, was es braucht.", strip_title:"Dein Irgendwann ist heute.", strip_sub:"Keine Zahlung, keine Verpflichtung \u2014 nur dein Platz.", cta_waitlist:"Zur Warteliste anmelden", modal_title:"Dein Irgendwann ist heute.", modal_sub:"Keine Zahlung, keine Verpflichtung \u2014 nur dein Platz.", receipt_label:"gesch\u00e4tzter Wert in 10 Jahren", receipt_investor:"Investor", receipt_monthly:"Monatlich", receipt_portfolio:"Portfolio", join_waitlist:"Zur echten Warteliste", restart:"\u21a9 Demo neu starten", flag:"\uD83C\uDDE9\uD83C\uDDEA", code:"DE" }
+        };
+
+        function applyLang(lang){
+            var t=T[lang];
+            if(!t)return;
+            localStorage.setItem('ove-lang',lang);
+            document.querySelectorAll('[data-i18n]').forEach(function(el){
+                var k=el.getAttribute('data-i18n');
+                if(t[k]!==undefined)el.textContent=t[k];
+            });
+            document.getElementById('lang-btn').textContent=t.flag+' '+t.code+' \u25be';
+            document.querySelectorAll('.lang-option').forEach(function(o){
+                o.classList.toggle('active',o.dataset.lang===lang);
+            });
+            document.getElementById('lang-switcher').classList.remove('open');
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+            document.getElementById('year').textContent=new Date().getFullYear();
             demoUpdateProjection();
 
-            document.getElementById('demo-name-input').addEventListener('input', function() {
-                var n = this.value.trim().toLowerCase();
-                document.getElementById('demo-email-display').textContent = n ? n+'@example.com' : '@example.com';
-                document.getElementById('demo-email-check').style.opacity = n ? '1' : '0';
+            document.getElementById('demo-name-input').addEventListener('input',function(){
+                var n=this.value.trim().toLowerCase();
+                document.getElementById('demo-email-display').textContent=n?n+'@example.com':'@example.com';
+                document.getElementById('demo-email-check').style.opacity=n?'1':'0';
             });
 
-            document.getElementById('open-waitlist-strip').addEventListener('click', demoOpenWaitlist);
+            document.getElementById('open-waitlist-strip').addEventListener('click',demoOpenWaitlist);
 
-            var ro = new IntersectionObserver(function(entries) {
-                entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('visible'); ro.unobserve(e.target); } });
-            }, {threshold:0.1});
-            document.querySelectorAll('.reveal').forEach(function(el){ ro.observe(el); });
+            document.getElementById('lang-btn').addEventListener('click',function(e){
+                e.stopPropagation();
+                document.getElementById('lang-switcher').classList.toggle('open');
+            });
+            document.querySelectorAll('.lang-option').forEach(function(o){
+                o.addEventListener('click',function(e){ e.stopPropagation(); applyLang(o.dataset.lang); });
+            });
+            document.addEventListener('click',function(){
+                document.getElementById('lang-switcher').classList.remove('open');
+            });
+
+            var saved = localStorage.getItem('ove-lang') || 'en';
+            if (!T[saved]) saved = 'en';
+            applyLang(saved);
+
+            var ro=new IntersectionObserver(function(entries){
+                entries.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);} });
+            },{threshold:0.1});
+            document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
         });
     </script>
     <script async src="https://tally.so/widgets/embed.js"></script>
