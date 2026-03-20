@@ -382,9 +382,6 @@
         .cta-section {
             text-align: center;
             padding: 3rem 2rem;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
             margin-top: 4rem;
         }
 
@@ -402,24 +399,46 @@
         }
 
         .cta-btn {
+            position: relative;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: var(--blue);
-            color: white;
+            gap: 1rem;
+            background: transparent;
+            color: var(--cream);
             font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            padding: 0.8rem 2rem;
+            padding: 1.3rem 2.5rem;
             border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            outline: none;
             text-decoration: none;
-            transition: all 0.2s;
-            box-shadow: 0 4px 20px rgba(59,130,246,0.3);
         }
-        .cta-btn:hover {
-            background: #2563eb;
-            transform: translateY(-2px);
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            border: 1px solid rgba(59,130,246,0.35);
+            transition: all 0.4s ease;
+            pointer-events: none;
         }
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border-radius: 999px;
+            border: 1px solid rgba(59,130,246,0.15);
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+        .cta-btn:hover::before { border-color: rgba(59,130,246,0.7); box-shadow: 0 0 20px rgba(59,130,246,0.2), inset 0 0 20px rgba(59,130,246,0.05); }
+        .cta-btn:hover::after { border-color: rgba(59,130,246,0.35); }
+        .cta-btn:hover { color: white; }
 
         /* ANIMATIONS */
         @keyframes fadeUp {
@@ -584,13 +603,24 @@
         <!-- USER JOURNEY -->
         <div class="section s4">
             <p class="section-label">User Journey</p>
-            <h2 class="section-title">Beginner today. Experienced investor in 6 months.</h2>
-            <p>After 6 consecutive months of investing, users unlock <strong>Ové Experienced</strong> — optional access to individual stocks and ETFs alongside their core portfolio. It's never forced. Just available when they're ready.</p>
+            <h2 class="section-title">Beginner today. Hands-off investor in 6 months.</h2>
+            <p>Ové is built around a clear emotional arc — not just a product, but a path.</p>
 
             <div class="quote-block">
-                <p>"6 months ago you took your first step. Look at you now. Ready to take the wheel?"</p>
-                <span>— The Experienced Ové unlock notification</span>
+                <p>"6 months ago you took your first step. Your money has been working ever since. Ready for the next level?"</p>
+                <span>— The Ové Adventure unlock notification</span>
             </div>
+
+            <p>After 6 consecutive months of investing, users unlock <strong>Ové Adventure</strong> — a milestone moment that marks the transition from beginner to confident investor. From here, users can optionally activate <strong>Ové Advisor</strong>.</p>
+
+            <p><strong>Ové Advisor</strong> is a full robo-advisor — inspired by Vanguard and Betterment — for €4.99/month. It automatically rebalances the portfolio, adjusts risk exposure as markets shift, and optimises for long-term growth. Zero decisions required from the user. Their money, truly working for them.</p>
+
+            <p>The journey in three chapters:</p>
+            <ul class="check-list">
+                <li><strong>Ové</strong> — Start simple. Pick 1 of 3 options, invest from €10, no jargon. Month 0.</li>
+                <li><strong>Ové Adventure</strong> — Unlock after 6 months. A reward for showing up consistently.</li>
+                <li><strong>Ové Advisor</strong> — Optional add-on at €4.99/mo. Automated, intelligent, hands-off portfolio management.</li>
+            </ul>
         </div>
 
         <div class="divider"></div>
@@ -676,6 +706,7 @@
             <p class="section-label">Business Model</p>
             <h2 class="section-title">Simple. Scales with users.</h2>
             <p><strong>0.5% AUM fee</strong> — charged annually, taken monthly in small increments. Invisible to the user at small portfolio sizes. Scales naturally as portfolios grow.</p>
+            <p><strong>Ové Advisor — €4.99/month</strong> — unlocked after 6 months. A premium robo-advisor tier for users ready to go fully hands-off. High conversion expected given the emotional milestone of the unlock.</p>
 
             <div class="stats">
                 <div class="stat-card">
@@ -684,11 +715,11 @@
                 </div>
                 <div class="stat-card">
                     <p class="stat-num">€750k</p>
-                    <p class="stat-label">Annual revenue from 0.5% fee at that scale</p>
+                    <p class="stat-label">Annual revenue from 0.5% AUM fee at that scale</p>
                 </div>
                 <div class="stat-card">
-                    <p class="stat-num">€5M</p>
-                    <p class="stat-label">AUM needed to reach profitability</p>
+                    <p class="stat-num">€600k</p>
+                    <p class="stat-label">Additional annual revenue if 10k users take Ové Advisor</p>
                 </div>
             </div>
         </div>
@@ -700,7 +731,6 @@
             <p class="section-label">What Ové is NOT</p>
             <h2 class="section-title">Clarity of purpose.</h2>
             <ul class="check-list">
-                <li>Not a trading platform</li>
                 <li>Not a bank</li>
                 <li>Not built for experts</li>
                 <li>Not trying to compete with Trading 212 or eToro on features</li>
@@ -713,15 +743,16 @@
         <!-- VISION -->
         <div class="section s9">
             <p class="section-label">Vision</p>
-            <h2 class="section-title">From someday to today.</h2>
+            <h2 class="section-title">From someday to today. From today to always.</h2>
             <p>Every European who wants to invest but hasn't started yet — that's our user. Not the trader. Not the expert. The person who keeps saying someday.</p>
-            <p>We turn someday into today.</p>
+            <p>We turn someday into today. And today into a habit. And a habit into a fully automated, intelligent portfolio that works while they sleep.</p>
+            <p>Ové isn't just a beginner app. It's the beginning of a lifetime of investing — with a clear, rewarding path from the first €10 to a hands-off portfolio managed by Ové Advisor.</p>
         </div>
 
         <!-- CTA -->
         <div class="cta-section">
-            <a href="/" class="cta-btn">
-                ← Back to home
+            <a href="https://x.com/BeginOve" target="_blank" class="cta-btn">
+                Contact Ové on X <span style="text-transform:none">@BeginOve</span>
             </a>
         </div>
 
