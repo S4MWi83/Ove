@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="pdHL7JSkBEX0cpQubnaZQqXLTDfgfNF0wMto-3flwV4" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVSFPMXDRR"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -11,171 +10,231 @@
       gtag('js', new Date());
       gtag('config', 'G-CVSFPMXDRR');
     </script>
-    <title>Ové — From someday to today</title>
-    <meta name="description" content="91% of Europeans haven't started investing yet. Ové changes that — pick a portfolio, deposit from €10, and you're investing in under 2 minutes. Zero jargon. No bank switching.">
-    <meta name="keywords" content="investing app Europe, beginner investing, simple investing, ETF Europe, start investing, Ové">
-    <meta name="author" content="Ové">
-    <link rel="canonical" href="https://meetove.pro/">
+    <title>Concept — Ové</title>
+    <meta name="description" content="How Ové works — three steps, zero jargon.">
+    <link rel="canonical" href="https://meetove.pro/concept.html">
     <link rel="icon" type="image/svg+xml" href="ove-favicon-e.svg">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://meetove.pro/">
-    <meta property="og:title" content="Ové — From someday to today">
-    <meta property="og:description" content="91% of Europeans haven't started investing yet. Ové gets complete beginners investing in under 2 minutes, from €10, with zero jargon.">
-    <meta property="og:image" content="https://meetove.pro/ove-x-header.png">
-    <meta property="og:image:width" content="1500">
-    <meta property="og:image:height" content="500">
-    <meta property="og:site_name" content="Ové">
-    <meta property="og:locale" content="en_EU">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@BeginOve">
-    <meta name="twitter:creator" content="@BeginOve">
-    <meta name="twitter:title" content="Ové — From someday to today">
-    <meta name="twitter:description" content="91% of Europeans haven't started investing yet. Ové gets complete beginners investing in under 2 minutes, from €10, with zero jargon.">
-    <meta name="twitter:image" content="https://meetove.pro/ove-x-header.png">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Ové",
-      "url": "https://meetove.pro",
-      "description": "Ové is an investing app built for complete beginners in Europe. Get started in under 2 minutes, from €10, with zero jargon.",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
-      "creator": { "@type": "Organization", "name": "Ové", "url": "https://meetove.pro", "sameAs": "https://x.com/BeginOve" }
-    }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
-    
     <style>
         :root {
-            --deep: #060f1e;
-            --blue: #3b82f6;
-            --blue-dim: rgba(59,130,246,0.15);
-            --blue-glow: rgba(59,130,246,0.35);
-            --cream: #f0ece4;
-            --muted: #9db5cc;
-            --border: rgba(255,255,255,0.07);
+            --deep:#060f1e; --blue:#3b82f6; --blue-dim:rgba(59,130,246,0.15);
+            --blue-glow:rgba(59,130,246,0.35); --cream:#f0ece4;
+            --muted:#9db5cc; --border:rgba(255,255,255,0.07); --card:rgba(255,255,255,0.03);
+            --green:#4ade80;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--deep);
-            color: var(--cream);
-            min-height: 100vh;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.4;
-        }
-
-        .orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
-        .orb-1 { width: 60vw; height: 60vw; top: -20vw; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(59,130,246,0.13), transparent 70%); }
-
-        .wrap { max-width: 1080px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'DM Sans',sans-serif; background:var(--deep); color:var(--cream); min-height:100vh; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+        body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.4; }
+        .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; }
+        .orb-1 { width:55vw; height:55vw; top:-18vw; left:50%; transform:translateX(-50%); background:radial-gradient(circle,rgba(59,130,246,0.13),transparent 70%); }
+        .orb-2 { width:28vw; height:28vw; bottom:8%; right:-6%; background:radial-gradient(circle,rgba(59,130,246,0.07),transparent 70%); }
+        .wrap { max-width:1080px; margin:0 auto; padding:0 2rem; position:relative; z-index:1; }
 
         /* NAV */
-        nav { display: flex; align-items: center; justify-content: space-between; padding: 2rem 0; opacity: 0; animation: fadeDown 0.6s ease forwards 0.1s; position: relative; z-index: 500; }
-        .nav-logo { font-family: 'Instrument Serif', serif; font-size: 1.8rem; color: var(--cream); text-decoration: none; position: relative; }
-        .nav-logo span { display: inline-block; width: 6px; height: 6px; background: var(--blue); border-radius: 50%; position: absolute; top: 6px; right: -9px; box-shadow: 0 0 8px var(--blue-glow); }
-        .nav-links { display: flex; align-items: center; gap: 1.5rem; }
-        .nav-link { font-size: 0.85rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-        .nav-link:hover { color: var(--cream); }
-        .nav-pill { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); background: var(--blue-dim); border: 1px solid rgba(59,130,246,0.2); padding: 0.4rem 1rem; border-radius: 999px; }
-
-        /* HERO */
-        .hero { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 0 6rem; }
-        .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 400; color: var(--muted); margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s; }
-        .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 32px; height: 1px; background: var(--border); }
-        .hero-headline { font-family: 'Instrument Serif', serif; font-size: clamp(3.6rem, 8vw, 7rem); line-height: 1.03; letter-spacing: -0.02em; margin-bottom: 1.75rem; opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s; }
-        .hero-headline em { font-style: italic; color: #93c5fd; }
-        .hero-sub { font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--muted); font-weight: 300; max-width: 460px; margin: 0 auto 3.5rem; line-height: 1.7; opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s; }
-        .hero-cta { opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s; }
-
-        /* CTA BUTTON */
-        .cta-btn { position: relative; display: inline-flex; align-items: center; gap: 1rem; background: transparent; color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; padding: 1.3rem 2.5rem; border-radius: 999px; border: none; cursor: pointer; transition: all 0.4s ease; letter-spacing: 0.12em; text-transform: uppercase; outline: none; text-decoration: none; }
-        .cta-btn::before { content: ''; position: absolute; inset: 0; border-radius: 999px; border: 1px solid rgba(59,130,246,0.35); transition: all 0.4s ease; pointer-events: none; }
-        .cta-btn::after { content: ''; position: absolute; inset: 3px; border-radius: 999px; border: 1px solid rgba(59,130,246,0.15); transition: all 0.4s ease; pointer-events: none; }
-        .cta-btn:hover::before { border-color: rgba(59,130,246,0.7); box-shadow: 0 0 20px rgba(59,130,246,0.2), inset 0 0 20px rgba(59,130,246,0.05); }
-        .cta-btn:hover::after { border-color: rgba(59,130,246,0.35); }
-        .cta-btn:hover { color: white; }
-        .cta-btn-label { position: relative; z-index: 1; }
-        .cta-nudge { display: block; margin-top: 1rem; font-size: 0.85rem; color: var(--muted); font-weight: 300; }
-
-        /* FOOTER */
-        footer { border-top: 1px solid var(--border); padding: 2rem 0; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 0.85rem; font-weight: 300; flex-wrap: wrap; gap: 1rem; }
-        .footer-links { display: flex; gap: 1.5rem; }
-        .footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-        .footer-links a:hover { color: var(--cream); }
-
-        /* TALLY MODAL */
-        .tally-overlay { display: none; position: fixed; inset: 0; background: rgba(6,15,30,0.85); backdrop-filter: blur(6px); z-index: 100; align-items: center; justify-content: center; padding: 2rem; }
-        .tally-overlay.open { display: flex; }
-        .tally-modal { background: #0a1628; border: 1px solid rgba(59,130,246,0.2); border-radius: 24px; padding: 2.5rem; width: 100%; max-width: 480px; position: relative; animation: fadeUp 0.3s ease; }
-        .tally-modal-title { font-family: 'Instrument Serif', serif; font-size: 1.75rem; margin-bottom: 0.5rem; }
-        .tally-modal-sub { font-size: 0.9rem; color: var(--muted); font-weight: 300; margin-bottom: 1.75rem; line-height: 1.6; }
-        .tally-close { position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1.25rem; line-height: 1; transition: color 0.2s; padding: 0.25rem; }
-        .tally-close:hover { color: var(--cream); }
-
-        /* ANIMATIONS */
-        @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        @media (max-width: 560px) { nav { padding: 1.5rem 0; } .hero { padding: 2rem 0 4rem; } }
-        @media (max-width: 640px) {
-            nav { padding: 1.25rem 0; flex-wrap: wrap; gap: 0.75rem; }
-            .nav-logo { font-size: 1.5rem; }
-            .nav-links { gap: 0.85rem; }
-            .nav-link { font-size: 0.78rem; }
-            .nav-pill, .nav-cta { font-size: 0.7rem; padding: 0.3rem 0.7rem; letter-spacing: 0.05em; }
-        }
+        nav { display:flex; align-items:center; justify-content:space-between; padding:2rem 0; opacity:0; animation:fadeDown 0.6s ease forwards 0.1s; position:relative; z-index:500; }
+        .nav-logo { font-family:'Instrument Serif',serif; font-size:1.8rem; color:var(--cream); text-decoration:none; position:relative; }
+        .nav-logo span { display:inline-block; width:6px; height:6px; background:var(--blue); border-radius:50%; position:absolute; top:6px; right:-9px; box-shadow:0 0 8px var(--blue-glow); }
+        .nav-links { display:flex; align-items:center; gap:1.5rem; }
+        .nav-link { font-size:0.85rem; font-weight:400; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+        .nav-link:hover, .nav-link.active { color:var(--cream); }
+        .nav-home { font-size:0.85rem; color:var(--muted); text-decoration:none; display:flex; align-items:center; gap:0.35rem; transition:color 0.2s; padding-right:1.5rem; border-right:1px solid var(--border); }
+        .nav-home:hover { color:var(--cream); }
+        .nav-cta { font-size:0.8rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue); background:var(--blue-dim); border:1px solid rgba(59,130,246,0.2); padding:0.4rem 1rem; border-radius:999px; cursor:default; font-family:'DM Sans',sans-serif; }
 
         /* LANG SWITCHER */
-        .lang-switcher { position: relative; }
-        .lang-btn { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.6rem; cursor: pointer; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s; }
-        .lang-btn:hover { color: var(--cream); border-color: rgba(255,255,255,0.15); }
-        .lang-dropdown { display: none; position: absolute; top: calc(100% + 8px); right: 0; background: #0d1f38; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; min-width: 130px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); z-index: 999; }
-        .lang-switcher.open .lang-dropdown { display: block; }
-        .lang-option { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 1rem; font-size: 0.82rem; color: var(--muted); cursor: pointer; transition: all 0.15s; border: none; background: none; width: 100%; font-family: 'DM Sans', sans-serif; text-align: left; }
-        .lang-option:hover { background: rgba(255,255,255,0.05); color: var(--cream); }
-        .lang-option.active { color: var(--cream); background: rgba(59,130,246,0.1); }
-        /* STATUS PILLS */
-        .status-pills { display: flex; align-items: center; justify-content: center; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 1.75rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
-        .status-pill { font-size: 0.68rem; font-weight: 300; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.15); opacity: 0.7; }
-        .status-pill:nth-child(2) { opacity: 1; }
-        @media (max-width: 560px) { .status-pills { display: none; } .hero-eyebrow { display: none; } }
+        .lang-switcher { position:relative; }
+        .lang-btn { background:none; border:1px solid var(--border); border-radius:8px; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.8rem; padding:0.3rem 0.6rem; cursor:pointer; display:flex; align-items:center; gap:0.3rem; transition:all 0.2s; white-space:nowrap; }
+        .lang-btn:hover { color:var(--cream); border-color:rgba(255,255,255,0.15); }
+        .lang-dropdown { display:none; position:absolute; top:calc(100% + 8px); right:0; background:#0d1f38; border:1px solid var(--border); border-radius:12px; overflow:hidden; min-width:130px; box-shadow:0 8px 32px rgba(0,0,0,0.4); z-index:999; }
+        .lang-switcher.open .lang-dropdown { display:block; }
+        .lang-option { display:flex; align-items:center; gap:0.6rem; padding:0.65rem 1rem; font-size:0.82rem; color:var(--muted); cursor:pointer; transition:all 0.15s; border:none; background:none; width:100%; font-family:'DM Sans',sans-serif; text-align:left; }
+        .lang-option:hover { background:rgba(255,255,255,0.05); color:var(--cream); }
+        .lang-option.active { color:var(--cream); background:rgba(59,130,246,0.1); }
 
+        /* HERO */
+        .hero { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:calc(100vh - 120px); padding:4rem 0 6rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.3s; }
+        .hero-eyebrow { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:2rem; }
+        .hero-headline { font-family:'Instrument Serif',serif; font-size:clamp(2.8rem,6vw,5.5rem); line-height:1.06; letter-spacing:-0.02em; margin-bottom:1.5rem; }
+        .hero-headline em { font-style:italic; color:#93c5fd; }
+        .hero-sub { font-size:clamp(1rem,2vw,1.15rem); color:var(--muted); font-weight:300; max-width:400px; line-height:1.75; margin-bottom:3.5rem; }
 
+        /* DEMO LAUNCH BUTTON */
+        .demo-launch-btn { position:relative; display:inline-flex; align-items:center; gap:1rem; background:transparent; color:var(--cream); font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:500; padding:0.9rem 1.75rem 0.9rem 1rem; border-radius:999px; border:none; cursor:pointer; transition:all 0.4s ease; letter-spacing:0.12em; text-transform:uppercase; outline:none; }
+        .demo-launch-btn::before { content:''; position:absolute; inset:0; border-radius:999px; border:1px solid rgba(59,130,246,0.35); transition:all 0.4s ease; pointer-events:none; }
+        .demo-launch-btn::after { content:''; position:absolute; inset:3px; border-radius:999px; border:1px solid rgba(59,130,246,0.15); transition:all 0.4s ease; pointer-events:none; }
+        .demo-launch-btn:hover::before { border-color:rgba(59,130,246,0.7); box-shadow:0 0 20px rgba(59,130,246,0.2),inset 0 0 20px rgba(59,130,246,0.05); }
+        .demo-launch-btn:hover::after { border-color:rgba(59,130,246,0.35); }
+        .demo-launch-btn:hover { color:white; }
+        .demo-btn-icon { position:relative; z-index:1; width:38px; height:38px; border-radius:50%; background:rgba(59,130,246,0.15); border:1px solid rgba(59,130,246,0.35); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.4s ease; box-shadow:0 0 12px rgba(59,130,246,0.2); }
+        .demo-launch-btn:hover .demo-btn-icon { background:rgba(59,130,246,0.3); border-color:rgba(59,130,246,0.6); box-shadow:0 0 20px rgba(59,130,246,0.4); }
+        .demo-btn-icon svg { color:var(--blue); transition:transform 0.3s ease; }
+        .demo-launch-btn:hover .demo-btn-icon svg { transform:scale(1.15); }
+        .demo-btn-label { position:relative; z-index:1; }
+        .demo-btn-label-main { font-size:0.9rem; color:var(--cream); letter-spacing:0.06em; font-weight:500; transition:color 0.3s; }
+        .demo-launch-btn:hover .demo-btn-label-main { color:white; }
+
+        /* WAITLIST STRIP */
+        .waitlist-strip { margin-bottom:6rem; background:linear-gradient(135deg,rgba(59,130,246,0.08) 0%,rgba(10,22,40,0.5) 100%); border:1px solid rgba(59,130,246,0.15); border-radius:28px; padding:3rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; position:relative; overflow:hidden; }
+        .waitlist-strip::before { content:''; position:absolute; top:-50%; left:50%; transform:translateX(-50%); width:60%; height:100%; background:radial-gradient(ellipse,rgba(59,130,246,0.1) 0%,transparent 70%); pointer-events:none; }
+        .waitlist-strip-text { position:relative; }
+        .waitlist-strip-title { font-family:'Instrument Serif',serif; font-size:clamp(1.5rem,3vw,2rem); margin-bottom:0.4rem; }
+        .waitlist-strip-sub { font-size:0.95rem; color:var(--muted); font-weight:300; }
+        .cta-btn { display:inline-flex; align-items:center; gap:0.6rem; background:var(--blue); color:white; font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:500; padding:0.9rem 2.2rem; border-radius:999px; border:none; cursor:pointer; transition:all 0.3s ease; box-shadow:0 4px 20px rgba(59,130,246,0.3); flex-shrink:0; }
+        .cta-btn:hover { background:#2563eb; transform:translateY(-2px); box-shadow:0 8px 30px rgba(59,130,246,0.45); }
+        .cta-btn svg { transition:transform 0.3s ease; }
+        .cta-btn:hover svg { transform:translateX(3px); }
+
+        /* FOOTER */
+        footer { border-top:1px solid var(--border); padding:2.5rem 0; display:flex; align-items:center; justify-content:space-between; color:var(--muted); font-size:0.85rem; font-weight:300; flex-wrap:wrap; gap:1rem; }
+        .footer-links { display:flex; gap:1.5rem; }
+        .footer-links a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
+        .footer-links a:hover { color:var(--cream); }
+
+        /* DEMO OVERLAY */
+        .demo-overlay { display:none; position:fixed; inset:0; background:rgba(6,15,30,0.92); backdrop-filter:blur(10px); z-index:200; align-items:center; justify-content:center; padding:2rem; }
+        .demo-overlay.open { display:flex; }
+        .demo-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.18); border-radius:28px; width:100%; max-width:460px; position:relative; overflow:hidden; box-shadow:0 40px 100px rgba(0,0,0,0.6); animation:scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+        .demo-close { position:absolute; top:1.25rem; right:1.25rem; background:rgba(255,255,255,0.06); border:1px solid var(--border); border-radius:50%; width:30px; height:30px; display:flex; align-items:center; justify-content:center; color:var(--muted); cursor:pointer; font-size:0.9rem; transition:all 0.2s; z-index:10; }
+        .demo-close:hover { background:rgba(255,255,255,0.1); color:var(--cream); }
+        .demo-steps-indicator { display:flex; gap:6px; padding:1.5rem 2rem 0; }
+        .demo-step-dot { height:3px; border-radius:2px; background:rgba(255,255,255,0.1); flex:1; transition:all 0.4s ease; }
+        .demo-step-dot.active { background:var(--blue); }
+        .demo-step-dot.done { background:rgba(59,130,246,0.4); }
+        .demo-panel { display:none; padding:1.75rem 2rem 2rem; }
+        .demo-panel.active { display:block; animation:panelIn 0.3s ease; }
+        .demo-eyebrow { font-size:0.7rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--blue); margin-bottom:0.6rem; }
+        .demo-title { font-family:'Instrument Serif',serif; font-size:1.75rem; line-height:1.15; margin-bottom:0.4rem; }
+        .demo-sub { font-size:0.88rem; color:var(--muted); font-weight:300; line-height:1.65; margin-bottom:1.5rem; }
+
+        /* STEP 1 */
+        .demo-form { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:1.5rem; }
+        .demo-field label { display:block; font-size:0.72rem; color:var(--muted); font-weight:400; margin-bottom:0.3rem; letter-spacing:0.05em; text-transform:uppercase; }
+        .demo-input { background:rgba(255,255,255,0.04); border:1px solid rgba(59,130,246,0.15); border-radius:12px; padding:0.75rem 1rem; font-size:0.95rem; color:var(--cream); font-family:'DM Sans',sans-serif; display:flex; align-items:center; gap:0.5rem; }
+        .demo-input-real { background:rgba(255,255,255,0.05); border:1px solid rgba(59,130,246,0.25); border-radius:12px; padding:0.75rem 1rem; font-size:0.95rem; color:var(--cream); font-family:'DM Sans',sans-serif; width:100%; outline:none; transition:border-color 0.2s,box-shadow 0.2s; caret-color:var(--blue); }
+        .demo-input-real::placeholder { color:rgba(122,143,168,0.4); }
+        .demo-input-real:focus { border-color:rgba(59,130,246,0.6); box-shadow:0 0 0 3px rgba(59,130,246,0.08); }
+        .demo-input-check { margin-left:auto; width:16px; height:16px; background:rgba(74,222,128,0.15); border:1px solid rgba(74,222,128,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:var(--green); flex-shrink:0; transition:opacity 0.2s; }
+
+        /* STEP 2 */
+        .demo-slider-wrap { margin-bottom:1.5rem; }
+        .demo-slider-header { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:1rem; }
+        .demo-slider-amount { font-family:'Instrument Serif',serif; font-size:3rem; color:var(--cream); line-height:1; letter-spacing:-0.02em; transition:all 0.15s ease; }
+        .demo-slider-amount span { font-size:1.4rem; color:var(--muted); }
+        .demo-slider-mo { font-size:0.82rem; color:var(--muted); font-weight:300; }
+        .demo-slider { -webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px; background:rgba(255,255,255,0.08); outline:none; cursor:pointer; }
+        .demo-slider::-webkit-slider-thumb { -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; box-shadow:0 0 12px rgba(59,130,246,0.6); transition:transform 0.15s; border:2px solid rgba(255,255,255,0.2); }
+        .demo-slider::-webkit-slider-thumb:hover { transform:scale(1.25); }
+        .demo-slider::-moz-range-thumb { width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; border:2px solid rgba(255,255,255,0.2); box-shadow:0 0 12px rgba(59,130,246,0.6); }
+        .demo-slider-labels { display:flex; justify-content:space-between; font-size:0.7rem; color:var(--muted); margin-top:0.5rem; font-weight:300; }
+        .demo-custom-wrap { margin:1rem 0 1rem; }
+        .demo-custom-label { display:block; font-size:0.72rem; color:var(--muted); font-weight:400; margin-bottom:0.3rem; letter-spacing:0.05em; text-transform:uppercase; }
+        .demo-custom-input-wrap { display:flex; align-items:center; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.2s; }
+        .demo-custom-input-wrap:focus-within { border-color:rgba(59,130,246,0.4); }
+        .demo-custom-euro { padding:0.75rem 0.5rem 0.75rem 1rem; font-size:0.95rem; color:var(--muted); }
+        .demo-custom-input { flex:1; background:none; border:none; outline:none; padding:0.75rem 1rem 0.75rem 0; font-size:0.95rem; color:var(--cream); font-family:'DM Sans',sans-serif; caret-color:var(--blue); }
+        .demo-custom-input::placeholder { color:rgba(122,143,168,0.4); }
+        .demo-custom-input::-webkit-outer-spin-button, .demo-custom-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+        .demo-projection { margin-bottom:1.5rem; padding:1.25rem; background:rgba(74,222,128,0.05); border:1px solid rgba(74,222,128,0.12); border-radius:14px; }
+        .demo-proj-number { font-family:'Instrument Serif',serif; font-size:2.4rem; color:var(--green); line-height:1; margin-bottom:0.4rem; letter-spacing:-0.02em; transition:all 0.3s ease; }
+        .demo-proj-label { font-size:0.82rem; color:var(--muted); font-weight:300; line-height:1.5; }
+
+        /* STEP 3 */
+        .demo-portfolios { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:1.5rem; }
+        .demo-portfolio { border:1px solid var(--border); border-left:3px solid transparent; border-radius:16px; padding:1rem 1.25rem; cursor:pointer; transition:all 0.2s ease; background:rgba(255,255,255,0.02); position:relative; }
+        .demo-portfolio[data-p="steady"] { --p-color:#4ade80; }
+        .demo-portfolio[data-p="balanced"] { --p-color:#3b82f6; }
+        .demo-portfolio[data-p="growth"] { --p-color:#f97316; }
+        .demo-portfolio:hover { border-color:rgba(255,255,255,0.1); border-left-color:var(--p-color); }
+        .demo-portfolio.active { border-color:rgba(255,255,255,0.1); border-left-color:var(--p-color); background:rgba(255,255,255,0.04); box-shadow:inset 3px 0 12px -4px var(--p-color); }
+        .demo-p-badge { position:absolute; top:-1px; right:1rem; font-size:0.65rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--blue); background:#0b1829; padding:0 0.5rem; }
+        .demo-p-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:0.35rem; }
+        .demo-p-name { font-size:0.95rem; font-weight:500; color:var(--cream); }
+        .demo-p-risk { font-size:0.73rem; color:var(--muted); font-weight:300; margin-top:0.15rem; }
+        .demo-p-proj { font-size:0.82rem; color:var(--p-color); font-weight:500; white-space:nowrap; opacity:0.9; }
+        .demo-p-alloc { font-size:0.75rem; color:var(--muted); font-weight:300; letter-spacing:0.02em; }
+
+        /* BUTTONS */
+        .demo-btn-row { display:flex; gap:0.65rem; align-items:center; }
+        .demo-back-btn { display:flex; align-items:center; justify-content:center; gap:0.4rem; background:rgba(255,255,255,0.04); border:1px solid var(--border); color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.9rem; padding:0.95rem 1.1rem; border-radius:14px; cursor:pointer; transition:all 0.2s ease; flex-shrink:0; }
+        .demo-back-btn:hover { background:rgba(255,255,255,0.07); color:var(--cream); border-color:rgba(255,255,255,0.15); }
+        .demo-next-btn { position:relative; display:inline-flex; align-items:center; justify-content:center; gap:0.6rem; flex:1; background:transparent; color:var(--cream); font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:500; padding:0.95rem 1.5rem; border-radius:999px; border:none; cursor:pointer; transition:all 0.4s ease; letter-spacing:0.08em; text-transform:uppercase; outline:none; }
+        .demo-next-btn::before { content:''; position:absolute; inset:0; border-radius:999px; border:1px solid rgba(59,130,246,0.35); transition:all 0.4s ease; pointer-events:none; }
+        .demo-next-btn::after { content:''; position:absolute; inset:3px; border-radius:999px; border:1px solid rgba(59,130,246,0.15); transition:all 0.4s ease; pointer-events:none; }
+        .demo-next-btn:hover::before { border-color:rgba(59,130,246,0.7); box-shadow:0 0 20px rgba(59,130,246,0.2),inset 0 0 20px rgba(59,130,246,0.05); }
+        .demo-next-btn:hover::after { border-color:rgba(59,130,246,0.35); }
+        .demo-next-btn:hover { color:white; }
+        .demo-next-btn svg { position:relative; z-index:1; transition:transform 0.2s ease; }
+        .demo-next-btn:hover svg { transform:translateX(3px); }
+        .demo-next-btn.full { width:100%; }
+
+        /* DONE */
+        .demo-done-icon { width:56px; height:56px; border-radius:50%; background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.3); display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:var(--green); margin-bottom:1.25rem; box-shadow:0 0 24px rgba(74,222,128,0.15); animation:popIn 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+        @keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+        .demo-receipt { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:18px; overflow:hidden; margin-bottom:1.75rem; }
+        .demo-receipt-hero { padding:1.5rem; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; }
+        .demo-receipt-proj { font-family:'Instrument Serif',serif; font-size:2.8rem; color:var(--green); line-height:1; letter-spacing:-0.02em; margin-bottom:0.3rem; }
+        .demo-receipt-proj-label { font-size:0.78rem; color:var(--muted); font-weight:300; }
+        .demo-receipt-rows { padding:0.75rem 1.25rem; }
+        .demo-receipt-row { display:flex; justify-content:space-between; align-items:center; padding:0.55rem 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+        .demo-receipt-row:last-child { border-bottom:none; }
+        .demo-receipt-key { font-size:0.78rem; color:var(--muted); font-weight:300; text-transform:uppercase; letter-spacing:0.06em; }
+        .demo-receipt-val { font-size:0.9rem; color:var(--cream); font-weight:500; }
+        .demo-restart { width:100%; margin-top:0.65rem; background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.85rem; cursor:pointer; transition:color 0.2s; padding:0.5rem; }
+        .demo-restart:hover { color:var(--cream); }
+
+        /* TALLY */
+        .tally-overlay { display:none; position:fixed; inset:0; background:rgba(6,15,30,0.88); backdrop-filter:blur(8px); z-index:300; align-items:center; justify-content:center; padding:2rem; }
+        .tally-overlay.open { display:flex; }
+        .tally-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.2); border-radius:24px; padding:2.5rem; width:100%; max-width:480px; position:relative; animation:scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+        .tally-modal-title { font-family:'Instrument Serif',serif; font-size:1.75rem; margin-bottom:0.5rem; }
+        .tally-modal-sub { font-size:0.9rem; color:var(--muted); font-weight:300; margin-bottom:1.75rem; line-height:1.6; }
+        .tally-close { position:absolute; top:1.25rem; right:1.25rem; background:rgba(255,255,255,0.06); border:1px solid var(--border); border-radius:50%; width:30px; height:30px; display:flex; align-items:center; justify-content:center; color:var(--muted); cursor:pointer; font-size:0.9rem; transition:all 0.2s; }
+        .tally-close:hover { background:rgba(255,255,255,0.1); color:var(--cream); }
+
+        /* ANIMATIONS */
+        @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes scaleIn { from{opacity:0;transform:scale(0.94)} to{opacity:1;transform:scale(1)} }
+        @keyframes panelIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+        .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+
+        @media(max-width:640px) {
+            nav { padding:1.25rem 0; flex-wrap:wrap; gap:0.75rem; }
+            .nav-logo { font-size:1.5rem; }
+            .nav-links { gap:0.85rem; }
+            .nav-link { font-size:0.78rem; }
+            .nav-home { font-size:0.78rem; padding-right:0.85rem; }
+            .nav-cta { font-size:0.7rem; padding:0.3rem 0.7rem; }
+            .hero { min-height:auto; padding:3rem 0 4rem; }
+            .waitlist-strip { padding:2rem; flex-direction:column; align-items:flex-start; }
+            .demo-modal { border-radius:20px; }
+            .demo-panel { padding:1.5rem 1.5rem 1.75rem; }
+        }
     </style>
 </head>
 <body>
     <div class="orb orb-1"></div>
-
+    <div class="orb orb-2"></div>
     <div class="wrap" role="main">
+
         <nav>
             <a href="/" class="nav-logo">Ové<span></span></a>
             <div class="nav-links">
-                <a href="/concept" class="nav-link" data-i18n="nav_concept">Concept</a>
+                <a href="/" class="nav-home">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                </a>
+                <a href="/concept" class="nav-link active" data-i18n="nav_concept">Concept</a>
                 <a href="/vision" class="nav-link">Vision</a>
-                <span class="nav-pill" data-i18n="nav_waitlist">Waitlist open</span>
+                <span class="nav-cta" data-i18n="nav_waitlist">Waitlist open</span>
                 <div class="lang-switcher" id="lang-switcher">
                     <button class="lang-btn" id="lang-btn">&#127760; <span id="lang-code">EN</span> &#9660;</button>
-                    <div class="lang-dropdown" id="lang-dropdown">
+                    <div class="lang-dropdown">
                         <button class="lang-option active" data-lang="en">English</button>
                         <button class="lang-option" data-lang="sv">Svenska</button>
                         <button class="lang-option" data-lang="es">Español</button>
@@ -185,108 +244,380 @@
             </div>
         </nav>
 
-        <section class="hero">
-            <div class="status-pills">
-                <span class="status-pill" data-i18n="pill_2">Coming soon</span>
-                <span class="status-pill" data-i18n="pill_1">Not handling funds yet</span>
-                <span class="status-pill" data-i18n="pill_3">Free waitlist</span>
-            </div>
-            <p class="hero-eyebrow" data-i18n="eyebrow">Early access — join the waitlist.</p>
+        <div class="hero">
+            <p class="hero-eyebrow" data-i18n="eyebrow">Try it out</p>
             <h1 class="hero-headline">
-                <span data-i18n="headline_1">From</span> <em data-i18n="headline_2">someday</em><br><span data-i18n="headline_3">to today.</span>
+                <span data-i18n="headline_1">This is what</span><br>
+                <span data-i18n="headline_2">investing could</span><br><em id="headline-feel" style="font-style:italic;color:#93c5fd" data-i18n="headline_feel">feel</em><span data-i18n="headline_3"> like.</span>
             </h1>
-            <p class="hero-sub">
-                <span data-i18n="sub"><em>Investing made simple. Clear. Fast. Safe.</em></span>
-            </p>
-            <div class="hero-cta">
-                <button class="cta-btn" id="open-waitlist">
-                    <span class="cta-btn-label" data-i18n="cta">SECURE YOUR SPOT</span>
-                </button>
-                <span class="cta-nudge" data-i18n="nudge">Spots are limited — be first when we launch.</span>
-            </div>
-        </section>
+            <p class="hero-sub" data-i18n="sub">The demo is completely free, and goes quick.</p>
+            <button class="demo-launch-btn" onclick="demoOpen()">
+                <div class="demo-btn-icon">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div class="demo-btn-label"><span class="demo-btn-label-main" data-i18n="demo_btn">Try Ové</span></div>
+            </button>
+        </div>
+
+
 
         <footer>
             <span>© <span id="year"></span> Ové. All rights reserved.</span>
-            <div class="footer-links">
-                <a href="https://x.com/BeginOve" target="_blank">@BeginOve on X</a>
-            </div>
+            <div class="footer-links"><a href="https://x.com/BeginOve" target="_blank">@BeginOve on X</a></div>
         </footer>
     </div>
 
-    <div class="tally-overlay" id="tally-overlay">
+    <!-- DEMO MODAL -->
+    <div class="demo-overlay" id="demo-overlay" onclick="if(event.target===this)demoClose()">
+        <div class="demo-modal">
+                        <button class="demo-close" onclick="demoClose()">✕</button>
+            <div class="demo-steps-indicator">
+                <div class="demo-step-dot"></div>
+                <div class="demo-step-dot"></div>
+                <div class="demo-step-dot"></div>
+            </div>
+            <div class="demo-panel" id="demo-step-1">
+                <p class="demo-eyebrow" id="demo-step1-eyebrow">Step 1 of 3</p>
+                <h2 class="demo-title" data-i18n="step1_title">What's your name?</h2>
+                <p class="demo-sub" data-i18n="step1_sub">Just your first name.</p>
+                <div class="demo-form">
+                    <div class="demo-field">
+                        <label id="demo-label-firstname">First name</label>
+                        <input class="demo-input-real" id="demo-name-input" type="text" placeholder="e.g. Sara" maxlength="20" autocomplete="off" />
+                    </div>
+                    <div class="demo-field">
+                        <label id="demo-label-email">Email</label>
+                        <div class="demo-input"><span id="demo-email-display">@example.com</span><div class="demo-input-check" id="demo-email-check" style="opacity:0">✓</div></div>
+                    </div>
+                    <div class="demo-field">
+                        <label id="demo-label-country">Country</label>
+                        <div class="demo-input" id="demo-country">DE · Germany <div class="demo-input-check">✓</div></div>
+                    </div>
+                </div>
+                <button class="demo-next-btn full" onclick="demoGo(2)">
+                    <span id="demo-btn-continue1">Continue</span> <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+            <div class="demo-panel" id="demo-step-2">
+                <p class="demo-eyebrow" id="demo-step2-eyebrow">Step 2 of 3</p>
+                <h2 class="demo-title" data-i18n="step2_title">How much per month?</h2>
+                <p class="demo-sub" data-i18n="step2_sub">Drag to choose, or type your own amount.</p>
+                <div class="demo-slider-wrap">
+                    <div class="demo-slider-header">
+                        <div>
+                            <div class="demo-slider-amount"><span id="demo-currency-symbol">€</span><span id="demo-slider-val">50</span></div>
+                            <div class="demo-slider-mo" id="demo-per-month">per month</div>
+                        </div>
+                    </div>
+                    <input class="demo-slider" id="demo-slider" type="range" min="5" max="500" step="5" value="50" oninput="demoSetAmount(this.value,false)" />
+                    <div class="demo-slider-labels"><span id="demo-slider-min">€5</span><span id="demo-slider-max">€500</span></div>
+                </div>
+                <div class="demo-custom-wrap">
+                    <label class="demo-custom-label" id="demo-label-custom">Or enter your own</label>
+                    <div class="demo-custom-input-wrap">
+                        <span class="demo-custom-euro" id="demo-currency-custom">€</span>
+                        <input class="demo-custom-input" id="demo-custom-amount" type="number" min="1" max="99999" placeholder="e.g. 75" oninput="demoSetCustomAmount(this.value)" />
+                    </div>
+                </div>
+                <div class="demo-projection">
+                    <div class="demo-proj-number" id="demo-proj-number">Est. €9,000</div>
+                    <div class="demo-proj-label" id="demo-proj-text">from €50/mo over 10 years at 8%</div>
+                </div>
+                <div class="demo-btn-row">
+                    <button class="demo-back-btn" onclick="demoGo(1)"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg> <span id="demo-btn-back1">Back</span></button>
+                    <button class="demo-next-btn" onclick="demoGo(3)"><span id="demo-btn-continue2">Continue</span> <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                </div>
+            </div>
+            <div class="demo-panel" id="demo-step-3">
+                <p class="demo-eyebrow" id="demo-step3-eyebrow">Step 3 of 3</p>
+                <h2 class="demo-title" data-i18n="step3_title">Pick your risk level.</h2>
+                <p class="demo-sub" data-i18n="step3_sub">Three options. No wrong answer.</p>
+                <div class="demo-portfolios">
+                    <div class="demo-portfolio" data-p="steady" onclick="demoSelectPortfolio(this)">
+                        <div class="demo-p-top"><div><p class="demo-p-name" id="p-name-steady">Steady</p><p class="demo-p-risk" id="p-risk-steady">Low risk · est. 4–6%</p></div><span class="demo-p-proj" id="proj-steady">—</span></div>
+                        <div class="demo-p-alloc" id="p-alloc-steady">70% bonds · 20% stocks · 10% cash</div>
+                    </div>
+                    <div class="demo-portfolio active" data-p="balanced" onclick="demoSelectPortfolio(this)">
+                        <div class="demo-p-badge" id="demo-most-popular">Most popular</div>
+                        <div class="demo-p-top"><div><p class="demo-p-name" id="p-name-balanced">Balanced</p><p class="demo-p-risk" id="p-risk-balanced">Medium risk · est. 7–9%</p></div><span class="demo-p-proj" id="proj-balanced">—</span></div>
+                        <div class="demo-p-alloc" id="p-alloc-balanced">60% stocks · 30% bonds · 10% cash</div>
+                    </div>
+                    <div class="demo-portfolio" data-p="growth" onclick="demoSelectPortfolio(this)">
+                        <div class="demo-p-top"><div><p class="demo-p-name" id="p-name-growth">Growth</p><p class="demo-p-risk" id="p-risk-growth">Higher risk · est. 10–12%</p></div><span class="demo-p-proj" id="proj-growth">—</span></div>
+                        <div class="demo-p-alloc" id="p-alloc-growth">90% stocks · 8% bonds · 2% cash</div>
+                    </div>
+                </div>
+                <div class="demo-btn-row">
+                    <button class="demo-back-btn" onclick="demoGo(2)"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg> <span id="demo-btn-back2">Back</span></button>
+                    <button class="demo-next-btn" onclick="demoGo('done')"><span id="demo-btn-start">Start investing</span> <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                </div>
+            </div>
+            <div class="demo-panel" id="demo-step-done">
+                <div class="demo-done-icon">✓</div>
+                <h2 class="demo-title" id="demo-done-title">You're investing.</h2>
+                <p class="demo-sub" style="margin-bottom:1.25rem" data-i18n="done_sub">That's it. That's really all it takes.</p>
+                <div class="demo-receipt">
+                    <div class="demo-receipt-hero">
+                        <div class="demo-receipt-proj" id="receipt-proj">—</div>
+                        <div class="demo-receipt-proj-label" data-i18n="receipt_label">estimated value in 10 years</div>
+                    </div>
+                    <div class="demo-receipt-rows">
+                        <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_investor">Investor</span><span class="demo-receipt-val" id="receipt-name">—</span></div>
+                        <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_monthly">Monthly</span><span class="demo-receipt-val" id="receipt-amount">—</span></div>
+                        <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_portfolio">Portfolio</span><span class="demo-receipt-val" id="receipt-portfolio">—</span></div>
+                    </div>
+                </div>
+                <button class="demo-next-btn full" onclick="demoClose();demoOpenWaitlist()" data-i18n="join_waitlist">Join the real waitlist</button>
+                <button class="demo-restart" onclick="demoOpen()" data-i18n="restart">↩ Restart demo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WAITLIST MODAL -->
+    <div class="tally-overlay" id="tally-overlay" onclick="if(event.target===this)this.classList.remove('open')">
         <div class="tally-modal">
-            <button class="tally-close" id="close-waitlist">✕</button>
+            <button class="tally-close" onclick="document.getElementById('tally-overlay').classList.remove('open')">✕</button>
             <p class="tally-modal-title" data-i18n="modal_title">Your someday is today.</p>
-            <p class="tally-modal-sub" data-i18n="modal_sub">No payment, no commitment.</p>
+            <p class="tally-modal-sub" data-i18n="modal_sub">No payment, no commitment — just your spot in line.</p>
             <div id="tally-embed-target"></div>
         </div>
     </div>
 
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+        var demoPortfolio = 'balanced';
+        var demoAmount = 50;
+        var portfolioRates = { steady:0.05, balanced:0.08, growth:0.11 };
+        var portfolioNames = { steady:'Steady', balanced:'Balanced', growth:'Growth' };
 
-        var overlay = document.getElementById('tally-overlay');
-        var embedTarget = document.getElementById('tally-embed-target');
-        var loaded = false;
+        function calcFV(m,r,months){ var rm=r/12; return Math.round(m*((Math.pow(1+rm,months)-1)/rm)); }
+        function getCurr(){ var lang=localStorage.getItem('ove-lang')||'en'; return (currencyByLang[lang]||currencyByLang['en']).symbol; }
+        function fmt(v){ var c=getCurr(); return v>=1000 ? 'Est. '+c+Math.round(v/1000)+',000' : c+v; }
 
-        document.getElementById('open-waitlist').addEventListener('click', function() {
-            overlay.classList.add('open');
-            if (!loaded) {
-                embedTarget.innerHTML = '<iframe data-tally-src="https://tally.so/embed/WOoKja?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="160" frameborder="0" marginheight="0" marginwidth="0" title="Ov\u00e9 Waitlist"></iframe>';
-                if (window.Tally) Tally.loadEmbeds();
-                loaded = true;
+        function demoOpen(){
+            demoAmount=50; demoPortfolio='balanced';
+            document.getElementById('demo-overlay').classList.add('open');
+            document.getElementById('demo-name-input').value='';
+            document.getElementById('demo-email-display').textContent='@example.com';
+            document.getElementById('demo-email-check').style.opacity='0';
+            var openLang=localStorage.getItem('ove-lang')||'en'; var openCur=currencyByLang[openLang]||currencyByLang['en']; demoAmount=openCur.default; document.getElementById('demo-slider').value=openCur.default; document.getElementById('demo-slider-val').textContent=openCur.default; document.getElementById('demo-custom-amount').value='';
+            // Set country based on current language
+            var savedLang=localStorage.getItem('ove-lang')||'en';
+            var countryEl=document.getElementById('demo-country');
+            if(countryEl && countryByLang[savedLang]){
+                countryEl.childNodes[0].textContent=countryByLang[savedLang]+' ';
             }
-        });
-
-        document.getElementById('close-waitlist').addEventListener('click', function() {
-            overlay.classList.remove('open');
-        });
-
-        overlay.addEventListener('click', function(e) {
-            if (e.target === overlay) overlay.classList.remove('open');
-        });
-    </script>
-    <script async src="https://tally.so/widgets/embed.js"></script>
-
-    <script>
-        var translations = {
-            en: { nav_concept:"Concept", nav_waitlist:"Waitlist open", eyebrow:"Early access — join the waitlist.", headline_1:"From", headline_2:"someday", headline_3:"to today.", sub:"Investing made simple. Clear. Fast. Safe.", cta:"SECURE YOUR SPOT", nudge:"Spots are limited \u2014 be first when we launch.", modal_title:"Your someday is today.", modal_sub:"No payment, no commitment.", pill_1:"Not handling funds yet", pill_2:"Coming soon", pill_3:"Free waitlist", code:"EN", fi:"gb" },
-            sv: { nav_concept:"Koncept", nav_waitlist:"\u00d6ppen v\u00e4ntelista", eyebrow:"F\u00f6rhandsaccess \u2014 g\u00e5 med i v\u00e4ntelistan.", headline_1:"Fr\u00e5n", headline_2:"en dag", headline_3:"till idag.", sub:"Investering gjord enkelt. Tydligt. Snabbt. S\u00e4kert.", cta:"S\u00c4KRA DIN PLATS", nudge:"Platserna \u00e4r begr\u00e4nsade \u2014 var f\u00f6rst n\u00e4r vi lanserar.", modal_title:"Din dag \u00e4r idag.", modal_sub:"Ingen betalning, inget \u00e5tagande.", pill_1:"Hanterar inga pengar ännu", pill_2:"Kommer snart", pill_3:"Gratis väntelista", code:"SV", fi:"se" },
-            es: { nav_concept:"Concepto", nav_waitlist:"Lista de espera abierta", eyebrow:"Acceso anticipado \u2014 \u00fanete a la lista de espera.", headline_1:"De", headline_2:"alg\u00fan d\u00eda", headline_3:"al hoy.", sub:"Invertir hecho simple. Claro. R\u00e1pido. Seguro.", cta:"ASEGURA TU LUGAR", nudge:"Los cupos son limitados \u2014 s\u00e9 el primero cuando lancemos.", modal_title:"Tu alg\u00fan d\u00eda es hoy.", modal_sub:"Sin pago, sin compromiso.", pill_1:"Sin gestión de fondos aún", pill_2:"Próximamente", pill_3:"Lista gratuita", code:"ES", fi:"es" },
-            de: { nav_concept:"Konzept", nav_waitlist:"Warteliste offen", eyebrow:"Frühzugang — Warteliste beitreten.", headline_1:"Von", headline_2:"irgendwann", headline_3:"zu heute.", sub:"Investieren leicht gemacht. Klar. Schnell. Sicher.", cta:"PLATZ SICHERN", nudge:"Pl\u00e4tze sind begrenzt \u2014 sei Erster, wenn wir starten.", modal_title:"Dein Irgendwann ist heute.", modal_sub:"Keine Zahlung, keine Verpflichtung.", pill_1:"Noch keine Geldverwaltung", pill_2:"Demnächst", pill_3:"Kostenlose Warteliste", code:"DE", fi:"de" }
-        };
-
-        function applyLang(lang) {
-            var t = translations[lang];
-            if (!t) return;
-            localStorage.setItem('ove-lang', lang);
-            document.querySelectorAll('[data-i18n]').forEach(function(el) {
-                var key = el.getAttribute('data-i18n');
-                if (t[key] !== undefined) el.textContent = t[key];
-            });
-            document.getElementById('lang-code').textContent = t.code;
-            document.querySelectorAll('.lang-option').forEach(function(o) {
-                o.classList.toggle('active', o.dataset.lang === lang);
-            });
-            document.getElementById('lang-switcher').classList.remove('open');
+            demoUpdateProjection();
+            document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.toggle('active',p.dataset.p==='balanced'); });
+            demoGo(1);
+            setTimeout(function(){ document.getElementById('demo-name-input').focus(); },350);
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('lang-btn').addEventListener('click', function(e) {
+        function demoClose(){ document.getElementById('demo-overlay').classList.remove('open'); }
+
+        function demoGo(step){
+            document.querySelectorAll('.demo-panel').forEach(function(p){ p.classList.remove('active'); });
+            document.querySelectorAll('.demo-step-dot').forEach(function(d,i){
+                d.classList.remove('active','done');
+                if(step!=='done'){ if(i+1<step)d.classList.add('done'); if(i+1===step)d.classList.add('active'); }
+                else d.classList.add('done');
+            });
+            var id=step==='done'?'demo-step-done':'demo-step-'+step;
+            document.getElementById(id).classList.add('active');
+            if(step===3)demoUpdatePortfolioProjections();
+            if(step==='done')demoFillReceipt();
+        }
+
+        function demoSetAmount(val,fromCustom){
+            val=Math.round(parseFloat(val));
+            if(!val||val<1)return;
+            demoAmount=val;
+            document.getElementById('demo-slider-val').textContent=val;
+            var curLang=localStorage.getItem('ove-lang')||'en'; var curMax=(currencyByLang[curLang]||currencyByLang['en']).max; document.getElementById('demo-slider').value=Math.min(val,curMax);
+            if(!fromCustom)document.getElementById('demo-custom-amount').value='';
+            demoUpdateProjection();
+        }
+
+        function demoSetCustomAmount(val){
+            var v=parseFloat(val);
+            if(v&&v>0)demoSetAmount(v,true);
+        }
+
+        function demoUpdateProjection(){
+            var fv=calcFV(parseFloat(demoAmount)||50,0.08,120);
+            document.getElementById('demo-proj-number').textContent=fmt(fv);
+            var lang=localStorage.getItem('ove-lang')||'en';
+            var d=demoT[lang]||demoT['en'];
+            var c=getCurr(); document.getElementById('demo-proj-text').textContent=d.projtext.replace('{curr}',c).replace('{amt}',demoAmount);
+        }
+
+        function demoUpdatePortfolioProjections(){
+            var monthly=parseFloat(demoAmount)||50;
+            for(var key in portfolioRates){
+                var fv=calcFV(monthly,portfolioRates[key],120);
+                var curr=getCurr(); var f=fv>=1000?'Est. '+curr+(fv/1000).toFixed(1)+'k':'Est. '+curr+fv;
+                document.getElementById('proj-'+key).textContent=f+' / 10yr';
+            }
+        }
+
+        function demoSelectPortfolio(el){
+            document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.remove('active'); });
+            el.classList.add('active');
+            demoPortfolio=el.dataset.p;
+        }
+
+        function demoFillReceipt(){
+            var name=document.getElementById('demo-name-input').value.trim();
+            var dn=name?name.charAt(0).toUpperCase()+name.slice(1):'You';
+            var lang=localStorage.getItem('ove-lang')||'en';
+            var d=demoT[lang]||demoT['en'];
+            document.getElementById('demo-done-title').textContent=d.donename+', '+dn+'.';
+            document.getElementById('receipt-name').textContent=dn;
+            document.getElementById('receipt-amount').textContent=getCurr()+demoAmount+'/mo';
+            document.getElementById('receipt-portfolio').textContent=portfolioNames[demoPortfolio];
+            var target=calcFV(parseFloat(demoAmount)||50,portfolioRates[demoPortfolio],120);
+            var t0=performance.now(),dur=1200;
+            function tick(t){
+                var p=Math.min((t-t0)/dur,1),ease=1-Math.pow(1-p,3);
+                document.getElementById('receipt-proj').textContent=fmt(Math.round(target*ease));
+                if(p<1)requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+
+        function demoOpenWaitlist(){
+            document.getElementById('tally-overlay').classList.add('open');
+            var t=document.getElementById('tally-embed-target');
+            if(!t.dataset.loaded){
+                t.innerHTML='<iframe data-tally-src="https://tally.so/embed/WOoKja?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="160" frameborder="0" marginheight="0" marginwidth="0" title="Ov\u00e9 Waitlist"></iframe>';
+                if(window.Tally)Tally.loadEmbeds();
+                t.dataset.loaded='1';
+            }
+        }
+
+        // TRANSLATIONS
+        var T = {
+            en:{ nav_concept:"Concept", nav_waitlist:"Waitlist open", eyebrow:"Try it out", headline_feel:"feel", headline_1:"This is what", headline_2:"investing could", headline_3:" like.", sub:"The demo is completely free, and goes quick.", demo_btn:"Try Ové", step1_title:"What\u2019s your name?", step1_sub:"Just your first name.", step2_title:"How much per month?", step2_sub:"Drag to choose, or type your own amount.", step3_title:"Pick your risk level.", step3_sub:"Three options. No wrong answer.", done_sub:"That\u2019s it. That\u2019s really all it takes.", strip_title:"Your someday is today.", strip_sub:"No payment, no commitment \u2014 just your spot in line.", cta_waitlist:"Join the waitlist", modal_title:"Your someday is today.", modal_sub:"No payment, no commitment \u2014 just your spot in line.", receipt_label:"estimated value in 10 years", receipt_investor:"Investor", receipt_monthly:"Monthly", receipt_portfolio:"Portfolio", join_waitlist:"Join the real waitlist", restart:"\u21a9 Restart demo", flag:"\uD83C\uDDEC\uD83C\uDDE7", code:"EN", fi:"gb" },
+            sv:{ nav_concept:"Koncept", nav_waitlist:"\u00d6ppen v\u00e4ntelista", eyebrow:"Prova det", headline_feel:"k\u00e4nnas", headline_1:"S\u00e5 h\u00e4r kan", headline_2:"investering", headline_3:".", sub:"Demon är helt gratis och går snabbt.", demo_btn:"Prova Ové", step1_title:"Vad heter du?", step1_sub:"Bara ditt f\u00f6rnamn.", step2_title:"Hur mycket per m\u00e5nad?", step2_sub:"Dra f\u00f6r att v\u00e4lja, eller ange ett eget belopp.", step3_title:"V\u00e4lj din riskniv\u00e5.", step3_sub:"Tre alternativ. Inget fel svar.", done_sub:"Det \u00e4r allt. Det \u00e4r verkligen allt som kr\u00e4vs.", strip_title:"Din dag \u00e4r idag.", strip_sub:"Ingen betalning, inget \u00e5tagande \u2014 bara din plats i k\u00f6n.", cta_waitlist:"G\u00e5 med i v\u00e4ntelistan", modal_title:"Din dag \u00e4r idag.", modal_sub:"Ingen betalning, inget \u00e5tagande \u2014 bara din plats i k\u00f6n.", receipt_label:"uppskattat v\u00e4rde om 10 \u00e5r", receipt_investor:"Investerare", receipt_monthly:"M\u00e5nadsbelopp", receipt_portfolio:"Portf\u00f6lj", join_waitlist:"G\u00e5 med i riktiga v\u00e4ntelistan", restart:"\u21a9 Starta om demon", flag:"\uD83C\uDDF8\uD83C\uDDEA", code:"SV", fi:"se" },
+            es:{ nav_concept:"Concepto", nav_waitlist:"Lista de espera abierta", eyebrow:"Pru\u00e9balo", headline_feel:"sentir", headline_1:"As\u00ed es como", headline_2:"invertir puede", headline_3:" se.", sub:"La demo es completamente gratuita y va rápido.", demo_btn:"Probar Ové", step1_title:"\u00bfC\u00f3mo te llamas?", step1_sub:"Solo tu nombre.", step2_title:"\u00bfCu\u00e1nto por mes?", step2_sub:"Arrastra para elegir, o escribe tu propio importe.", step3_title:"Elige tu nivel de riesgo.", step3_sub:"Tres opciones. No hay respuesta incorrecta.", done_sub:"Eso es todo. Realmente es todo lo que se necesita.", strip_title:"Tu alg\u00fan d\u00eda es hoy.", strip_sub:"Sin pago, sin compromiso \u2014 solo tu lugar en la lista.", cta_waitlist:"Unirse a la lista de espera", modal_title:"Tu alg\u00fan d\u00eda es hoy.", modal_sub:"Sin pago, sin compromiso \u2014 solo tu lugar.", receipt_label:"valor estimado en 10 a\u00f1os", receipt_investor:"Inversor", receipt_monthly:"Mensual", receipt_portfolio:"Cartera", join_waitlist:"Unirse a la lista real", restart:"\u21a9 Reiniciar demo", flag:"\uD83C\uDDEA\uD83C\uDDF8", code:"ES", fi:"es" },
+            de:{ nav_concept:"Konzept", nav_waitlist:"Warteliste offen", eyebrow:"Probier es aus", headline_feel:"fühlen", headline_1:"So könnte", headline_2:"Investieren", headline_3:".", sub:"Die Demo ist komplett kostenlos und geht schnell.", demo_btn:"Ové ausprobieren", step1_title:"Wie hei\u00dft du?", step1_sub:"Nur dein Vorname.", step2_title:"Wie viel pro Monat?", step2_sub:"Ziehe den Regler oder gib deinen eigenen Betrag ein.", step3_title:"W\u00e4hle dein Risikoniveau.", step3_sub:"Drei Optionen. Keine falsche Antwort.", done_sub:"Das war es. Wirklich alles, was es braucht.", strip_title:"Dein Irgendwann ist heute.", strip_sub:"Keine Zahlung, keine Verpflichtung \u2014 nur dein Platz.", cta_waitlist:"Zur Warteliste anmelden", modal_title:"Dein Irgendwann ist heute.", modal_sub:"Keine Zahlung, keine Verpflichtung \u2014 nur dein Platz.", receipt_label:"gesch\u00e4tzter Wert in 10 Jahren", receipt_investor:"Investor", receipt_monthly:"Monatlich", receipt_portfolio:"Portfolio", join_waitlist:"Zur echten Warteliste", restart:"\u21a9 Demo neu starten", flag:"\uD83C\uDDE9\uD83C\uDDEA", code:"DE", fi:"de" }
+        };
+
+        var flagSrc = {
+            gb: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 30%22%3E%3CclipPath id=%22a%22%3E%3Cpath d=%22M0 0v30h60V0z%22/%3E%3C/clipPath%3E%3CclipPath id=%22b%22%3E%3Cpath d=%22M30 15h30v15zv15H0zH0V0zV0h30z%22/%3E%3C/clipPath%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath d=%22M0 0v30h60V0z%22 fill=%22%23012169%22/%3E%3Cpath d=%22M0 0l60 30m0-30L0 30%22 stroke=%22%23fff%22 stroke-width=%226%22/%3E%3Cpath d=%22M0 0l60 30m0-30L0 30%22 clip-path=%22url(%23b)%22 stroke=%22%23C8102E%22 stroke-width=%224%22/%3E%3Cpath d=%22M30 0v30M0 15h60%22 stroke=%22%23fff%22 stroke-width=%2210%22/%3E%3Cpath d=%22M30 0v30M0 15h60%22 stroke=%22%23C8102E%22 stroke-width=%226%22/%3E%3C/g%3E%3C/svg%3E',
+            se: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 10%22%3E%3Crect width=%2216%22 height=%2210%22 fill=%22%23006AA7%22/%3E%3Crect x=%224%22 width=%222%22 height=%2210%22 fill=%22%23FECC02%22/%3E%3Crect y=%224%22 width=%2216%22 height=%222%22 fill=%22%23FECC02%22/%3E%3C/svg%3E',
+            es: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 3 2%22%3E%3Crect width=%223%22 height=%222%22 fill=%22%23c60b1e%22/%3E%3Crect y=%22.5%22 width=%223%22 height=%221%22 fill=%22%23ffc400%22/%3E%3C/svg%3E',
+            de: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 5 3%22%3E%3Crect width=%225%22 height=%223%22/%3E%3Crect y=%221%22 width=%225%22 height=%222%22 fill=%22%23D00%22/%3E%3Crect y=%222%22 width=%225%22 height=%221%22 fill=%22%23FFCE00%22/%3E%3C/svg%3E'
+        };
+        var countryByLang = {
+            en: 'GB \u00b7 United Kingdom',
+            sv: 'SE \u00b7 Sweden',
+            es: 'ES \u00b7 Spain',
+            de: 'DE \u00b7 Germany'
+        };
+
+        var currencyByLang = {
+            en: { symbol: '\u00a3', min: 5, max: 430, default: 50, rate: 0.85 },
+            sv: { symbol: 'kr', min: 50, max: 4500, default: 500, rate: 11.0 },
+            es: { symbol: '\u20ac', min: 5, max: 500, default: 50, rate: 1 },
+            de: { symbol: '\u20ac', min: 5, max: 500, default: 50, rate: 1 }
+        };
+
+        var demoT = {
+            en: { step1:'Step 1 of 3', step2:'Step 2 of 3', step3:'Step 3 of 3', firstname:'First name', email:'Email', country:'Country', permonth:'per month', enterown:'Or enter your own', back:'Back', continue:'Continue', startinvesting:'See my results', mostpopular:'Most popular', pname_steady:'Steady', pname_balanced:'Balanced', pname_growth:'Growth', prisk_steady:'Low risk \u00b7 est. 4\u20136%', prisk_balanced:'Medium risk \u00b7 est. 7\u20139%', prisk_growth:'Higher risk \u00b7 est. 10\u201312%', palloc_steady:'70% bonds \u00b7 20% stocks \u00b7 10% cash', palloc_balanced:'60% stocks \u00b7 30% bonds \u00b7 10% cash', palloc_growth:'90% stocks \u00b7 8% bonds \u00b7 2% cash', donename:'You\u2019re investing', projtext:'from {curr}{amt}/mo over 10 years at 8%' },
+            sv: { step1:'Steg 1 av 3', step2:'Steg 2 av 3', step3:'Steg 3 av 3', firstname:'F\u00f6rnamn', email:'E-post', country:'Land', permonth:'per m\u00e5nad', enterown:'Eller ange eget belopp', back:'Tillbaka', continue:'Forts\u00e4tt', startinvesting:'B\u00f6rja investera', mostpopular:'Mest popul\u00e4r', pname_steady:'Stabil', pname_balanced:'Balanserad', pname_growth:'Tillv\u00e4xt', prisk_steady:'L\u00e5g risk \u00b7 ca 4\u20136%', prisk_balanced:'Medel risk \u00b7 ca 7\u20139%', prisk_growth:'H\u00f6gre risk \u00b7 ca 10\u201312%', palloc_steady:'70% obligationer \u00b7 20% aktier \u00b7 10% kontanter', palloc_balanced:'60% aktier \u00b7 30% obligationer \u00b7 10% kontanter', palloc_growth:'90% aktier \u00b7 8% obligationer \u00b7 2% kontanter', donename:'Du investerar nu', projtext:'fr\u00e5n {curr}{amt}/m\u00e5n \u00f6ver 10 \u00e5r vid 8%' },
+            es: { step1:'Paso 1 de 3', step2:'Paso 2 de 3', step3:'Paso 3 de 3', firstname:'Nombre', email:'Correo', country:'Pa\u00eds', permonth:'por mes', enterown:'O introduce tu propio importe', back:'Atr\u00e1s', continue:'Continuar', startinvesting:'Ver mis resultados', mostpopular:'M\u00e1s popular', pname_steady:'Estable', pname_balanced:'Equilibrado', pname_growth:'Crecimiento', prisk_steady:'Bajo riesgo \u00b7 est. 4\u20136%', prisk_balanced:'Riesgo medio \u00b7 est. 7\u20139%', prisk_growth:'Mayor riesgo \u00b7 est. 10\u201312%', palloc_steady:'70% bonos \u00b7 20% acciones \u00b7 10% efectivo', palloc_balanced:'60% acciones \u00b7 30% bonos \u00b7 10% efectivo', palloc_growth:'90% acciones \u00b7 8% bonos \u00b7 2% efectivo', donename:'Est\u00e1s invirtiendo', projtext:'desde {curr}{amt}/mes durante 10 a\u00f1os al 8%' },
+            de: { step1:'Schritt 1 von 3', step2:'Schritt 2 von 3', step3:'Schritt 3 von 3', firstname:'Vorname', email:'E-Mail', country:'Land', permonth:'pro Monat', enterown:'Oder eigenen Betrag eingeben', back:'Zur\u00fcck', continue:'Weiter', startinvesting:'Ergebnisse sehen', mostpopular:'Beliebteste', pname_steady:'Stabil', pname_balanced:'Ausgewogen', pname_growth:'Wachstum', prisk_steady:'Niedriges Risiko \u00b7 ca. 4\u20136%', prisk_balanced:'Mittleres Risiko \u00b7 ca. 7\u20139%', prisk_growth:'H\u00f6heres Risiko \u00b7 ca. 10\u201312%', palloc_steady:'70% Anleihen \u00b7 20% Aktien \u00b7 10% Bargeld', palloc_balanced:'60% Aktien \u00b7 30% Anleihen \u00b7 10% Bargeld', palloc_growth:'90% Aktien \u00b7 8% Anleihen \u00b7 2% Bargeld', donename:'Du investierst', projtext:'ab {curr}{amt}/Monat \u00fcber 10 Jahre bei 8%' }
+        };
+
+        function applyDemoLang(lang) {
+            var d = demoT[lang] || demoT['en'];
+            var cur = currencyByLang[lang] || currencyByLang['en'];
+            var ids = {
+                'demo-step1-eyebrow': d.step1, 'demo-step2-eyebrow': d.step2, 'demo-step3-eyebrow': d.step3,
+                'demo-label-firstname': d.firstname, 'demo-label-email': d.email, 'demo-label-country': d.country,
+                'demo-per-month': d.permonth, 'demo-label-custom': d.enterown,
+                'demo-btn-back1': d.back, 'demo-btn-back2': d.back,
+                'demo-btn-continue1': d.continue, 'demo-btn-continue2': d.continue,
+                'demo-btn-start': d.startinvesting, 'demo-most-popular': d.mostpopular,
+                'demo-currency-symbol': cur.symbol, 'demo-currency-custom': cur.symbol,
+                'demo-slider-min': cur.symbol + cur.min, 'demo-slider-max': cur.symbol + cur.max,
+                'p-name-steady': d.pname_steady, 'p-name-balanced': d.pname_balanced, 'p-name-growth': d.pname_growth,
+                'p-risk-steady': d.prisk_steady, 'p-risk-balanced': d.prisk_balanced, 'p-risk-growth': d.prisk_growth,
+                'p-alloc-steady': d.palloc_steady, 'p-alloc-balanced': d.palloc_balanced, 'p-alloc-growth': d.palloc_growth,
+            };
+            for (var id in ids) {
+                var el = document.getElementById(id);
+                if (el) el.textContent = ids[id];
+            }
+            // Update slider range and default
+            var slider = document.getElementById('demo-slider');
+            if (slider) {
+                slider.min = cur.min;
+                slider.max = cur.max;
+                slider.step = Math.round(cur.min);
+                slider.value = cur.default;
+                document.getElementById('demo-slider-val').textContent = cur.default;
+                demoAmount = cur.default;
+            }
+            portfolioNames = { steady: d.pname_steady, balanced: d.pname_balanced, growth: d.pname_growth };
+            demoUpdateProjection();
+        }
+        function applyLang(lang){
+            var t=T[lang];
+            if(!t)return;
+            localStorage.setItem('ove-lang',lang);
+            document.querySelectorAll('[data-i18n]').forEach(function(el){
+                var k=el.getAttribute('data-i18n');
+                if(t[k]!==undefined)el.textContent=t[k];
+            });
+            document.getElementById('lang-code').textContent=t.code;
+            document.querySelectorAll('.lang-option').forEach(function(o){
+                o.classList.toggle('active',o.dataset.lang===lang);
+            });
+            document.getElementById('lang-switcher').classList.remove('open');
+            // Update demo country field
+            var countryEl=document.getElementById('demo-country');
+            if(countryEl && countryByLang[lang]){
+                countryEl.childNodes[0].textContent=countryByLang[lang]+' ';
+            }
+            // Update all demo text
+            applyDemoLang(lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+            document.getElementById('year').textContent=new Date().getFullYear();
+            demoUpdateProjection();
+
+            document.getElementById('demo-name-input').addEventListener('input',function(){
+                var n=this.value.trim().toLowerCase();
+                document.getElementById('demo-email-display').textContent=n?n+'@example.com':'@example.com';
+                document.getElementById('demo-email-check').style.opacity=n?'1':'0';
+            });
+
+
+
+            document.getElementById('lang-btn').addEventListener('click',function(e){
                 e.stopPropagation();
                 document.getElementById('lang-switcher').classList.toggle('open');
             });
-            document.querySelectorAll('.lang-option').forEach(function(o) {
-                o.addEventListener('click', function(e) { e.stopPropagation(); applyLang(o.dataset.lang); });
+            document.querySelectorAll('.lang-option').forEach(function(o){
+                o.addEventListener('click',function(e){ e.stopPropagation(); applyLang(o.dataset.lang); });
             });
-            document.addEventListener('click', function() {
+            document.addEventListener('click',function(){
                 document.getElementById('lang-switcher').classList.remove('open');
             });
+
             var saved = localStorage.getItem('ove-lang') || 'en';
-            if (!translations[saved]) saved = 'en';
+            if (!T[saved]) saved = 'en';
             applyLang(saved);
+            applyDemoLang(saved);
+
+            var ro=new IntersectionObserver(function(entries){
+                entries.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);} });
+            },{threshold:0.1});
+            document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
         });
     </script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
