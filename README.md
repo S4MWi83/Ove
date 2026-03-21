@@ -1,3 +1,2 @@
 # Ove
-Overview.
-Ové landing site.
+Ové site.
