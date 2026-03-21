@@ -1,2 +1,2 @@
 # Ove
-Ové site.
+Site.
