@@ -458,23 +458,14 @@
         }
 
         .target-user-inner::before {
-            content: '91%';
+            content: '';
             position: absolute;
-            right: -0.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(8rem, 18vw, 14rem);
-            color: rgba(59,130,246,0.05);
-            line-height: 1;
+            inset: 0;
+            background: radial-gradient(ellipse at 80% 50%, rgba(59,130,246,0.06) 0%, transparent 65%);
             pointer-events: none;
-            user-select: none;
-            letter-spacing: -0.04em;
         }
 
-        .target-user .section-label {
-            margin-bottom: 0.75rem;
-        }
+        .target-user .section-label { margin-bottom: 0.75rem; }
 
         .target-user .section-title {
             font-size: clamp(1.6rem, 4vw, 2.4rem);
@@ -482,55 +473,155 @@
             max-width: 480px;
         }
 
-        .target-user-body {
-            position: relative;
-            z-index: 1;
-        }
+        .target-user-body { position: relative; z-index: 1; }
+        .target-user-body p { color: var(--muted); font-weight: 300; margin-bottom: 1rem; }
+        .target-user-body p strong { color: var(--cream); font-weight: 500; }
 
-        .target-user-body p {
-            color: var(--muted);
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
-
-        .target-user-body p strong {
-            color: var(--cream);
-            font-weight: 500;
-        }
-
+        /* TRAIT CARDS */
         .target-traits {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
-            margin: 1.75rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            overflow: hidden;
         }
 
         .target-trait {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 16px;
-            padding: 1.1rem 1.25rem;
-            transition: border-color 0.2s;
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            align-items: start;
+            gap: 0;
+            padding: 1.1rem 1.4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            cursor: default;
+            transition: background 0.2s;
         }
 
-        .target-trait:hover {
-            border-color: rgba(59,130,246,0.2);
+        .target-trait:last-child { border-bottom: none; }
+
+        .target-trait:hover { background: rgba(59,130,246,0.04); }
+
+        .target-trait-left {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding-right: 1.25rem;
+            border-right: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .target-trait-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(59,130,246,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--blue);
         }
 
         .target-trait-label {
             font-size: 0.72rem;
             font-weight: 500;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: var(--blue);
-            margin-bottom: 0.35rem;
+            color: var(--cream);
+            opacity: 0.7;
+        }
+
+        .target-trait-right {
+            padding-left: 1.25rem;
         }
 
         .target-trait-value {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--muted);
             font-weight: 300;
+            line-height: 1.55;
+        }
+
+        .target-trait-reveal {
+            font-size: 0.78rem;
+            color: rgba(147,197,253,0.65);
+            font-style: italic;
+            font-weight: 300;
             line-height: 1.5;
+            margin-top: 0.3rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .target-trait:hover .target-trait-reveal {
+            max-height: 60px;
+            opacity: 1;
+        }
+
+        @media (max-width: 560px) {
+            .target-trait { grid-template-columns: 1fr; gap: 0.5rem; }
+            .target-trait-left { border-right: none; padding-right: 0; border-bottom: none; }
+            .target-trait-right { padding-left: 0; }
+        }
+
+        /* MAP */
+        .target-map-wrap {
+            margin: 1.75rem 0 0.5rem;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(6,12,24,0.6);
+            padding: 1.5rem;
+        }
+
+        .target-map-label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 1rem;
+        }
+
+        .map-container { position: relative; width: 100%; }
+
+        .map-container svg { width: 100%; height: auto; display: block; }
+
+        .map-tooltip {
+            position: absolute;
+            background: #0d1f38;
+            border: 1px solid rgba(59,130,246,0.25);
+            border-radius: 10px;
+            padding: 0.6rem 0.9rem;
+            font-size: 0.78rem;
+            color: var(--cream);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        .map-tooltip strong { color: #93c5fd; display: block; font-size: 0.9rem; margin-bottom: 0.1rem; }
+
+        .map-legend {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .map-legend-bar {
+            flex: 1;
+            height: 6px;
+            border-radius: 999px;
+            background: linear-gradient(to right, rgba(59,130,246,0.15), rgba(59,130,246,0.9));
         }
 
         .target-closing {
@@ -543,10 +634,18 @@
             line-height: 1.7;
         }
 
+        /* COUNTER */
+        .stat-counter {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2rem;
+            color: var(--cream);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
         @media (max-width: 560px) {
             .target-traits { grid-template-columns: 1fr; }
             .target-user-inner { padding: 2rem 1.5rem; }
-            .target-user-inner::before { font-size: 7rem; opacity: 0.6; }
         }
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -640,31 +739,207 @@
 
                     <div class="target-traits">
                         <div class="target-trait">
-                            <p class="target-trait-label">Age</p>
-                            <p class="target-trait-value">18–55 — old enough to have income, young enough that starting today still matters.</p>
+                            <div class="target-trait-left">
+                                <div class="target-trait-icon">
+                                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                                </div>
+                                <span class="target-trait-label">Age</span>
+                            </div>
+                            <div class="target-trait-right">
+                                <p class="target-trait-value">18–55 — old enough to have income, young enough that starting today still matters.</p>
+                                <p class="target-trait-reveal">Long enough horizon for compounding to actually work in their favour.</p>
+                            </div>
                         </div>
                         <div class="target-trait">
-                            <p class="target-trait-label">Geography</p>
-                            <p class="target-trait-value">Low-participation markets — Italy, Spain, Eastern Europe — where ownership sits well below the European average.</p>
+                            <div class="target-trait-left">
+                                <div class="target-trait-icon">
+                                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                                <span class="target-trait-label">Capacity</span>
+                            </div>
+                            <div class="target-trait-right">
+                                <p class="target-trait-value">Maybe not thousands to begin with. €50–€200/month feels right.</p>
+                                <p class="target-trait-reveal">€100/month at 8% over 10 years is €18,000. That's the story Ové tells them.</p>
+                            </div>
                         </div>
                         <div class="target-trait">
-                            <p class="target-trait-label">Monthly capacity</p>
-                            <p class="target-trait-value">Maybe not thousands to begin with. €50–€200/month feels right.</p>
+                            <div class="target-trait-left">
+                                <div class="target-trait-icon">
+                                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                                </div>
+                                <span class="target-trait-label">Awareness</span>
+                            </div>
+                            <div class="target-trait-right">
+                                <p class="target-trait-value">Knows inflation exists. Has heard of ETFs. Stops there.</p>
+                                <p class="target-trait-reveal">Enough to feel guilty about not investing. Not enough to know where to start.</p>
+                            </div>
                         </div>
                         <div class="target-trait">
-                            <p class="target-trait-label">Financial awareness</p>
-                            <p class="target-trait-value">Knows inflation exists. Has heard of ETFs. Stops there.</p>
+                            <div class="target-trait-left">
+                                <div class="target-trait-icon">
+                                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                </div>
+                                <span class="target-trait-label">Friction</span>
+                            </div>
+                            <div class="target-trait-right">
+                                <p class="target-trait-value">Zero tolerance. One confusing screen and they're out.</p>
+                                <p class="target-trait-reveal">This is the entire design constraint. Every product decision runs through it.</p>
+                            </div>
                         </div>
-                        <div class="target-trait" style="grid-column: 1 / -1;">
-                            <p class="target-trait-label">Friction tolerance</p>
-                            <p class="target-trait-value">Zero. One confusing screen and they're out.</p>
+                        <div class="target-trait">
+                            <div class="target-trait-left">
+                                <div class="target-trait-icon">
+                                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+                                </div>
+                                <span class="target-trait-label">Geography</span>
+                            </div>
+                            <div class="target-trait-right">
+                                <p class="target-trait-value">Low-participation markets — Italy, Spain, Eastern Europe — where ownership sits well below the European average.</p>
+                                <p class="target-trait-reveal">The opportunity is biggest where it's been ignored longest.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <p class="target-closing">Ové is built for the <em style="color:#93c5fd;font-style:italic;">320 million</em> like them. Not the experienced trader. Not the analyst. Not the person who keeps two eyes on markets. The <em style="color:#93c5fd;font-style:italic;">91%</em>.</p>
+                    <!-- MAP -->
+                    <div class="target-map-wrap">
+                        <p class="target-map-label">Stock market participation by country — % of population invested</p>
+                        <div class="map-container" id="map-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" id="europe-map" style="width:100%;min-height:280px;display:block;"></svg>
+                            <div class="map-tooltip" id="map-tooltip"></div>
+                        </div>
+                        <div class="map-legend">
+                            <span>Low</span>
+                            <div class="map-legend-bar"></div>
+                            <span>High</span>
+                        </div>
+                    </div>
+
+                    <p class="target-closing">Ové is built for the <em style="color:#93c5fd;font-style:italic;">320 million</em> like them. Not the experienced trader. Not the analyst. Not the person who keeps two eyes on markets. The <em style="color:#93c5fd;font-style:italic;">91%</em> of the people.</p>
                 </div>
             </div>
         </div>
+
+        <script>
+        // ── COUNTER ANIMATION ─────────────────────────────────────────────
+        // removed — keeping stats static
+
+        // ── EUROPE MAP — D3 + TopoJSON ────────────────────────────────────
+        var participationData = {
+            'Sweden': 26, 'Finland': 19, 'Norway': 17, 'Denmark': 16,
+            'Netherlands': 14, 'Germany': 14, 'United Kingdom': 15,
+            'Ireland': 19, 'Belgium': 13, 'France': 15, 'Switzerland': 16,
+            'Austria': 10, 'Spain': 6, 'Portugal': 5, 'Italy': 7,
+            'Poland': 4, 'Czechia': 5, 'Slovakia': 4, 'Hungary': 4,
+            'Romania': 2, 'Bulgaria': 1, 'Greece': 3, 'Estonia': 8,
+            'Latvia': 3, 'Lithuania': 4, 'Slovenia': 5, 'Croatia': 3,
+            'Serbia': 2, 'Ukraine': 2, 'Belarus': 1, 'Moldova': 1,
+            'Albania': 1, 'North Macedonia': 1, 'Bosnia and Herzegovina': 1,
+            'Montenegro': 2, 'Kosovo': 1, 'Luxembourg': 18, 'Malta': 6,
+            'Cyprus': 4, 'Iceland': 22
+        };
+
+        function pctToFill(pct) {
+            if (!pct) return 'rgba(255,255,255,0.04)';
+            var t = Math.pow(Math.min(pct / 26, 1), 0.55);
+            var alpha = 0.18 + t * 0.35;
+            return 'rgba(59,130,246,' + alpha + ')';
+        }
+
+        var tooltip = document.getElementById('map-tooltip');
+        var mapContainer = document.getElementById('map-container');
+        var svgEl = document.getElementById('europe-map');
+
+        // Load D3 and TopoJSON then render
+        function loadScript(src, cb) {
+            var s = document.createElement('script');
+            s.src = src; s.onload = cb; document.head.appendChild(s);
+        }
+
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js', function() {
+            loadScript('https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js', function() {
+                fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+                    .then(function(r) { return r.json(); })
+                    .then(function(world) {
+                        var countries = topojson.feature(world, world.objects.countries);
+
+                        // ISO numeric codes for European countries
+                        var europeanISO = {
+                            '008':'Albania','040':'Austria','056':'Belgium','100':'Bulgaria',
+                            '191':'Croatia','196':'Cyprus','203':'Czechia','208':'Denmark',
+                            '233':'Estonia','246':'Finland','250':'France','276':'Germany',
+                            '300':'Greece','348':'Hungary','352':'Iceland','372':'Ireland',
+                            '380':'Italy','383':'Kosovo','428':'Latvia','440':'Lithuania',
+                            '442':'Luxembourg','470':'Malta','498':'Moldova','499':'Montenegro',
+                            '528':'Netherlands','807':'North Macedonia','578':'Norway',
+                            '616':'Poland','620':'Portugal','642':'Romania','688':'Serbia',
+                            '703':'Slovakia','705':'Slovenia','724':'Spain','752':'Sweden',
+                            '756':'Switzerland','804':'Ukraine','826':'United Kingdom','112':'Belarus',
+                            '008':'Albania','070':'Bosnia and Herzegovina'
+                        };
+
+                        var europeFeatures = countries.features.filter(function(f) {
+                            return europeanISO[String(f.id).padStart(3,'0')];
+                        }).map(function(f) {
+                            var name = europeanISO[String(f.id).padStart(3,'0')];
+                            return { feature: f, name: name, pct: participationData[name] || null };
+                        });
+
+                        // Compute bounds to center on Europe
+                        var width = svgEl.clientWidth || 680;
+                        var height = Math.round(width * 0.62);
+                        svgEl.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+
+                        var projection = d3.geoMercator()
+                            .center([15, 52])
+                            .scale(width * 0.65)
+                            .translate([width / 2, height / 2]);
+
+                        var path = d3.geoPath().projection(projection);
+                        var svg = d3.select('#europe-map');
+
+                        // Subtle grid/graticule
+                        var graticule = d3.geoGraticule().step([10, 10]);
+                        svg.append('path')
+                            .datum(graticule())
+                            .attr('d', path)
+                            .attr('fill', 'none')
+                            .attr('stroke', 'rgba(255,255,255,0.04)')
+                            .attr('stroke-width', 0.5);
+
+                        svg.selectAll('.country')
+                            .data(europeFeatures)
+                            .enter()
+                            .append('path')
+                            .attr('class', 'country')
+                            .attr('d', function(d) { return path(d.feature); })
+                            .attr('fill', function(d) { return pctToFill(d.pct); })
+                            .attr('stroke', 'rgba(255,255,255,0.1)')
+                            .attr('stroke-width', 0.6)
+                            .attr('stroke-linejoin', 'round')
+                            .style('cursor', 'pointer')
+                            .style('transition', 'fill 0.2s')
+                            .on('mouseenter', function(event, d) {
+                                d3.select(this).attr('fill', 'rgba(147,197,253,0.5)');
+                                var label = d.pct ? d.pct + '% of population invested' : 'No data';
+                                tooltip.innerHTML = '<strong>' + d.name + '</strong>' + label;
+                                tooltip.style.opacity = '1';
+                            })
+                            .on('mousemove', function(event) {
+                                var rect = mapContainer.getBoundingClientRect();
+                                var x = event.clientX - rect.left + 14;
+                                var y = event.clientY - rect.top - 12;
+                                if (x + 210 > rect.width) x = x - 225;
+                                tooltip.style.left = x + 'px';
+                                tooltip.style.top = y + 'px';
+                            })
+                            .on('mouseleave', function(event, d) {
+                                d3.select(this).attr('fill', pctToFill(d.pct));
+                                tooltip.style.opacity = '0';
+                            });
+                    });
+            });
+        });
+        </script>
 
         <div class="divider"></div>
 
