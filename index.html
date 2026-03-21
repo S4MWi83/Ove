@@ -158,7 +158,15 @@
         .status-pills { display: flex; align-items: center; justify-content: center; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 1.75rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
         .status-pill { font-size: 0.68rem; font-weight: 300; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.15); opacity: 0.7; }
         .status-pill:nth-child(2) { opacity: 1; }
-        @media (max-width: 560px) { .status-pills { display: none; } .hero-eyebrow { display: none; } }
+        .mobile-eyebrow { display: none; }
+        @media (max-width: 560px) {
+            .status-pill:nth-child(2) { display: none; }
+            .status-pills { gap: 0.5rem; margin-bottom: 1.25rem; }
+            .hero-eyebrow { font-size: 0.78rem; margin-bottom: 1.75rem; }
+            .hero-eyebrow::before, .hero-eyebrow::after { width: 20px; }
+            .desktop-eyebrow { display: none; }
+            .mobile-eyebrow { display: inline; }
+        }
 
 
     </style>
@@ -191,7 +199,7 @@
                 <span class="status-pill" data-i18n="pill_1">Not handling funds yet</span>
                 <span class="status-pill" data-i18n="pill_3">Free waitlist</span>
             </div>
-            <p class="hero-eyebrow" data-i18n="eyebrow">Early access — join the waitlist.</p>
+            <p class="hero-eyebrow"><span class="desktop-eyebrow" data-i18n="eyebrow">Early access — join the waitlist.</span><span class="mobile-eyebrow">Join waitlist below.</span></p>
             <h1 class="hero-headline">
                 <span data-i18n="headline_1">From</span> <em data-i18n="headline_2">someday</em><br><span data-i18n="headline_3">to today.</span>
             </h1>
