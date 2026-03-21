@@ -99,8 +99,6 @@
         .demo-overlay { display:none; position:fixed; inset:0; background:rgba(6,15,30,0.92); backdrop-filter:blur(10px); z-index:200; align-items:center; justify-content:center; padding:2rem; }
         .demo-overlay.open { display:flex; }
         .demo-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.18); border-radius:28px; width:100%; max-width:460px; position:relative; overflow:hidden; box-shadow:0 40px 100px rgba(0,0,0,0.6); animation:scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
-        .demo-progress { height:3px; background:rgba(255,255,255,0.05); }
-        .demo-progress-bar { height:100%; background:linear-gradient(90deg,var(--blue),#60a5fa); transition:width 0.5s cubic-bezier(0.4,0,0.2,1); width:0%; }
         .demo-close { position:absolute; top:1.25rem; right:1.25rem; background:rgba(255,255,255,0.06); border:1px solid var(--border); border-radius:50%; width:30px; height:30px; display:flex; align-items:center; justify-content:center; color:var(--muted); cursor:pointer; font-size:0.9rem; transition:all 0.2s; z-index:10; }
         .demo-close:hover { background:rgba(255,255,255,0.1); color:var(--cream); }
         .demo-steps-indicator { display:flex; gap:6px; padding:1.5rem 2rem 0; }
@@ -164,9 +162,13 @@
         .demo-btn-row { display:flex; gap:0.65rem; align-items:center; }
         .demo-back-btn { display:flex; align-items:center; justify-content:center; gap:0.4rem; background:rgba(255,255,255,0.04); border:1px solid var(--border); color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.9rem; padding:0.95rem 1.1rem; border-radius:14px; cursor:pointer; transition:all 0.2s ease; flex-shrink:0; }
         .demo-back-btn:hover { background:rgba(255,255,255,0.07); color:var(--cream); border-color:rgba(255,255,255,0.15); }
-        .demo-next-btn { display:flex; align-items:center; justify-content:center; gap:0.6rem; flex:1; background:var(--blue); color:white; font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:500; padding:0.95rem 1.5rem; border-radius:14px; border:none; cursor:pointer; transition:all 0.25s ease; box-shadow:0 4px 20px rgba(59,130,246,0.25); }
-        .demo-next-btn:hover { background:#2563eb; transform:translateY(-1px); box-shadow:0 6px 24px rgba(59,130,246,0.4); }
-        .demo-next-btn svg { transition:transform 0.2s ease; }
+        .demo-next-btn { position:relative; display:inline-flex; align-items:center; justify-content:center; gap:0.6rem; flex:1; background:transparent; color:var(--cream); font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:500; padding:0.95rem 1.5rem; border-radius:999px; border:none; cursor:pointer; transition:all 0.4s ease; letter-spacing:0.08em; text-transform:uppercase; outline:none; }
+        .demo-next-btn::before { content:''; position:absolute; inset:0; border-radius:999px; border:1px solid rgba(59,130,246,0.35); transition:all 0.4s ease; pointer-events:none; }
+        .demo-next-btn::after { content:''; position:absolute; inset:3px; border-radius:999px; border:1px solid rgba(59,130,246,0.15); transition:all 0.4s ease; pointer-events:none; }
+        .demo-next-btn:hover::before { border-color:rgba(59,130,246,0.7); box-shadow:0 0 20px rgba(59,130,246,0.2),inset 0 0 20px rgba(59,130,246,0.05); }
+        .demo-next-btn:hover::after { border-color:rgba(59,130,246,0.35); }
+        .demo-next-btn:hover { color:white; }
+        .demo-next-btn svg { position:relative; z-index:1; transition:transform 0.2s ease; }
         .demo-next-btn:hover svg { transform:translateX(3px); }
         .demo-next-btn.full { width:100%; }
 
@@ -268,8 +270,7 @@
     <!-- DEMO MODAL -->
     <div class="demo-overlay" id="demo-overlay" onclick="if(event.target===this)demoClose()">
         <div class="demo-modal">
-            <div class="demo-progress"><div class="demo-progress-bar" id="demo-progress-bar"></div></div>
-            <button class="demo-close" onclick="demoClose()">✕</button>
+                        <button class="demo-close" onclick="demoClose()">✕</button>
             <div class="demo-steps-indicator">
                 <div class="demo-step-dot"></div>
                 <div class="demo-step-dot"></div>
@@ -422,8 +423,6 @@
             });
             var id=step==='done'?'demo-step-done':'demo-step-'+step;
             document.getElementById(id).classList.add('active');
-            var prog={1:'25%',2:'58%',3:'83%',done:'100%'};
-            document.getElementById('demo-progress-bar').style.width=prog[step]||'100%';
             if(step===3)demoUpdatePortfolioProjections();
             if(step==='done')demoFillReceipt();
         }
@@ -454,9 +453,9 @@
         function demoUpdatePortfolioProjections(){
             var monthly=parseFloat(demoAmount)||50;
             for(var key in portfolioRates){
-                var fv=calcFV(monthly,portfolioRates[key],12);
-                var curr=getCurr(); var f=fv>=1000?'+'+curr+(fv/1000).toFixed(1)+'k':'+'+curr+fv;
-                document.getElementById('proj-'+key).textContent=f+' / 1yr';
+                var fv=calcFV(monthly,portfolioRates[key],120);
+                var curr=getCurr(); var f=fv>=1000?'~'+curr+(fv/1000).toFixed(1)+'k':'~'+curr+fv;
+                document.getElementById('proj-'+key).textContent=f+' / 10yr';
             }
         }
 
@@ -524,10 +523,10 @@
         };
 
         var demoT = {
-            en: { step1:'Step 1 of 3', step2:'Step 2 of 3', step3:'Step 3 of 3', firstname:'First name', email:'Email', country:'Country', permonth:'per month', enterown:'Or enter your own', back:'Back', continue:'Continue', startinvesting:'Start investing', mostpopular:'Most popular', pname_steady:'Steady', pname_balanced:'Balanced', pname_growth:'Growth', prisk_steady:'Low risk \u00b7 est. 4\u20136%', prisk_balanced:'Medium risk \u00b7 est. 7\u20139%', prisk_growth:'Higher risk \u00b7 est. 10\u201312%', palloc_steady:'70% bonds \u00b7 20% stocks \u00b7 10% cash', palloc_balanced:'60% stocks \u00b7 30% bonds \u00b7 10% cash', palloc_growth:'90% stocks \u00b7 8% bonds \u00b7 2% cash', donename:'You\u2019re investing', projtext:'from {curr}{amt}/mo over 10 years at 8%' },
+            en: { step1:'Step 1 of 3', step2:'Step 2 of 3', step3:'Step 3 of 3', firstname:'First name', email:'Email', country:'Country', permonth:'per month', enterown:'Or enter your own', back:'Back', continue:'Continue', startinvesting:'See my results', mostpopular:'Most popular', pname_steady:'Steady', pname_balanced:'Balanced', pname_growth:'Growth', prisk_steady:'Low risk \u00b7 est. 4\u20136%', prisk_balanced:'Medium risk \u00b7 est. 7\u20139%', prisk_growth:'Higher risk \u00b7 est. 10\u201312%', palloc_steady:'70% bonds \u00b7 20% stocks \u00b7 10% cash', palloc_balanced:'60% stocks \u00b7 30% bonds \u00b7 10% cash', palloc_growth:'90% stocks \u00b7 8% bonds \u00b7 2% cash', donename:'You\u2019re investing', projtext:'from {curr}{amt}/mo over 10 years at 8%' },
             sv: { step1:'Steg 1 av 3', step2:'Steg 2 av 3', step3:'Steg 3 av 3', firstname:'F\u00f6rnamn', email:'E-post', country:'Land', permonth:'per m\u00e5nad', enterown:'Eller ange eget belopp', back:'Tillbaka', continue:'Forts\u00e4tt', startinvesting:'B\u00f6rja investera', mostpopular:'Mest popul\u00e4r', pname_steady:'Stabil', pname_balanced:'Balanserad', pname_growth:'Tillv\u00e4xt', prisk_steady:'L\u00e5g risk \u00b7 ca 4\u20136%', prisk_balanced:'Medel risk \u00b7 ca 7\u20139%', prisk_growth:'H\u00f6gre risk \u00b7 ca 10\u201312%', palloc_steady:'70% obligationer \u00b7 20% aktier \u00b7 10% kontanter', palloc_balanced:'60% aktier \u00b7 30% obligationer \u00b7 10% kontanter', palloc_growth:'90% aktier \u00b7 8% obligationer \u00b7 2% kontanter', donename:'Du investerar nu', projtext:'fr\u00e5n {curr}{amt}/m\u00e5n \u00f6ver 10 \u00e5r vid 8%' },
-            es: { step1:'Paso 1 de 3', step2:'Paso 2 de 3', step3:'Paso 3 de 3', firstname:'Nombre', email:'Correo', country:'Pa\u00eds', permonth:'por mes', enterown:'O introduce tu propio importe', back:'Atr\u00e1s', continue:'Continuar', startinvesting:'Empezar a invertir', mostpopular:'M\u00e1s popular', pname_steady:'Estable', pname_balanced:'Equilibrado', pname_growth:'Crecimiento', prisk_steady:'Bajo riesgo \u00b7 est. 4\u20136%', prisk_balanced:'Riesgo medio \u00b7 est. 7\u20139%', prisk_growth:'Mayor riesgo \u00b7 est. 10\u201312%', palloc_steady:'70% bonos \u00b7 20% acciones \u00b7 10% efectivo', palloc_balanced:'60% acciones \u00b7 30% bonos \u00b7 10% efectivo', palloc_growth:'90% acciones \u00b7 8% bonos \u00b7 2% efectivo', donename:'Est\u00e1s invirtiendo', projtext:'desde {curr}{amt}/mes durante 10 a\u00f1os al 8%' },
-            de: { step1:'Schritt 1 von 3', step2:'Schritt 2 von 3', step3:'Schritt 3 von 3', firstname:'Vorname', email:'E-Mail', country:'Land', permonth:'pro Monat', enterown:'Oder eigenen Betrag eingeben', back:'Zur\u00fcck', continue:'Weiter', startinvesting:'Investieren starten', mostpopular:'Beliebteste', pname_steady:'Stabil', pname_balanced:'Ausgewogen', pname_growth:'Wachstum', prisk_steady:'Niedriges Risiko \u00b7 ca. 4\u20136%', prisk_balanced:'Mittleres Risiko \u00b7 ca. 7\u20139%', prisk_growth:'H\u00f6heres Risiko \u00b7 ca. 10\u201312%', palloc_steady:'70% Anleihen \u00b7 20% Aktien \u00b7 10% Bargeld', palloc_balanced:'60% Aktien \u00b7 30% Anleihen \u00b7 10% Bargeld', palloc_growth:'90% Aktien \u00b7 8% Anleihen \u00b7 2% Bargeld', donename:'Du investierst', projtext:'ab {curr}{amt}/Monat \u00fcber 10 Jahre bei 8%' }
+            es: { step1:'Paso 1 de 3', step2:'Paso 2 de 3', step3:'Paso 3 de 3', firstname:'Nombre', email:'Correo', country:'Pa\u00eds', permonth:'por mes', enterown:'O introduce tu propio importe', back:'Atr\u00e1s', continue:'Continuar', startinvesting:'Ver mis resultados', mostpopular:'M\u00e1s popular', pname_steady:'Estable', pname_balanced:'Equilibrado', pname_growth:'Crecimiento', prisk_steady:'Bajo riesgo \u00b7 est. 4\u20136%', prisk_balanced:'Riesgo medio \u00b7 est. 7\u20139%', prisk_growth:'Mayor riesgo \u00b7 est. 10\u201312%', palloc_steady:'70% bonos \u00b7 20% acciones \u00b7 10% efectivo', palloc_balanced:'60% acciones \u00b7 30% bonos \u00b7 10% efectivo', palloc_growth:'90% acciones \u00b7 8% bonos \u00b7 2% efectivo', donename:'Est\u00e1s invirtiendo', projtext:'desde {curr}{amt}/mes durante 10 a\u00f1os al 8%' },
+            de: { step1:'Schritt 1 von 3', step2:'Schritt 2 von 3', step3:'Schritt 3 von 3', firstname:'Vorname', email:'E-Mail', country:'Land', permonth:'pro Monat', enterown:'Oder eigenen Betrag eingeben', back:'Zur\u00fcck', continue:'Weiter', startinvesting:'Ergebnisse sehen', mostpopular:'Beliebteste', pname_steady:'Stabil', pname_balanced:'Ausgewogen', pname_growth:'Wachstum', prisk_steady:'Niedriges Risiko \u00b7 ca. 4\u20136%', prisk_balanced:'Mittleres Risiko \u00b7 ca. 7\u20139%', prisk_growth:'H\u00f6heres Risiko \u00b7 ca. 10\u201312%', palloc_steady:'70% Anleihen \u00b7 20% Aktien \u00b7 10% Bargeld', palloc_balanced:'60% Aktien \u00b7 30% Anleihen \u00b7 10% Bargeld', palloc_growth:'90% Aktien \u00b7 8% Anleihen \u00b7 2% Bargeld', donename:'Du investierst', projtext:'ab {curr}{amt}/Monat \u00fcber 10 Jahre bei 8%' }
         };
 
         function applyDemoLang(lang) {
