@@ -440,14 +440,122 @@
         .cta-btn:hover::after { border-color: rgba(59,130,246,0.35); }
         .cta-btn:hover { color: white; }
 
-        /* ANIMATIONS */
+        /* TARGET USER REDESIGN */
+        .target-user {
+            position: relative;
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+        }
+
+        .target-user-inner {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(10,22,40,0.9) 0%, rgba(6,15,30,0.95) 100%);
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .target-user-inner::before {
+            content: '91%';
+            position: absolute;
+            right: -0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(8rem, 18vw, 14rem);
+            color: rgba(59,130,246,0.05);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: -0.04em;
+        }
+
+        .target-user .section-label {
+            margin-bottom: 0.75rem;
+        }
+
+        .target-user .section-title {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            margin-bottom: 1.5rem;
+            max-width: 480px;
+        }
+
+        .target-user-body {
+            position: relative;
+            z-index: 1;
+        }
+
+        .target-user-body p {
+            color: var(--muted);
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .target-user-body p strong {
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        .target-traits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin: 1.75rem 0;
+        }
+
+        .target-trait {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 1.1rem 1.25rem;
+            transition: border-color 0.2s;
+        }
+
+        .target-trait:hover {
+            border-color: rgba(59,130,246,0.2);
+        }
+
+        .target-trait-label {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 0.35rem;
+        }
+
+        .target-trait-value {
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .target-closing {
+            margin-top: 1.75rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 1rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 560px) {
+            .target-traits { grid-template-columns: 1fr; }
+            .target-user-inner { padding: 2rem 1.5rem; }
+            .target-user-inner::before { font-size: 7rem; opacity: 0.6; }
+        }
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .s1 { animation-delay: 0.3s; }
-        .s2 { animation-delay: 0.4s; }
+        .s-user { animation-delay: 0.4s; }
+        .s2 { animation-delay: 0.5s; }
         .s3 { animation-delay: 0.5s; }
         .s4 { animation-delay: 0.6s; }
         .s5 { animation-delay: 0.7s; }
@@ -521,11 +629,50 @@
 
         <div class="divider"></div>
 
+        <!-- TARGET USER -->
+        <div class="target-user s-user">
+            <div class="target-user-inner">
+                <div class="target-user-body">
+                    <p class="section-label">Target User</p>
+                    <h2 class="section-title">The person who keeps saying someday.</h2>
+                    <p>They have a stable income and money sitting in a savings account they're quietly embarrassed by. They know they should be investing. They've googled it. They've maybe even downloaded an app or two and deleted them within a week.</p>
+                    <p>They're not lazy. They're not broke. They're overwhelmed — by jargon, by choice, by the fear of doing something wrong with their own money.</p>
+
+                    <div class="target-traits">
+                        <div class="target-trait">
+                            <p class="target-trait-label">Age</p>
+                            <p class="target-trait-value">18–55 — old enough to have income, young enough that starting today still matters.</p>
+                        </div>
+                        <div class="target-trait">
+                            <p class="target-trait-label">Geography</p>
+                            <p class="target-trait-value">Low-participation markets — Italy, Spain, Eastern Europe — where ownership sits well below the European average.</p>
+                        </div>
+                        <div class="target-trait">
+                            <p class="target-trait-label">Monthly capacity</p>
+                            <p class="target-trait-value">Maybe not thousands to begin with. €50–€200/month feels right.</p>
+                        </div>
+                        <div class="target-trait">
+                            <p class="target-trait-label">Financial awareness</p>
+                            <p class="target-trait-value">Knows inflation exists. Has heard of ETFs. Stops there.</p>
+                        </div>
+                        <div class="target-trait" style="grid-column: 1 / -1;">
+                            <p class="target-trait-label">Friction tolerance</p>
+                            <p class="target-trait-value">Zero. One confusing screen and they're out.</p>
+                        </div>
+                    </div>
+
+                    <p class="target-closing">Ové is built for the <em style="color:#93c5fd;font-style:italic;">320 million</em> like them. Not the experienced trader. Not the analyst. Not the person who keeps two eyes on markets. The <em style="color:#93c5fd;font-style:italic;">91%</em>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
         <!-- THE SOLUTION -->
         <div class="section s2">
             <p class="section-label">The Solution</p>
             <h2 class="section-title">Three steps. Then you're investing.</h2>
-            <p>Ové removes every unnecessary choice from the onboarding experience. Regulatory compliance is handled invisibly so the user never has to think about it.</p>
+            <p>Ové removes every unnecessary choice from the onboarding experience. Regulatory compliance — MiFID II, KYC, AML — is handled invisibly. The user never sees a form they don't understand.</p>
 
             <div class="steps">
                 <div class="step">
@@ -610,11 +757,8 @@
                 <span>— The Ové Adventure unlock notification</span>
             </div>
 
-            <p>After 6 consecutive months of investing, users unlock <strong>Ové Adventure</strong> — a milestone moment that marks the transition from beginner to confident investor. From here, users can optionally activate <strong>Ové Advisor</strong>.</p>
+            <p>After 6 consecutive months of investing, users unlock <strong>Ové Adventure</strong> — a milestone that marks the transition from beginner to confident investor. From here, they can optionally activate <strong>Ové Advisor</strong>: a full robo-advisor for €4.99/month that automatically rebalances the portfolio, adjusts risk as markets shift, and optimises for long-term growth. Zero decisions required.</p>
 
-            <p><strong>Ové Advisor</strong> is a full robo-advisor — inspired by Vanguard and Betterment — for €4.99/month. It automatically rebalances the portfolio, adjusts risk exposure as markets shift, and optimises for long-term growth. Zero decisions required from the user. Their money, truly working for them.</p>
-
-            <p>The journey in three chapters:</p>
             <ul class="check-list">
                 <li><strong>Ové</strong> — Start simple. Pick 1 of 3 options, invest from €10, no jargon. Month 0.</li>
                 <li><strong>Ové Adventure</strong> — Unlock after 6 months. A reward for showing up consistently.</li>
@@ -624,12 +768,27 @@
 
         <div class="divider"></div>
 
-        <!-- REGULATORY -->
+        <!-- BUSINESS MODEL -->
         <div class="section s5">
-            <p class="section-label">Regulatory Compliance</p>
-            <h2 class="section-title">Compliance as a feature, not a checkbox.</h2>
-            <p>Regulatory complexity is one of the biggest barriers to investing in Europe (ESMA 2026). Ové absorbs this entirely on behalf of the user. MiFID II compliance, KYC, AML — all handled invisibly. The user never sees a form they don't understand.</p>
-            <p>This is a core product principle, not an afterthought. It's also a key trust signal — especially for the 91% who are wary of new financial services.</p>
+            <p class="section-label">Business Model</p>
+            <h2 class="section-title">Simple. Scales with users.</h2>
+            <p><strong>0.5% AUM fee</strong> — charged annually, taken monthly in small increments. Invisible to the user at small portfolio sizes. Scales naturally as portfolios grow.</p>
+            <p><strong>Ové Advisor — €4.99/month</strong> — unlocked after 6 months. High conversion expected given the emotional milestone of the unlock.</p>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <p class="stat-num">€150M</p>
+                    <p class="stat-label">AUM at 100k users with €1,500 avg portfolio</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-num">€750k</p>
+                    <p class="stat-label">Annual revenue from 0.5% AUM fee at that scale</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-num">€600k</p>
+                    <p class="stat-label">Additional annual revenue if 10k users take Ové Advisor</p>
+                </div>
+            </div>
         </div>
 
         <div class="divider"></div>
@@ -706,35 +865,13 @@
 
         <div class="divider"></div>
 
-        <!-- BUSINESS MODEL -->
+        <!-- VISION + WHAT OVE IS NOT -->
         <div class="section s7">
-            <p class="section-label">Business Model</p>
-            <h2 class="section-title">Simple. Scales with users.</h2>
-            <p><strong>0.5% AUM fee</strong> — charged annually, taken monthly in small increments. Invisible to the user at small portfolio sizes. Scales naturally as portfolios grow.</p>
-            <p><strong>Ové Advisor — €4.99/month</strong> — unlocked after 6 months. A premium robo-advisor tier for users ready to go fully hands-off. High conversion expected given the emotional milestone of the unlock.</p>
-
-            <div class="stats">
-                <div class="stat-card">
-                    <p class="stat-num">€150M</p>
-                    <p class="stat-label">AUM at 100k users with €1,500 avg portfolio</p>
-                </div>
-                <div class="stat-card">
-                    <p class="stat-num">€750k</p>
-                    <p class="stat-label">Annual revenue from 0.5% AUM fee at that scale</p>
-                </div>
-                <div class="stat-card">
-                    <p class="stat-num">€600k</p>
-                    <p class="stat-label">Additional annual revenue if 10k users take Ové Advisor</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- WHAT OVE IS NOT -->
-        <div class="section s8">
-            <p class="section-label">What Ové is NOT</p>
-            <h2 class="section-title">Clarity of purpose.</h2>
+            <p class="section-label">Vision</p>
+            <h2 class="section-title">From someday to today. From today to always.</h2>
+            <p>Every European who wants to invest but hasn't started yet — that's our user. Not the trader. Not the expert. The person who keeps saying someday. We turn someday into today. And today into a habit. And a habit into a fully automated, intelligent portfolio that works while they sleep.</p>
+            <p>Ové isn't just a beginner app. It's the beginning of a lifetime of investing — with a clear, rewarding path from the first €10 to a hands-off portfolio managed by Ové Advisor.</p>
+            <p>And to be clear about what that means in practice:</p>
             <ul class="check-list">
                 <li>Not a bank</li>
                 <li>Not built for experts</li>
@@ -743,22 +880,11 @@
             </ul>
         </div>
 
-        <div class="divider"></div>
-
-        <!-- VISION -->
-        <div class="section s9">
-            <p class="section-label">Vision</p>
-            <h2 class="section-title">From someday to today. From today to always.</h2>
-            <p>Every European who wants to invest but hasn't started yet — that's our user. Not the trader. Not the expert. The person who keeps saying someday.</p>
-            <p>We turn someday into today. And today into a habit. And a habit into a fully automated, intelligent portfolio that works while they sleep.</p>
-            <p>Ové isn't just a beginner app. It's the beginning of a lifetime of investing — with a clear, rewarding path from the first €10 to a hands-off portfolio managed by Ové Advisor.</p>
-        </div>
-
         <!-- CTA -->
         <div class="cta-section">
-            <a href="https://x.com/BeginOve" target="_blank" class="cta-btn">
-                Contact Ové on X <span style="text-transform:none">@BeginOve</span>
-            </a>
+            <p style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;font-weight:500;">Join the waitlist</p>
+            <a href="/" class="cta-btn">Secure your spot →</a>
+            <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--muted);font-weight:300;">Or follow along at <a href="https://x.com/BeginOve" target="_blank" style="color:var(--blue);text-decoration:none;">@BeginOve</a> on X.</p>
         </div>
 
     </div>
