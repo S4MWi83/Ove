@@ -320,7 +320,7 @@
                     </div>
                 </div>
                 <div class="demo-projection">
-                    <div class="demo-proj-number" id="demo-proj-number">~€9,000</div>
+                    <div class="demo-proj-number" id="demo-proj-number">Est. €9,000</div>
                     <div class="demo-proj-label" id="demo-proj-text">from €50/mo over 10 years at 8%</div>
                 </div>
                 <div class="demo-btn-row">
@@ -391,7 +391,7 @@
 
         function calcFV(m,r,months){ var rm=r/12; return Math.round(m*((Math.pow(1+rm,months)-1)/rm)); }
         function getCurr(){ var lang=localStorage.getItem('ove-lang')||'en'; return (currencyByLang[lang]||currencyByLang['en']).symbol; }
-        function fmt(v){ var c=getCurr(); return v>=1000 ? '~'+c+Math.round(v/1000)+',000' : c+v; }
+        function fmt(v){ var c=getCurr(); return v>=1000 ? 'Est. '+c+Math.round(v/1000)+',000' : c+v; }
 
         function demoOpen(){
             demoAmount=50; demoPortfolio='balanced';
@@ -454,7 +454,7 @@
             var monthly=parseFloat(demoAmount)||50;
             for(var key in portfolioRates){
                 var fv=calcFV(monthly,portfolioRates[key],120);
-                var curr=getCurr(); var f=fv>=1000?'~'+curr+(fv/1000).toFixed(1)+'k':'~'+curr+fv;
+                var curr=getCurr(); var f=fv>=1000?'Est. '+curr+(fv/1000).toFixed(1)+'k':'Est. '+curr+fv;
                 document.getElementById('proj-'+key).textContent=f+' / 10yr';
             }
         }
