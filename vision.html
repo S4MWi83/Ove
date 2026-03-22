@@ -647,6 +647,69 @@
             .target-traits { grid-template-columns: 1fr; }
             .target-user-inner { padding: 2rem 1.5rem; }
         }
+
+        /* JARGON POPOVER */
+        .jargon {
+            color: var(--blue);
+            border-bottom: 1px dashed rgba(59,130,246,0.45);
+            cursor: pointer;
+            position: relative;
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+        .jargon:hover { color: #93c5fd; }
+        .jargon-bubble {
+            display: none;
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0d1f38;
+            border: 1px solid rgba(59,130,246,0.25);
+            border-radius: 12px;
+            padding: 0.65rem 0.9rem;
+            font-size: 0.78rem;
+            color: var(--cream);
+            font-weight: 300;
+            line-height: 1.5;
+            white-space: normal;
+            width: 220px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            z-index: 100;
+            pointer-events: none;
+            font-style: normal;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .jargon-bubble::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: rgba(59,130,246,0.25);
+        }
+        .jargon-bubble::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: #0d1f38;
+            z-index: 1;
+            margin-top: -1px;
+        }
+        .jargon.open .jargon-bubble { display: block; }
+        .jargon-term {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #93c5fd;
+            margin-bottom: 0.3rem;
+        }
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -698,7 +761,7 @@
         <div class="hero">
             <p class="hero-label">Vision & Product Concept</p>
             <h1 class="hero-title">The investing app<br>Europe has been <em>waiting for.</em></h1>
-            <p class="hero-sub">Most Europeans keep their savings in a bank account where inflation quietly eats away at it year after year. Ové is a simple way to put that money to work instead — no jargon, no complexity, no bank switching. Just a straightforward way to finally start.</p>
+            <p class="hero-sub">Most Europeans keep their savings in a bank account where inflation quietly eats away at it year after year. Ové is a simple way to put that money to work instead — no unnecessary jargon, no complexity, no bank switching. Just a straightforward way to finally start.</p>
         </div>
 
         <div class="divider"></div>
@@ -708,7 +771,7 @@
             <p class="section-label">The Problem</p>
             <h2 class="section-title">320 million Europeans haven't started investing. Yet.</h2>
             <p>Only 9% of Europeans own stock directly (ECB). In the US it's 21%. The gap isn't money or knowledge — it's friction. A 2026 ESMA report confirms it: multiple regulatory and non-regulatory barriers combine to stop people before they even open an app.</p>
-            <p>And when they do open an app? ETFs. CFDs. Derivatives. Margin trading. A sign-up process that feels like switching banks. They close it within 5 minutes. Every time.</p>
+            <p>And when they do open an app? <span class="jargon" onclick="toggleJargon(this)">ETFs<span class="jargon-bubble"><span class="jargon-term">ETFs</span>Exchange-Traded Funds — baskets of stocks you can invest in as one unit. Ové handles this for you.</span></span>. <span class="jargon" onclick="toggleJargon(this)">CFDs<span class="jargon-bubble"><span class="jargon-term">CFDs</span>Contracts for Difference — complex instruments used to bet on price movements. High risk.</span></span>. <span class="jargon" onclick="toggleJargon(this)">Derivatives<span class="jargon-bubble"><span class="jargon-term">Derivatives</span>Financial contracts whose value depends on something else, like a stock or index. Complex and risky.</span></span>. Margin trading. A sign-up process that feels like switching banks. They close it within 5 minutes. Every time.</p>
 
             <div class="stats">
                 <div class="stat-card">
@@ -735,7 +798,7 @@
                     <p class="section-label">Target User</p>
                     <h2 class="section-title">The person who keeps saying someday.</h2>
                     <p>They have a stable income and money sitting in a savings account they're quietly embarrassed by. They know they should be investing. They've googled it. They've maybe even downloaded an app or two and deleted them within a week.</p>
-                    <p>They're not lazy. They're not broke. They're overwhelmed — by jargon, by choice, by the fear of doing something wrong with their own money.</p>
+                    <p>They're not lazy. They're not broke. They're overwhelmed — by unnecessary jargon, by choice, by the fear of doing something wrong with their own money.</p>
 
                     <div class="target-traits">
                         <div class="target-trait">
@@ -770,7 +833,7 @@
                                 <span class="target-trait-label">Awareness</span>
                             </div>
                             <div class="target-trait-right">
-                                <p class="target-trait-value">Knows inflation exists. Has heard of ETFs. Stops there.</p>
+                                <p class="target-trait-value">Knows inflation exists. Has heard of <span class="jargon" onclick="toggleJargon(this)">ETFs<span class="jargon-bubble"><span class="jargon-term">ETFs</span>Exchange-Traded Funds — baskets of stocks you can invest in as one unit. Ové handles this for you.</span></span>. Stops there.</p>
                                 <p class="target-trait-reveal">Enough to feel guilty about not investing. Not enough to know where to start.</p>
                             </div>
                         </div>
@@ -947,7 +1010,7 @@
         <div class="section s2">
             <p class="section-label">The Solution</p>
             <h2 class="section-title">Three steps. Then you're investing.</h2>
-            <p>Ové removes every unnecessary choice from the onboarding experience. Regulatory compliance — MiFID II, KYC, AML — is handled invisibly. The user never sees a form they don't understand.</p>
+            <p>Ové removes every unnecessary choice from the onboarding experience. Regulatory compliance — <span class="jargon" onclick="toggleJargon(this)">MiFID II<span class="jargon-bubble"><span class="jargon-term">MiFID II</span>EU law that regulates investment services — it exists to protect you as an investor.</span></span>, <span class="jargon" onclick="toggleJargon(this)">KYC<span class="jargon-bubble"><span class="jargon-term">KYC</span>Know Your Customer — the identity check every financial app is legally required to do.</span></span>, <span class="jargon" onclick="toggleJargon(this)">AML<span class="jargon-bubble"><span class="jargon-term">AML</span>Anti-Money Laundering — background checks that prevent financial crime.</span></span> — is handled invisibly. The user never sees a form they don't understand.</p>
 
             <div class="steps">
                 <div class="step">
@@ -955,7 +1018,7 @@
                     <div class="step-connector"></div>
                     <div>
                         <p class="step-title">Sign up — smooth and fast</p>
-                        <p class="step-desc">Nothing like opening a bank account. First name, email, done. KYC handled seamlessly in the background.</p>
+                        <p class="step-desc">Nothing like opening a bank account. First name, email, done. <span class="jargon" onclick="toggleJargon(this)">KYC<span class="jargon-bubble"><span class="jargon-term">KYC</span>Know Your Customer — the identity check every financial app is legally required to do.</span></span> handled seamlessly in the background.</p>
                     </div>
                 </div>
                 <div class="step">
@@ -963,7 +1026,7 @@
                     <div class="step-connector"></div>
                     <div>
                         <p class="step-title">Pick a risk level</p>
-                        <p class="step-desc">Steady, Balanced, or Growth. Three options — not three hundred. Ové explains each in plain English.</p>
+                        <p class="step-desc">Steady, Balanced, or Growth. Three options — not three hundred. Ové explains each one clearly, in plain terms.</p>
                     </div>
                 </div>
                 <div class="step">
@@ -983,7 +1046,7 @@
         <div class="section s3">
             <p class="section-label">Core Portfolios</p>
             <h2 class="section-title">Three options. No overwhelm.</h2>
-            <p>Users never pick individual stocks or ETFs. Ové handles allocation automatically.</p>
+            <p>Users never pick individual stocks or <span class="jargon" onclick="toggleJargon(this)">ETFs<span class="jargon-bubble"><span class="jargon-term">ETFs</span>Exchange-Traded Funds — baskets of stocks you can invest in as one unit. Ové handles this for you.</span></span>. Ové handles allocation automatically.</p>
 
             <div class="table-wrap">
                 <table>
@@ -1032,10 +1095,10 @@
                 <span>— The Ové Adventure unlock notification</span>
             </div>
 
-            <p>After 6 consecutive months of investing, users unlock <strong>Ové Adventure</strong> — a milestone that marks the transition from beginner to confident investor. From here, they can optionally activate <strong>Ové Advisor</strong>: a full robo-advisor for €4.99/month that automatically rebalances the portfolio, adjusts risk as markets shift, and optimises for long-term growth. Zero decisions required.</p>
+            <p>After 6 consecutive months of investing, users unlock <strong>Ové Adventure</strong> — a milestone that marks the transition from beginner to confident investor. From here, they can optionally activate <strong>Ové Advisor</strong>: a full <span class="jargon" onclick="toggleJargon(this)">robo-advisor<span class="jargon-bubble"><span class="jargon-term">Robo-advisor</span>An automated system that manages your investments without needing a human advisor.</span></span> for €4.99/month that automatically rebalances the portfolio, adjusts risk as markets shift, and optimises for long-term growth. Zero decisions required.</p>
 
             <ul class="check-list">
-                <li><strong>Ové</strong> — Start simple. Pick 1 of 3 options, invest from €10, no jargon. Month 0.</li>
+                <li><strong>Ové</strong> — Start simple. Pick 1 of 3 options, invest from €10, no unnecessary jargon. Month 0.</li>
                 <li><strong>Ové Adventure</strong> — Unlock after 6 months. A reward for showing up consistently.</li>
                 <li><strong>Ové Advisor</strong> — Optional add-on at €4.99/mo. Automated, intelligent, hands-off portfolio management.</li>
             </ul>
@@ -1047,17 +1110,17 @@
         <div class="section s5">
             <p class="section-label">Business Model</p>
             <h2 class="section-title">Simple. Scales with users.</h2>
-            <p><strong>0.5% AUM fee</strong> — charged annually, taken monthly in small increments. Invisible to the user at small portfolio sizes. Scales naturally as portfolios grow.</p>
+            <p><strong>0.5% <span class="jargon" onclick="toggleJargon(this)">AUM<span class="jargon-bubble"><span class="jargon-term">AUM</span>Assets Under Management — the total amount of money invested through the platform.</span></span> fee</strong> — charged annually, taken monthly in small increments. Invisible to the user at small portfolio sizes. Scales naturally as portfolios grow.</p>
             <p><strong>Ové Advisor — €4.99/month</strong> — unlocked after 6 months. High conversion expected given the emotional milestone of the unlock.</p>
 
             <div class="stats">
                 <div class="stat-card">
                     <p class="stat-num">€150M</p>
-                    <p class="stat-label">AUM at 100k users with €1,500 avg portfolio</p>
+                    <p class="stat-label"><span class="jargon" onclick="toggleJargon(this)">AUM<span class="jargon-bubble"><span class="jargon-term">AUM</span>Assets Under Management — the total amount of money invested through the platform.</span></span> at 100k users with €1,500 avg portfolio</p>
                 </div>
                 <div class="stat-card">
                     <p class="stat-num">€750k</p>
-                    <p class="stat-label">Annual revenue from 0.5% AUM fee at that scale</p>
+                    <p class="stat-label">Annual revenue from 0.5% <span class="jargon" onclick="toggleJargon(this)">AUM<span class="jargon-bubble"><span class="jargon-term">AUM</span>Assets Under Management — the total amount of money invested through the platform.</span></span> fee at that scale</p>
                 </div>
                 <div class="stat-card">
                     <p class="stat-num">€600k</p>
@@ -1163,5 +1226,18 @@
         </div>
 
     </div>
+
+    <script>
+        function toggleJargon(el) {
+            var wasOpen = el.classList.contains('open');
+            document.querySelectorAll('.jargon.open').forEach(function(j) { j.classList.remove('open'); });
+            if (!wasOpen) el.classList.add('open');
+        }
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.jargon')) {
+                document.querySelectorAll('.jargon.open').forEach(function(j) { j.classList.remove('open'); });
+            }
+        });
+    </script>
 </body>
 </html>
