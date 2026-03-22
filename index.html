@@ -3,63 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="pdHL7JSkBEX0cpQubnaZQqXLTDfgfNF0wMto-3flwV4" />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVSFPMXDRR"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-CVSFPMXDRR');
-    </script>
-    <title>Ové — From someday to today</title>
-    <meta name="description" content="91% of Europeans haven't started investing yet. Ové changes that — pick a portfolio, deposit from €10, and you're investing in under 2 minutes. Zero jargon. No bank switching.">
-    <meta name="keywords" content="investing app Europe, beginner investing, simple investing, ETF Europe, start investing, Ové">
-    <meta name="author" content="Ové">
-    <link rel="canonical" href="https://meetove.pro/">
+    <title>Ové — Vision & Product Concept</title>
+    <meta name="description" content="The full vision behind Ové — why we're building the investing app Europe has been waiting for.">
     <link rel="icon" type="image/svg+xml" href="ove-favicon-e.svg">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://meetove.pro/">
-    <meta property="og:title" content="Ové — From someday to today">
-    <meta property="og:description" content="91% of Europeans haven't started investing yet. Ové gets complete beginners investing in under 2 minutes, from €10, with zero jargon.">
-    <meta property="og:image" content="https://meetove.pro/ove-x-header.png">
-    <meta property="og:image:width" content="1500">
-    <meta property="og:image:height" content="500">
-    <meta property="og:site_name" content="Ové">
-    <meta property="og:locale" content="en_EU">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@BeginOve">
-    <meta name="twitter:creator" content="@BeginOve">
-    <meta name="twitter:title" content="Ové — From someday to today">
-    <meta name="twitter:description" content="91% of Europeans haven't started investing yet. Ové gets complete beginners investing in under 2 minutes, from €10, with zero jargon.">
-    <meta name="twitter:image" content="https://meetove.pro/ove-x-header.png">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Ové",
-      "url": "https://meetove.pro",
-      "description": "Ové is an investing app built for complete beginners in Europe. Get started in under 2 minutes, from €10, with zero jargon.",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
-      "creator": { "@type": "Organization", "name": "Ové", "url": "https://meetove.pro", "sameAs": "https://x.com/BeginOve" }
-    }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
-    
     <style>
         :root {
+            --midnight: #0a1628;
             --deep: #060f1e;
             --blue: #3b82f6;
-            --blue-dim: rgba(59,130,246,0.15);
-            --blue-glow: rgba(59,130,246,0.35);
+            --blue-dim: rgba(59,130,246,0.12);
             --cream: #f0ece4;
             --muted: #9db5cc;
             --border: rgba(255,255,255,0.07);
+            --card: rgba(255,255,255,0.03);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -69,232 +30,1213 @@
             font-family: 'DM Sans', sans-serif;
             background: var(--deep);
             color: var(--cream);
-            min-height: 100vh;
-            overflow-x: hidden;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
 
-        body::before {
-            content: '';
+        .orb {
             position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            border-radius: 50%;
+            filter: blur(80px);
             pointer-events: none;
             z-index: 0;
-            opacity: 0.4;
+        }
+        .orb-1 {
+            width: 50vw; height: 50vw;
+            top: -15vw; left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%);
         }
 
-        .orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
-        .orb-1 { width: 60vw; height: 60vw; top: -20vw; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(59,130,246,0.13), transparent 70%); }
-
-        .wrap { max-width: 1080px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; }
+        .wrap {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+            position: relative;
+            z-index: 1;
+        }
 
         /* NAV */
-        nav { display: flex; align-items: center; justify-content: space-between; padding: 2rem 0; opacity: 0; animation: fadeDown 0.6s ease forwards 0.1s; position: relative; z-index: 500; }
-        .nav-logo { font-family: 'Instrument Serif', serif; font-size: 1.8rem; color: var(--cream); text-decoration: none; position: relative; }
-        .nav-logo span { display: inline-block; width: 6px; height: 6px; background: var(--blue); border-radius: 50%; position: absolute; top: 6px; right: -9px; box-shadow: 0 0 8px var(--blue-glow); }
-        .nav-links { display: flex; align-items: center; gap: 1.5rem; }
-        .nav-link { font-size: 0.85rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 0 4rem;
+        }
+
+        .nav-logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.6rem;
+            color: var(--cream);
+            text-decoration: none;
+            position: relative;
+        }
+        .nav-logo span {
+            display: inline-block;
+            width: 5px; height: 5px;
+            background: var(--blue);
+            border-radius: 50%;
+            position: absolute;
+            top: 5px; right: -8px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-home {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s;
+            padding-right: 1.5rem;
+            border-right: 1px solid rgba(255,255,255,0.07);
+        }
+        .nav-home:hover { color: var(--cream); }
+
+        .nav-link {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
         .nav-link:hover { color: var(--cream); }
-        .nav-pill { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); background: var(--blue-dim); border: 1px solid rgba(59,130,246,0.2); padding: 0.4rem 1rem; border-radius: 999px; }
+        .nav-link.active { color: var(--cream); }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .download-btn {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--blue);
+            background: var(--blue-dim);
+            border: 1px solid rgba(59,130,246,0.2);
+            padding: 0.45rem 1.1rem;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .download-btn:hover {
+            background: rgba(59,130,246,0.2);
+        }
 
         /* HERO */
-        .hero { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 0 6rem; }
-        .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 400; color: var(--muted); margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s; }
-        .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 32px; height: 1px; background: var(--border); }
-        .hero-headline { font-family: 'Instrument Serif', serif; font-size: clamp(3.6rem, 8vw, 7rem); line-height: 1.03; letter-spacing: -0.02em; margin-bottom: 1.75rem; opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s; }
-        .hero-headline em { font-style: italic; color: #93c5fd; }
-        .hero-sub { font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--muted); font-weight: 300; max-width: 460px; margin: 0 auto 3.5rem; line-height: 1.7; opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s; }
-        .hero-cta { opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s; }
+        .hero {
+            margin-bottom: 5rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.2s;
+        }
 
-        /* CTA BUTTON */
-        .cta-btn { position: relative; display: inline-flex; align-items: center; gap: 1rem; background: transparent; color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; padding: 1.3rem 2.5rem; border-radius: 999px; border: none; cursor: pointer; transition: all 0.4s ease; letter-spacing: 0.12em; text-transform: uppercase; outline: none; text-decoration: none; }
-        .cta-btn::before { content: ''; position: absolute; inset: 0; border-radius: 999px; border: 1px solid rgba(59,130,246,0.35); transition: all 0.4s ease; pointer-events: none; }
-        .cta-btn::after { content: ''; position: absolute; inset: 3px; border-radius: 999px; border: 1px solid rgba(59,130,246,0.15); transition: all 0.4s ease; pointer-events: none; }
+        .hero-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: #93c5fd;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--muted);
+            font-weight: 300;
+            max-width: 540px;
+            line-height: 1.7;
+        }
+
+        /* SECTIONS */
+        .section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+        }
+
+        .section-label {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.2;
+        }
+
+        .section p {
+            color: var(--muted);
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .section p strong {
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        /* DIVIDER */
+        .divider {
+            width: 48px;
+            height: 1px;
+            background: rgba(59,130,246,0.3);
+            margin: 3rem 0;
+        }
+
+        /* STAT BLOCKS */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .stat-num {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2rem;
+            color: var(--cream);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-label {
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        /* STEPS */
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 1.5rem 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 1.25rem;
+            padding-bottom: 2rem;
+            position: relative;
+        }
+        .step:last-child { padding-bottom: 0; }
+
+        .step-num {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: var(--blue-dim);
+            border: 1px solid rgba(59,130,246,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--blue);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-connector {
+            position: absolute;
+            left: 15px;
+            top: 34px;
+            width: 1px;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(59,130,246,0.2), transparent);
+        }
+        .step:last-child .step-connector { display: none; }
+
+        .step-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--cream);
+            margin-bottom: 0.3rem;
+        }
+
+        .step-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        /* TABLE */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        td:first-child { color: var(--cream); font-weight: 400; }
+
+        tr.highlight td {
+            color: var(--cream);
+            background: var(--blue-dim);
+        }
+
+        /* LIST */
+        .check-list {
+            list-style: none;
+            margin: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .check-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        .check-list li::before {
+            content: '→';
+            color: var(--blue);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* QUOTE */
+        .quote-block {
+            border-left: 2px solid var(--blue);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: var(--card);
+            border-radius: 0 12px 12px 0;
+        }
+
+        .quote-block p {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--cream) !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        .quote-block span {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .cta-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-sub {
+            color: var(--muted);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .cta-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: transparent;
+            color: var(--cream);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 1.3rem 2.5rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            outline: none;
+            text-decoration: none;
+        }
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            border: 1px solid rgba(59,130,246,0.35);
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border-radius: 999px;
+            border: 1px solid rgba(59,130,246,0.15);
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
         .cta-btn:hover::before { border-color: rgba(59,130,246,0.7); box-shadow: 0 0 20px rgba(59,130,246,0.2), inset 0 0 20px rgba(59,130,246,0.05); }
         .cta-btn:hover::after { border-color: rgba(59,130,246,0.35); }
         .cta-btn:hover { color: white; }
-        .cta-btn-label { position: relative; z-index: 1; }
-        .cta-nudge { display: block; margin-top: 1rem; font-size: 0.85rem; color: var(--muted); font-weight: 300; }
 
-        /* FOOTER */
-        footer { border-top: 1px solid var(--border); padding: 2rem 0; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 0.85rem; font-weight: 300; flex-wrap: wrap; gap: 1rem; }
-        .footer-links { display: flex; gap: 1.5rem; }
-        .footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-        .footer-links a:hover { color: var(--cream); }
+        /* TARGET USER REDESIGN */
+        .target-user {
+            position: relative;
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards;
+        }
 
-        /* TALLY MODAL */
-        .tally-overlay { display: none; position: fixed; inset: 0; background: rgba(6,15,30,0.85); backdrop-filter: blur(6px); z-index: 100; align-items: center; justify-content: center; padding: 2rem; }
-        .tally-overlay.open { display: flex; }
-        .tally-modal { background: #0a1628; border: 1px solid rgba(59,130,246,0.2); border-radius: 24px; padding: 2.5rem; width: 100%; max-width: 480px; position: relative; animation: fadeUp 0.3s ease; }
-        .tally-modal-title { font-family: 'Instrument Serif', serif; font-size: 1.75rem; margin-bottom: 0.5rem; }
-        .tally-modal-sub { font-size: 0.9rem; color: var(--muted); font-weight: 300; margin-bottom: 1.75rem; line-height: 1.6; }
-        .tally-close { position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1.25rem; line-height: 1; transition: color 0.2s; padding: 0.25rem; }
-        .tally-close:hover { color: var(--cream); }
+        .target-user-inner {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(10,22,40,0.9) 0%, rgba(6,15,30,0.95) 100%);
+            border: 1px solid rgba(255,255,255,0.07);
+        }
 
-        /* ANIMATIONS */
-        @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .target-user-inner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 80% 50%, rgba(59,130,246,0.06) 0%, transparent 65%);
+            pointer-events: none;
+        }
 
-        @media (max-width: 560px) { nav { padding: 1.5rem 0; } .hero { padding: 2rem 0 4rem; } }
+        .target-user .section-label { margin-bottom: 0.75rem; }
+
+        .target-user .section-title {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            margin-bottom: 1.5rem;
+            max-width: 480px;
+        }
+
+        .target-user-body { position: relative; z-index: 1; }
+        .target-user-body p { color: var(--muted); font-weight: 300; margin-bottom: 1rem; }
+        .target-user-body p strong { color: var(--cream); font-weight: 500; }
+
+        /* TRAIT CARDS */
+        .target-traits {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .target-trait {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            align-items: start;
+            gap: 0;
+            padding: 1.1rem 1.4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            cursor: default;
+            transition: background 0.2s;
+        }
+
+        .target-trait:last-child { border-bottom: none; }
+
+        .target-trait:hover { background: rgba(59,130,246,0.04); }
+
+        .target-trait-left {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding-right: 1.25rem;
+            border-right: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .target-trait-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(59,130,246,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--blue);
+        }
+
+        .target-trait-label {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--cream);
+            opacity: 0.7;
+        }
+
+        .target-trait-right {
+            padding-left: 1.25rem;
+        }
+
+        .target-trait-value {
+            font-size: 0.88rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.55;
+        }
+
+        .target-trait-reveal {
+            font-size: 0.78rem;
+            color: rgba(147,197,253,0.65);
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.5;
+            margin-top: 0.3rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .target-trait:hover .target-trait-reveal {
+            max-height: 60px;
+            opacity: 1;
+        }
+
+        @media (max-width: 560px) {
+            .target-trait { grid-template-columns: 1fr; gap: 0.5rem; }
+            .target-trait-left { border-right: none; padding-right: 0; border-bottom: none; }
+            .target-trait-right { padding-left: 0; }
+        }
+
+        /* MAP */
+        .target-map-wrap {
+            margin: 1.75rem 0 0.5rem;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(6,12,24,0.6);
+            padding: 1.5rem;
+        }
+
+        .target-map-label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 1rem;
+        }
+
+        .map-container { position: relative; width: 100%; }
+
+        .map-container svg { width: 100%; height: auto; display: block; }
+
+        .map-tooltip {
+            position: absolute;
+            background: #0d1f38;
+            border: 1px solid rgba(59,130,246,0.25);
+            border-radius: 10px;
+            padding: 0.6rem 0.9rem;
+            font-size: 0.78rem;
+            color: var(--cream);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        .map-tooltip strong { color: #93c5fd; display: block; font-size: 0.9rem; margin-bottom: 0.1rem; }
+
+        .map-legend {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .map-legend-bar {
+            flex: 1;
+            height: 6px;
+            border-radius: 999px;
+            background: linear-gradient(to right, rgba(59,130,246,0.15), rgba(59,130,246,0.9));
+        }
+
+        .target-closing {
+            margin-top: 1.75rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 1rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* COUNTER */
+        .stat-counter {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2rem;
+            color: var(--cream);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        @media (max-width: 560px) {
+            .target-traits { grid-template-columns: 1fr; }
+            .target-user-inner { padding: 2rem 1.5rem; }
+        }
+
+        /* JARGON POPOVER */
+        .jargon {
+            color: var(--blue);
+            border-bottom: 1px dashed rgba(59,130,246,0.45);
+            cursor: pointer;
+            position: relative;
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+        .jargon:hover { color: #93c5fd; }
+        .jargon-bubble {
+            display: none;
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0d1f38;
+            border: 1px solid rgba(59,130,246,0.25);
+            border-radius: 12px;
+            padding: 0.65rem 0.9rem;
+            font-size: 0.78rem;
+            color: var(--cream);
+            font-weight: 300;
+            line-height: 1.5;
+            white-space: normal;
+            width: 220px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            z-index: 100;
+            pointer-events: none;
+            font-style: normal;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .jargon-bubble::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: rgba(59,130,246,0.25);
+        }
+        .jargon-bubble::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: #0d1f38;
+            z-index: 1;
+            margin-top: -1px;
+        }
+        .jargon.open .jargon-bubble { display: block; }
+        .jargon-term {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #93c5fd;
+            margin-bottom: 0.3rem;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .s1 { animation-delay: 0.3s; }
+        .s-user { animation-delay: 0.4s; }
+        .s2 { animation-delay: 0.5s; }
+        .s3 { animation-delay: 0.5s; }
+        .s4 { animation-delay: 0.6s; }
+        .s5 { animation-delay: 0.7s; }
+        .s6 { animation-delay: 0.8s; }
+        .s7 { animation-delay: 0.9s; }
+        .s8 { animation-delay: 1.0s; }
+        .s9 { animation-delay: 1.1s; }
+
+        @media (max-width: 600px) {
+            .stats { grid-template-columns: 1fr 1fr; }
+            .hero-title { font-size: 2.2rem; }
+        }
+
         @media (max-width: 640px) {
             nav { padding: 1.25rem 0; flex-wrap: wrap; gap: 0.75rem; }
             .nav-logo { font-size: 1.5rem; }
             .nav-links { gap: 0.85rem; }
             .nav-link { font-size: 0.78rem; }
+            .nav-home { font-size: 0.78rem; padding-right: 0.85rem; }
             .nav-pill, .nav-cta { font-size: 0.7rem; padding: 0.3rem 0.7rem; letter-spacing: 0.05em; }
         }
-
-        /* LANG SWITCHER */
-        .lang-switcher { position: relative; }
-        .lang-btn { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.6rem; cursor: pointer; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s; }
-        .lang-btn:hover { color: var(--cream); border-color: rgba(255,255,255,0.15); }
-        .lang-dropdown { display: none; position: absolute; top: calc(100% + 8px); right: 0; background: #0d1f38; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; min-width: 130px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); z-index: 999; }
-        .lang-switcher.open .lang-dropdown { display: block; }
-        .lang-option { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 1rem; font-size: 0.82rem; color: var(--muted); cursor: pointer; transition: all 0.15s; border: none; background: none; width: 100%; font-family: 'DM Sans', sans-serif; text-align: left; }
-        .lang-option:hover { background: rgba(255,255,255,0.05); color: var(--cream); }
-        .lang-option.active { color: var(--cream); background: rgba(59,130,246,0.1); }
-        /* STATUS PILLS */
-        .status-pills { display: flex; align-items: center; justify-content: center; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 1.75rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
-        .status-pill { font-size: 0.68rem; font-weight: 300; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.15); opacity: 0.7; }
-        .status-pill:nth-child(2) { opacity: 1; }
-        .mobile-eyebrow { display: none; }
-        @media (max-width: 560px) {
-            .nav-pill { display: none; }
-            .status-pill:nth-child(2) { display: none; }
-            .status-pills { gap: 0.5rem; margin-bottom: 1.25rem; }
-            .hero-eyebrow { font-size: 0.78rem; margin-bottom: 1.75rem; }
-            .hero-eyebrow::before, .hero-eyebrow::after { width: 20px; }
-            .desktop-eyebrow { display: none; }
-            .mobile-eyebrow { display: inline; }
-        }
-
-
     </style>
 </head>
 <body>
     <div class="orb orb-1"></div>
-
     <div class="wrap" role="main">
+
         <nav>
             <a href="/" class="nav-logo">Ové<span></span></a>
             <div class="nav-links">
-                <a href="/concept" class="nav-link" data-i18n="nav_concept">Ové</a>
-                <a href="/vision" class="nav-link">Vision</a>
-                <span class="nav-pill" data-i18n="nav_waitlist">Waitlist open</span>
-                <div class="lang-switcher" id="lang-switcher">
-                    <button class="lang-btn" id="lang-btn">&#127760; <span id="lang-code">EN</span> &#9660;</button>
-                    <div class="lang-dropdown" id="lang-dropdown">
-                        <button class="lang-option active" data-lang="en">English</button>
-                        <button class="lang-option" data-lang="sv">Svenska</button>
-                        <button class="lang-option" data-lang="es">Español</button>
-                        <button class="lang-option" data-lang="de">Deutsch</button>
-                    </div>
-                </div>
+                <a href="/" class="nav-home">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                </a>
+                <a href="/concept" class="nav-link">Ové</a>
+                <a href="/vision" class="nav-link active">Vision</a>
+                <a href="ove-product-concept.pdf" class="download-btn" download>↓ Download PDF</a>
             </div>
         </nav>
 
-        <section class="hero">
-            <div class="status-pills">
-                <span class="status-pill" data-i18n="pill_2">Coming soon</span>
-                <span class="status-pill" data-i18n="pill_1">Not handling funds yet</span>
-                <span class="status-pill" data-i18n="pill_3">Free waitlist</span>
-            </div>
-            <p class="hero-eyebrow"><span class="desktop-eyebrow" data-i18n="eyebrow">Early access — join the waitlist.</span><span class="mobile-eyebrow" data-i18n="eyebrow_mobile">Join waitlist below.</span></p>
-            <h1 class="hero-headline">
-                <span data-i18n="headline_1">From</span> <em data-i18n="headline_2">someday</em><br><span data-i18n="headline_3">to today.</span>
-            </h1>
-            <p class="hero-sub">
-                <span data-i18n="sub"><em>Investing made simple. Clear. Fast. Safe.</em></span>
-            </p>
-            <div class="hero-cta">
-                <button class="cta-btn" id="open-waitlist">
-                    <span class="cta-btn-label" data-i18n="cta">SECURE YOUR SPOT</span>
-                </button>
-                <span class="cta-nudge" data-i18n="nudge">Spots are limited — be first when we launch.</span>
-            </div>
-        </section>
-
-        <footer>
-            <span>© <span id="year"></span> Ové. All rights reserved.</span>
-            <div class="footer-links">
-                <a href="https://x.com/BeginOve" target="_blank">@BeginOve on X</a>
-            </div>
-        </footer>
-    </div>
-
-    <div class="tally-overlay" id="tally-overlay">
-        <div class="tally-modal">
-            <button class="tally-close" id="close-waitlist">✕</button>
-            <p class="tally-modal-title" data-i18n="modal_title">Your someday is today.</p>
-            <p class="tally-modal-sub" data-i18n="modal_sub">No payment, no commitment.</p>
-            <div id="tally-embed-target"></div>
+        <!-- HERO -->
+        <div class="hero">
+            <p class="hero-label">Vision & Product Concept</p>
+            <h1 class="hero-title">The investing app<br>Europe has been <em>waiting for.</em></h1>
+            <p class="hero-sub">Most Europeans keep their savings in a bank account where inflation quietly eats away at it year after year. Ové is a simple way to put that money to work instead — no unnecessary jargon, no complexity, no bank switching. Just a straightforward way to finally start.</p>
         </div>
-    </div>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+        <div class="divider"></div>
 
-        var overlay = document.getElementById('tally-overlay');
-        var embedTarget = document.getElementById('tally-embed-target');
-        var loaded = false;
+        <!-- THE PROBLEM -->
+        <div class="section s1">
+            <p class="section-label">The Problem</p>
+            <h2 class="section-title">320 million Europeans haven't started investing. Yet.</h2>
+            <p>Only 9% of Europeans own stock directly (ECB). In the US it's 21%. The gap isn't money or knowledge — it's friction. A 2026 ESMA report confirms it: multiple regulatory and non-regulatory barriers combine to stop people before they even open an app.</p>
+            <p>And when they do open an app? <span class="jargon" onclick="toggleJargon(this)">ETFs<span class="jargon-bubble"><span class="jargon-term">ETFs</span>Exchange-Traded Funds — baskets of stocks you can invest in as one unit. Ové handles this for you.</span></span>. <span class="jargon" onclick="toggleJargon(this)">CFDs<span class="jargon-bubble"><span class="jargon-term">CFDs</span>Contracts for Difference — complex instruments used to bet on price movements. High risk.</span></span>. <span class="jargon" onclick="toggleJargon(this)">Derivatives<span class="jargon-bubble"><span class="jargon-term">Derivatives</span>Financial contracts whose value depends on something else, like a stock or index. Complex and risky.</span></span>. Margin trading. A sign-up process that feels like switching banks. They close it within 5 minutes. Every time.</p>
 
-        document.getElementById('open-waitlist').addEventListener('click', function() {
-            overlay.classList.add('open');
-            if (!loaded) {
-                embedTarget.innerHTML = '<iframe data-tally-src="https://tally.so/embed/WOoKja?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="160" frameborder="0" marginheight="0" marginwidth="0" title="Ov\u00e9 Waitlist"></iframe>';
-                if (window.Tally) Tally.loadEmbeds();
-                loaded = true;
-            }
-        });
+            <div class="stats">
+                <div class="stat-card">
+                    <p class="stat-num">91%</p>
+                    <p class="stat-label">of Europeans have never invested directly</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-num">320M</p>
+                    <p class="stat-label">people stuck in "I'll start next month"</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-num">2026</p>
+                    <p class="stat-label">ESMA report confirms friction is the barrier</p>
+                </div>
+            </div>
+        </div>
 
-        document.getElementById('close-waitlist').addEventListener('click', function() {
-            overlay.classList.remove('open');
-        });
+        <div class="divider"></div>
 
-        overlay.addEventListener('click', function(e) {
-            if (e.target === overlay) overlay.classList.remove('open');
-        });
-    </script>
-    <script async src="https://tally.so/widgets/embed.js"></script>
+        <!-- TARGET USER -->
+        <div class="target-user s-user">
+            <div class="target-user-inner">
+                <div class="target-user-body">
+                    <p class="section-label">Target User</p>
+                    <h2 class="section-title">The person who keeps saying someday.</h2>
+                    <p>They have a stable income and money sitting in a savings account they're quietly embarrassed by. They know they should be investing. They've googled it. They've maybe even downloaded an app or two and deleted them within a week.</p>
+                    <p>They're not lazy. They're not broke. They're overwhelmed — by unnecessary jargon, by choice, by the fear of doing something wrong with their own money.</p>
 
-    <script>
-        var translations = {
-            en: { nav_concept:"Ové", nav_waitlist:"Waitlist open", eyebrow:"Early access — join the waitlist.", eyebrow_mobile:"Join waitlist below.", headline_1:"From", headline_2:"someday", headline_3:"to today.", sub:"Investing made simple. Clear. Fast. Safe.", cta:"SECURE YOUR SPOT", nudge:"Spots are limited \u2014 be first when we launch.", modal_title:"Your someday is today.", modal_sub:"No payment, no commitment.", pill_1:"Not handling funds yet", pill_2:"Coming soon", pill_3:"Free waitlist", code:"EN", fi:"gb" },
-            sv: { nav_concept:"Ové", nav_waitlist:"\u00d6ppen v\u00e4ntelista", eyebrow:"F\u00f6rhandsaccess \u2014 g\u00e5 med i v\u00e4ntelistan.", eyebrow_mobile:"G\u00e5 med i v\u00e4ntelistan nedan.", headline_1:"Fr\u00e5n", headline_2:"en dag", headline_3:"till idag.", sub:"Investering gjord enkelt. Tydligt. Snabbt. S\u00e4kert.", cta:"S\u00c4KRA DIN PLATS", nudge:"Platserna \u00e4r begr\u00e4nsade \u2014 var f\u00f6rst n\u00e4r vi lanserar.", modal_title:"Din dag \u00e4r idag.", modal_sub:"Ingen betalning, inget \u00e5tagande.", pill_1:"Hanterar inga pengar ännu", pill_2:"Kommer snart", pill_3:"Gratis väntelista", code:"SV", fi:"se" },
-            es: { nav_concept:"Ové", nav_waitlist:"Lista de espera abierta", eyebrow:"Acceso anticipado \u2014 \u00fanete a la lista de espera.", eyebrow_mobile:"Únete a la lista abajo.", headline_1:"De", headline_2:"alg\u00fan d\u00eda", headline_3:"al hoy.", sub:"Invertir hecho simple. Claro. R\u00e1pido. Seguro.", cta:"ASEGURA TU LUGAR", nudge:"Los cupos son limitados \u2014 s\u00e9 el primero cuando lancemos.", modal_title:"Tu alg\u00fan d\u00eda es hoy.", modal_sub:"Sin pago, sin compromiso.", pill_1:"Sin gestión de fondos aún", pill_2:"Próximamente", pill_3:"Lista gratuita", code:"ES", fi:"es" },
-            de: { nav_concept:"Ové", nav_waitlist:"Warteliste offen", eyebrow:"Frühzugang — Warteliste beitreten.", eyebrow_mobile:"Warteliste unten beitreten.", headline_1:"Von", headline_2:"irgendwann", headline_3:"zu heute.", sub:"Investieren leicht gemacht. Klar. Schnell. Sicher.", cta:"PLATZ SICHERN", nudge:"Pl\u00e4tze sind begrenzt \u2014 sei Erster, wenn wir starten.", modal_title:"Dein Irgendwann ist heute.", modal_sub:"Keine Zahlung, keine Verpflichtung.", pill_1:"Noch keine Geldverwaltung", pill_2:"Demnächst", pill_3:"Kostenlose Warteliste", code:"DE", fi:"de" }
+                    <div class="target-traits">
+                        <div class="target-trait">
+                            <div class="target-trait-left">
+                                <div class="target-trait-icon">
+                                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                                </div>
+                                <span class="target-trait-label">Age</span>
+                            </div>
+                            <div class="target-trait-right">
+                                <p class="target-trait-value">18–55 — old enough to have income, young enough that starting today still matters.</p>
+                                <p class="target-trait-reveal">Long enough horizon for compounding to actually work in their favour.</p>
+                            </div>
+                        </div>
+                        <div class="target-trait">
+                            <div class="target-trait-left">
+                                <div class="target-trait-icon">
+                                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                                <span class="target-trait-label">Capacity</span>
+                            </div>
+                            <div class="target-trait-right">
+                                <p class="target-trait-value">Maybe not thousands to begin with. €50–€200/month feels right.</p>
+                                <p class="target-trait-reveal">€100/month at 8% over 10 years is €18,000. That's the story Ové tells them.</p>
+                            </div>
+                        </div>
+                        <div class="target-trait">
+                            <div class="target-trait-left">
+                                <div class="target-trait-icon">
+                                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                                </div>
+                                <span class="target-trait-label">Awareness</span>
+                            </div>
+                            <div class="target-trait-right">
+                                <p class="target-trait-value">Knows inflation exists. Has heard of <span class="jargon" onclick="toggleJargon(this)">ETFs<span class="jargon-bubble"><span class="jargon-term">ETFs</span>Exchange-Traded Funds — baskets of stocks you can invest in as one unit. Ové handles this for you.</span></span>. Stops there.</p>
+                                <p class="target-trait-reveal">Enough to feel guilty about not investing. Not enough to know where to start.</p>
+                            </div>
+                        </div>
+                        <div class="target-trait">
+                            <div class="target-trait-left">
+                                <div class="target-trait-icon">
+                                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                </div>
+                                <span class="target-trait-label">Friction</span>
+                            </div>
+                            <div class="target-trait-right">
+                                <p class="target-trait-value">Zero tolerance. One confusing screen and they're out.</p>
+                                <p class="target-trait-reveal">This is the entire design constraint. Every product decision runs through it.</p>
+                            </div>
+                        </div>
+                        <div class="target-trait">
+                            <div class="target-trait-left">
+                                <div class="target-trait-icon">
+                                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+                                </div>
+                                <span class="target-trait-label">Geography</span>
+                            </div>
+                            <div class="target-trait-right">
+                                <p class="target-trait-value">Low-participation markets — Italy, Spain, Eastern Europe — where ownership sits well below the European average.</p>
+                                <p class="target-trait-reveal">The opportunity is biggest where it's been ignored longest.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MAP -->
+                    <div class="target-map-wrap">
+                        <p class="target-map-label">Stock market participation by country — % of population invested</p>
+                        <div class="map-container" id="map-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" id="europe-map" style="width:100%;min-height:280px;display:block;"></svg>
+                            <div class="map-tooltip" id="map-tooltip"></div>
+                        </div>
+                        <div class="map-legend">
+                            <span>Low</span>
+                            <div class="map-legend-bar"></div>
+                            <span>High</span>
+                        </div>
+                    </div>
+
+                    <p class="target-closing">Ové is built for the <em style="color:#93c5fd;font-style:italic;">320 million</em> like them. Not the experienced trader. Not the analyst. Not the person who keeps two eyes on markets. The <em style="color:#93c5fd;font-style:italic;">91%</em> of the people.</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        // ── COUNTER ANIMATION ─────────────────────────────────────────────
+        // removed — keeping stats static
+
+        // ── EUROPE MAP — D3 + TopoJSON ────────────────────────────────────
+        var participationData = {
+            'Sweden': 26, 'Finland': 19, 'Norway': 17, 'Denmark': 16,
+            'Netherlands': 14, 'Germany': 14, 'United Kingdom': 15,
+            'Ireland': 19, 'Belgium': 13, 'France': 15, 'Switzerland': 16,
+            'Austria': 10, 'Spain': 6, 'Portugal': 5, 'Italy': 7,
+            'Poland': 4, 'Czechia': 5, 'Slovakia': 4, 'Hungary': 4,
+            'Romania': 2, 'Bulgaria': 1, 'Greece': 3, 'Estonia': 8,
+            'Latvia': 3, 'Lithuania': 4, 'Slovenia': 5, 'Croatia': 3,
+            'Serbia': 2, 'Ukraine': 2, 'Belarus': 1, 'Moldova': 1,
+            'Albania': 1, 'North Macedonia': 1, 'Bosnia and Herzegovina': 1,
+            'Montenegro': 2, 'Kosovo': 1, 'Luxembourg': 18, 'Malta': 6,
+            'Cyprus': 4, 'Iceland': 22
         };
 
-        function applyLang(lang) {
-            var t = translations[lang];
-            if (!t) return;
-            localStorage.setItem('ove-lang', lang);
-            document.querySelectorAll('[data-i18n]').forEach(function(el) {
-                var key = el.getAttribute('data-i18n');
-                if (t[key] !== undefined) el.textContent = t[key];
-            });
-            document.getElementById('lang-code').textContent = t.code;
-            document.querySelectorAll('.lang-option').forEach(function(o) {
-                o.classList.toggle('active', o.dataset.lang === lang);
-            });
-            document.getElementById('lang-switcher').classList.remove('open');
+        function pctToFill(pct) {
+            if (!pct) return 'rgba(255,255,255,0.04)';
+            var t = Math.pow(Math.min(pct / 26, 1), 0.55);
+            var alpha = 0.18 + t * 0.35;
+            return 'rgba(59,130,246,' + alpha + ')';
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('lang-btn').addEventListener('click', function(e) {
-                e.stopPropagation();
-                document.getElementById('lang-switcher').classList.toggle('open');
+        var tooltip = document.getElementById('map-tooltip');
+        var mapContainer = document.getElementById('map-container');
+        var svgEl = document.getElementById('europe-map');
+
+        // Load D3 and TopoJSON then render
+        function loadScript(src, cb) {
+            var s = document.createElement('script');
+            s.src = src; s.onload = cb; document.head.appendChild(s);
+        }
+
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js', function() {
+            loadScript('https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js', function() {
+                fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+                    .then(function(r) { return r.json(); })
+                    .then(function(world) {
+                        var countries = topojson.feature(world, world.objects.countries);
+
+                        // ISO numeric codes for European countries
+                        var europeanISO = {
+                            '008':'Albania','040':'Austria','056':'Belgium','100':'Bulgaria',
+                            '191':'Croatia','196':'Cyprus','203':'Czechia','208':'Denmark',
+                            '233':'Estonia','246':'Finland','250':'France','276':'Germany',
+                            '300':'Greece','348':'Hungary','352':'Iceland','372':'Ireland',
+                            '380':'Italy','383':'Kosovo','428':'Latvia','440':'Lithuania',
+                            '442':'Luxembourg','470':'Malta','498':'Moldova','499':'Montenegro',
+                            '528':'Netherlands','807':'North Macedonia','578':'Norway',
+                            '616':'Poland','620':'Portugal','642':'Romania','688':'Serbia',
+                            '703':'Slovakia','705':'Slovenia','724':'Spain','752':'Sweden',
+                            '756':'Switzerland','804':'Ukraine','826':'United Kingdom','112':'Belarus',
+                            '008':'Albania','070':'Bosnia and Herzegovina'
+                        };
+
+                        var europeFeatures = countries.features.filter(function(f) {
+                            return europeanISO[String(f.id).padStart(3,'0')];
+                        }).map(function(f) {
+                            var name = europeanISO[String(f.id).padStart(3,'0')];
+                            return { feature: f, name: name, pct: participationData[name] || null };
+                        });
+
+                        // Compute bounds to center on Europe
+                        var width = svgEl.clientWidth || 680;
+                        var height = Math.round(width * 0.62);
+                        svgEl.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+
+                        var projection = d3.geoMercator()
+                            .center([15, 52])
+                            .scale(width * 0.65)
+                            .translate([width / 2, height / 2]);
+
+                        var path = d3.geoPath().projection(projection);
+                        var svg = d3.select('#europe-map');
+
+                        // Subtle grid/graticule
+                        var graticule = d3.geoGraticule().step([10, 10]);
+                        svg.append('path')
+                            .datum(graticule())
+                            .attr('d', path)
+                            .attr('fill', 'none')
+                            .attr('stroke', 'rgba(255,255,255,0.04)')
+                            .attr('stroke-width', 0.5);
+
+                        svg.selectAll('.country')
+                            .data(europeFeatures)
+                            .enter()
+                            .append('path')
+                            .attr('class', 'country')
+                            .attr('d', function(d) { return path(d.feature); })
+                            .attr('fill', function(d) { return pctToFill(d.pct); })
+                            .attr('stroke', 'rgba(255,255,255,0.1)')
+                            .attr('stroke-width', 0.6)
+                            .attr('stroke-linejoin', 'round')
+                            .style('cursor', 'pointer')
+                            .style('transition', 'fill 0.2s')
+                            .on('mouseenter', function(event, d) {
+                                d3.select(this).attr('fill', 'rgba(147,197,253,0.5)');
+                                var label = d.pct ? d.pct + '% of population invested' : 'No data';
+                                tooltip.innerHTML = '<strong>' + d.name + '</strong>' + label;
+                                tooltip.style.opacity = '1';
+                            })
+                            .on('mousemove', function(event) {
+                                var rect = mapContainer.getBoundingClientRect();
+                                var x = event.clientX - rect.left + 14;
+                                var y = event.clientY - rect.top - 12;
+                                if (x + 210 > rect.width) x = x - 225;
+                                tooltip.style.left = x + 'px';
+                                tooltip.style.top = y + 'px';
+                            })
+                            .on('mouseleave', function(event, d) {
+                                d3.select(this).attr('fill', pctToFill(d.pct));
+                                tooltip.style.opacity = '0';
+                            });
+                    });
             });
-            document.querySelectorAll('.lang-option').forEach(function(o) {
-                o.addEventListener('click', function(e) { e.stopPropagation(); applyLang(o.dataset.lang); });
-            });
-            document.addEventListener('click', function() {
-                document.getElementById('lang-switcher').classList.remove('open');
-            });
-            var saved = localStorage.getItem('ove-lang') || 'en';
-            if (!translations[saved]) saved = 'en';
-            applyLang(saved);
+        });
+        </script>
+
+        <div class="divider"></div>
+
+        <!-- THE SOLUTION -->
+        <div class="section s2">
+            <p class="section-label">The Solution</p>
+            <h2 class="section-title">Three steps. Then you're investing.</h2>
+            <p>Ové removes every unnecessary choice from the onboarding experience. Regulatory compliance — <span class="jargon" onclick="toggleJargon(this)">MiFID II<span class="jargon-bubble"><span class="jargon-term">MiFID II</span>EU law that regulates investment services — it exists to protect you as an investor.</span></span>, <span class="jargon" onclick="toggleJargon(this)">KYC<span class="jargon-bubble"><span class="jargon-term">KYC</span>Know Your Customer — the identity check every financial app is legally required to do.</span></span>, <span class="jargon" onclick="toggleJargon(this)">AML<span class="jargon-bubble"><span class="jargon-term">AML</span>Anti-Money Laundering — background checks that prevent financial crime.</span></span> — is handled invisibly. The user never sees a form they don't understand.</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-connector"></div>
+                    <div>
+                        <p class="step-title">Sign up — smooth and fast</p>
+                        <p class="step-desc">Nothing like opening a bank account. First name, email, done. <span class="jargon" onclick="toggleJargon(this)">KYC<span class="jargon-bubble"><span class="jargon-term">KYC</span>Know Your Customer — the identity check every financial app is legally required to do.</span></span> handled seamlessly in the background.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-connector"></div>
+                    <div>
+                        <p class="step-title">Pick a risk level</p>
+                        <p class="step-desc">Steady, Balanced, or Growth. Three options — not three hundred. Ové explains each one clearly, in plain terms.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-connector"></div>
+                    <div>
+                        <p class="step-title">You're invested</p>
+                        <p class="step-desc">Ové handles everything else automatically. Your money is working. You're done.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- PORTFOLIOS -->
+        <div class="section s3">
+            <p class="section-label">Core Portfolios</p>
+            <h2 class="section-title">Three options. No overwhelm.</h2>
+            <p>Users never pick individual stocks or <span class="jargon" onclick="toggleJargon(this)">ETFs<span class="jargon-bubble"><span class="jargon-term">ETFs</span>Exchange-Traded Funds — baskets of stocks you can invest in as one unit. Ové handles this for you.</span></span>. Ové handles allocation automatically.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Risk</th>
+                            <th>Allocation</th>
+                            <th>Est. Return</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Steady</td>
+                            <td>Low</td>
+                            <td>70% Bonds, 20% Stocks, 10% Cash</td>
+                            <td>~4–6%/yr</td>
+                        </tr>
+                        <tr>
+                            <td>Balanced</td>
+                            <td>Medium</td>
+                            <td>60% Stocks, 30% Bonds, 10% Cash</td>
+                            <td>~7–9%/yr</td>
+                        </tr>
+                        <tr>
+                            <td>Growth</td>
+                            <td>Higher</td>
+                            <td>90% Stocks, 8% Bonds, 2% Cash</td>
+                            <td>~10–12%/yr</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- USER JOURNEY -->
+        <div class="section s4">
+            <p class="section-label">User Journey</p>
+            <h2 class="section-title">Beginner today. Hands-off investor in 6 months.</h2>
+            <p>Ové is built around a clear emotional arc — not just a product, but a path.</p>
+
+            <div class="quote-block">
+                <p>"6 months ago you took your first step. Your money has been working ever since. Ready for the next level?"</p>
+                <span>— The Ové Adventure unlock notification</span>
+            </div>
+
+            <p>After 6 consecutive months of investing, users unlock <strong>Ové Adventure</strong> — a milestone that marks the transition from beginner to confident investor. From here, they can optionally activate <strong>Ové Advisor</strong>: a full <span class="jargon" onclick="toggleJargon(this)">robo-advisor<span class="jargon-bubble"><span class="jargon-term">Robo-advisor</span>An automated system that manages your investments without needing a human advisor.</span></span> for €4.99/month that automatically rebalances the portfolio, adjusts risk as markets shift, and optimises for long-term growth. Zero decisions required.</p>
+
+            <ul class="check-list">
+                <li><strong>Ové</strong> — Start simple. Pick 1 of 3 options, invest from €10, no unnecessary jargon. Month 0.</li>
+                <li><strong>Ové Adventure</strong> — Unlock after 6 months. A reward for showing up consistently.</li>
+                <li><strong>Ové Advisor</strong> — Optional add-on at €4.99/mo. Automated, intelligent, hands-off portfolio management.</li>
+            </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- BUSINESS MODEL -->
+        <div class="section s5">
+            <p class="section-label">Business Model</p>
+            <h2 class="section-title">Simple. Scales with users.</h2>
+            <p><strong>0.5% <span class="jargon" onclick="toggleJargon(this)">AUM<span class="jargon-bubble"><span class="jargon-term">AUM</span>Assets Under Management — the total amount of money invested through the platform.</span></span> fee</strong> — charged annually, taken monthly in small increments. Invisible to the user at small portfolio sizes. Scales naturally as portfolios grow.</p>
+            <p><strong>Ové Advisor — €4.99/month</strong> — unlocked after 6 months. High conversion expected given the emotional milestone of the unlock.</p>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <p class="stat-num">€150M</p>
+                    <p class="stat-label"><span class="jargon" onclick="toggleJargon(this)">AUM<span class="jargon-bubble"><span class="jargon-term">AUM</span>Assets Under Management — the total amount of money invested through the platform.</span></span> at 100k users with €1,500 avg portfolio</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-num">€750k</p>
+                    <p class="stat-label">Annual revenue from 0.5% <span class="jargon" onclick="toggleJargon(this)">AUM<span class="jargon-bubble"><span class="jargon-term">AUM</span>Assets Under Management — the total amount of money invested through the platform.</span></span> fee at that scale</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-num">€600k</p>
+                    <p class="stat-label">Additional annual revenue if 10k users take Ové Advisor</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- COMPETITIVE -->
+        <div class="section s6">
+            <p class="section-label">Competitive Landscape</p>
+            <h2 class="section-title">The position nobody is occupying.</h2>
+            <p>Every existing app in Europe was built for the 9% who already invest. Ové is built for the 91% who haven't started.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>App</th>
+                            <th>Beginner Focus</th>
+                            <th>Europe</th>
+                            <th>Verdict</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Trading 212</td>
+                            <td>Low</td>
+                            <td>✅</td>
+                            <td>Too complex</td>
+                        </tr>
+                        <tr>
+                            <td>eToro</td>
+                            <td>Low</td>
+                            <td>✅</td>
+                            <td>Built for traders</td>
+                        </tr>
+                        <tr>
+                            <td>Revolut</td>
+                            <td>Low</td>
+                            <td>✅</td>
+                            <td>Super-app, not focused</td>
+                        </tr>
+                        <tr>
+                            <td>Bitpanda</td>
+                            <td>Low–Medium</td>
+                            <td>✅</td>
+                            <td>Inspiration — but 3,000+ choices</td>
+                        </tr>
+                        <tr>
+                            <td>Robinhood EU</td>
+                            <td>Low</td>
+                            <td>⚠️ Partial</td>
+                            <td>Tokenized only, not beginner focused</td>
+                        </tr>
+                        <tr>
+                            <td>Acorns</td>
+                            <td>High</td>
+                            <td>❌ US only</td>
+                            <td>Closest concept — wrong continent</td>
+                        </tr>
+                        <tr>
+                            <td>Public.com</td>
+                            <td>Low–Medium</td>
+                            <td>⚠️ UK only</td>
+                            <td>Active investors, moving toward AI management and EU market</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td>Ové</td>
+                            <td>Very High</td>
+                            <td>✅</td>
+                            <td>Unoccupied position</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- VISION + WHAT OVE IS NOT -->
+        <div class="section s7">
+            <p class="section-label">Vision</p>
+            <h2 class="section-title">From someday to today. From today to always.</h2>
+            <p>Every European who wants to invest but hasn't started yet — that's our user. Not the trader. Not the expert. The person who keeps saying someday. We turn someday into today. And today into a habit. And a habit into a fully automated, intelligent portfolio that works while they sleep.</p>
+            <p>Ové isn't just a beginner app. It's the beginning of a lifetime of investing — with a clear, rewarding path from the first €10 to a hands-off portfolio managed by Ové Advisor.</p>
+            <p>And to be clear about what that means in practice:</p>
+            <ul class="check-list">
+                <li>Not a bank</li>
+                <li>Not built for experts</li>
+                <li>Not trying to compete with Trading 212 or eToro on features</li>
+                <li>Not trying to be everything to everyone</li>
+            </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <p style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;font-weight:500;">Join the waitlist</p>
+            <a href="/" class="cta-btn">Secure your spot →</a>
+            <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--muted);font-weight:300;">Or follow along at <a href="https://x.com/BeginOve" target="_blank" style="color:var(--blue);text-decoration:none;">@BeginOve</a> on X.</p>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleJargon(el) {
+            var wasOpen = el.classList.contains('open');
+            document.querySelectorAll('.jargon.open').forEach(function(j) { j.classList.remove('open'); });
+            if (!wasOpen) el.classList.add('open');
+        }
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.jargon')) {
+                document.querySelectorAll('.jargon.open').forEach(function(j) { j.classList.remove('open'); });
+            }
         });
     </script>
 </body>
