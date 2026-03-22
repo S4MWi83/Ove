@@ -628,6 +628,7 @@
 
         /* Mobile bottom sheet */
         .map-bottom-sheet {
+            display: none;
             position: fixed;
             bottom: 0;
             left: 0;
@@ -662,7 +663,7 @@
             font-weight: 400;
         }
         .map-sheet-overlay {
-            display: none;
+            display: none !important;
             position: fixed;
             inset: 0;
             z-index: 999;
@@ -1024,13 +1025,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" id="europe-map" style="width:100%;min-height:280px;display:block;"></svg>
                             <div class="map-tooltip" id="map-tooltip"></div>
 
-                        <!-- Mobile bottom sheet -->
-                        <div class="map-sheet-overlay" id="map-sheet-overlay"></div>
-                        <div class="map-bottom-sheet" id="map-bottom-sheet">
-                            <div class="map-bottom-sheet-handle"></div>
-                            <div class="map-bottom-sheet-country" id="map-sheet-country"></div>
-                            <div class="map-bottom-sheet-stat" id="map-sheet-stat"></div>
-                        </div>
+
                         </div>
                         <div class="map-legend">
                             <span>Low</span>
@@ -1264,7 +1259,7 @@
                                 document.body.style.overflow = 'hidden';
                             }
 
-                            function closeFullscreen() {
+                            window.closeFullscreen = function closeFullscreen() {
                                 fsOverlay.classList.add('dismissing');
                                 fsSheet.classList.remove('open');
                                 document.body.style.overflow = '';
@@ -1542,8 +1537,8 @@
     <!-- Fullscreen map overlay (mobile) -->
     <div class="map-fullscreen-overlay" id="map-fullscreen-overlay">
         <div class="map-fullscreen-header">
-            <span class="map-fullscreen-title">Opportunity by country</span>
-            <span class="map-fullscreen-hint">Swipe down to close</span>
+            <button onclick="closeFullscreen()" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:var(--cream);border-radius:999px;padding:0.35rem 0.9rem;font-size:0.78rem;font-family:'DM Sans',sans-serif;cursor:pointer;">✕ Close</button>
+            <span class="map-fullscreen-hint">or swipe down</span>
         </div>
         <div class="map-fullscreen-svg-wrap" id="map-fullscreen-svg-wrap"></div>
         <div class="map-fullscreen-sheet" id="map-fullscreen-sheet">
