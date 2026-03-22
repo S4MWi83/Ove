@@ -1241,7 +1241,8 @@
                                 // Swipe sheet down to close sheet
                                 fsSheet.addEventListener('touchstart', function(e) { fsSwipeY = e.touches[0].clientY; });
                                 fsSheet.addEventListener('touchend', function(e) {
-                                    if (e.changedTouches[0].clientY - fsSwipeY > 50) {
+                                    var delta = e.changedTouches[0].clientY - fsSwipeY;
+                                    if (delta > 50) {
                                         fsSheet.classList.remove('open');
                                         fsSvg.selectAll('.fs-country').attr('fill', function(c) { return pctToFill(c.pct); });
                                     }
@@ -1270,22 +1271,19 @@
                                 }, 400);
                             }
 
-                            // Swipe down on overlay background to dismiss
-                            var overlaySwipeY = 0;
-                            fsOverlay.addEventListener('touchstart', function(e) {
-                                overlaySwipeY = e.touches[0].clientY;
-                            });
-                            fsOverlay.addEventListener('touchend', function(e) {
-                                if (!fsSheet.classList.contains('open') && e.changedTouches[0].clientY - overlaySwipeY > 60) {
-                                    closeFullscreen();
+
+
+                            // Tap map to open fullscreen (touchend = finger lifted)
+                            var tapStartY = 0;
+                            mapWrap.addEventListener('touchstart', function(e) {
+                                tapStartY = e.touches[0].clientY;
+                            }, { passive: true });
+                            mapWrap.addEventListener('touchend', function(e) {
+                                // Only open if not a scroll gesture
+                                if (Math.abs(e.changedTouches[0].clientY - tapStartY) < 10) {
+                                    openFullscreen();
                                 }
                             });
-
-                            // Tap map to open fullscreen
-                            mapWrap.addEventListener('touchstart', function(e) {
-                                e.preventDefault();
-                                openFullscreen();
-                            }, { passive: false });
                         }
                     });
             });
