@@ -670,6 +670,17 @@
         }
         @media (pointer: coarse) {
             .map-tooltip { display: none !important; }
+            .map-tap-hint { display: block !important; }
+        }
+        .map-tap-hint {
+            display: none;
+            font-size: 0.72rem;
+            color: var(--blue);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
         }
 
         /* Fullscreen map overlay (mobile) */
@@ -1008,6 +1019,7 @@
                     <!-- MAP -->
                     <div class="target-map-wrap" id="map-wrap">
                         <p class="target-map-label">Opportunity by country — % of population not yet investing</p>
+                        <p class="target-map-tap-hint" id="map-tap-hint">Tap map to explore</p>
                         <div class="map-container" id="map-container">
                             <svg xmlns="http://www.w3.org/2000/svg" id="europe-map" style="width:100%;min-height:280px;display:block;"></svg>
                             <div class="map-tooltip" id="map-tooltip"></div>
@@ -1274,13 +1286,11 @@
                                 }
                             });
 
-                            // Scroll trigger: open when map scrolls into view
-                            var mapObserver = new IntersectionObserver(function(entries) {
-                                entries.forEach(function(entry) {
-                                    if (entry.isIntersecting && !fsOpen) openFullscreen();
-                                });
-                            }, { threshold: 0.4 });
-                            mapObserver.observe(mapWrap);
+                            // Tap map to open fullscreen
+                            mapWrap.addEventListener('touchstart', function(e) {
+                                e.preventDefault();
+                                openFullscreen();
+                            }, { passive: false });
                         }
                     });
             });
