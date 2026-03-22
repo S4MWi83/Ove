@@ -144,19 +144,21 @@
         .demo-proj-label { font-size:0.82rem; color:var(--muted); font-weight:300; line-height:1.5; }
 
         /* STEP 3 */
-        .demo-portfolios { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:1.5rem; }
-        .demo-portfolio { border:1px solid var(--border); border-left:3px solid transparent; border-radius:16px; padding:1rem 1.25rem; cursor:pointer; transition:all 0.2s ease; background:rgba(255,255,255,0.02); position:relative; }
+        .demo-portfolios { display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.5rem; }
+        .demo-portfolio { border:1px solid var(--border); border-left:3px solid transparent; border-radius:14px; padding:0.85rem 1.1rem; cursor:pointer; transition:all 0.2s ease; background:rgba(255,255,255,0.02); position:relative; }
         .demo-portfolio[data-p="steady"] { --p-color:#4ade80; }
         .demo-portfolio[data-p="balanced"] { --p-color:#3b82f6; }
         .demo-portfolio[data-p="growth"] { --p-color:#f97316; }
         .demo-portfolio:hover { border-color:rgba(255,255,255,0.1); border-left-color:var(--p-color); }
         .demo-portfolio.active { border-color:rgba(255,255,255,0.1); border-left-color:var(--p-color); background:rgba(255,255,255,0.04); box-shadow:inset 3px 0 12px -4px var(--p-color); }
         .demo-p-badge { position:absolute; top:-1px; right:1rem; font-size:0.65rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--blue); background:#0b1829; padding:0 0.5rem; }
-        .demo-p-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:0.35rem; }
-        .demo-p-name { font-size:0.95rem; font-weight:500; color:var(--cream); }
-        .demo-p-risk { font-size:0.73rem; color:var(--muted); font-weight:300; margin-top:0.15rem; }
+        .demo-p-top { display:flex; align-items:center; justify-content:space-between; }
+        .demo-p-name { font-size:0.92rem; font-weight:500; color:var(--cream); }
+        .demo-p-risk { font-size:0.72rem; color:var(--muted); font-weight:300; margin-top:0.1rem; }
         .demo-p-proj { font-size:0.82rem; color:var(--p-color); font-weight:500; white-space:nowrap; opacity:0.9; }
-        .demo-p-alloc { font-size:0.75rem; color:var(--muted); font-weight:300; letter-spacing:0.02em; }
+        .demo-p-alloc { font-size:0.72rem; color:var(--muted); font-weight:300; letter-spacing:0.02em; max-height:0; overflow:hidden; opacity:0; transition:max-height 0.2s ease, opacity 0.2s ease, margin-top 0.2s ease; margin-top:0; }
+        .demo-portfolio:hover .demo-p-alloc,
+        .demo-portfolio.active .demo-p-alloc { max-height:20px; opacity:1; margin-top:0.4rem; }
 
         /* BUTTONS */
         .demo-btn-row { display:flex; gap:0.65rem; align-items:center; }
@@ -187,7 +189,10 @@
         .demo-restart { width:100%; margin-top:0.65rem; background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.85rem; cursor:pointer; transition:color 0.2s; padding:0.5rem; }
         .demo-restart:hover { color:var(--cream); }
 
-        /* TALLY */
+        /* IMPROVEMENTS */
+        .demo-amount-nudge { font-size:0.78rem; color:var(--muted); font-weight:300; font-style:italic; margin:-0.75rem 0 1rem; opacity:0.8; }
+        .demo-receipt-context { font-size:0.72rem; color:rgba(74,222,128,0.6); font-weight:300; margin-top:0.5rem; font-style:italic; }
+        .demo-waitlist-nudge { font-size:0.8rem; color:var(--muted); font-weight:300; text-align:center; margin:0.75rem 0 0.5rem; }
         .tally-overlay { display:none; position:fixed; inset:0; background:rgba(6,15,30,0.88); backdrop-filter:blur(8px); z-index:300; align-items:center; justify-content:center; padding:2rem; }
         .tally-overlay.open { display:flex; }
         .tally-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.2); border-radius:24px; padding:2.5rem; width:100%; max-width:480px; position:relative; animation:scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
@@ -277,7 +282,7 @@
                 <div class="demo-step-dot"></div>
             </div>
             <div class="demo-panel" id="demo-step-1">
-                <p class="demo-eyebrow" id="demo-step1-eyebrow">Step 1 of 3</p>
+                
                 <h2 class="demo-title" data-i18n="step1_title">What's your name?</h2>
                 <p class="demo-sub" data-i18n="step1_sub">Just your first name.</p>
                 <div class="demo-form">
@@ -299,13 +304,13 @@
                 </button>
             </div>
             <div class="demo-panel" id="demo-step-2">
-                <p class="demo-eyebrow" id="demo-step2-eyebrow">Step 2 of 3</p>
+                
                 <h2 class="demo-title" data-i18n="step2_title">How much per month?</h2>
                 <p class="demo-sub" data-i18n="step2_sub">Drag to choose, or type your own amount.</p>
                 <div class="demo-slider-wrap">
                     <div class="demo-slider-header">
                         <div>
-                            <div class="demo-slider-amount"><span id="demo-currency-symbol">€</span><span id="demo-slider-val">50</span></div>
+                            <div class="demo-slider-amount"><span id="demo-currency-symbol" class="demo-curr-prefix">£</span><span id="demo-slider-val">50</span><span id="demo-currency-suffix" class="demo-curr-suffix" style="display:none;font-size:1.4rem;color:var(--muted);margin-left:0.25rem;"></span></div>
                             <div class="demo-slider-mo" id="demo-per-month">per month</div>
                         </div>
                     </div>
@@ -320,8 +325,8 @@
                     </div>
                 </div>
                 <div class="demo-projection">
-                    <div class="demo-proj-number" id="demo-proj-number">Est. €9,000</div>
-                    <div class="demo-proj-label" id="demo-proj-text">from €50/mo over 10 years at 8%</div>
+                    <div class="demo-proj-number" id="demo-proj-number">Est. £9,000</div>
+                    <div class="demo-proj-label" id="demo-proj-text">Estimated value after 10 years.</div>
                 </div>
                 <div class="demo-btn-row">
                     <button class="demo-back-btn" onclick="demoGo(1)"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg> <span id="demo-btn-back1">Back</span></button>
@@ -329,7 +334,7 @@
                 </div>
             </div>
             <div class="demo-panel" id="demo-step-3">
-                <p class="demo-eyebrow" id="demo-step3-eyebrow">Step 3 of 3</p>
+                
                 <h2 class="demo-title" data-i18n="step3_title">Pick your risk level.</h2>
                 <p class="demo-sub" data-i18n="step3_sub">Three options. No wrong answer.</p>
                 <div class="demo-portfolios">
@@ -367,7 +372,7 @@
                         <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_portfolio">Portfolio</span><span class="demo-receipt-val" id="receipt-portfolio">—</span></div>
                     </div>
                 </div>
-                <button class="demo-next-btn full" onclick="demoClose();demoOpenWaitlist()" data-i18n="join_waitlist">Join the real waitlist</button>
+                <button class="demo-next-btn full" onclick="demoClose();demoOpenWaitlist()" data-i18n="join_waitlist">Waitlist</button>
                 <button class="demo-restart" onclick="demoOpen()" data-i18n="restart">↩ Restart demo</button>
             </div>
         </div>
@@ -390,8 +395,12 @@
         var portfolioNames = { steady:'Steady', balanced:'Balanced', growth:'Growth' };
 
         function calcFV(m,r,months){ var rm=r/12; return Math.round(m*((Math.pow(1+rm,months)-1)/rm)); }
-        function getCurr(){ var lang=localStorage.getItem('ove-lang')||'en'; return (currencyByLang[lang]||currencyByLang['en']).symbol; }
-        function fmt(v){ var c=getCurr(); return v>=1000 ? 'Est. '+c+Math.round(v/1000)+',000' : c+v; }
+        function getCurr(){ var lang=localStorage.getItem('ove-lang')||'en'; return (currencyByLang[lang]||currencyByLang['en']); }
+        function calcFVLocal(monthlyLocal, r, months){
+            return calcFV(monthlyLocal, r, months);
+        }
+        function fmtAmount(v){ var cur=getCurr(); return cur.suffix ? Math.round(v/1000)+',000 '+cur.symbol : cur.symbol+(v>=1000?Math.round(v/1000)+',000':v); }
+        function fmt(v){ var cur=getCurr(); if(v<1000){ return cur.suffix ? v+' '+cur.symbol : cur.symbol+v; } if(cur.suffix){ var rounded=Math.round(v/100)*100; var thousands=Math.floor(rounded/1000); var hundreds=Math.round((rounded%1000)/100)*100; var str=hundreds>0?thousands+' '+hundreds:thousands+' 000'; return str+' '+cur.symbol; } var k=Math.round(v/100)*100; return cur.symbol+(k/1000).toFixed(1)+'k'; }
 
         function demoOpen(){
             demoAmount=50; demoPortfolio='balanced';
@@ -443,19 +452,19 @@
         }
 
         function demoUpdateProjection(){
-            var fv=calcFV(parseFloat(demoAmount)||50,0.08,120);
+            var fv=calcFVLocal(parseFloat(demoAmount)||50,0.08,120);
             document.getElementById('demo-proj-number').textContent=fmt(fv);
             var lang=localStorage.getItem('ove-lang')||'en';
             var d=demoT[lang]||demoT['en'];
-            var c=getCurr(); document.getElementById('demo-proj-text').textContent=d.projtext.replace('{curr}',c).replace('{amt}',demoAmount);
+            var c=getCurr(); 
+            document.getElementById('demo-proj-text').textContent=d.projtext;
         }
 
         function demoUpdatePortfolioProjections(){
             var monthly=parseFloat(demoAmount)||50;
             for(var key in portfolioRates){
-                var fv=calcFV(monthly,portfolioRates[key],120);
-                var curr=getCurr(); var f=fv>=1000?'Est. '+curr+(fv/1000).toFixed(1)+'k':'Est. '+curr+fv;
-                document.getElementById('proj-'+key).textContent=f+' / 10yr';
+                var fv=calcFVLocal(monthly,portfolioRates[key],120);
+                document.getElementById('proj-'+key).textContent=fmt(fv)+' / 10yr';
             }
         }
 
@@ -472,14 +481,25 @@
             var d=demoT[lang]||demoT['en'];
             document.getElementById('demo-done-title').textContent=d.donename+', '+dn+'.';
             document.getElementById('receipt-name').textContent=dn;
-            document.getElementById('receipt-amount').textContent=getCurr()+demoAmount+'/mo';
+            var cur=getCurr();
+            var amtDisplay = cur.suffix ? demoAmount+' '+cur.symbol+'/mo' : cur.symbol+demoAmount+'/mo';
+            document.getElementById('receipt-amount').textContent=amtDisplay;
             document.getElementById('receipt-portfolio').textContent=portfolioNames[demoPortfolio];
-            var target=calcFV(parseFloat(demoAmount)||50,portfolioRates[demoPortfolio],120);
-            var t0=performance.now(),dur=1200;
+            var target=calcFVLocal(parseFloat(demoAmount)||50,portfolioRates[demoPortfolio],120);
+            var t0=performance.now(), dur=1400;
+            var penultimate = Math.round(target * 0.97);
             function tick(t){
-                var p=Math.min((t-t0)/dur,1),ease=1-Math.pow(1-p,3);
-                document.getElementById('receipt-proj').textContent=fmt(Math.round(target*ease));
+                var p=Math.min((t-t0)/dur,1);
+                var ease=Math.pow(p,0.1);
+                var val;
+                if(p >= 0.72 && p < 1){
+                    val = penultimate;
+                } else {
+                    val = Math.round(target*ease);
+                }
+                document.getElementById('receipt-proj').textContent=fmt(val);
                 if(p<1)requestAnimationFrame(tick);
+                else document.getElementById('receipt-proj').textContent=fmt(target);
             }
             requestAnimationFrame(tick);
         }
@@ -496,10 +516,10 @@
 
         // TRANSLATIONS
         var T = {
-            en:{ nav_concept:"Ové", nav_waitlist:"Waitlist open", eyebrow:"Try it out", headline_feel:"feel", headline_1:"This is what", headline_2:"investing could", headline_3:" like.", sub:"The demo is completely free, and goes quick.", demo_btn:"Try Ové", step1_title:"What\u2019s your name?", step1_sub:"Just your first name.", step2_title:"How much per month?", step2_sub:"Drag to choose, or type your own amount.", step3_title:"Pick your risk level.", step3_sub:"Three options. No wrong answer.", done_sub:"That\u2019s it. That\u2019s really all it takes.", strip_title:"Your someday is today.", strip_sub:"No payment, no commitment \u2014 just your spot in line.", cta_waitlist:"Join the waitlist", modal_title:"Your someday is today.", modal_sub:"No payment, no commitment \u2014 just your spot in line.", receipt_label:"estimated value in 10 years", receipt_investor:"Investor", receipt_monthly:"Monthly", receipt_portfolio:"Portfolio", join_waitlist:"Join the real waitlist", restart:"\u21a9 Restart demo", flag:"\uD83C\uDDEC\uD83C\uDDE7", code:"EN", fi:"gb" },
-            sv:{ nav_concept:"Ové", nav_waitlist:"\u00d6ppen v\u00e4ntelista", eyebrow:"Prova det", headline_feel:"k\u00e4nnas", headline_1:"S\u00e5 h\u00e4r kan", headline_2:"investering", headline_3:".", sub:"Demon är helt gratis och går snabbt.", demo_btn:"Prova Ové", step1_title:"Vad heter du?", step1_sub:"Bara ditt f\u00f6rnamn.", step2_title:"Hur mycket per m\u00e5nad?", step2_sub:"Dra f\u00f6r att v\u00e4lja, eller ange ett eget belopp.", step3_title:"V\u00e4lj din riskniv\u00e5.", step3_sub:"Tre alternativ. Inget fel svar.", done_sub:"Det \u00e4r allt. Det \u00e4r verkligen allt som kr\u00e4vs.", strip_title:"Din dag \u00e4r idag.", strip_sub:"Ingen betalning, inget \u00e5tagande \u2014 bara din plats i k\u00f6n.", cta_waitlist:"G\u00e5 med i v\u00e4ntelistan", modal_title:"Din dag \u00e4r idag.", modal_sub:"Ingen betalning, inget \u00e5tagande \u2014 bara din plats i k\u00f6n.", receipt_label:"uppskattat v\u00e4rde om 10 \u00e5r", receipt_investor:"Investerare", receipt_monthly:"M\u00e5nadsbelopp", receipt_portfolio:"Portf\u00f6lj", join_waitlist:"G\u00e5 med i riktiga v\u00e4ntelistan", restart:"\u21a9 Starta om demon", flag:"\uD83C\uDDF8\uD83C\uDDEA", code:"SV", fi:"se" },
-            es:{ nav_concept:"Ové", nav_waitlist:"Lista de espera abierta", eyebrow:"Pru\u00e9balo", headline_feel:"sentir", headline_1:"As\u00ed es como", headline_2:"invertir puede", headline_3:" se.", sub:"La demo es completamente gratuita y va rápido.", demo_btn:"Probar Ové", step1_title:"\u00bfC\u00f3mo te llamas?", step1_sub:"Solo tu nombre.", step2_title:"\u00bfCu\u00e1nto por mes?", step2_sub:"Arrastra para elegir, o escribe tu propio importe.", step3_title:"Elige tu nivel de riesgo.", step3_sub:"Tres opciones. No hay respuesta incorrecta.", done_sub:"Eso es todo. Realmente es todo lo que se necesita.", strip_title:"Tu alg\u00fan d\u00eda es hoy.", strip_sub:"Sin pago, sin compromiso \u2014 solo tu lugar en la lista.", cta_waitlist:"Unirse a la lista de espera", modal_title:"Tu alg\u00fan d\u00eda es hoy.", modal_sub:"Sin pago, sin compromiso \u2014 solo tu lugar.", receipt_label:"valor estimado en 10 a\u00f1os", receipt_investor:"Inversor", receipt_monthly:"Mensual", receipt_portfolio:"Cartera", join_waitlist:"Unirse a la lista real", restart:"\u21a9 Reiniciar demo", flag:"\uD83C\uDDEA\uD83C\uDDF8", code:"ES", fi:"es" },
-            de:{ nav_concept:"Ové", nav_waitlist:"Warteliste offen", eyebrow:"Probier es aus", headline_feel:"fühlen", headline_1:"So könnte", headline_2:"Investieren", headline_3:".", sub:"Die Demo ist komplett kostenlos und geht schnell.", demo_btn:"Ové ausprobieren", step1_title:"Wie hei\u00dft du?", step1_sub:"Nur dein Vorname.", step2_title:"Wie viel pro Monat?", step2_sub:"Ziehe den Regler oder gib deinen eigenen Betrag ein.", step3_title:"W\u00e4hle dein Risikoniveau.", step3_sub:"Drei Optionen. Keine falsche Antwort.", done_sub:"Das war es. Wirklich alles, was es braucht.", strip_title:"Dein Irgendwann ist heute.", strip_sub:"Keine Zahlung, keine Verpflichtung \u2014 nur dein Platz.", cta_waitlist:"Zur Warteliste anmelden", modal_title:"Dein Irgendwann ist heute.", modal_sub:"Keine Zahlung, keine Verpflichtung \u2014 nur dein Platz.", receipt_label:"gesch\u00e4tzter Wert in 10 Jahren", receipt_investor:"Investor", receipt_monthly:"Monatlich", receipt_portfolio:"Portfolio", join_waitlist:"Zur echten Warteliste", restart:"\u21a9 Demo neu starten", flag:"\uD83C\uDDE9\uD83C\uDDEA", code:"DE", fi:"de" }
+            en:{ nav_concept:"Ové", nav_waitlist:"Waitlist open", eyebrow:"Try it out", headline_feel:"feel", headline_1:"This is what", headline_2:"investing could", headline_3:" like.", sub:"The demo is completely free, and goes quick.", demo_btn:"Try Ové", step1_title:"What\u2019s your name?", step1_sub:"Just your first name.", step2_title:"How much per month?", step2_sub:"No funds are moved. Select an amount to project your potential returns.", step3_title:"Pick your risk level.", step3_sub:"Three options. No wrong answer.", done_sub:"That\u2019s it. That\u2019s really all it takes.", strip_title:"Your someday is today.", strip_sub:"No payment, no commitment \u2014 just your spot in line.", cta_waitlist:"Join the waitlist", modal_title:"Your someday is today.", modal_sub:"No payment, no commitment \u2014 just your spot in line.", receipt_label:"estimated value in 10 years", receipt_investor:"Investor", receipt_monthly:"Monthly", receipt_portfolio:"Portfolio", join_waitlist:"Waitlist", restart:"\u21a9 Restart demo", flag:"\uD83C\uDDEC\uD83C\uDDE7", code:"EN", fi:"gb" },
+            sv:{ nav_concept:"Ové", nav_waitlist:"\u00d6ppen v\u00e4ntelista", eyebrow:"Prova det", headline_feel:"k\u00e4nnas", headline_1:"S\u00e5 h\u00e4r kan", headline_2:"investering", headline_3:".", sub:"Demon är helt gratis och går snabbt.", demo_btn:"Prova Ové", step1_title:"Vad heter du?", step1_sub:"Bara ditt f\u00f6rnamn.", step2_title:"Hur mycket per m\u00e5nad?", step2_sub:"Inga pengar f\u00f6rs. V\u00e4lj ett belopp f\u00f6r att se din potentiella avkastning.", step3_title:"V\u00e4lj din riskniv\u00e5.", step3_sub:"Tre alternativ. Inget fel svar.", done_sub:"Det \u00e4r allt. Det \u00e4r verkligen allt som kr\u00e4vs.", strip_title:"Din dag \u00e4r idag.", strip_sub:"Ingen betalning, inget \u00e5tagande \u2014 bara din plats i k\u00f6n.", cta_waitlist:"G\u00e5 med i v\u00e4ntelistan", modal_title:"Din dag \u00e4r idag.", modal_sub:"Ingen betalning, inget \u00e5tagande \u2014 bara din plats i k\u00f6n.", receipt_label:"uppskattat v\u00e4rde om 10 \u00e5r", receipt_investor:"Investerare", receipt_monthly:"M\u00e5nadsbelopp", receipt_portfolio:"Portf\u00f6lj", join_waitlist:"V\u00e4ntelista", restart:"\u21a9 Starta om demon", flag:"\uD83C\uDDF8\uD83C\uDDEA", code:"SV", fi:"se" },
+            es:{ nav_concept:"Ové", nav_waitlist:"Lista de espera abierta", eyebrow:"Pru\u00e9balo", headline_feel:"sentir", headline_1:"As\u00ed es como", headline_2:"invertir puede", headline_3:" se.", sub:"La demo es completamente gratuita y va rápido.", demo_btn:"Probar Ové", step1_title:"\u00bfC\u00f3mo te llamas?", step1_sub:"Solo tu nombre.", step2_title:"\u00bfCu\u00e1nto por mes?", step2_sub:"No se mueven fondos. Selecciona una cantidad para proyectar tu rentabilidad potencial.", step3_title:"Elige tu nivel de riesgo.", step3_sub:"Tres opciones. No hay respuesta incorrecta.", done_sub:"Eso es todo. Realmente es todo lo que se necesita.", strip_title:"Tu alg\u00fan d\u00eda es hoy.", strip_sub:"Sin pago, sin compromiso \u2014 solo tu lugar en la lista.", cta_waitlist:"Unirse a la lista de espera", modal_title:"Tu alg\u00fan d\u00eda es hoy.", modal_sub:"Sin pago, sin compromiso \u2014 solo tu lugar.", receipt_label:"valor estimado en 10 a\u00f1os", receipt_investor:"Inversor", receipt_monthly:"Mensual", receipt_portfolio:"Cartera", join_waitlist:"Lista de espera", restart:"\u21a9 Reiniciar demo", flag:"\uD83C\uDDEA\uD83C\uDDF8", code:"ES", fi:"es" },
+            de:{ nav_concept:"Ové", nav_waitlist:"Warteliste offen", eyebrow:"Probier es aus", headline_feel:"fühlen", headline_1:"So könnte", headline_2:"Investieren", headline_3:".", sub:"Die Demo ist komplett kostenlos und geht schnell.", demo_btn:"Ové ausprobieren", step1_title:"Wie hei\u00dft du?", step1_sub:"Nur dein Vorname.", step2_title:"Wie viel pro Monat?", step2_sub:"Es werden keine Gelder bewegt. W\u00e4hle einen Betrag, um deine potenzielle Rendite zu berechnen.", step3_title:"W\u00e4hle dein Risikoniveau.", step3_sub:"Drei Optionen. Keine falsche Antwort.", done_sub:"Das war es. Wirklich alles, was es braucht.", strip_title:"Dein Irgendwann ist heute.", strip_sub:"Keine Zahlung, keine Verpflichtung \u2014 nur dein Platz.", cta_waitlist:"Zur Warteliste anmelden", modal_title:"Dein Irgendwann ist heute.", modal_sub:"Keine Zahlung, keine Verpflichtung \u2014 nur dein Platz.", receipt_label:"gesch\u00e4tzter Wert in 10 Jahren", receipt_investor:"Investor", receipt_monthly:"Monatlich", receipt_portfolio:"Portfolio", join_waitlist:"Warteliste", restart:"\u21a9 Demo neu starten", flag:"\uD83C\uDDE9\uD83C\uDDEA", code:"DE", fi:"de" }
         };
 
         var flagSrc = {
@@ -516,31 +536,29 @@
         };
 
         var currencyByLang = {
-            en: { symbol: '\u00a3', min: 5, max: 430, default: 50, rate: 0.85 },
-            sv: { symbol: 'kr', min: 50, max: 4500, default: 500, rate: 11.0 },
-            es: { symbol: '\u20ac', min: 5, max: 500, default: 50, rate: 1 },
-            de: { symbol: '\u20ac', min: 5, max: 500, default: 50, rate: 1 }
+            en: { symbol: '\u00a3', min: 5, max: 430, default: 50, rate: 0.85, suffix: false },
+            sv: { symbol: 'kr', min: 50, max: 4500, default: 500, rate: 11.0, suffix: true },
+            es: { symbol: '\u20ac', min: 5, max: 500, default: 50, rate: 1, suffix: false },
+            de: { symbol: '\u20ac', min: 5, max: 500, default: 50, rate: 1, suffix: false }
         };
 
         var demoT = {
-            en: { step1:'Step 1 of 3', step2:'Step 2 of 3', step3:'Step 3 of 3', firstname:'First name', email:'Email', country:'Country', permonth:'per month', enterown:'Or enter your own', back:'Back', continue:'Continue', startinvesting:'See my results', mostpopular:'Most popular', pname_steady:'Steady', pname_balanced:'Balanced', pname_growth:'Growth', prisk_steady:'Low risk \u00b7 est. 4\u20136%', prisk_balanced:'Medium risk \u00b7 est. 7\u20139%', prisk_growth:'Higher risk \u00b7 est. 10\u201312%', palloc_steady:'70% bonds \u00b7 20% stocks \u00b7 10% cash', palloc_balanced:'60% stocks \u00b7 30% bonds \u00b7 10% cash', palloc_growth:'90% stocks \u00b7 8% bonds \u00b7 2% cash', donename:'You\u2019re investing', projtext:'from {curr}{amt}/mo over 10 years at 8%' },
-            sv: { step1:'Steg 1 av 3', step2:'Steg 2 av 3', step3:'Steg 3 av 3', firstname:'F\u00f6rnamn', email:'E-post', country:'Land', permonth:'per m\u00e5nad', enterown:'Eller ange eget belopp', back:'Tillbaka', continue:'Forts\u00e4tt', startinvesting:'B\u00f6rja investera', mostpopular:'Mest popul\u00e4r', pname_steady:'Stabil', pname_balanced:'Balanserad', pname_growth:'Tillv\u00e4xt', prisk_steady:'L\u00e5g risk \u00b7 ca 4\u20136%', prisk_balanced:'Medel risk \u00b7 ca 7\u20139%', prisk_growth:'H\u00f6gre risk \u00b7 ca 10\u201312%', palloc_steady:'70% obligationer \u00b7 20% aktier \u00b7 10% kontanter', palloc_balanced:'60% aktier \u00b7 30% obligationer \u00b7 10% kontanter', palloc_growth:'90% aktier \u00b7 8% obligationer \u00b7 2% kontanter', donename:'Du investerar nu', projtext:'fr\u00e5n {curr}{amt}/m\u00e5n \u00f6ver 10 \u00e5r vid 8%' },
-            es: { step1:'Paso 1 de 3', step2:'Paso 2 de 3', step3:'Paso 3 de 3', firstname:'Nombre', email:'Correo', country:'Pa\u00eds', permonth:'por mes', enterown:'O introduce tu propio importe', back:'Atr\u00e1s', continue:'Continuar', startinvesting:'Ver mis resultados', mostpopular:'M\u00e1s popular', pname_steady:'Estable', pname_balanced:'Equilibrado', pname_growth:'Crecimiento', prisk_steady:'Bajo riesgo \u00b7 est. 4\u20136%', prisk_balanced:'Riesgo medio \u00b7 est. 7\u20139%', prisk_growth:'Mayor riesgo \u00b7 est. 10\u201312%', palloc_steady:'70% bonos \u00b7 20% acciones \u00b7 10% efectivo', palloc_balanced:'60% acciones \u00b7 30% bonos \u00b7 10% efectivo', palloc_growth:'90% acciones \u00b7 8% bonos \u00b7 2% efectivo', donename:'Est\u00e1s invirtiendo', projtext:'desde {curr}{amt}/mes durante 10 a\u00f1os al 8%' },
-            de: { step1:'Schritt 1 von 3', step2:'Schritt 2 von 3', step3:'Schritt 3 von 3', firstname:'Vorname', email:'E-Mail', country:'Land', permonth:'pro Monat', enterown:'Oder eigenen Betrag eingeben', back:'Zur\u00fcck', continue:'Weiter', startinvesting:'Ergebnisse sehen', mostpopular:'Beliebteste', pname_steady:'Stabil', pname_balanced:'Ausgewogen', pname_growth:'Wachstum', prisk_steady:'Niedriges Risiko \u00b7 ca. 4\u20136%', prisk_balanced:'Mittleres Risiko \u00b7 ca. 7\u20139%', prisk_growth:'H\u00f6heres Risiko \u00b7 ca. 10\u201312%', palloc_steady:'70% Anleihen \u00b7 20% Aktien \u00b7 10% Bargeld', palloc_balanced:'60% Aktien \u00b7 30% Anleihen \u00b7 10% Bargeld', palloc_growth:'90% Aktien \u00b7 8% Anleihen \u00b7 2% Bargeld', donename:'Du investierst', projtext:'ab {curr}{amt}/Monat \u00fcber 10 Jahre bei 8%' }
+            en: { step1:'Step 1 of 3', step2:'Step 2 of 3', step3:'Step 3 of 3', firstname:'First name', email:'Email', country:'Country', permonth:'per month', enterown:'Or enter your own', back:'Back', continue:'Continue', startinvesting:'See my results', mostpopular:'Most popular', pname_steady:'Steady', pname_balanced:'Balanced', pname_growth:'Growth', prisk_steady:'Low risk \u00b7 est. 4\u20136%', prisk_balanced:'Medium risk \u00b7 est. 7\u20139%', prisk_growth:'Higher risk \u00b7 est. 10\u201312%', palloc_steady:'70% bonds \u00b7 20% stocks \u00b7 10% cash', palloc_balanced:'60% stocks \u00b7 30% bonds \u00b7 10% cash', palloc_growth:'90% stocks \u00b7 8% bonds \u00b7 2% cash', donename:'You\u2019re investing', projtext:'Estimated value after 10 years.' },
+            sv: { step1:'Steg 1 av 3', step2:'Steg 2 av 3', step3:'Steg 3 av 3', firstname:'F\u00f6rnamn', email:'E-post', country:'Land', permonth:'per m\u00e5nad', enterown:'Eller ange eget belopp', back:'Tillbaka', continue:'Forts\u00e4tt', startinvesting:'B\u00f6rja investera', mostpopular:'Mest popul\u00e4r', pname_steady:'Stabil', pname_balanced:'Balanserad', pname_growth:'Tillv\u00e4xt', prisk_steady:'L\u00e5g risk \u00b7 ca 4\u20136%', prisk_balanced:'Medel risk \u00b7 ca 7\u20139%', prisk_growth:'H\u00f6gre risk \u00b7 ca 10\u201312%', palloc_steady:'70% obligationer \u00b7 20% aktier \u00b7 10% kontanter', palloc_balanced:'60% aktier \u00b7 30% obligationer \u00b7 10% kontanter', palloc_growth:'90% aktier \u00b7 8% obligationer \u00b7 2% kontanter', donename:'Du investerar nu', projtext:'Uppskattat v\u00e4rde efter 10 \u00e5r.' },
+            es: { step1:'Paso 1 de 3', step2:'Paso 2 de 3', step3:'Paso 3 de 3', firstname:'Nombre', email:'Correo', country:'Pa\u00eds', permonth:'por mes', enterown:'O introduce tu propio importe', back:'Atr\u00e1s', continue:'Continuar', startinvesting:'Ver mis resultados', mostpopular:'M\u00e1s popular', pname_steady:'Estable', pname_balanced:'Equilibrado', pname_growth:'Crecimiento', prisk_steady:'Bajo riesgo \u00b7 est. 4\u20136%', prisk_balanced:'Riesgo medio \u00b7 est. 7\u20139%', prisk_growth:'Mayor riesgo \u00b7 est. 10\u201312%', palloc_steady:'70% bonos \u00b7 20% acciones \u00b7 10% efectivo', palloc_balanced:'60% acciones \u00b7 30% bonos \u00b7 10% efectivo', palloc_growth:'90% acciones \u00b7 8% bonos \u00b7 2% efectivo', donename:'Est\u00e1s invirtiendo', projtext:'Valor estimado despu\u00e9s de 10 a\u00f1os.' },
+            de: { step1:'Schritt 1 von 3', step2:'Schritt 2 von 3', step3:'Schritt 3 von 3', firstname:'Vorname', email:'E-Mail', country:'Land', permonth:'pro Monat', enterown:'Oder eigenen Betrag eingeben', back:'Zur\u00fcck', continue:'Weiter', startinvesting:'Ergebnisse sehen', mostpopular:'Beliebteste', pname_steady:'Stabil', pname_balanced:'Ausgewogen', pname_growth:'Wachstum', prisk_steady:'Niedriges Risiko \u00b7 ca. 4\u20136%', prisk_balanced:'Mittleres Risiko \u00b7 ca. 7\u20139%', prisk_growth:'H\u00f6heres Risiko \u00b7 ca. 10\u201312%', palloc_steady:'70% Anleihen \u00b7 20% Aktien \u00b7 10% Bargeld', palloc_balanced:'60% Aktien \u00b7 30% Anleihen \u00b7 10% Bargeld', palloc_growth:'90% Aktien \u00b7 8% Anleihen \u00b7 2% Bargeld', donename:'Du investierst', projtext:'Gesch\u00e4tzter Wert nach 10 Jahren.' }
         };
 
         function applyDemoLang(lang) {
             var d = demoT[lang] || demoT['en'];
             var cur = currencyByLang[lang] || currencyByLang['en'];
             var ids = {
-                'demo-step1-eyebrow': d.step1, 'demo-step2-eyebrow': d.step2, 'demo-step3-eyebrow': d.step3,
                 'demo-label-firstname': d.firstname, 'demo-label-email': d.email, 'demo-label-country': d.country,
                 'demo-per-month': d.permonth, 'demo-label-custom': d.enterown,
                 'demo-btn-back1': d.back, 'demo-btn-back2': d.back,
                 'demo-btn-continue1': d.continue, 'demo-btn-continue2': d.continue,
                 'demo-btn-start': d.startinvesting, 'demo-most-popular': d.mostpopular,
-                'demo-currency-symbol': cur.symbol, 'demo-currency-custom': cur.symbol,
-                'demo-slider-min': cur.symbol + cur.min, 'demo-slider-max': cur.symbol + cur.max,
+                'demo-currency-custom': cur.symbol,
                 'p-name-steady': d.pname_steady, 'p-name-balanced': d.pname_balanced, 'p-name-growth': d.pname_growth,
                 'p-risk-steady': d.prisk_steady, 'p-risk-balanced': d.prisk_balanced, 'p-risk-growth': d.prisk_growth,
                 'p-alloc-steady': d.palloc_steady, 'p-alloc-balanced': d.palloc_balanced, 'p-alloc-growth': d.palloc_growth,
@@ -548,6 +566,20 @@
             for (var id in ids) {
                 var el = document.getElementById(id);
                 if (el) el.textContent = ids[id];
+            }
+            // Handle prefix vs suffix currency symbol
+            var prefixEl = document.getElementById('demo-currency-symbol');
+            var suffixEl = document.getElementById('demo-currency-suffix');
+            if (cur.suffix) {
+                if (prefixEl) { prefixEl.textContent = ''; prefixEl.style.display = 'none'; }
+                if (suffixEl) { suffixEl.textContent = ' ' + cur.symbol; suffixEl.style.display = 'inline'; }
+                document.getElementById('demo-slider-min').textContent = cur.min + ' ' + cur.symbol;
+                document.getElementById('demo-slider-max').textContent = cur.max + ' ' + cur.symbol;
+            } else {
+                if (prefixEl) { prefixEl.textContent = cur.symbol; prefixEl.style.display = 'inline'; }
+                if (suffixEl) { suffixEl.textContent = ''; suffixEl.style.display = 'none'; }
+                document.getElementById('demo-slider-min').textContent = cur.symbol + cur.min;
+                document.getElementById('demo-slider-max').textContent = cur.symbol + cur.max;
             }
             // Update slider range and default
             var slider = document.getElementById('demo-slider');
