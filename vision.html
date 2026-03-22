@@ -1261,6 +1261,7 @@
                             }
 
                             window.closeFullscreen = function closeFullscreen() {
+                                fsCooldown = true;
                                 fsOverlay.classList.add('dismissing');
                                 fsSheet.classList.remove('open');
                                 document.body.style.overflow = '';
@@ -1268,6 +1269,7 @@
                                     fsOverlay.classList.remove('active');
                                     fsOverlay.classList.remove('dismissing');
                                     fsOpen = false;
+                                    setTimeout(function() { fsCooldown = false; }, 600);
                                 }, 400);
                             }
 
@@ -1278,8 +1280,9 @@
                             mapWrap.addEventListener('touchstart', function(e) {
                                 tapStartY = e.touches[0].clientY;
                             }, { passive: true });
+                            var fsCooldown = false;
                             mapWrap.addEventListener('touchend', function(e) {
-                                // Only open if not a scroll gesture
+                                if (fsCooldown) return;
                                 if (Math.abs(e.changedTouches[0].clientY - tapStartY) < 10) {
                                     openFullscreen();
                                 }
@@ -1536,7 +1539,7 @@
     <div class="map-fullscreen-overlay" id="map-fullscreen-overlay">
         <div class="map-fullscreen-header">
             <button onclick="closeFullscreen()" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:var(--cream);border-radius:999px;padding:0.35rem 0.9rem;font-size:0.78rem;font-family:'DM Sans',sans-serif;cursor:pointer;">✕ Close</button>
-            <span class="map-fullscreen-hint">or swipe down</span>
+            <span class="map-fullscreen-hint">Tap a country to explore</span>
         </div>
         <div class="map-fullscreen-svg-wrap" id="map-fullscreen-svg-wrap"></div>
         <div class="map-fullscreen-sheet" id="map-fullscreen-sheet">
