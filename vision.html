@@ -1012,13 +1012,43 @@
                                 var x = event.clientX - rect.left + 14;
                                 var y = event.clientY - rect.top - 12;
                                 if (x + 210 > rect.width) x = x - 225;
+                                if (y < 0) y = 8;
                                 tooltip.style.left = x + 'px';
                                 tooltip.style.top = y + 'px';
+                            })
+                            .on('touchstart', function(event, d) {
+                                event.preventDefault();
+                                d3.selectAll('.country').attr('fill', function(c) { return pctToFill(c.pct); });
+                                d3.select(this).attr('fill', 'rgba(147,197,253,0.5)');
+                                var label = d.pct ? (100 - d.pct) + '% not yet investing' : 'No data';
+                                tooltip.innerHTML = '<strong>' + d.name + '</strong>' + label;
+                                var touch = event.touches[0];
+                                var rect = mapContainer.getBoundingClientRect();
+                                var tooltipW = 200;
+                                var tooltipH = 48;
+                                var x = touch.clientX - rect.left;
+                                var y = touch.clientY - rect.top - tooltipH - 12;
+                                // keep within container horizontally
+                                if (x + tooltipW > rect.width) x = rect.width - tooltipW - 8;
+                                if (x < 8) x = 8;
+                                // if above top, show below instead
+                                if (y < 8) y = touch.clientY - rect.top + 12;
+                                tooltip.style.left = x + 'px';
+                                tooltip.style.top = y + 'px';
+                                tooltip.style.opacity = '1';
                             })
                             .on('mouseleave', function(event, d) {
                                 d3.select(this).attr('fill', pctToFill(d.pct));
                                 tooltip.style.opacity = '0';
                             });
+
+                        // Tap outside map hides tooltip on touch
+                        document.addEventListener('touchstart', function(e) {
+                            if (!mapContainer.contains(e.target)) {
+                                tooltip.style.opacity = '0';
+                                d3.selectAll('.country').attr('fill', function(c) { return pctToFill(c.pct); });
+                            }
+                        });
                     });
             });
         });
