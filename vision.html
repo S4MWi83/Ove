@@ -883,7 +883,7 @@
 
                     <!-- MAP -->
                     <div class="target-map-wrap">
-                        <p class="target-map-label">Stock market participation by country — % of population invested</p>
+                        <p class="target-map-label">Opportunity by country — % of population not yet investing</p>
                         <div class="map-container" id="map-container">
                             <svg xmlns="http://www.w3.org/2000/svg" id="europe-map" style="width:100%;min-height:280px;display:block;"></svg>
                             <div class="map-tooltip" id="map-tooltip"></div>
@@ -921,8 +921,10 @@
 
         function pctToFill(pct) {
             if (!pct) return 'rgba(255,255,255,0.04)';
-            var t = Math.pow(Math.min(pct / 26, 1), 0.55);
-            var alpha = 0.18 + t * 0.35;
+            // Invert: low participation = high opportunity = bright
+            var inverted = 1 - Math.min(pct / 26, 1);
+            var t = Math.pow(inverted, 0.55);
+            var alpha = 0.12 + t * 0.45;
             return 'rgba(59,130,246,' + alpha + ')';
         }
 
@@ -1001,7 +1003,7 @@
                             .style('transition', 'fill 0.2s')
                             .on('mouseenter', function(event, d) {
                                 d3.select(this).attr('fill', 'rgba(147,197,253,0.5)');
-                                var label = d.pct ? d.pct + '% of population invested' : 'No data';
+                                var label = d.pct ? (100 - d.pct) + '% not yet investing' : 'No data';
                                 tooltip.innerHTML = '<strong>' + d.name + '</strong>' + label;
                                 tooltip.style.opacity = '1';
                             })
