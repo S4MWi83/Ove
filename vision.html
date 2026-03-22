@@ -672,6 +672,83 @@
             .map-tooltip { display: none !important; }
         }
 
+        /* Fullscreen map overlay (mobile) */
+        .map-fullscreen-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: #060f1e;
+            z-index: 2000;
+            flex-direction: column;
+            transform: translateY(0);
+            transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .map-fullscreen-overlay.active {
+            display: flex;
+        }
+        .map-fullscreen-overlay.dismissing {
+            transform: translateY(100%);
+        }
+        .map-fullscreen-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 1.5rem 0.75rem;
+            flex-shrink: 0;
+        }
+        .map-fullscreen-title {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
+        }
+        .map-fullscreen-hint {
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+        .map-fullscreen-svg-wrap {
+            flex: 1;
+            overflow: hidden;
+            padding: 0 0.5rem;
+        }
+        .map-fullscreen-svg-wrap svg {
+            width: 100%;
+            height: 100%;
+        }
+        .map-fullscreen-sheet {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #0d1f38;
+            border-top: 1px solid rgba(59,130,246,0.25);
+            border-radius: 20px 20px 0 0;
+            padding: 1.25rem 1.5rem 2.5rem;
+            transform: translateY(110%);
+            transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .map-fullscreen-sheet.open {
+            transform: translateY(0);
+        }
+        .map-fullscreen-sheet-handle {
+            width: 36px;
+            height: 4px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 999px;
+            margin: 0 auto 1rem;
+        }
+        .map-fullscreen-sheet-country {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.4rem;
+            color: #93c5fd;
+            margin-bottom: 0.3rem;
+        }
+        .map-fullscreen-sheet-stat {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
         .map-legend {
             display: flex;
             align-items: center;
@@ -929,7 +1006,7 @@
                     </div>
 
                     <!-- MAP -->
-                    <div class="target-map-wrap">
+                    <div class="target-map-wrap" id="map-wrap">
                         <p class="target-map-label">Opportunity by country — % of population not yet investing</p>
                         <div class="map-container" id="map-container">
                             <svg xmlns="http://www.w3.org/2000/svg" id="europe-map" style="width:100%;min-height:280px;display:block;"></svg>
@@ -1103,32 +1180,107 @@
                                 return 0.6;
                             });
 
-                        // Tap outside map hides tooltip on touch (desktop fallback)
+                        // Desktop: hide tooltip on click outside
                         document.addEventListener('touchstart', function(e) {
-                            if (!mapContainer.contains(e.target)) {
-                                tooltip.style.opacity = '0';
-                            }
+                            if (!mapContainer.contains(e.target)) tooltip.style.opacity = '0';
                         });
 
-                        // Bottom sheet dismiss
-                        function closeMapSheet() {
-                            var sheet = document.getElementById('map-bottom-sheet');
-                            var overlay = document.getElementById('map-sheet-overlay');
-                            if (sheet) sheet.classList.remove('open');
-                            if (overlay) overlay.style.display = 'none';
-                            d3.selectAll('.country').attr('fill', function(c) { return pctToFill(c.pct); });
-                        }
-                        var overlay = document.getElementById('map-sheet-overlay');
-                        if (overlay) overlay.addEventListener('touchstart', closeMapSheet);
+                        // ── FULLSCREEN MAP (mobile/touch only) ───────────────────────────
+                        if (window.matchMedia('(pointer: coarse)').matches) {
+                            var fsOverlay = document.getElementById('map-fullscreen-overlay');
+                            var fsSvgWrap = document.getElementById('map-fullscreen-svg-wrap');
+                            var fsSheet   = document.getElementById('map-fullscreen-sheet');
+                            var fsCountry = document.getElementById('map-fullscreen-country');
+                            var fsStat    = document.getElementById('map-fullscreen-stat');
+                            var mapWrap   = document.getElementById('map-wrap');
+                            var fsOpen    = false;
+                            var fsSwipeY  = 0;
+                            var fsMap     = null; // will hold cloned svg
 
-                        // Swipe down to dismiss
-                        var sheetEl = document.getElementById('map-bottom-sheet');
-                        var swipeStartY = 0;
-                        if (sheetEl) {
-                            sheetEl.addEventListener('touchstart', function(e) { swipeStartY = e.touches[0].clientY; });
-                            sheetEl.addEventListener('touchend', function(e) {
-                                if (e.changedTouches[0].clientY - swipeStartY > 60) closeMapSheet();
+                            function buildFullscreenMap() {
+                                if (fsMap) return; // already built
+                                var fsWidth  = window.innerWidth;
+                                var fsHeight = window.innerHeight - 60;
+                                var fsSvg = d3.select(fsSvgWrap).append('svg')
+                                    .attr('viewBox', '0 0 ' + fsWidth + ' ' + fsHeight)
+                                    .style('width', '100%').style('height', '100%');
+
+                                var fsProj = d3.geoMercator()
+                                    .center([15, 52])
+                                    .scale(fsWidth * 1.1)
+                                    .translate([fsWidth / 2, fsHeight / 2]);
+
+                                var fsPath = d3.geoPath().projection(fsProj);
+
+                                fsSvg.selectAll('.fs-country')
+                                    .data(europeFeatures)
+                                    .enter().append('path')
+                                    .attr('class', 'fs-country')
+                                    .attr('d', function(d) { return fsPath(d.feature); })
+                                    .attr('fill', function(d) { return pctToFill(d.pct); })
+                                    .attr('stroke', 'rgba(255,255,255,0.12)')
+                                    .attr('stroke-width', 1.2)
+                                    .style('cursor', 'pointer')
+                                    .on('touchstart', function(event, d) {
+                                        event.preventDefault();
+                                        fsSvg.selectAll('.fs-country').attr('fill', function(c) { return pctToFill(c.pct); });
+                                        d3.select(this).attr('fill', 'rgba(147,197,253,0.5)');
+                                        fsCountry.textContent = d.name;
+                                        fsStat.textContent = d.pct ? (100 - d.pct) + '% not yet investing' : 'No data';
+                                        fsSheet.classList.add('open');
+                                    })
+                                    .on('touchend', function() {});
+
+                                // Swipe sheet down to close sheet
+                                fsSheet.addEventListener('touchstart', function(e) { fsSwipeY = e.touches[0].clientY; });
+                                fsSheet.addEventListener('touchend', function(e) {
+                                    if (e.changedTouches[0].clientY - fsSwipeY > 50) {
+                                        fsSheet.classList.remove('open');
+                                        fsSvg.selectAll('.fs-country').attr('fill', function(c) { return pctToFill(c.pct); });
+                                    }
+                                });
+
+                                fsMap = fsSvg;
+                            }
+
+                            function openFullscreen() {
+                                if (fsOpen) return;
+                                fsOpen = true;
+                                buildFullscreenMap();
+                                fsOverlay.classList.add('active');
+                                fsOverlay.classList.remove('dismissing');
+                                document.body.style.overflow = 'hidden';
+                            }
+
+                            function closeFullscreen() {
+                                fsOverlay.classList.add('dismissing');
+                                fsSheet.classList.remove('open');
+                                document.body.style.overflow = '';
+                                setTimeout(function() {
+                                    fsOverlay.classList.remove('active');
+                                    fsOverlay.classList.remove('dismissing');
+                                    fsOpen = false;
+                                }, 400);
+                            }
+
+                            // Swipe down on overlay background to dismiss
+                            var overlaySwipeY = 0;
+                            fsOverlay.addEventListener('touchstart', function(e) {
+                                overlaySwipeY = e.touches[0].clientY;
                             });
+                            fsOverlay.addEventListener('touchend', function(e) {
+                                if (!fsSheet.classList.contains('open') && e.changedTouches[0].clientY - overlaySwipeY > 60) {
+                                    closeFullscreen();
+                                }
+                            });
+
+                            // Scroll trigger: open when map scrolls into view
+                            var mapObserver = new IntersectionObserver(function(entries) {
+                                entries.forEach(function(entry) {
+                                    if (entry.isIntersecting && !fsOpen) openFullscreen();
+                                });
+                            }, { threshold: 0.4 });
+                            mapObserver.observe(mapWrap);
                         }
                     });
             });
@@ -1375,6 +1527,20 @@
             <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--muted);font-weight:300;">Or follow along at <a href="https://x.com/BeginOve" target="_blank" style="color:var(--blue);text-decoration:none;">@BeginOve</a> on X.</p>
         </div>
 
+    </div>
+
+    <!-- Fullscreen map overlay (mobile) -->
+    <div class="map-fullscreen-overlay" id="map-fullscreen-overlay">
+        <div class="map-fullscreen-header">
+            <span class="map-fullscreen-title">Opportunity by country</span>
+            <span class="map-fullscreen-hint">Swipe down to close</span>
+        </div>
+        <div class="map-fullscreen-svg-wrap" id="map-fullscreen-svg-wrap"></div>
+        <div class="map-fullscreen-sheet" id="map-fullscreen-sheet">
+            <div class="map-fullscreen-sheet-handle"></div>
+            <div class="map-fullscreen-sheet-country" id="map-fullscreen-country"></div>
+            <div class="map-fullscreen-sheet-stat" id="map-fullscreen-stat"></div>
+        </div>
     </div>
 
     <script>
