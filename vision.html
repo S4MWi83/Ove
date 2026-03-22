@@ -61,7 +61,9 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 2rem 0 4rem;
+            padding: 2rem 0 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 3rem;
         }
 
         .nav-logo {
@@ -150,8 +152,9 @@
 
         .hero-title {
             font-family: 'Instrument Serif', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1.1;
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            line-height: 1.12;
+            letter-spacing: -0.01em;
             margin-bottom: 1.5rem;
         }
 
@@ -161,11 +164,11 @@
         }
 
         .hero-sub {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--muted);
-            font-weight: 300;
+            font-weight: 400;
             max-width: 540px;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         /* SECTIONS */
@@ -176,25 +179,29 @@
         }
 
         .section-label {
-            font-size: 0.72rem;
+            font-size: 0.68rem;
             font-weight: 500;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--blue);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.6rem;
+            opacity: 0.85;
         }
 
         .section-title {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1.25rem;
-            line-height: 1.2;
+            font-size: 1.65rem;
+            margin-bottom: 1rem;
+            line-height: 1.18;
+            letter-spacing: -0.01em;
         }
 
         .section p {
             color: var(--muted);
-            font-weight: 300;
+            font-weight: 400;
             margin-bottom: 1rem;
+            font-size: 0.97rem;
+            line-height: 1.75;
         }
 
         .section p strong {
@@ -204,7 +211,7 @@
 
         /* DIVIDER */
         .divider {
-            width: 48px;
+            width: 40px;
             height: 1px;
             background: rgba(59,130,246,0.3);
             margin: 3rem 0;
@@ -227,17 +234,18 @@
 
         .stat-num {
             font-family: 'Instrument Serif', serif;
-            font-size: 2rem;
+            font-size: 1.85rem;
             color: var(--cream);
             line-height: 1;
             margin-bottom: 0.4rem;
+            letter-spacing: -0.01em;
         }
 
         .stat-label {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: var(--muted);
-            font-weight: 300;
-            line-height: 1.4;
+            font-weight: 400;
+            line-height: 1.45;
         }
 
         /* STEPS */
@@ -289,9 +297,10 @@
         }
 
         .step-desc {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--muted);
-            font-weight: 300;
+            font-weight: 400;
+            line-height: 1.65;
         }
 
         /* TABLE */
@@ -344,9 +353,10 @@
             display: flex;
             align-items: flex-start;
             gap: 0.75rem;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--muted);
-            font-weight: 300;
+            font-weight: 400;
+            line-height: 1.6;
         }
 
         .check-list li::before {
@@ -760,8 +770,8 @@
         <!-- HERO -->
         <div class="hero">
             <p class="hero-label">Vision & Product Concept</p>
-            <h1 class="hero-title">The investing app<br>Europe has been <em>waiting for.</em></h1>
-            <p class="hero-sub">Most Europeans keep their savings in a bank account where inflation quietly eats away at it year after year. Ové is a simple way to put that money to work instead — no unnecessary jargon, no complexity, no bank switching. Just a straightforward way to finally start.</p>
+            <h1 class="hero-title">An investing app<br>built for the <em>91%.</em></h1>
+            <p class="hero-sub">Most Europeans keep their savings in a bank account, where inflation erodes the value year after year. Ové is a straightforward way to put that money to work — no unnecessary jargon, no complexity, no switching banks.</p>
         </div>
 
         <div class="divider"></div>
@@ -769,9 +779,9 @@
         <!-- THE PROBLEM -->
         <div class="section s1">
             <p class="section-label">The Problem</p>
-            <h2 class="section-title">320 million Europeans haven't started investing. Yet.</h2>
+            <h2 class="section-title">320 million Europeans have not started investing.</h2>
             <p>Only 9% of Europeans own stock directly (ECB). In the US it's 21%. The gap isn't money or knowledge — it's friction. A 2026 ESMA report confirms it: multiple regulatory and non-regulatory barriers combine to stop people before they even open an app.</p>
-            <p>And when they do open an app? <span class="jargon" onclick="toggleJargon(this)">ETFs<span class="jargon-bubble"><span class="jargon-term">ETFs</span>Exchange-Traded Funds — baskets of stocks you can invest in as one unit. Ové handles this for you.</span></span>. <span class="jargon" onclick="toggleJargon(this)">CFDs<span class="jargon-bubble"><span class="jargon-term">CFDs</span>Contracts for Difference — complex instruments used to bet on price movements. High risk.</span></span>. <span class="jargon" onclick="toggleJargon(this)">Derivatives<span class="jargon-bubble"><span class="jargon-term">Derivatives</span>Financial contracts whose value depends on something else, like a stock or index. Complex and risky.</span></span>. Margin trading. A sign-up process that feels like switching banks. They close it within 5 minutes. Every time.</p>
+            <p>When they do open an app, they encounter <span class="jargon" onclick="toggleJargon(this)">ETFs<span class="jargon-bubble"><span class="jargon-term">ETFs</span>Exchange-Traded Funds — baskets of stocks you can invest in as one unit. Ové handles this for you.</span></span>. <span class="jargon" onclick="toggleJargon(this)">CFDs<span class="jargon-bubble"><span class="jargon-term">CFDs</span>Contracts for Difference — complex instruments used to bet on price movements. High risk.</span></span>. <span class="jargon" onclick="toggleJargon(this)">Derivatives<span class="jargon-bubble"><span class="jargon-term">Derivatives</span>Financial contracts whose value depends on something else, like a stock or index. Complex and risky.</span></span>. Margin trading. A sign-up process that feels like switching banks. Most close the app within five minutes and don’t return.</p>
 
             <div class="stats">
                 <div class="stat-card">
@@ -780,7 +790,7 @@
                 </div>
                 <div class="stat-card">
                     <p class="stat-num">320M</p>
-                    <p class="stat-label">people stuck in "I'll start next month"</p>
+                    <p class="stat-label">people who intend to start but haven't</p>
                 </div>
                 <div class="stat-card">
                     <p class="stat-num">2026</p>
@@ -796,9 +806,9 @@
             <div class="target-user-inner">
                 <div class="target-user-body">
                     <p class="section-label">Target User</p>
-                    <h2 class="section-title">The person who keeps saying someday.</h2>
-                    <p>They have a stable income and money sitting in a savings account they're quietly embarrassed by. They know they should be investing. They've googled it. They've maybe even downloaded an app or two and deleted them within a week.</p>
-                    <p>They're not lazy. They're not broke. They're overwhelmed — by unnecessary jargon, by choice, by the fear of doing something wrong with their own money.</p>
+                    <h2 class="section-title">The person who intends to invest but hasn’t.</h2>
+                    <p>They have a stable income and money sitting in a savings account. They know they should be investing. Most have looked into it — some have even downloaded an app — but dropped off before completing sign-up.</p>
+                    <p>The barrier is not money or motivation. It's friction — unnecessary jargon, too many choices, and a fear of making a costly mistake.</p>
 
                     <div class="target-traits">
                         <div class="target-trait">
@@ -821,7 +831,7 @@
                                 <span class="target-trait-label">Capacity</span>
                             </div>
                             <div class="target-trait-right">
-                                <p class="target-trait-value">Maybe not thousands to begin with. €50–€200/month feels right.</p>
+                                <p class="target-trait-value">€50–€200/month. Enough to build a meaningful habit without overcommitting.</p>
                                 <p class="target-trait-reveal">€100/month at 8% over 10 years is €18,000. That's the story Ové tells them.</p>
                             </div>
                         </div>
@@ -845,7 +855,7 @@
                                 <span class="target-trait-label">Friction</span>
                             </div>
                             <div class="target-trait-right">
-                                <p class="target-trait-value">Zero tolerance. One confusing screen and they're out.</p>
+                                <p class="target-trait-value">High. One confusing screen is enough to lose them permanently.</p>
                                 <p class="target-trait-reveal">This is the entire design constraint. Every product decision runs through it.</p>
                             </div>
                         </div>
@@ -858,7 +868,7 @@
                             </div>
                             <div class="target-trait-right">
                                 <p class="target-trait-value">Low-participation markets — Italy, Spain, Eastern Europe — where ownership sits well below the European average.</p>
-                                <p class="target-trait-reveal">The opportunity is biggest where it's been ignored longest.</p>
+                                <p class="target-trait-reveal">These markets have the lowest participation rates and the least competition.</p>
                             </div>
                         </div>
                     </div>
@@ -1017,7 +1027,7 @@
                     <div class="step-num">1</div>
                     <div class="step-connector"></div>
                     <div>
-                        <p class="step-title">Sign up — smooth and fast</p>
+                        <p class="step-title">Sign up</p>
                         <p class="step-desc">Nothing like opening a bank account. First name, email, done. <span class="jargon" onclick="toggleJargon(this)">KYC<span class="jargon-bubble"><span class="jargon-term">KYC</span>Know Your Customer — the identity check every financial app is legally required to do.</span></span> handled seamlessly in the background.</p>
                     </div>
                 </div>
@@ -1033,7 +1043,7 @@
                     <div class="step-num">3</div>
                     <div class="step-connector"></div>
                     <div>
-                        <p class="step-title">You're invested</p>
+                        <p class="step-title">Start investing</p>
                         <p class="step-desc">Ové handles everything else automatically. Your money is working. You're done.</p>
                     </div>
                 </div>
@@ -1045,7 +1055,7 @@
         <!-- PORTFOLIOS -->
         <div class="section s3">
             <p class="section-label">Core Portfolios</p>
-            <h2 class="section-title">Three options. No overwhelm.</h2>
+            <h2 class="section-title">Three portfolios. No unnecessary choices.</h2>
             <p>Users never pick individual stocks or <span class="jargon" onclick="toggleJargon(this)">ETFs<span class="jargon-bubble"><span class="jargon-term">ETFs</span>Exchange-Traded Funds — baskets of stocks you can invest in as one unit. Ové handles this for you.</span></span>. Ové handles allocation automatically.</p>
 
             <div class="table-wrap">
@@ -1087,19 +1097,19 @@
         <!-- USER JOURNEY -->
         <div class="section s4">
             <p class="section-label">User Journey</p>
-            <h2 class="section-title">Beginner today. Hands-off investor in 6 months.</h2>
-            <p>Ové is built around a clear emotional arc — not just a product, but a path.</p>
+            <h2 class="section-title">A clear path from first investment to full automation.</h2>
+            <p>Ové is structured around a clear progression from first-time investor to fully automated portfolio.</p>
 
             <div class="quote-block">
                 <p>"6 months ago you took your first step. Your money has been working ever since. Ready for the next level?"</p>
                 <span>— The Ové Adventure unlock notification</span>
             </div>
 
-            <p>After 6 consecutive months of investing, users unlock <strong>Ové Adventure</strong> — a milestone that marks the transition from beginner to confident investor. From here, they can optionally activate <strong>Ové Advisor</strong>: a full <span class="jargon" onclick="toggleJargon(this)">robo-advisor<span class="jargon-bubble"><span class="jargon-term">Robo-advisor</span>An automated system that manages your investments without needing a human advisor.</span></span> for €4.99/month that automatically rebalances the portfolio, adjusts risk as markets shift, and optimises for long-term growth. Zero decisions required.</p>
+            <p>After 6 consecutive months of investing, users unlock <strong>Ové Adventure</strong> — a milestone that marks six months of consistent investing. From here, they can optionally activate <strong>Ové Advisor</strong>: a full <span class="jargon" onclick="toggleJargon(this)">robo-advisor<span class="jargon-bubble"><span class="jargon-term">Robo-advisor</span>An automated system that manages your investments without needing a human advisor.</span></span> for €4.99/month that automatically rebalances the portfolio, adjusts risk as markets shift, and optimises for long-term growth. Zero decisions required.</p>
 
             <ul class="check-list">
                 <li><strong>Ové</strong> — Start simple. Pick 1 of 3 options, invest from €10, no unnecessary jargon. Month 0.</li>
-                <li><strong>Ové Adventure</strong> — Unlock after 6 months. A reward for showing up consistently.</li>
+                <li><strong>Ové Adventure</strong> — Unlocks after 6 consecutive months. Marks the transition to the next stage.</li>
                 <li><strong>Ové Advisor</strong> — Optional add-on at €4.99/mo. Automated, intelligent, hands-off portfolio management.</li>
             </ul>
         </div>
@@ -1109,9 +1119,9 @@
         <!-- BUSINESS MODEL -->
         <div class="section s5">
             <p class="section-label">Business Model</p>
-            <h2 class="section-title">Simple. Scales with users.</h2>
+            <h2 class="section-title">Revenue model: simple and scalable.</h2>
             <p><strong>0.5% <span class="jargon" onclick="toggleJargon(this)">AUM<span class="jargon-bubble"><span class="jargon-term">AUM</span>Assets Under Management — the total amount of money invested through the platform.</span></span> fee</strong> — charged annually, taken monthly in small increments. Invisible to the user at small portfolio sizes. Scales naturally as portfolios grow.</p>
-            <p><strong>Ové Advisor — €4.99/month</strong> — unlocked after 6 months. High conversion expected given the emotional milestone of the unlock.</p>
+            <p><strong>Ové Advisor — €4.99/month</strong> — unlocked after 6 months. Conversion is expected to be high at the 6-month unlock point.</p>
 
             <div class="stats">
                 <div class="stat-card">
@@ -1134,7 +1144,7 @@
         <!-- COMPETITIVE -->
         <div class="section s6">
             <p class="section-label">Competitive Landscape</p>
-            <h2 class="section-title">The position nobody is occupying.</h2>
+            <h2 class="section-title">A gap nobody has filled.</h2>
             <p>Every existing app in Europe was built for the 9% who already invest. Ové is built for the 91% who haven't started.</p>
 
             <div class="table-wrap">
@@ -1151,49 +1161,49 @@
                         <tr>
                             <td>Trading 212</td>
                             <td>Low</td>
-                            <td>✅</td>
+                            <td>✓</td>
                             <td>Too complex</td>
                         </tr>
                         <tr>
                             <td>eToro</td>
                             <td>Low</td>
-                            <td>✅</td>
+                            <td>✓</td>
                             <td>Built for traders</td>
                         </tr>
                         <tr>
                             <td>Revolut</td>
                             <td>Low</td>
-                            <td>✅</td>
+                            <td>✓</td>
                             <td>Super-app, not focused</td>
                         </tr>
                         <tr>
                             <td>Bitpanda</td>
                             <td>Low–Medium</td>
-                            <td>✅</td>
+                            <td>✓</td>
                             <td>Inspiration — but 3,000+ choices</td>
                         </tr>
                         <tr>
                             <td>Robinhood EU</td>
                             <td>Low</td>
-                            <td>⚠️ Partial</td>
+                            <td>—</td>
                             <td>Tokenized only, not beginner focused</td>
                         </tr>
                         <tr>
                             <td>Acorns</td>
                             <td>High</td>
-                            <td>❌ US only</td>
+                            <td>✗</td>
                             <td>Closest concept — wrong continent</td>
                         </tr>
                         <tr>
                             <td>Public.com</td>
                             <td>Low–Medium</td>
-                            <td>⚠️ UK only</td>
+                            <td>—</td>
                             <td>Active investors, moving toward AI management and EU market</td>
                         </tr>
                         <tr class="highlight">
                             <td>Ové</td>
                             <td>Very High</td>
-                            <td>✅</td>
+                            <td>✓</td>
                             <td>Unoccupied position</td>
                         </tr>
                     </tbody>
@@ -1207,9 +1217,9 @@
         <div class="section s7">
             <p class="section-label">Vision</p>
             <h2 class="section-title">From someday to today. From today to always.</h2>
-            <p>Every European who wants to invest but hasn't started yet — that's our user. Not the trader. Not the expert. The person who keeps saying someday. We turn someday into today. And today into a habit. And a habit into a fully automated, intelligent portfolio that works while they sleep.</p>
-            <p>Ové isn't just a beginner app. It's the beginning of a lifetime of investing — with a clear, rewarding path from the first €10 to a hands-off portfolio managed by Ové Advisor.</p>
-            <p>And to be clear about what that means in practice:</p>
+            <p>The target user is the European who intends to invest but hasn't started — not the active trader or the financial professional. The goal is to get them started, keep them consistent, and ultimately hand off portfolio management entirely to automation.</p>
+            <p>Ové is designed as a long-term product: a clear path from a first €10 investment to a fully managed portfolio via Ové Advisor.</p>
+            <p>What Ové is not:</p>
             <ul class="check-list">
                 <li>Not a bank</li>
                 <li>Not built for experts</li>
@@ -1221,7 +1231,7 @@
         <!-- CTA -->
         <div class="cta-section">
             <p style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;font-weight:500;">Join the waitlist</p>
-            <a href="/" class="cta-btn">Secure your spot →</a>
+            <a href="/" class="cta-btn">Join the waitlist</a>
             <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--muted);font-weight:300;">Or follow along at <a href="https://x.com/BeginOve" target="_blank" style="color:var(--blue);text-decoration:none;">@BeginOve</a> on X.</p>
         </div>
 
