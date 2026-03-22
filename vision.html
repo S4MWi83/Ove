@@ -626,6 +626,54 @@
 
         .map-tooltip strong { color: #93c5fd; display: block; font-size: 0.9rem; margin-bottom: 0.1rem; }
 
+        /* Mobile bottom sheet */
+        .map-bottom-sheet {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #0d1f38;
+            border-top: 1px solid rgba(59,130,246,0.25);
+            border-radius: 20px 20px 0 0;
+            padding: 1.25rem 1.5rem 2.5rem;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .map-bottom-sheet.open {
+            transform: translateY(0);
+        }
+        .map-bottom-sheet-handle {
+            width: 36px;
+            height: 4px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 999px;
+            margin: 0 auto 1.25rem;
+        }
+        .map-bottom-sheet-country {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.4rem;
+            color: #93c5fd;
+            margin-bottom: 0.3rem;
+        }
+        .map-bottom-sheet-stat {
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 400;
+        }
+        .map-sheet-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: transparent;
+        }
+        @media (pointer: coarse) {
+            .map-bottom-sheet { display: block; }
+            .map-tooltip { display: none !important; }
+        }
+
         .map-legend {
             display: flex;
             align-items: center;
@@ -888,6 +936,14 @@
                         <div class="map-container" id="map-container">
                             <svg xmlns="http://www.w3.org/2000/svg" id="europe-map" style="width:100%;min-height:280px;display:block;"></svg>
                             <div class="map-tooltip" id="map-tooltip"></div>
+
+                        <!-- Mobile bottom sheet -->
+                        <div class="map-sheet-overlay" id="map-sheet-overlay"></div>
+                        <div class="map-bottom-sheet" id="map-bottom-sheet">
+                            <div class="map-bottom-sheet-handle"></div>
+                            <div class="map-bottom-sheet-country" id="map-sheet-country"></div>
+                            <div class="map-bottom-sheet-stat" id="map-sheet-stat"></div>
+                        </div>
                         </div>
                         <div class="map-legend">
                             <span>Low</span>
@@ -998,7 +1054,7 @@
                             .attr('d', function(d) { return path(d.feature); })
                             .attr('fill', function(d) { return pctToFill(d.pct); })
                             .attr('stroke', 'rgba(255,255,255,0.1)')
-                            .attr('stroke-width', 0.6)
+                            .attr('stroke-width', window.matchMedia('(pointer: coarse)').matches ? 2 : 0.6)
                             .attr('stroke-linejoin', 'round')
                             .style('cursor', 'pointer')
                             .style('transition', 'fill 0.2s')
@@ -1022,34 +1078,60 @@
                                 d3.selectAll('.country').attr('fill', function(c) { return pctToFill(c.pct); });
                                 d3.select(this).attr('fill', 'rgba(147,197,253,0.5)');
                                 var label = d.pct ? (100 - d.pct) + '% not yet investing' : 'No data';
-                                tooltip.innerHTML = '<strong>' + d.name + '</strong>' + label;
-                                var touch = event.touches[0];
-                                var rect = mapContainer.getBoundingClientRect();
-                                var tooltipW = 200;
-                                var tooltipH = 48;
-                                var x = touch.clientX - rect.left;
-                                var y = touch.clientY - rect.top - tooltipH - 12;
-                                // keep within container horizontally
-                                if (x + tooltipW > rect.width) x = rect.width - tooltipW - 8;
-                                if (x < 8) x = 8;
-                                // if above top, show below instead
-                                if (y < 8) y = touch.clientY - rect.top + 12;
-                                tooltip.style.left = x + 'px';
-                                tooltip.style.top = y + 'px';
-                                tooltip.style.opacity = '1';
+                                // Bottom sheet for touch devices
+                                var sheet = document.getElementById('map-bottom-sheet');
+                                var overlay = document.getElementById('map-sheet-overlay');
+                                if (sheet) {
+                                    document.getElementById('map-sheet-country').textContent = d.name;
+                                    document.getElementById('map-sheet-stat').textContent = label;
+                                    sheet.classList.add('open');
+                                    overlay.style.display = 'block';
+                                }
+                            })
+                            .on('touchend', function(event, d) {
+                                // country stays highlighted until sheet dismissed
                             })
                             .on('mouseleave', function(event, d) {
                                 d3.select(this).attr('fill', pctToFill(d.pct));
                                 tooltip.style.opacity = '0';
                             });
 
-                        // Tap outside map hides tooltip on touch
+                        // Increase touch target size for small countries
+                        svg.selectAll('.country')
+                            .style('pointer-events', 'all')
+                            .attr('stroke-width', function(d) {
+                                var area = 0;
+                                try { area = svgEl.querySelector('path.country') ? 1 : 1; } catch(e) {}
+                                return 0.6;
+                            });
+
+                        // Tap outside map hides tooltip on touch (desktop fallback)
                         document.addEventListener('touchstart', function(e) {
                             if (!mapContainer.contains(e.target)) {
                                 tooltip.style.opacity = '0';
-                                d3.selectAll('.country').attr('fill', function(c) { return pctToFill(c.pct); });
                             }
                         });
+
+                        // Bottom sheet dismiss
+                        function closeMapSheet() {
+                            var sheet = document.getElementById('map-bottom-sheet');
+                            var overlay = document.getElementById('map-sheet-overlay');
+                            if (sheet) sheet.classList.remove('open');
+                            if (overlay) overlay.style.display = 'none';
+                            d3.selectAll('.country').attr('fill', function(c) { return pctToFill(c.pct); });
+                        }
+                        var overlay = document.getElementById('map-sheet-overlay');
+                        if (overlay) overlay.addEventListener('touchstart', closeMapSheet);
+
+                        // Swipe down to dismiss
+                        var sheetEl = document.getElementById('map-bottom-sheet');
+                        var swipeStartY = 0;
+                        if (sheetEl) {
+                            sheetEl.addEventListener('touchstart', function(e) { swipeStartY = e.touches[0].clientY; });
+                            sheetEl.addEventListener('touchend', function(e) {
+                                if (e.changedTouches[0].clientY - swipeStartY > 60) closeMapSheet();
+                            });
+                        }
                     });
             });
         });
