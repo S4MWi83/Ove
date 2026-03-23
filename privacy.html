@@ -388,13 +388,14 @@
 
     </div>
 
+
     <footer>
-        <span>© <span id="year"></span> Ové. Currently in development. <a href="/privacy" style="color:var(--blue);text-decoration:none;">Privacy Policy</a></span></footer>
+        <span>© <span id="year"></span> Ové. Currently in development. <a href="/privacy" style="color:var(--muted);text-decoration:none;">Privacy Policy</a></span>
+    </footer>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Cloudflare-proof email injection
         (function() {
             var u = 'info', d = 'meetove.pro';
             var addr = u + '\u0040' + d;
