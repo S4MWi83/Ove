@@ -209,7 +209,6 @@
             font-size: 0.85rem;
         }
 
-        /* PRINCIPLE CARDS */
         .principles {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -249,7 +248,6 @@
             margin: 0;
         }
 
-        /* STATUS BADGE */
         .status-row {
             display: flex;
             align-items: center;
@@ -423,10 +421,25 @@
         <div class="section">
             <p class="section-label">Questions</p>
             <h2 class="section-title">Get in touch.</h2>
-            <p>For regulatory or compliance questions, contact us at <a href="/cdn-cgi/l/email-protection#adc4c3cbc2edc0c8c8d9c2dbc883dddfc2" style="color:var(--blue);text-decoration:none;"><span class="__cf_email__" data-cfemail="bad3d4dcd5fad7dfdfced5ccdf94cac8d5">[email&#160;protected]</span></a>.</p>
+            <p>For regulatory or compliance questions, contact us at <a id="email-contact-reg" style="color:var(--blue);text-decoration:none;"></a>.</p>
         </div>
 
     </div>
 
     <footer>
-        <span>© <span id="year"></span> Ové. <span id="footer-dev">Currently in development.</span> <a href="/cd
+        <span>© <span id="year"></span> Ové. Currently in development. <a href="/privacy" style="color:var(--muted);text-decoration:none;">Privacy Policy</a></span>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        (function() {
+            var u = 'info', d = 'meetove.pro';
+            var addr = u + '\u0040' + d;
+            var href = 'mai' + 'lto:' + addr;
+            var el = document.getElementById('email-contact-reg');
+            if (el) { el.href = href; el.textContent = addr; }
+        })();
+    </script>
+</body>
+</html>
