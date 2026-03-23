@@ -1,85 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            try {
+                if (!localStorage.getItem('ove-splash')) {
+                    window.location.replace('/');
+                }
+            } catch(e) {}
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ové — Coming Soon</title>
+    <meta name="google-site-verification" content="pdHL7JSkBEX0cpQubnaZQqXLTDfgfNF0wMto-3flwV4" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVSFPMXDRR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CVSFPMXDRR');
+    </script>
+    <title>Ové — From someday to today</title>
+    <meta name="description" content="91% of Europeans haven't started investing yet. Ové changes that — pick a portfolio, deposit from €10, and you're investing in under 2 minutes. No unnecessary jargon. No bank switching.">
+    <meta name="keywords" content="investing app Europe, beginner investing, simple investing, ETF Europe, join waitlist, Ové">
+    <meta name="author" content="Ové">
+    <link rel="canonical" href="https://meetove.pro/">
     <link rel="icon" type="image/svg+xml" href="ove-favicon-e.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meetove.pro/">
+    <meta property="og:title" content="Ové — From someday to today">
+    <meta property="og:description" content="91% of Europeans haven't started investing yet. Ové gets complete beginners investing in under 2 minutes, from €10, with no unnecessary jargon.">
+    <meta property="og:image" content="https://meetove.pro/ove-x-header.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="500">
+    <meta property="og:site_name" content="Ové">
+    <meta property="og:locale" content="en_EU">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@BeginOve">
+    <meta name="twitter:creator" content="@BeginOve">
+    <meta name="twitter:title" content="Ové — From someday to today">
+    <meta name="twitter:description" content="91% of Europeans haven't started investing yet. Ové gets complete beginners investing in under 2 minutes, from €10, with no unnecessary jargon.">
+    <meta name="twitter:image" content="https://meetove.pro/ove-x-header.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Ové",
+      "url": "https://meetove.pro",
+      "description": "Ové is an investing app built for complete beginners in Europe. Get started in under 2 minutes, from €10, with no unnecessary jargon.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "creator": { "@type": "Organization", "name": "Ové", "url": "https://meetove.pro", "sameAs": "https://x.com/BeginOve" }
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+    
     <style>
+        :root {
+            --deep: #060f1e;
+            --blue: #3b82f6;
+            --blue-dim: rgba(59,130,246,0.15);
+            --blue-glow: rgba(59,130,246,0.35);
+            --cream: #f0ece4;
+            --muted: #9db5cc;
+            --border: rgba(255,255,255,0.07);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
+            padding-top: 6.5rem;
             font-family: 'DM Sans', sans-serif;
-            background: #060f1e;
-            color: #f0ece4;
+            background: var(--deep);
+            color: var(--cream);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-        .orb {
+
+        body::before {
+            content: '';
             position: fixed;
-            width: 60vw; height: 60vw;
-            top: -20vw; left: 50%;
-            transform: translateX(-50%);
-            background: radial-gradient(circle, rgba(59,130,246,0.13), transparent 70%);
-            border-radius: 50%;
-            filter: blur(80px);
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
             pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
         }
-        .wrap {
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
+
+        .orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+        .orb-1 { width: 60vw; height: 60vw; top: -20vw; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(59,130,246,0.13), transparent 70%); }
+
+        .wrap { max-width: 1080px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; }
+
+        /* NAV */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(6,15,30,0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            box-shadow: 0 1px 20px rgba(59,130,246,0.08);
+            transition: background 0.3s ease;
+            overflow: visible;
         }
-        .logo {
-            font-family: 'Instrument Serif', serif;
-            font-size: 2.2rem;
-            color: #f0ece4;
-            position: relative;
-            display: inline-block;
-            margin-bottom: 2.5rem;
+        .nav-logo { font-family: 'Instrument Serif', serif; font-size: 1.8rem; color: var(--cream); text-decoration: none; position: relative; }
+        .nav-logo span { display: inline-block; width: 6px; height: 6px; background: var(--blue); border-radius: 50%; position: absolute; top: 6px; right: -9px; box-shadow: 0 0 8px var(--blue-glow); }
+        .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+        .nav-link { font-size: 0.85rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+        .nav-link:hover { color: var(--cream); }
+        .nav-pill { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); background: var(--blue-dim); border: 1px solid rgba(59,130,246,0.2); padding: 0.4rem 1rem; border-radius: 999px; }
+
+        /* HERO */
+        .hero { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 0 6rem; }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 400; color: var(--muted); margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s; }
+        .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 32px; height: 1px; background: var(--border); }
+        .hero-headline { font-family: 'Instrument Serif', serif; font-size: clamp(3.6rem, 8vw, 7rem); line-height: 1.03; letter-spacing: -0.02em; margin-bottom: 1.75rem; opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s; }
+        .hero-headline em { font-style: italic; color: #93c5fd; }
+        .hero-sub { font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--muted); font-weight: 300; max-width: 460px; margin: 0 auto 3.5rem; line-height: 1.7; opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s; }
+        .hero-cta { opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s; }
+
+        /* CTA BUTTON */
+        .cta-btn { position: relative; display: inline-flex; align-items: center; gap: 1rem; background: transparent; color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; padding: 1.3rem 2.5rem; border-radius: 999px; border: none; cursor: pointer; transition: all 0.4s ease; letter-spacing: 0.12em; text-transform: uppercase; outline: none; text-decoration: none; }
+        .cta-btn::before { content: ''; position: absolute; inset: 0; border-radius: 999px; border: 1px solid rgba(59,130,246,0.35); transition: all 0.4s ease; pointer-events: none; }
+        .cta-btn::after { content: ''; position: absolute; inset: 3px; border-radius: 999px; border: 1px solid rgba(59,130,246,0.15); transition: all 0.4s ease; pointer-events: none; }
+        .cta-btn:hover::before { border-color: rgba(59,130,246,0.7); box-shadow: 0 0 20px rgba(59,130,246,0.2), inset 0 0 20px rgba(59,130,246,0.05); }
+        .cta-btn:hover::after { border-color: rgba(59,130,246,0.35); }
+        .cta-btn:hover { color: white; }
+        .cta-btn-label { position: relative; z-index: 1; }
+        .cta-nudge { display: block; margin-top: 1rem; font-size: 0.85rem; color: var(--muted); font-weight: 300; }
+
+        /* FOOTER */
+        footer { border-top: 1px solid var(--border); padding: 2rem 0; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 0.85rem; font-weight: 300; flex-wrap: wrap; gap: 1rem; }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--cream); }
+
+        /* TALLY MODAL */
+        .tally-overlay { display: none; position: fixed; inset: 0; background: rgba(6,15,30,0.85); backdrop-filter: blur(6px); z-index: 100; align-items: center; justify-content: center; padding: 2rem; }
+        .tally-overlay.open { display: flex; }
+        .tally-modal { background: #0a1628; border: 1px solid rgba(59,130,246,0.2); border-radius: 24px; padding: 2.5rem; width: 100%; max-width: 480px; position: relative; animation: fadeUp 0.3s ease; }
+        .tally-modal-title { font-family: 'Instrument Serif', serif; font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .tally-modal-sub { font-size: 0.9rem; color: var(--muted); font-weight: 300; margin-bottom: 1.75rem; line-height: 1.6; }
+        .tally-close { position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1.25rem; line-height: 1; transition: color 0.2s; padding: 0.25rem; }
+        .tally-close:hover { color: var(--cream); }
+
+        /* ANIMATIONS */
+        @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 560px) { nav { padding: 1.5rem 0; } .hero { padding: 2rem 0 4rem; } }
+        @media (max-width: 640px) {
+            nav { padding: 1.25rem 0; flex-wrap: wrap; gap: 0.75rem; }
+            .nav-logo { font-size: 1.5rem; }
+            .nav-links { gap: 0.85rem; }
+            .nav-link { font-size: 0.78rem; }
+            .nav-pill, .nav-cta { font-size: 0.7rem; padding: 0.3rem 0.7rem; letter-spacing: 0.05em; }
         }
-        .logo span {
-            display: inline-block;
-            width: 6px; height: 6px;
-            background: #3b82f6;
-            border-radius: 50%;
-            position: absolute;
-            top: 6px; right: -10px;
+
+        /* LANG SWITCHER */
+        .lang-switcher { position: relative; }
+        .lang-btn { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.6rem; cursor: pointer; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s; }
+        .lang-btn:hover { color: var(--cream); border-color: rgba(255,255,255,0.15); }
+        .lang-dropdown { display: none; position: absolute; top: calc(100% + 8px); right: 0; background: #0d1f38; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; min-width: 130px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); z-index: 10000; }
+        .lang-switcher.open .lang-dropdown { display: block; }
+        .lang-option { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 1rem; font-size: 0.82rem; color: var(--muted); cursor: pointer; transition: all 0.15s; border: none; background: none; width: 100%; font-family: 'DM Sans', sans-serif; text-align: left; }
+        .lang-option:hover { background: rgba(255,255,255,0.05); color: var(--cream); }
+        .lang-option.active { color: var(--cream); background: rgba(59,130,246,0.1); }
+        /* STATUS PILLS */
+        .status-pills { display: flex; align-items: center; justify-content: center; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 1.75rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
+        .status-pill { font-size: 0.68rem; font-weight: 300; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.15); opacity: 0.7; }
+        .status-pill:nth-child(2) { opacity: 1; }
+        .mobile-eyebrow { display: none; }
+        @media (max-width: 560px) {
+            .nav-pill { display: none; }
+            .status-pill:nth-child(2) { display: none; }
+            .status-pills { gap: 0.5rem; margin-bottom: 1.25rem; }
+            .hero-eyebrow { font-size: 0.78rem; margin-bottom: 1.75rem; }
+            .hero-eyebrow::before, .hero-eyebrow::after { width: 20px; }
+            .desktop-eyebrow { display: none; }
+            .mobile-eyebrow { display: inline; }
         }
-        h1 {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            line-height: 1.15;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-        }
-        p {
-            font-size: 1rem;
-            color: #9db5cc;
-            font-weight: 300;
-            max-width: 360px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-        a {
-            color: #3b82f6;
-            text-decoration: none;
-        }
-        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
-    <div class="orb"></div>
-    <div class="wrap">
-        <div class="logo">Ové<span></span></div>
-        <h1>Back soon.</h1>
-        <p>We're making some updates. Follow <a href="https://x.com/BeginOve" target="_blank">@BeginOve</a> for news.</p>
+<div class="orb orb-1"></div>
+
+    <nav>
+        <a href="/" class="nav-logo">Ové<span></span></a>
+        <div class="nav-links">
+            <a href="/concept" class="nav-link" data-i18n="nav_concept">Ové</a>
+            <a href="/vision" class="nav-link" data-i18n="nav_vision">Vision</a>
+            <a href="/regulatory" class="nav-link" data-i18n="nav_regulatory">Regulatory</a>
+            <div class="lang-switcher" id="lang-switcher">
+                <button class="lang-btn" id="lang-btn">&#127760; <span id="lang-code">EN</span> &#9660;</button>
+                <div class="lang-dropdown" id="lang-dropdown">
+                    <button class="lang-option active" data-lang="en">English</button>
+                    <button class="lang-option" data-lang="sv">Svenska</button>
+                    <button class="lang-option" data-lang="es">Español</button>
+                    <button class="lang-option" data-lang="it">Italiano</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrap" role="main">
+
+        <section class="hero">
+            <div class="status-pills">
+                <span class="status-pill" data-i18n="pill_2">Coming soon</span>
+                <span class="status-pill" data-i18n="pill_1">Not handling funds yet</span>
+                <span class="status-pill" data-i18n="pill_3">Free waitlist</span>
+            </div>
+            <p class="hero-eyebrow"><span class="desktop-eyebrow" data-i18n="eyebrow">Early access — join the waitlist.</span><span class="mobile-eyebrow" data-i18n="eyebrow_mobile">Join waitlist below.</span></p>
+            <h1 class="hero-headline">
+                <span data-i18n="headline_1">From</span> <em data-i18n="headline_2">someday</em><br><span data-i18n="headline_3">to today.</span>
+            </h1>
+            <p class="hero-sub">
+                <span data-i18n="sub"><em>Investing made accessible. Clear. Fast. Honest.</em></span>
+            </p>
+            <div class="hero-cta">
+                <button class="cta-btn" id="open-waitlist">
+                    <span class="cta-btn-label" data-i18n="cta">SECURE YOUR SPOT</span>
+                </button>
+                <span class="cta-nudge" data-i18n="nudge">Free to join. No commitment.</span>
+            </div>
+        </section>
+
+        <!-- WHAT OVÉ IS NOT -->
+        <section style="border-top:1px solid rgba(255,255,255,0.07);padding:3.5rem 0;position:relative;z-index:1;">
+            <div style="max-width:680px;margin:0 auto;padding:0 2rem;text-align:center;">
+                <p style="font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);opacity:0.85;margin-bottom:1.75rem;" data-i18n="not_label">What Ové is not</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+                    <div style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;">
+                        <span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span>
+                        <span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_1">Not a bank</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;">
+                        <span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span>
+                        <span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_2">Not a trading platform</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;">
+                        <span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span>
+                        <span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_3">Not for short-term speculation</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;">
+                        <span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span>
+                        <span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_4">Not suitable for everyone</span>
+                    </div>
+                    <div style="grid-column:1/-1;display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;justify-content:center;">
+                        <span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span>
+                        <span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_5">Not currently authorised to provide investment services</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <span style="font-size:0.75rem;color:var(--muted);opacity:0.7;" data-i18n="footer_disclaimer">Ové does not currently provide investment services. For illustrative purposes only and should not be relied upon for investment decisions. Investing involves risk. The value of investments can go down as well as up.</span>
+            <span>© <span id="year"></span> Ové. <span data-i18n="footer_dev">Currently in development.</span> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#109;&#101;&#101;&#116;&#111;&#118;&#101;&#46;&#112;&#114;&#111;" style="color:var(--muted);text-decoration:none;">info&#64;meetove.pro</a></span>
+            <div class="footer-links">
+                <a href="https://x.com/BeginOve" target="_blank" data-i18n="twitter">@BeginOve on X</a>
+            </div>
+        </footer>
     </div>
+
+    <div class="tally-overlay" id="tally-overlay">
+        <div class="tally-modal">
+            <button class="tally-close" id="close-waitlist">✕</button>
+            <p class="tally-modal-title" data-i18n="modal_title">Your someday is today.</p>
+            <p class="tally-modal-sub" data-i18n="modal_sub">No payment, no commitment.</p>
+            <label style="display:flex;align-items:flex-start;gap:0.5rem;margin-bottom:0.75rem;cursor:pointer;"><input type="checkbox" required style="margin-top:3px;accent-color:var(--blue);flex-shrink:0;"><span style="font-size:0.72rem;color:var(--muted);line-height:1.5;font-weight:300;">I agree to receive updates about Ové. See our <a href="/privacy" style="color:var(--blue);text-decoration:none;">Privacy Policy</a>.</span></label>
+            <div id="tally-embed-target"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        var overlay = document.getElementById('tally-overlay');
+        var embedTarget = document.getElementById('tally-embed-target');
+        var loaded = false;
+
+        document.getElementById('open-waitlist').addEventListener('click', function() {
+            overlay.classList.add('open');
+            if (!loaded) {
+                embedTarget.innerHTML = '<iframe data-tally-src="https://tally.so/embed/WOoKja?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="160" frameborder="0" marginheight="0" marginwidth="0" title="Ov\u00e9 Waitlist"></iframe>';
+                if (window.Tally) Tally.loadEmbeds();
+                loaded = true;
+            }
+        });
+
+        document.getElementById('close-waitlist').addEventListener('click', function() {
+            overlay.classList.remove('open');
+        });
+
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) overlay.classList.remove('open');
+        });
+    </script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+
+    <script>
+        var translations = {
+            en: { nav_concept:"Ové", nav_waitlist:"Waitlist open", eyebrow:"Early access — join the waitlist.", eyebrow_mobile:"Join waitlist below.", headline_1:"From", headline_2:"someday", headline_3:"to today.", sub:"Investing made accessible. Clear. Fast. Honest.", cta:"SECURE YOUR SPOT", nudge:"Free to join. No commitment.", modal_title:"Your someday is today.", modal_sub:"No payment, no commitment.", pill_1:"Not handling funds yet", pill_2:"Coming soon", pill_3:"Free waitlist", not_label:"What Ové is not", not_1:"Not a bank", not_2:"Not a trading platform", not_3:"Not for short-term speculation", not_4:"Not suitable for everyone", not_5:"Not currently authorised to provide investment services", footer_dev:"Currently in development.", twitter:"@BeginOve on X", nav_vision:"Vision", nav_regulatory:"Regulatory", banner:"Ové is a pre-launch concept and is not authorised to provide investment services. Nothing on this website constitutes investment advice, an offer, or an invitation or inducement to engage in investment activity. No accounts or investments are available. For illustrative purposes only and should not be relied upon for investment decisions.", footer_disclaimer:"Ové does not currently provide investment services. For illustrative purposes only and should not be relied upon for investment decisions. Investing involves risk. The value of investments can go down as well as up.", code:"EN", fi:"gb" },
+            sv: { nav_concept:"Ov\u00e9", nav_waitlist:"V\u00e4ntelistan \u00e4r \u00f6ppen", eyebrow:"Tidig tillg\u00e5ng \u2014 st\u00e4ll dig p\u00e5 v\u00e4ntelistan.", eyebrow_mobile:"Anm\u00e4l dig till v\u00e4ntelistan nedan.", headline_1:"Fr\u00e5n", headline_2:"en dag", headline_3:"till idag.", sub:"Investeringar p\u00e5 ett enkelt s\u00e4tt. Tydligt. Snabbt. \u00c4rligt.", cta:"S\u00c4KRA DIN PLATS", nudge:"Gratis att g\u00e5 med. Inget \u00e5tagande.", modal_title:"Din dag \u00e4r idag.", modal_sub:"Ingen betalning, inga f\u00f6rpliktelser.", pill_1:"Hanterar inte pengar \u00e4nnu", pill_2:"Kommer snart", pill_3:"Gratis v\u00e4ntelista", not_label:"Vad Ov\u00e9 inte \u00e4r", not_1:"Ingen bank", not_2:"Ingen handelsplattform", not_3:"Inte avsedd f\u00f6r kortsiktig spekulation", not_4:"Passar inte alla", not_5:"F\u00f6r n\u00e4rvarande inte auktoriserat att tillhandah\u00e5lla investeringstj\u00e4nster och investeringsverksamhet", footer_dev:"Under utveckling.", twitter:"@BeginOve p\u00e5 X", nav_vision:"Vision", nav_regulatory:"Regelefterlevnad", banner:"Ové är ett förlanserat koncept och är inte auktoriserat att tillhandahålla investeringstjänster och investeringsverksamhet. Ingenting på denna webbplats utgör investeringsrådgivning, ett erbjudande eller en uppmaning eller ett incitament att genomföra investeringsverksamhet. Inga konton eller investeringar är tillgängliga. Endast i illustrativt syfte och bör inte ligga till grund för investeringsbeslut.", footer_disclaimer:"Ov\u00e9 tillhandah\u00e5ller f\u00f6r n\u00e4rvarande inga investeringstj\u00e4nster. Endast i illustrativt syfte och b\u00f6r inte ligga till grund f\u00f6r investeringsbeslut. Investeringar inneb\u00e4r risker. V\u00e4rdet p\u00e5 investeringar kan b\u00e5de stiga och sjunka.", code:"SV", fi:"se" },
+            es: { nav_concept:"Ov\u00e9", nav_waitlist:"Lista de espera abierta", eyebrow:"Acceso anticipado: \u00fanete a la lista de espera.", eyebrow_mobile:"\u00danete a la lista de espera a continuaci\u00f3n.", headline_1:"De", headline_2:"alg\u00fan d\u00eda", headline_3:"al hoy.", sub:"Invertir al alcance de todos. Claro. R\u00e1pido. Honesto.", cta:"ASEG\u00daRATE TU PLAZA", nudge:"Inscripci\u00f3n gratuita. Sin compromiso.", modal_title:"Tu \u00abalg\u00fan d\u00eda\u00bb es hoy.", modal_sub:"Sin pagos, sin compromiso.", pill_1:"A\u00fan no gestionamos fondos", pill_2:"Pr\u00f3ximamente", pill_3:"Lista de espera gratuita", not_label:"Lo que Ov\u00e9 no es", not_1:"No es un banco", not_2:"No es una plataforma de trading", not_3:"No es para la especulaci\u00f3n a corto plazo", not_4:"No es adecuado para todo el mundo", not_5:"Actualmente no est\u00e1 autorizado para prestar servicios de inversi\u00f3n", footer_dev:"Actualmente en desarrollo.", twitter:"@BeginOve en X", nav_vision:"Visi\u00f3n", nav_regulatory:"Regulatorio", banner:"Ové es un concepto de prelanzamiento y no está autorizado para prestar servicios de inversión. Nada en este sitio web constituye asesoramiento de inversión, una oferta ni una invitación o incentivo para realizar actividades de inversión. No hay cuentas ni inversiones disponibles. Solo con fines ilustrativos y no debe utilizarse como base para decisiones de inversión.", footer_disclaimer:"Ov\u00e9 no presta actualmente servicios de inversi\u00f3n. Solo con fines ilustrativos y no debe utilizarse como base para decisiones de inversi\u00f3n. Invertir conlleva riesgos. El valor de las inversiones puede tanto subir como bajar.", code:"ES", fi:"es" },
+            it: { nav_concept:"Ov\u00e9", nav_waitlist:"Lista d'attesa aperta", eyebrow:"Accesso anticipato \u2014 iscriviti alla lista d'attesa.", eyebrow_mobile:"Iscriviti alla lista d'attesa qui sotto.", headline_1:"Da", headline_2:"un giorno", headline_3:"a oggi.", sub:"Investire reso accessibile. Chiaro. Veloce. Onesto.", cta:"ASSICURATI IL TUO POSTO", nudge:"Iscrizione gratuita. Nessun impegno.", modal_title:"Il tuo 'un giorno' \u00e8 oggi.", modal_sub:"Nessun pagamento, nessun impegno.", pill_1:"Non gestiamo ancora fondi", pill_2:"Prossimamente", pill_3:"Lista d'attesa gratuita", not_label:"Cosa non \u00e8 Ov\u00e9", not_1:"Non \u00e8 una banca", not_2:"Non \u00e8 una piattaforma di trading", not_3:"Non \u00e8 per la speculazione a breve termine", not_4:"Non adatto a tutti", not_5:"Attualmente non autorizzato a fornire servizi di investimento", footer_dev:"Attualmente in fase di sviluppo.", twitter:"@BeginOve su X", nav_vision:"Visione", nav_regulatory:"Normativa", banner:"Ové è un concept pre-lancio e non è autorizzato a fornire servizi di investimento. Nulla su questo sito costituisce consulenza in materia di investimenti, un'offerta o un invito o incentivo a svolgere attività di investimento. Non sono disponibili conti o investimenti. Solo a scopo illustrativo e non deve essere utilizzato come base per decisioni di investimento.", footer_disclaimer:"Ov\u00e9 attualmente non fornisce servizi di investimento. Solo a scopo illustrativo e non deve essere utilizzato come base per decisioni di investimento. Investire comporta dei rischi. Il valore degli investimenti pu\u00f2 aumentare o diminuire.", code:"IT", fi:"it" }
+        };
+
+        function applyLang(lang) {
+            var t = translations[lang];
+            if (!t) return;
+            localStorage.setItem('ove-lang', lang);
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n');
+                if (t[key] !== undefined) el.textContent = t[key];
+            });
+            document.getElementById('lang-code').textContent = t.code;
+            document.querySelectorAll('.lang-option').forEach(function(o) {
+                o.classList.toggle('active', o.dataset.lang === lang);
+            });
+            document.getElementById('lang-dropdown').style.display = 'none';
+            var bt = document.getElementById('banner-text');
+            if (bt && t.banner) bt.textContent = t.banner;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('lang-btn').addEventListener('click', function(e) {
+                e.stopPropagation();
+                var dd = document.getElementById('lang-dropdown');
+                dd.style.display = dd.style.display === 'block' ? 'none' : 'block';
+            });
+            document.querySelectorAll('.lang-option').forEach(function(o) {
+                o.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    applyLang(o.dataset.lang);
+                });
+            });
+            document.addEventListener('click', function(e) {
+                if (!document.getElementById('lang-switcher').contains(e.target)) {
+                    document.getElementById('lang-dropdown').style.display = 'none';
+                }
+            });
+            var saved = localStorage.getItem('ove-lang');
+            if (saved && translations[saved]) applyLang(saved);
+        });
+    </script>
 </body>
 </html>
