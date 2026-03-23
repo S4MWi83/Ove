@@ -169,30 +169,123 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .compliance-banner { position:fixed; top:0; left:0; right:0; z-index:9999; background:#1a2235; border-bottom:1px solid rgba(255,255,255,0.1); padding:0.45rem 3rem 0.45rem 1.5rem; text-align:center; font-size:0.72rem; color:#9db5cc; font-weight:400; line-height:1.4; } .compliance-banner-close { position:absolute; right:0.75rem; top:50%; transform:translateY(-50%); background:none; border:none; color:#9db5cc; cursor:pointer; font-size:0.9rem; opacity:0.6; padding:0.25rem 0.4rem; line-height:1; } .compliance-banner-close:hover { opacity:1; }
-        .compliance-banner { position:fixed; top:0; left:0; right:0; z-index:9999; background:#1a2235; border-bottom:1px solid rgba(255,255,255,0.1); padding:0.45rem 1.5rem; text-align:center; font-size:0.72rem; color:#9db5cc; font-weight:400; line-height:1.4; }
+
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .lang-pill {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .lang-pill:hover { color: var(--cream); border-color: rgba(255,255,255,0.2); }
+        .lang-pill.active { color: var(--cream); border-color: var(--blue); background: var(--blue-dim); }
     </style>
 </head>
 <body>
-    <div class="compliance-banner">Ové is a pre-launch concept and is not authorised to provide investment services. Nothing on this website constitutes investment advice or an offer to invest. No accounts or investments are available.</div>
     <div class="orb"></div>
 
     <div class="card">
         <div class="logo">Ové<span></span></div>
 
-        <div class="badge">Pre-launch</div>
-
-        <h1>Before you continue.</h1>
-
-        <div class="notice">
-            <strong>Ové is not currently authorised to provide investment services.</strong>
-            <p>The features described on this website are conceptual and will only be available if Ové partners with an authorised investment firm under MiFID II. The exact structure and partner arrangements are subject to change.</p>
-            <p>This website is for illustrative purposes only and does not constitute investment advice or an offer to invest.</p>
+        <div class="lang-switcher">
+            <button class="lang-pill active" data-lang="en" onclick="window.setSplashLang('en')">EN</button>
+            <button class="lang-pill" data-lang="sv" onclick="window.setSplashLang('sv')">SV</button>
+            <button class="lang-pill" data-lang="es" onclick="window.setSplashLang('es')">ES</button>
+            <button class="lang-pill" data-lang="it" onclick="window.setSplashLang('it')">IT</button>
         </div>
 
-        <a href="/index" class="btn">I understand — continue</a>
+        <div class="badge" data-i18n="badge">Pre-launch</div>
 
-        <p class="fine">By continuing you acknowledge this notice. This website is a pre-launch informational communication and does not constitute an offer, solicitation, or financial promotion of investment services or financial instruments. <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Privacy Policy</a></p>
+        <h1 data-i18n="title">Before you continue.</h1>
+
+        <div class="notice">
+            <strong data-i18n="notice_strong">Ové is not currently authorised to provide investment services.</strong>
+            <p data-i18n="notice_p1">The features described on this website are conceptual and will only be available if Ové partners with an authorised investment firm under MiFID II. The exact structure and partner arrangements are subject to change.</p>
+            <p data-i18n="notice_p2">This website is for illustrative purposes only and does not constitute investment advice, an offer, or an invitation or inducement to engage in investment activity. It should not be relied upon for investment decisions.</p>
+        </div>
+
+        <a href="/index" class="btn" data-i18n="btn" onclick="try{localStorage.setItem('ove-splash','1');}catch(e){}">I understand — continue</a>
+
+        <p class="fine"><span data-i18n="fine">By continuing you acknowledge this notice.</span> This website is a pre-launch informational communication and does not constitute an offer, solicitation, or financial promotion of investment services or financial instruments.</span> <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Privacy Policy</a></p>
     </div>
+    <script>
+        var splashT = {
+            en: {
+                badge: 'Pre-launch',
+                title: 'Before you continue.',
+                notice_strong: 'Ové is not currently authorised to provide investment services.',
+                notice_p1: 'The features described on this website are conceptual and will only be available if Ové partners with an authorised investment firm under MiFID II. The exact structure and partner arrangements are subject to change.',
+                notice_p2: 'This website is for illustrative purposes only and does not constitute investment advice, an offer, or an invitation or inducement to engage in investment activity. It should not be relied upon for investment decisions.',
+                btn: 'I understand — continue',
+                fine: 'By continuing you acknowledge this notice. This website is a pre-launch informational communication and does not constitute an offer, solicitation, or financial promotion of investment services or financial instruments.'
+            },
+            sv: {
+                badge: 'Förhandsversion',
+                title: 'Innan du fortsätter.',
+                notice_strong: 'Ové är för närvarande inte auktoriserat att tillhandahålla investeringstjänster.',
+                notice_p1: 'Funktionerna som beskrivs på denna webbplats är konceptuella och kommer endast att vara tillgängliga om Ové ingår partnerskap med ett auktoriserat investeringsföretag under MiFID II. Den exakta strukturen och partnerarrangemangen kan komma att ändras.',
+                notice_p2: 'Denna webbplats är endast för illustrativa ändamål och utgör inte investeringsrådgivning, ett erbjudande eller en uppmaning eller ett incitament att genomföra investeringsverksamhet. Den bör inte ligga till grund för investeringsbeslut.',
+                btn: 'Jag förstår — fortsätt',
+                fine: 'Genom att fortsätta bekräftar du detta meddelande. Denna webbplats är en informationskommunikation i förlansering och utgör inte ett erbjudande, en uppmaning eller en marknadsföring eller annan finansiell kommunikation av investeringstjänster eller finansiella instrument.'
+            },
+            es: {
+                badge: 'Prelanzamiento',
+                title: 'Antes de continuar.',
+                notice_strong: 'Ové no está actualmente autorizado para prestar servicios de inversión.',
+                notice_p1: 'Las funciones descritas en este sitio web son conceptuales y solo estarán disponibles si Ové se asocia con una empresa de inversión autorizada bajo MiFID II. La estructura exacta y los acuerdos con socios están sujetos a cambios.',
+                notice_p2: 'Este sitio web es solo con fines ilustrativos y no constituye asesoramiento de inversión, una oferta ni una invitación o incentivo para realizar actividades de inversión. No debe utilizarse como base para decisiones de inversión.',
+                btn: 'Entiendo — continuar',
+                fine: 'Al continuar, reconoces este aviso. Este sitio web es una comunicación informativa previa al lanzamiento y no constituye una oferta, solicitud o comunicación publicitaria de servicios de inversión o instrumentos financieros.'
+            },
+            it: {
+                badge: 'Pre-lancio',
+                title: 'Prima di continuare.',
+                notice_strong: 'Ové non è attualmente autorizzato a fornire servizi di investimento.',
+                notice_p1: "Le funzionalità descritte su questo sito web sono concettuali e saranno disponibili solo se Ové si associa con una società di investimento autorizzata ai sensi di MiFID II. La struttura esatta e gli accordi con i partner sono soggetti a modifiche.",
+                notice_p2: "Questo sito web è solo a scopo illustrativo e non costituisce consulenza in materia di investimenti, un'offerta o un invito o incentivo a svolgere attività di investimento. Non deve essere utilizzato come base per decisioni di investimento.",
+                btn: 'Ho capito — continua',
+                fine: "Continuando, riconosci questo avviso. Questo sito web è una comunicazione informativa pre-lancio e non costituisce un'offerta, una sollecitazione o una comunicazione promozionale relativa a servizi di investimento o strumenti finanziari."
+            }
+        };
+
+        var splashLangs = ['en','sv','es','it'];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var saved;
+            try { saved = localStorage.getItem('ove-lang'); } catch(e) {}
+            var browser = (navigator.language || '').slice(0,2).toLowerCase();
+            var lang = splashLangs.indexOf(saved) >= 0 ? saved : splashLangs.indexOf(browser) >= 0 ? browser : 'en';
+            applySplashLang(lang);
+        });
+
+        function applySplashLang(lang) {
+            var d = splashT[lang] || splashT.en;
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n');
+                if (d[key]) el.innerHTML = d[key];
+            });
+            document.documentElement.lang = lang;
+            try { localStorage.setItem('ove-lang', lang); } catch(e) {}
+            document.querySelectorAll('.lang-pill').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+
+        window.setSplashLang = function(lang) {
+            applySplashLang(lang);
+        };
+    </script>
 </body>
 </html>
