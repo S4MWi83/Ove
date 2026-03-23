@@ -1,0 +1,29 @@
+[[redirects]]
+  from = "/"
+  to = "/splash.html"
+  status = 200
+
+[[redirects]]
+  from = "/index"
+  to = "/home.html"
+  status = 200
+
+[[redirects]]
+  from = "/concept"
+  to = "/concept.html"
+  status = 200
+
+[[redirects]]
+  from = "/vision"
+  to = "/vision.html"
+  status = 200
+
+[[redirects]]
+  from = "/regulatory"
+  to = "/regulatory.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
