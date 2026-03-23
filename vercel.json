@@ -1,10 +1,10 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/splash.html" },
+    { "source": "/index", "destination": "/home.html" },
     { "source": "/concept", "destination": "/concept.html" },
     { "source": "/vision", "destination": "/vision.html" },
     { "source": "/regulatory", "destination": "/regulatory.html" },
-    { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/index", "destination": "/home.html" }
+    { "source": "/privacy", "destination": "/privacy.html" }
   ]
 }

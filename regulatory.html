@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            try {
+                if (!localStorage.getItem('ove-splash')) {
+                    window.location.replace('/');
+                }
+            } catch(e) {}
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ové — Regulatory Approach</title>
+    <meta name="description" content="How Ové thinks about regulation — MiFID II, investor protection, and building responsibly.">
+    <link rel="icon" type="image/svg+xml" href="ove-favicon-e.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+    <style>
+        :root {
+            --deep: #060f1e;
+            --blue: #3b82f6;
+            --blue-dim: rgba(59,130,246,0.12);
+            --cream: #f0ece4;
+            --muted: #9db5cc;
+            --border: rgba(255,255,255,0.07);
+            --card: rgba(255,255,255,0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--deep);
+            color: var(--cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+            width: 50vw; height: 50vw;
+            top: -15vw; left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2rem;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(6,15,30,0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 1px 20px rgba(59,130,246,0.08);
+        }
+
+        .nav-logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.6rem;
+            color: var(--cream);
+            text-decoration: none;
+            position: relative;
+        }
+        .nav-logo span {
+            display: inline-block;
+            width: 5px; height: 5px;
+            background: var(--blue);
+            border-radius: 50%;
+            position: absolute;
+            top: 5px; right: -8px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-link:hover { color: var(--cream); }
+        .nav-link.active { color: var(--cream); }
+
+        .wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.1s;
+        }
+
+        .hero-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1.12;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.2s;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: var(--muted);
+            font-weight: 300;
+            max-width: 520px;
+            line-height: 1.75;
+            margin-bottom: 3.5rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.3s;
+        }
+
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(59,130,246,0.3);
+            margin: 2.5rem 0;
+        }
+
+        .section {
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.4s;
+        }
+
+        .section-label {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            opacity: 0.85;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .section p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            line-height: 1.75;
+        }
+
+        .section p strong {
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        .section ul {
+            list-style: none;
+            margin: 0.5rem 0 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .section ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            color: var(--muted);
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .section ul li::before {
+            content: '→';
+            color: var(--blue);
+            flex-shrink: 0;
+            margin-top: 1px;
+            font-size: 0.85rem;
+        }
+
+        /* PRINCIPLE CARDS */
+        .principles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .principle-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.25rem 1.5rem;
+        }
+
+        .principle-card-label {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 0.5rem;
+            opacity: 0.85;
+        }
+
+        .principle-card-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.1rem;
+            color: var(--cream);
+            margin-bottom: 0.4rem;
+        }
+
+        .principle-card p {
+            font-size: 0.85rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* STATUS BADGE */
+        .status-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+            padding: 1rem 1.25rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .status-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(59,130,246,0.6);
+            flex-shrink: 0;
+            box-shadow: 0 0 8px rgba(59,130,246,0.4);
+        }
+
+        .status-text {
+            font-size: 0.85rem;
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        .status-text strong {
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer a { color: var(--muted); text-decoration: none; }
+        footer a:hover { color: var(--cream); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gate-overlay { position:fixed; inset:0; z-index:9999; background:rgba(6,15,30,0.97); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:2rem; }
+        .gate-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.2); border-radius:24px; padding:2.5rem; max-width:480px; width:100%; text-align:center; }
+        .gate-logo { font-family:'Instrument Serif',serif; font-size:1.8rem; color:var(--cream); margin-bottom:1.5rem; position:relative; display:inline-block; }
+        .gate-logo span { display:inline-block; width:5px; height:5px; background:var(--blue); border-radius:50%; position:absolute; top:5px; right:-8px; }
+        .gate-title { font-family:'Instrument Serif',serif; font-size:1.4rem; color:var(--cream); margin-bottom:1rem; line-height:1.3; }
+        .gate-text { font-size:0.85rem; color:var(--muted); line-height:1.7; margin-bottom:1.5rem; font-weight:300; }
+        .gate-text strong { color:var(--cream); font-weight:500; }
+        .gate-btn { display:inline-block; font-size:0.82rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue); background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.25); padding:0.75rem 2rem; border-radius:999px; cursor:pointer; transition:all 0.2s; font-family:'DM Sans',sans-serif; width:100%; }
+        .gate-fine { font-size:0.72rem; color:var(--muted); margin-top:1rem; line-height:1.5; opacity:0.7; }
+
+        @media (max-width: 640px) {
+            nav { padding: 1.25rem 1.35rem; }
+            .wrap { padding: 7rem 1.35rem 5rem; }
+            .principles { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="orb"></div>
+
+    <nav>
+        <a href="/" class="nav-logo">Ové<span></span></a>
+        <div class="nav-links">
+            <a href="/concept" class="nav-link">Ové</a>
+            <a href="/vision" class="nav-link">Vision</a>
+            <a href="/regulatory" class="nav-link active">Regulatory</a>
+        </div>
+    </nav>
+
+    <div class="wrap">
+
+        <p class="hero-label">Regulatory Approach</p>
+        <h1 class="hero-title">We understand compliance.<br>We're building for it.</h1>
+        <p class="hero-sub">Most fintech products treat regulation as a constraint to work around. Ové treats it as a design requirement. Here's how we think about it.</p>
+        <div style="margin-top:1rem;padding-left:0.75rem;border-left:2px solid rgba(157,181,204,0.4);display:flex;flex-direction:column;gap:0.2rem;">
+            <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5;margin:0;">This page is provided in English only.</p>
+            <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5;margin:0;">Denna sida tillhandahålls endast på engelska.</p>
+            <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5;margin:0;">Esta página está disponible únicamente en inglés.</p>
+            <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5;margin:0;">Questa pagina è disponibile solo in lingua inglese.</p>
+        </div>
+
+        <div class="status-row">
+            <div class="status-dot"></div>
+            <p class="status-text"><strong>Pre-launch status:</strong> Ové is not currently authorised to provide investment services. The features described here are conceptual and will only be available once Ové partners with an authorised investment firm under MiFID II. The exact regulatory structure and partner arrangements are subject to change.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-label">The framework</p>
+            <h2 class="section-title">Operating under MiFID II via a licensed partner.</h2>
+            <p>Ové is designed to operate through a licensed brokerage partner under <strong>MiFID II</strong> — the EU directive that governs investment services and sets the standards for investor protection. Rather than seeking a standalone licence, Ové will partner with an already-authorised firm that provides the regulatory and compliance infrastructure.</p>
+            <p>This means regulatory obligations — including KYC, AML, suitability assessments, and cost disclosures — are met at the partner level before Ové ever touches a user's money.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-label">Design principles</p>
+            <h2 class="section-title">Simplicity without removing safeguards.</h2>
+            <p>Ové's entire UX premise is that complexity is the barrier to investing — not regulation. The goal is to simplify the experience without reducing the protections users would be entitled to through an authorised partner.</p>
+
+            <div class="principles">
+                <div class="principle-card">
+                    <p class="principle-card-label">Suitability</p>
+                    <p class="principle-card-title">Matched to the user</p>
+                    <p>Any future investment service will include appropriateness and suitability assessments as required under MiFID II — ensuring the product matches each user's knowledge, experience, and financial situation.</p>
+                </div>
+                <div class="principle-card">
+                    <p class="principle-card-label">Cost transparency</p>
+                    <p class="principle-card-title">Fees disclosed upfront</p>
+                    <p>All fees — including the 0.5% AUM fee and optional Ové Advisor subscription — will be clearly disclosed before any investment is made, in line with MiFID II cost disclosure requirements.</p>
+                </div>
+                <div class="principle-card">
+                    <p class="principle-card-label">Risk disclosure</p>
+                    <p class="principle-card-title">Honest about downside</p>
+                    <p>Capital is at risk. Ové will surface risk disclosures prominently — not buried in footnotes. Users will understand that investments can go down as well as up before they commit.</p>
+                </div>
+                <div class="principle-card">
+                    <p class="principle-card-label">No behavioural nudging</p>
+                    <p class="principle-card-title">No FOMO, no urgency</p>
+                    <p>Ové does not use countdown timers, scarcity messaging, or return-based gamification. Regulators are increasingly focused on behavioural design — Ové is built to pass that scrutiny.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-label">Investor protection</p>
+            <h2 class="section-title">What users would be entitled to.</h2>
+            <p>Where applicable, users would be entitled to the following protections, expected to be provided through an authorised partner under MiFID II:</p>
+            <ul>
+                <li>A suitability or appropriateness assessment before investing</li>
+                <li>Clear disclosure of all costs and charges</li>
+                <li>A Key Information Document (KID) under PRIIPs before any packaged investment is made</li>
+                <li>The right to complain to a national competent authority</li>
+                <li>Client assets would be held and safeguarded by an authorised third-party provider</li>
+            </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-label">Data protection</p>
+            <h2 class="section-title">GDPR-first from day one.</h2>
+            <p>Ové collects only what it needs and handles data in accordance with GDPR. Users will be provided with a full privacy notice before any data collection begins. Read our <a href="/privacy" style="color:var(--blue);text-decoration:none;">Privacy Policy</a> for full details.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-label">Why this experience is limited</p>
+            <h2 class="section-title">Intentional restraint, not technical limitation.</h2>
+            <p>Ové does not simulate real investment decisions, execute transactions, or provide personalised outputs. This is a deliberate choice.</p>
+            <p>Investment services in the EU require regulatory authorisation, suitability or appropriateness assessments, and investor protections that are not yet in place. Offering a more realistic simulation before these safeguards exist would risk misleading users about the nature of investing and about what Ové currently is.</p>
+            <p>This approach is designed to ensure full compliance before launch — not to minimise effort, but to protect users.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-label">Questions</p>
+            <h2 class="section-title">Get in touch.</h2>
+            <p>For regulatory or compliance questions, contact us at <a href="/cdn-cgi/l/email-protection#adc4c3cbc2edc0c8c8d9c2dbc883dddfc2" style="color:var(--blue);text-decoration:none;"><span class="__cf_email__" data-cfemail="bad3d4dcd5fad7dfdfced5ccdf94cac8d5">[email&#160;protected]</span></a>.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <span>© <span id="year"></span> Ové. <span id="footer-dev">Currently in development.</span> <a href="/cd
