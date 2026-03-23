@@ -272,7 +272,7 @@
             <p class="section-num">1</p>
             <h2 class="section-title">Who we are</h2>
             <p>Ové ("we", "us", or "our") operates this website and manages the waitlist. Ové is a pre-launch product and does not currently provide investment services.</p>
-            <p>Contact: <a href="/cdn-cgi/l/email-protection#8ee7e0e8e1cee3ebebfae1f8eba0fefce1" style="color:var(--blue);text-decoration:none;"><span class="__cf_email__" data-cfemail="b7ded9d1d8f7dad2d2c3d8c1d299c7c5d8">[email&#160;protected]</span></a></p>
+            <p>Contact: <a id="email-contact-1" style="color:var(--blue);text-decoration:none;"></a></p>
         </div>
 
         <div class="divider"></div>
@@ -359,7 +359,7 @@
                 <li>Withdraw consent at any time</li>
                 <li>Lodge a complaint with your local data protection authority</li>
             </ul>
-            <p>To exercise your rights, contact: <a href="/cdn-cgi/l/email-protection#6f060109002f020a0a1b00190a411f1d00" style="color:var(--blue);text-decoration:none;"><span class="__cf_email__" data-cfemail="f59c9b939ab5989090819a8390db85879a">[email&#160;protected]</span></a></p>
+            <p>To exercise your rights, contact: <a id="email-contact-2" style="color:var(--blue);text-decoration:none;"></a></p>
         </div>
 
         <div class="divider"></div>
@@ -389,4 +389,21 @@
     </div>
 
     <footer>
-        <span>© <span id="year"></span> Ové. Currently in development. <a 
+        <span>© <span id="year"></span> Ové. Currently in development. <a href="/privacy" style="color:var(--blue);text-decoration:none;">Privacy Policy</a></span></footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Cloudflare-proof email injection
+        (function() {
+            var u = 'info', d = 'meetove.pro';
+            var addr = u + '\u0040' + d;
+            var href = 'mai' + 'lto:' + addr;
+            ['email-contact-1','email-contact-2'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) { el.href = href; el.textContent = addr; }
+            });
+        })();
+    </script>
+</body>
+</html>
