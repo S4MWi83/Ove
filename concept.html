@@ -37,7 +37,7 @@
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
-        body { font-family:'DM Sans',sans-serif; background:var(--deep); color:var(--cream); min-height:100vh; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+        body { font-family:'DM Sans',sans-serif; background:var(--deep); color:var(--cream); min-height:100vh; overflow-x:hidden; -webkit-font-smoothing:antialiased; padding-top: 6.5rem; }
         body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.4; }
         .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; }
         .orb-1 { width:55vw; height:55vw; top:-18vw; left:50%; transform:translateX(-50%); background:radial-gradient(circle,rgba(59,130,246,0.13),transparent 70%); }
