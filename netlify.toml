@@ -27,3 +27,6 @@
   from = "/privacy"
   to = "/privacy.html"
   status = 200
+  
+[build]
+  publish = "."
