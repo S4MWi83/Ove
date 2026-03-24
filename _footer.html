@@ -1,0 +1,52 @@
+<!--
+    _footer.html — Ové shared footer component
+    Three variants — copy the one that matches the page type.
+    Always use JS email injection for info@meetove.pro (never hardcode).
+    Always include ove-shared.js which handles year + email automatically.
+-->
+
+
+<!-- ─── VARIANT A: Standard (regulatory, privacy, vision) ─────────────────── -->
+<footer>
+    <span>© <span id="year"></span> Ové. Currently in development.
+        <a href="/privacy" style="color:var(--blue);text-decoration:none;">Privacy Policy</a>
+    </span>
+</footer>
+
+
+<!-- ─── VARIANT B: With legal disclaimer (home page) ─────────────────────── -->
+<!--
+<footer>
+    <span style="font-size:0.75rem;color:var(--muted);opacity:0.7;">
+        Ové does not currently provide investment services.
+        This website does not enable or invite users to invest.
+        For illustrative purposes only and should not be relied upon for investment decisions.
+        Investing involves risk. The value of investments can go down as well as up.
+    </span>
+    <span>© <span id="year"></span> Ové. Currently in development.</span>
+    <div class="footer-links">
+        <a href="https://x.com/BeginOve" target="_blank">@BeginOve on X</a>
+    </div>
+</footer>
+-->
+
+
+<!-- ─── VARIANT C: Minimal with X link (concept) ─────────────────────────── -->
+<!--
+<footer>
+    <span>© <span id="year"></span> Ové. All rights reserved.</span>
+    <div class="footer-links">
+        <a href="https://x.com/BeginOve" target="_blank">@BeginOve on X</a>
+    </div>
+</footer>
+-->
+
+
+<!-- ─── EMAIL INJECTION NOTE ──────────────────────────────────────────────── -->
+<!--
+    To add info@meetove.pro anywhere on a page, use:
+    <a data-email="contact" style="color:var(--blue);text-decoration:none;"></a>
+
+    ove-shared.js will inject the address and href automatically on DOMContentLoaded.
+    Never write the email address as plain text in HTML — Cloudflare will obfuscate it.
+-->
