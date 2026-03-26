@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            try {
+                if (!localStorage.getItem('ove-splash')) {
+                    window.location.replace('/');
+                }
+            } catch(e) {}
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ové — Terms of Service</title>
+    <meta name="description" content="Terms of Service for Ové — please read before using this website.">
+    <link rel="icon" type="image/svg+xml" href="ove-favicon-e.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+    <style>
+        :root {
+            --deep: #060f1e;
+            --blue: #3b82f6;
+            --blue-dim: rgba(59,130,246,0.12);
+            --cream: #f0ece4;
+            --muted: #9db5cc;
+            --border: rgba(255,255,255,0.07);
+            --card: rgba(255,255,255,0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--deep);
+            color: var(--cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+            width: 50vw; height: 50vw;
+            top: -15vw; left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2rem;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(6,15,30,0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 1px 20px rgba(59,130,246,0.08);
+        }
+
+        .nav-logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.6rem;
+            color: var(--cream);
+            text-decoration: none;
+            position: relative;
+        }
+        .nav-logo span {
+            display: inline-block;
+            width: 5px; height: 5px;
+            background: var(--blue);
+            border-radius: 50%;
+            position: absolute;
+            top: 5px; right: -8px;
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+        .nav-link { font-size: 0.85rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+        .nav-link:hover { color: var(--cream); }
+
+        .wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.1s;
+        }
+
+        .hero-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1.12;
+            margin-bottom: 0.75rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.2s;
+        }
+
+        .hero-date {
+            font-size: 0.85rem;
+            color: var(--muted);
+            font-weight: 300;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.3s;
+        }
+
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(59,130,246,0.3);
+            margin: 2.5rem 0;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.4s;
+        }
+
+        .section-num {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            opacity: 0.85;
+            margin-bottom: 0.4rem;
+        }
+
+        .section-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .section p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            line-height: 1.75;
+        }
+
+        .section p strong { color: var(--cream); font-weight: 500; }
+
+        .section ul {
+            list-style: none;
+            margin: 0.5rem 0 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .section ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            color: var(--muted);
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .section ul li::before {
+            content: '→';
+            color: var(--blue);
+            flex-shrink: 0;
+            margin-top: 1px;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        footer a { color: var(--blue); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .footer-links { display: flex; gap: 1.5rem; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 640px) {
+            nav { padding: 1.25rem 1.35rem; }
+            .wrap { padding: 7rem 1.35rem 5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="orb"></div>
+
+<nav>
+    <a href="/" class="nav-logo">Ové<span></span></a>
+    <div class="nav-links">
+        <a href="/concept" class="nav-link">Ové</a>
+        <a href="/vision" class="nav-link">Vision</a>
+    </div>
+</nav>
+
+<div class="wrap">
+
+    <p class="hero-label">Legal</p>
+    <h1 class="hero-title">Terms of Service</h1>
+    <p class="hero-date">Last updated: March 2026</p>
+
+    <div style="margin-top:1rem;padding-left:0.75rem;border-left:2px solid rgba(157,181,204,0.4);display:flex;flex-direction:column;gap:0.2rem;">
+        <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5;margin:0;">These terms are provided in English only.</p>
+        <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5;margin:0;">Dessa villkor tillhandahålls endast på engelska.</p>
+        <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5;margin:0;">Estos términos están disponibles únicamente en inglés.</p>
+        <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5;margin:0;">Questi termini sono disponibili solo in lingua inglese.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <p class="section-num">1</p>
+        <h2 class="section-title">About this website</h2>
+        <p>This website is operated by Ové ("we", "us", or "our"). Ové is a pre-launch product and is <strong>not yet authorised to provide investment services</strong>. No accounts, investments, or financial services are available through this website.</p>
+        <p>By accessing this website you agree to these Terms of Service. If you do not agree, please do not use the website.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <p class="section-num">2</p>
+        <h2 class="section-title">Service not yet available</h2>
+        <p>Ové is currently in development. This website is provided for informational and waitlist purposes only. Nothing on this website constitutes an offer, invitation, or inducement to engage in any investment activity.</p>
+        <p>We do not accept deposits, manage funds, or provide any regulated financial service at this time.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <p class="section-num">3</p>
+        <h2 class="section-title">No investment advice</h2>
+        <p>Nothing on this website constitutes investment advice, a personal recommendation, or a solicitation to buy or sell any financial instrument. All content is provided for illustrative and informational purposes only.</p>
+        <p>Investing involves risk. The value of investments can go down as well as up. You should seek independent financial advice before making any investment decision.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <p class="section-num">4</p>
+        <h2 class="section-title">No reliance on site content</h2>
+        <p>The content on this website is provided in good faith but may change without notice. You should not rely on any information on this website as the basis for making financial, legal, or other decisions.</p>
+        <p>We make no representations or warranties about the accuracy, completeness, or suitability of any content on this website.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <p class="section-num">5</p>
+        <h2 class="section-title">Limitation of liability</h2>
+        <p>To the fullest extent permitted by applicable law, Ové and its founders, employees, and affiliates shall not be liable for any direct, indirect, incidental, or consequential loss or damage arising from:</p>
+        <ul>
+            <li>Your use of, or inability to use, this website</li>
+            <li>Any reliance placed on the content of this website</li>
+            <li>Any interruption, suspension, or termination of this website</li>
+        </ul>
+        <p>Nothing in these terms excludes or limits liability that cannot be excluded or limited under applicable law.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <p class="section-num">6</p>
+        <h2 class="section-title">Intellectual property</h2>
+        <p>All content on this website — including text, graphics, logos, and design — is the property of Ové and may not be reproduced, distributed, or used without prior written permission.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <p class="section-num">7</p>
+        <h2 class="section-title">Third-party links</h2>
+        <p>This website may contain links to third-party websites. We are not responsible for the content, accuracy, or practices of any third-party site and do not endorse them.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <p class="section-num">8</p>
+        <h2 class="section-title">Governing law</h2>
+        <p>These Terms of Service are governed by and construed in accordance with the laws of Sweden. Any disputes arising in connection with these terms shall be subject to the exclusive jurisdiction of the Swedish courts.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <p class="section-num">9</p>
+        <h2 class="section-title">Changes to these terms</h2>
+        <p>We may update these Terms of Service from time to time. The latest version will always be available on this page. Continued use of the website after changes are posted constitutes acceptance of the updated terms.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <p class="section-num">10</p>
+        <h2 class="section-title">Contact</h2>
+        <p>If you have any questions about these terms, please contact us at <a id="email-contact" style="color:var(--blue);text-decoration:none;"></a>.</p>
+    </div>
+
+</div>
+
+<footer>
+    <span>© <span id="year"></span> Ové. Currently in development.</span>
+    <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function() {
+        var u = 'info', d = 'meetove.pro';
+        var addr = u + '\u0040' + d;
+        var el = document.getElementById('email-contact');
+        if (el) { el.href = 'mai' + 'lto:' + addr; el.textContent = addr; }
+    })();
+</script>
+<script src="/ove-shared.js"></script>
+</body>
+</html>
