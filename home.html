@@ -4,7 +4,7 @@
     <script>
         (function() {
             try {
-                if (!localStorage.getItem('ove-splash')) {
+                if (!localStorage.getItem('ove-splashed')) {
                     window.location.replace('/');
                 }
             } catch(e) {}
@@ -59,7 +59,6 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
-    
     <style>
         :root {
             --deep: #060f1e;
@@ -70,61 +69,20 @@
             --muted: #9db5cc;
             --border: rgba(255,255,255,0.07);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body {
-            padding-top: 6.5rem;
-            font-family: 'DM Sans', sans-serif;
-            background: var(--deep);
-            color: var(--cream);
-            min-height: 100vh;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.4;
-        }
-
+        body { padding-top: 6.5rem; font-family: 'DM Sans', sans-serif; background: var(--deep); color: var(--cream); min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.4; }
         .orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
         .orb-1 { width: 60vw; height: 60vw; top: -20vw; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(59,130,246,0.13), transparent 70%); }
-
         .wrap { max-width: 1080px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; }
-
-        /* NAV */
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.25rem 2rem;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: rgba(6,15,30,0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-            box-shadow: 0 1px 20px rgba(59,130,246,0.08);
-            transition: background 0.3s ease;
-            overflow: visible;
-        }
+        nav { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2rem; position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(6,15,30,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.07); box-shadow: 0 1px 20px rgba(59,130,246,0.08); transition: background 0.3s ease; overflow: visible; }
         .nav-logo { font-family: 'Instrument Serif', serif; font-size: 1.8rem; color: var(--cream); text-decoration: none; position: relative; }
         .nav-logo span { display: inline-block; width: 6px; height: 6px; background: var(--blue); border-radius: 50%; position: absolute; top: 6px; right: -9px; box-shadow: 0 0 8px var(--blue-glow); }
         .nav-links { display: flex; align-items: center; gap: 1.5rem; }
         .nav-link { font-size: 0.85rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
         .nav-link:hover { color: var(--cream); }
         .nav-pill { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); background: var(--blue-dim); border: 1px solid rgba(59,130,246,0.2); padding: 0.4rem 1rem; border-radius: 999px; }
-
-        /* HERO */
         .hero { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 0 6rem; }
         .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 400; color: var(--muted); margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s; }
         .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 32px; height: 1px; background: var(--border); }
@@ -132,8 +90,6 @@
         .hero-headline em { font-style: italic; color: #93c5fd; }
         .hero-sub { font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--muted); font-weight: 300; max-width: 460px; margin: 0 auto 3.5rem; line-height: 1.7; opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s; }
         .hero-cta { opacity: 0; animation: fadeUp 0.7s ease forwards 0.6s; }
-
-        /* CTA BUTTON */
         .cta-btn { position: relative; display: inline-flex; align-items: center; gap: 1rem; background: transparent; color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; padding: 1.3rem 2.5rem; border-radius: 999px; border: none; cursor: pointer; transition: all 0.4s ease; letter-spacing: 0.12em; text-transform: uppercase; outline: none; text-decoration: none; }
         .cta-btn::before { content: ''; position: absolute; inset: 0; border-radius: 999px; border: 1px solid rgba(59,130,246,0.35); transition: all 0.4s ease; pointer-events: none; }
         .cta-btn::after { content: ''; position: absolute; inset: 3px; border-radius: 999px; border: 1px solid rgba(59,130,246,0.15); transition: all 0.4s ease; pointer-events: none; }
@@ -142,27 +98,14 @@
         .cta-btn:hover { color: white; }
         .cta-btn-label { position: relative; z-index: 1; }
         .cta-nudge { display: block; margin-top: 1rem; font-size: 0.85rem; color: var(--muted); font-weight: 300; }
-
-        /* FOOTER */
         footer { border-top: 1px solid var(--border); padding: 2rem 0; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 0.85rem; font-weight: 300; flex-wrap: wrap; gap: 1rem; }
         .footer-links { display: flex; gap: 1.5rem; }
         .footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
         .footer-links a:hover { color: var(--cream); }
-
-        /* ANIMATIONS */
         @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
         @media (max-width: 560px) { nav { padding: 1.5rem 0; } .hero { padding: 2rem 0 4rem; } }
-        @media (max-width: 640px) {
-            nav { padding: 1.25rem 0; flex-wrap: wrap; gap: 0.75rem; }
-            .nav-logo { font-size: 1.5rem; }
-            .nav-links { gap: 0.85rem; }
-            .nav-link { font-size: 0.78rem; }
-            .nav-pill, .nav-cta { font-size: 0.7rem; padding: 0.3rem 0.7rem; letter-spacing: 0.05em; }
-        }
-
-        /* LANG SWITCHER */
+        @media (max-width: 640px) { nav { padding: 1.25rem 0; flex-wrap: wrap; gap: 0.75rem; } .nav-logo { font-size: 1.5rem; } .nav-links { gap: 0.85rem; } .nav-link { font-size: 0.78rem; } .nav-pill, .nav-cta { font-size: 0.7rem; padding: 0.3rem 0.7rem; letter-spacing: 0.05em; } }
         .lang-switcher { position: relative; }
         .lang-btn { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.6rem; cursor: pointer; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s; }
         .lang-btn:hover { color: var(--cream); border-color: rgba(255,255,255,0.15); }
@@ -171,156 +114,123 @@
         .lang-option { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 1rem; font-size: 0.82rem; color: var(--muted); cursor: pointer; transition: all 0.15s; border: none; background: none; width: 100%; font-family: 'DM Sans', sans-serif; text-align: left; }
         .lang-option:hover { background: rgba(255,255,255,0.05); color: var(--cream); }
         .lang-option.active { color: var(--cream); background: rgba(59,130,246,0.1); }
-        /* STATUS PILLS */
         .status-pills { display: flex; align-items: center; justify-content: center; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 1.75rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
         .status-pill { font-size: 0.68rem; font-weight: 300; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.15); opacity: 0.7; }
         .status-pill:nth-child(2) { opacity: 1; }
         .mobile-eyebrow { display: none; }
-        @media (max-width: 560px) {
-            .nav-pill { display: none; }
-            .status-pill:nth-child(2) { display: none; }
-            .status-pills { gap: 0.5rem; margin-bottom: 1.25rem; }
-            .hero-eyebrow { font-size: 0.78rem; margin-bottom: 1.75rem; }
-            .hero-eyebrow::before, .hero-eyebrow::after { width: 20px; }
-            .desktop-eyebrow { display: none; }
-            .mobile-eyebrow { display: inline; }
-        }
+        @media (max-width: 560px) { .nav-pill { display: none; } .status-pill:nth-child(2) { display: none; } .status-pills { gap: 0.5rem; margin-bottom: 1.25rem; } .hero-eyebrow { font-size: 0.78rem; margin-bottom: 1.75rem; } .hero-eyebrow::before, .hero-eyebrow::after { width: 20px; } .desktop-eyebrow { display: none; } .mobile-eyebrow { display: inline; } }
     </style>
 </head>
 <body>
 <div class="orb orb-1"></div>
-
-    <nav>
-        <a href="/" class="nav-logo">Ové<span></span></a>
-        <div class="nav-links">
-            <a href="/concept" class="nav-link" data-i18n="nav_concept">Ové</a>
-            <a href="/vision" class="nav-link" data-i18n="nav_vision">Vision</a>
-            <a href="/regulatory" class="nav-link" data-i18n="nav_regulatory">Regulatory</a>
+<nav>
+    <a href="/" class="nav-logo">Ové<span></span></a>
+    <div class="nav-links">
+            <a href="/index" class="nav-link" data-i18n="nav_home">Home</a>
+            <a href="/concept" class="nav-link" data-i18n="nav_concept">Concept</a>
             <div class="lang-switcher" id="lang-switcher">
-                <button class="lang-btn" id="lang-btn">&#127760; <span id="lang-code">EN</span> &#9660;</button>
-                <div class="lang-dropdown" id="lang-dropdown">
-                    <button class="lang-option active" data-lang="en">English</button>
-                    <button class="lang-option" data-lang="sv">Svenska</button>
-                    <button class="lang-option" data-lang="es">Español</button>
-                    <button class="lang-option" data-lang="it">Italiano</button>
-                </div>
+            <button class="lang-btn" id="lang-btn">&#127760; <span id="lang-code">EN</span> &#9660;</button>
+            <div class="lang-dropdown" id="lang-dropdown">
+                <button class="lang-option active" data-lang="en">English</button>
+                <button class="lang-option" data-lang="sv">Svenska</button>
+                <button class="lang-option" data-lang="es">Español</button>
+                <button class="lang-option" data-lang="it">Italiano</button>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
+<div class="wrap" role="main">
+    <section class="hero">
+        <div class="status-pills">
+            <span class="status-pill" data-i18n="pill_2">Coming soon</span>
+            <span class="status-pill" data-i18n="pill_1">Not handling funds yet</span>
+            <span class="status-pill" data-i18n="pill_3">Free waitlist</span>
+        </div>
+        <p class="hero-eyebrow"><span class="desktop-eyebrow" data-i18n="eyebrow">Early access — join the waitlist.</span><span class="mobile-eyebrow" data-i18n="eyebrow_mobile">Join waitlist below.</span></p>
+        <h1 class="hero-headline">
+            <span data-i18n="headline_1">From</span> <em data-i18n="headline_2">someday</em><br><span data-i18n="headline_3">to today.</span>
+        </h1>
+        <p class="hero-sub"><span data-i18n="sub"><em>Investing made accessible. Clear. Fast. Honest.</em></span></p>
+        <div class="hero-cta">
+            <a href="/waitlist" class="cta-btn">
+                <span class="cta-btn-label" data-i18n="cta">SECURE YOUR SPOT</span>
+            </a>
+            <span class="cta-nudge" data-i18n="nudge">Free to join. No commitment.</span>
+        </div>
+    </section>
 
-    <div class="wrap" role="main">
-
-        <section class="hero">
-            <div class="status-pills">
-                <span class="status-pill" data-i18n="pill_2">Coming soon</span>
-                <span class="status-pill" data-i18n="pill_1">Not handling funds yet</span>
-                <span class="status-pill" data-i18n="pill_3">Free waitlist</span>
+    <section style="border-top:1px solid rgba(255,255,255,0.07);padding:3.5rem 2rem;position:relative;z-index:1;margin:0 -2rem;">
+        <div style="max-width:480px;margin:0 auto;text-align:center;">
+            <p style="font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);opacity:0.85;margin-bottom:1.75rem;" data-i18n="not_label">What Ové is not</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+                <div style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;"><span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span><span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_1">Not a bank</span></div>
+                <div style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;"><span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span><span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_2">Not a trading platform</span></div>
+                <div style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;"><span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span><span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_3">Not for short-term speculation</span></div>
+                <div style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;"><span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span><span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_4">Not suitable for everyone</span></div>
+                <div style="grid-column:1/-1;display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;justify-content:center;"><span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span><span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_5">Not currently authorised to provide investment services</span></div>
             </div>
-            <p class="hero-eyebrow"><span class="desktop-eyebrow" data-i18n="eyebrow">Early access — join the waitlist.</span><span class="mobile-eyebrow" data-i18n="eyebrow_mobile">Join waitlist below.</span></p>
-            <h1 class="hero-headline">
-                <span data-i18n="headline_1">From</span> <em data-i18n="headline_2">someday</em><br><span data-i18n="headline_3">to today.</span>
-            </h1>
-            <p class="hero-sub">
-                <span data-i18n="sub"><em>Investing made accessible. Clear. Fast. Honest.</em></span>
-            </p>
-            <div class="hero-cta">
-                <a href="/waitlist" class="cta-btn">
-                    <span class="cta-btn-label" data-i18n="cta">SECURE YOUR SPOT</span>
-                </a>
-                <span class="cta-nudge" data-i18n="nudge">Free to join. No commitment.</span>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- WHAT OVÉ IS NOT -->
-        <section style="border-top:1px solid rgba(255,255,255,0.07);padding:3.5rem 2rem;position:relative;z-index:1;margin:0 -2rem;">
-            <div style="max-width:480px;margin:0 auto;text-align:center;">
-                <p style="font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);opacity:0.85;margin-bottom:1.75rem;" data-i18n="not_label">What Ové is not</p>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
-                    <div style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;">
-                        <span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span>
-                        <span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_1">Not a bank</span>
-                    </div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;">
-                        <span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span>
-                        <span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_2">Not a trading platform</span>
-                    </div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;">
-                        <span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span>
-                        <span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_3">Not for short-term speculation</span>
-                    </div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;">
-                        <span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span>
-                        <span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_4">Not suitable for everyone</span>
-                    </div>
-                    <div style="grid-column:1/-1;display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:0.9rem 1.1rem;text-align:left;justify-content:center;">
-                        <span style="color:var(--blue);font-size:0.75rem;flex-shrink:0;">→</span>
-                        <span style="font-size:0.85rem;color:var(--muted);font-weight:300;" data-i18n="not_5">Not currently authorised to provide investment services</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
+    <footer>
             <span style="font-size:0.75rem;color:var(--muted);opacity:0.7;" data-i18n="footer_disclaimer">Ové does not currently provide investment services. This website does not enable or invite users to invest. For illustrative purposes only and should not be relied upon for investment decisions. Investing involves risk. The value of investments can go down as well as up.</span>
-            <span>© <span id="year"></span> Ové. <span data-i18n="footer_dev">Currently in development.</span> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#109;&#101;&#101;&#116;&#111;&#118;&#101;&#46;&#112;&#114;&#111;" style="color:var(--muted);text-decoration:none;">info&#64;meetove.pro</a></span>
+            <span>© <span id="year"></span> Ové. <span data-i18n="footer_dev">Currently in development.</span></span>
             <div class="footer-links">
-                <a href="https://x.com/BeginOve" target="_blank" data-i18n="twitter">@BeginOve on X</a>
+                <a href="/vision" data-i18n="footer_vision">Vision</a>
+                <a href="/regulatory" data-i18n="footer_regulatory">Regulatory</a>
+                <a href="/terms" data-i18n="footer_terms">Terms</a>
+                <a href="/privacy" data-i18n="footer_privacy">Privacy</a>
             </div>
         </footer>
-    </div>
+</div>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-
-    <script>
-        var translations = {
-            en: { nav_concept:"Ové", nav_waitlist:"Waitlist open", eyebrow:"Early access — join the waitlist.", eyebrow_mobile:"Join waitlist below.", headline_1:"From", headline_2:"someday", headline_3:"to today.", sub:"Investing made accessible. Clear. Fast. Honest.", cta:"SECURE YOUR SPOT", nudge:"Free to join. No commitment.", pill_1:"Not handling funds yet", pill_2:"Coming soon", pill_3:"Free waitlist", not_label:"What Ové is not", not_1:"Not a bank", not_2:"Not a trading platform", not_3:"Not for short-term speculation", not_4:"Not suitable for everyone", not_5:"Not currently authorised to provide investment services", footer_dev:"Currently in development.", twitter:"@BeginOve on X", nav_vision:"Vision", nav_regulatory:"Regulatory", footer_disclaimer:"Ové does not currently provide investment services. This website does not enable or invite users to invest. For illustrative purposes only and should not be relied upon for investment decisions. Investing involves risk. The value of investments can go down as well as up.", code:"EN", fi:"gb" },
-            sv: { nav_concept:"Ov\u00e9", nav_waitlist:"V\u00e4ntelistan \u00e4r \u00f6ppen", eyebrow:"Tidig tillg\u00e5ng \u2014 st\u00e4ll dig p\u00e5 v\u00e4ntelistan.", eyebrow_mobile:"Anm\u00e4l dig till v\u00e4ntelistan nedan.", headline_1:"Fr\u00e5n", headline_2:"en dag", headline_3:"till idag.", sub:"Investeringar p\u00e5 ett enkelt s\u00e4tt. Tydligt. Snabbt. \u00c4rligt.", cta:"S\u00c4KRA DIN PLATS", nudge:"Gratis att g\u00e5 med. Inget \u00e5tagande.", pill_1:"Hanterar inte pengar \u00e4nnu", pill_2:"Kommer snart", pill_3:"Gratis v\u00e4ntelista", not_label:"Vad Ov\u00e9 inte \u00e4r", not_1:"Ingen bank", not_2:"Ingen handelsplattform", not_3:"Inte avsedd f\u00f6r kortsiktig spekulation", not_4:"Passar inte alla", not_5:"F\u00f6r n\u00e4rvarande inte auktoriserat att tillhandah\u00e5lla investeringstj\u00e4nster och investeringsverksamhet", footer_dev:"Under utveckling.", twitter:"@BeginOve p\u00e5 X", nav_vision:"Vision", nav_regulatory:"Regelefterlevnad", footer_disclaimer:"Ov\u00e9 tillhandah\u00e5ller f\u00f6r n\u00e4rvarande inga investeringstj\u00e4nster. Denna webbplats m\u00f6jligg\u00f6r inte och uppmanar inte anv\u00e4ndare att investera. Endast i illustrativt syfte och b\u00f6r inte ligga till grund f\u00f6r investeringsbeslut. Investeringar inneb\u00e4r risker. V\u00e4rdet p\u00e5 investeringar kan b\u00e5de stiga och sjunka.", code:"SV", fi:"se" },
-            es: { nav_concept:"Ov\u00e9", nav_waitlist:"Lista de espera abierta", eyebrow:"Acceso anticipado: \u00fanete a la lista de espera.", eyebrow_mobile:"\u00danete a la lista de espera a continuaci\u00f3n.", headline_1:"De", headline_2:"alg\u00fan d\u00eda", headline_3:"al hoy.", sub:"Invertir al alcance de todos. Claro. R\u00e1pido. Honesto.", cta:"ASEG\u00daRATE TU PLAZA", nudge:"Inscripci\u00f3n gratuita. Sin compromiso.", pill_1:"A\u00fan no gestionamos fondos", pill_2:"Pr\u00f3ximamente", pill_3:"Lista de espera gratuita", not_label:"Lo que Ov\u00e9 no es", not_1:"No es un banco", not_2:"No es una plataforma de trading", not_3:"No es para la especulaci\u00f3n a corto plazo", not_4:"No es adecuado para todo el mundo", not_5:"Actualmente no est\u00e1 autorizado para prestar servicios de inversi\u00f3n", footer_dev:"Actualmente en desarrollo.", twitter:"@BeginOve en X", nav_vision:"Visi\u00f3n", nav_regulatory:"Regulatorio", footer_disclaimer:"Ov\u00e9 no presta actualmente servicios de inversi\u00f3n. Este sitio web no permite ni invita a los usuarios a invertir. Solo con fines ilustrativos y no debe utilizarse como base para decisiones de inversi\u00f3n. Invertir conlleva riesgos. El valor de las inversiones puede tanto subir como bajar.", code:"ES", fi:"es" },
-            it: { nav_concept:"Ov\u00e9", nav_waitlist:"Lista d'attesa aperta", eyebrow:"Accesso anticipato \u2014 iscriviti alla lista d'attesa.", eyebrow_mobile:"Iscriviti alla lista d'attesa qui sotto.", headline_1:"Da", headline_2:"un giorno", headline_3:"a oggi.", sub:"Investire reso accessibile. Chiaro. Veloce. Onesto.", cta:"ASSICURATI IL TUO POSTO", nudge:"Iscrizione gratuita. Nessun impegno.", pill_1:"Non gestiamo ancora fondi", pill_2:"Prossimamente", pill_3:"Lista d'attesa gratuita", not_label:"Cosa non \u00e8 Ov\u00e9", not_1:"Non \u00e8 una banca", not_2:"Non \u00e8 una piattaforma di trading", not_3:"Non \u00e8 per la speculazione a breve termine", not_4:"Non adatto a tutti", not_5:"Attualmente non autorizzato a fornire servizi di investimento", footer_dev:"Attualmente in fase di sviluppo.", twitter:"@BeginOve su X", nav_vision:"Visione", nav_regulatory:"Normativa", footer_disclaimer:"Ov\u00e9 attualmente non fornisce servizi di investimento. Questo sito web non consente n\u00e9 invita gli utenti a investire. Solo a scopo illustrativo e non deve essere utilizzato come base per decisioni di investimento. Investire comporta dei rischi. Il valore degli investimenti pu\u00f2 aumentare o diminuire.", code:"IT", fi:"it" }
-        };
-
-        function applyLang(lang) {
-            var t = translations[lang];
-            if (!t) return;
-            localStorage.setItem('ove-lang', lang);
-            document.querySelectorAll('[data-i18n]').forEach(function(el) {
-                var key = el.getAttribute('data-i18n');
-                if (t[key] !== undefined) el.textContent = t[key];
-            });
-            document.getElementById('lang-code').textContent = t.code;
-            document.querySelectorAll('.lang-option').forEach(function(o) {
-                o.classList.toggle('active', o.dataset.lang === lang);
-            });
-            document.getElementById('lang-dropdown').style.display = 'none';
-
-            // Update CTA href for localised waitlist if needed
-            var ctaBtn = document.querySelector('.cta-btn');
-            if (ctaBtn) ctaBtn.href = '/waitlist';
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('lang-btn').addEventListener('click', function(e) {
-                e.stopPropagation();
-                var dd = document.getElementById('lang-dropdown');
-                dd.style.display = dd.style.display === 'block' ? 'none' : 'block';
-            });
-            document.querySelectorAll('.lang-option').forEach(function(o) {
-                o.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    applyLang(o.dataset.lang);
-                });
-            });
-            document.addEventListener('click', function(e) {
-                if (!document.getElementById('lang-switcher').contains(e.target)) {
-                    document.getElementById('lang-dropdown').style.display = 'none';
-                }
-            });
-            var saved = localStorage.getItem('ove-lang');
-            if (saved && translations[saved]) applyLang(saved);
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script>
+    var translations = {
+        en: { nav_home:"Home", nav_concept:"Concept", eyebrow:"Early access — join the waitlist.", eyebrow_mobile:"Join waitlist below.", headline_1:"From", headline_2:"someday", headline_3:"to today.", sub:"Investing made accessible. Clear. Fast. Honest.", cta:"SECURE YOUR SPOT", nudge:"Free to join. No commitment.", pill_1:"Not handling funds yet", pill_2:"Coming soon", pill_3:"Free waitlist", not_label:"What Ové is not", not_1:"Not a bank", not_2:"Not a trading platform", not_3:"Not for short-term speculation", not_4:"Not suitable for everyone", not_5:"Not currently authorised to provide investment services", footer_dev:"Currently in development.", twitter:"@BeginOve on X", nav_vision:"Vision", nav_regulatory:"Regulatory", banner:"Ové is a pre-launch concept and is not authorised to provide investment services. Nothing on this website constitutes investment advice, an offer, or an invitation or inducement to engage in investment activity. No accounts or investments are available. For illustrative purposes only and should not be relied upon for investment decisions.", footer_disclaimer:"Ové does not currently provide investment services. This website does not enable or invite users to invest. For illustrative purposes only and should not be relied upon for investment decisions. Investing involves risk. The value of investments can go down as well as up.", code:"EN", fi:"gb" , footer_vision:"Vision", footer_regulatory:"Regulatory", footer_terms:"Terms", footer_privacy:"Privacy"},
+        sv: { nav_home:"Hem", nav_concept:"Koncept", eyebrow:"Tidig tillg\u00e5ng \u2014 st\u00e4ll dig p\u00e5 v\u00e4ntelistan.", eyebrow_mobile:"Anm\u00e4l dig till v\u00e4ntelistan nedan.", headline_1:"Fr\u00e5n", headline_2:"en dag", headline_3:"till idag.", sub:"Investeringar p\u00e5 ett enkelt s\u00e4tt. Tydligt. Snabbt. \u00c4rligt.", cta:"S\u00c4KRA DIN PLATS", nudge:"Gratis att g\u00e5 med. Inget \u00e5tagande.", pill_1:"Hanterar inte pengar \u00e4nnu", pill_2:"Kommer snart", pill_3:"Gratis v\u00e4ntelista", not_label:"Vad Ov\u00e9 inte \u00e4r", not_1:"Ingen bank", not_2:"Ingen handelsplattform", not_3:"Inte avsedd f\u00f6r kortsiktig spekulation", not_4:"Passar inte alla", not_5:"F\u00f6r n\u00e4rvarande inte auktoriserat att tillhandah\u00e5lla investeringstj\u00e4nster och investeringsverksamhet", footer_dev:"Under utveckling.", twitter:"@BeginOve p\u00e5 X", nav_vision:"Vision", nav_regulatory:"Regelefterlevnad", banner:"Ové är ett förlanserat koncept och är inte auktoriserat att tillhandahålla investeringstjänster och investeringsverksamhet. Ingenting på denna webbplats utgör investeringsrådgivning, ett erbjudande eller en uppmaning eller ett incitament att genomföra investeringsverksamhet. Inga konton eller investeringar är tillgängliga. Endast i illustrativt syfte och bör inte ligga till grund för investeringsbeslut.", footer_disclaimer:"Ov\u00e9 tillhandah\u00e5ller f\u00f6r n\u00e4rvarande inga investeringstj\u00e4nster. Denna webbplats m\u00f6jligg\u00f6r inte och uppmanar inte anv\u00e4ndare att investera. Endast i illustrativt syfte och b\u00f6r inte ligga till grund f\u00f6r investeringsbeslut. Investeringar inneb\u00e4r risker. V\u00e4rdet p\u00e5 investeringar kan b\u00e5de stiga och sjunka.", code:"SV", fi:"se" , footer_vision:"Vision", footer_regulatory:"Regelefterlevnad", footer_terms:"Villkor", footer_privacy:"Integritetspolicy"},
+        es: { nav_home:"Inicio", nav_concept:"Concepto", eyebrow:"Acceso anticipado: \u00fanete a la lista de espera.", eyebrow_mobile:"\u00danete a la lista de espera a continuaci\u00f3n.", headline_1:"De", headline_2:"alg\u00fan d\u00eda", headline_3:"al hoy.", sub:"Invertir al alcance de todos. Claro. R\u00e1pido. Honesto.", cta:"ASEG\u00daRATE TU PLAZA", nudge:"Inscripci\u00f3n gratuita. Sin compromiso.", pill_1:"A\u00fan no gestionamos fondos", pill_2:"Pr\u00f3ximamente", pill_3:"Lista de espera gratuita", not_label:"Lo que Ov\u00e9 no es", not_1:"No es un banco", not_2:"No es una plataforma de trading", not_3:"No es para la especulaci\u00f3n a corto plazo", not_4:"No es adecuado para todo el mundo", not_5:"Actualmente no est\u00e1 autorizado para prestar servicios de inversi\u00f3n", footer_dev:"Actualmente en desarrollo.", twitter:"@BeginOve en X", nav_vision:"Visi\u00f3n", nav_regulatory:"Regulatorio", banner:"Ové es un concepto de prelanzamiento y no está autorizado para prestar servicios de inversión. Nada en este sitio web constituye asesoramiento de inversión, una oferta ni una invitación o incentivo para realizar actividades de inversión. No hay cuentas ni inversiones disponibles. Solo con fines ilustrativos y no debe utilizarse como base para decisiones de inversión.", footer_disclaimer:"Ov\u00e9 no presta actualmente servicios de inversi\u00f3n. Este sitio web no permite ni invita a los usuarios a invertir. Solo con fines ilustrativos y no debe utilizarse como base para decisiones de inversi\u00f3n. Invertir conlleva riesgos. El valor de las inversiones puede tanto subir como bajar.", code:"ES", fi:"es" , footer_vision:"Visión", footer_regulatory:"Regulatorio", footer_terms:"Términos", footer_privacy:"Privacidad"},
+        it: { nav_home:"Home", nav_concept:"Concetto", eyebrow:"Accesso anticipato \u2014 iscriviti alla lista d'attesa.", eyebrow_mobile:"Iscriviti alla lista d'attesa qui sotto.", headline_1:"Da", headline_2:"un giorno", headline_3:"a oggi.", sub:"Investire reso accessibile. Chiaro. Veloce. Onesto.", cta:"ASSICURATI IL TUO POSTO", nudge:"Iscrizione gratuita. Nessun impegno.", pill_1:"Non gestiamo ancora fondi", pill_2:"Prossimamente", pill_3:"Lista d'attesa gratuita", not_label:"Cosa non \u00e8 Ov\u00e9", not_1:"Non \u00e8 una banca", not_2:"Non \u00e8 una piattaforma di trading", not_3:"Non \u00e8 per la speculazione a breve termine", not_4:"Non adatto a tutti", not_5:"Attualmente non autorizzato a fornire servizi di investimento", footer_dev:"Attualmente in fase di sviluppo.", twitter:"@BeginOve su X", nav_vision:"Visione", nav_regulatory:"Normativa", banner:"Ové è un concept pre-lancio e non è autorizzato a fornire servizi di investimento. Nulla su questo sito costituisce consulenza in materia di investimenti, un'offerta o un invito o incentivo a svolgere attività di investimento. Non sono disponibili conti o investimenti. Solo a scopo illustrativo e non deve essere utilizzato come base per decisioni di investimento.", footer_disclaimer:"Ov\u00e9 attualmente non fornisce servizi di investimento. Questo sito web non consente n\u00e9 invita gli utenti a investire. Solo a scopo illustrativo e non deve essere utilizzato come base per decisioni di investimento. Investire comporta dei rischi. Il valore degli investimenti pu\u00f2 aumentare o diminuire.", code:"IT", fi:"it" , footer_vision:"Visione", footer_regulatory:"Normativa", footer_terms:"Termini", footer_privacy:"Privacy"}
+    };
+    function applyLang(lang) {
+        var t = translations[lang];
+        if (!t) return;
+        localStorage.setItem('ove-lang', lang);
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+            var key = el.getAttribute('data-i18n');
+            if (t[key] !== undefined) el.textContent = t[key];
         });
-    </script>
-    <script src="/ove-shared.js"></script>
+        document.getElementById('lang-code').textContent = t.code;
+        document.querySelectorAll('.lang-option').forEach(function(o) {
+            o.classList.toggle('active', o.dataset.lang === lang);
+        });
+        document.getElementById('lang-dropdown').style.display = 'none';
+        var bt = document.getElementById('banner-text');
+        if (bt && t.banner) bt.textContent = t.banner;
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('lang-btn').addEventListener('click', function(e) {
+            e.stopPropagation();
+            var dd = document.getElementById('lang-dropdown');
+            dd.style.display = dd.style.display === 'block' ? 'none' : 'block';
+        });
+        document.querySelectorAll('.lang-option').forEach(function(o) {
+            o.addEventListener('click', function(e) {
+                e.stopPropagation();
+                applyLang(o.dataset.lang);
+            });
+        });
+        document.addEventListener('click', function(e) {
+            if (!document.getElementById('lang-switcher').contains(e.target)) {
+                document.getElementById('lang-dropdown').style.display = 'none';
+            }
+        });
+        var saved = localStorage.getItem('ove-lang');
+        if (saved && translations[saved]) applyLang(saved);
+    });
+</script>
+<script src="/ove-shared.js"></script>
 </body>
 </html>
