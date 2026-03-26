@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ové — Join the Waitlist</title>
+    <meta name="description" content="Join the Ové waitlist. Be among the first to invest from €10 with no bank switching, no jargon.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="ove-favicon-e.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+
+    <style>
+        :root {
+            --deep: #060f1e;
+            --blue: #3b82f6;
+            --blue-dim: rgba(59,130,246,0.15);
+            --blue-glow: rgba(59,130,246,0.35);
+            --cream: #f0ece4;
+            --muted: #9db5cc;
+            --border: rgba(255,255,255,0.07);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--deep);
+            color: var(--cream);
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 {
+            width: 60vw;
+            height: 60vw;
+            top: -20vw;
+            left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(59,130,246,0.13), transparent 70%);
+        }
+
+        /* NAV */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(6,15,30,0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            box-shadow: 0 1px 20px rgba(59,130,246,0.08);
+        }
+        .nav-logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.8rem;
+            color: var(--cream);
+            text-decoration: none;
+            position: relative;
+        }
+        .nav-logo span {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--blue);
+            border-radius: 50%;
+            position: absolute;
+            top: 6px;
+            right: -9px;
+            box-shadow: 0 0 8px var(--blue-glow);
+        }
+        .nav-back {
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: var(--muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.2s;
+        }
+        .nav-back:hover { color: var(--cream); }
+        .nav-back svg { width: 14px; height: 14px; }
+
+        /* MAIN */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .waitlist-card {
+            width: 100%;
+            max-width: 460px;
+        }
+
+        .card-eyebrow {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            opacity: 0.85;
+            margin-bottom: 1.25rem;
+            opacity: 0;
+            animation: fadeUp 0.5s ease forwards 0.2s;
+        }
+
+        .card-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.4rem, 6vw, 3.2rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.3s;
+        }
+        .card-title em {
+            font-style: italic;
+            color: #93c5fd;
+        }
+
+        .card-sub {
+            font-size: 0.95rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.4s;
+        }
+
+        /* FORM */
+        .waitlist-form {
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.5s;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 0.9rem 1.25rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--cream);
+            transition: border-color 0.2s, background 0.2s;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        .form-input::placeholder { color: var(--muted); opacity: 0.7; }
+        .form-input:focus {
+            border-color: rgba(59,130,246,0.5);
+            background: rgba(59,130,246,0.05);
+        }
+
+        .consent-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+        }
+        .consent-label input[type="checkbox"] {
+            margin-top: 2px;
+            accent-color: var(--blue);
+            flex-shrink: 0;
+            width: 15px;
+            height: 15px;
+        }
+        .consent-text {
+            font-size: 0.72rem;
+            color: var(--muted);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        .consent-text a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+        .consent-text a:hover { text-decoration: underline; }
+
+        .submit-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+            background: transparent;
+            color: var(--cream);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            padding: 1.1rem 2rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            outline: none;
+        }
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            border: 1px solid rgba(59,130,246,0.35);
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+        .submit-btn::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border-radius: 999px;
+            border: 1px solid rgba(59,130,246,0.15);
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+        .submit-btn:hover::before {
+            border-color: rgba(59,130,246,0.7);
+            box-shadow: 0 0 20px rgba(59,130,246,0.2), inset 0 0 20px rgba(59,130,246,0.05);
+        }
+        .submit-btn:hover::after { border-color: rgba(59,130,246,0.35); }
+        .submit-btn:hover { color: white; }
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .submit-btn:disabled::before { border-color: rgba(59,130,246,0.2); }
+        .submit-btn span { position: relative; z-index: 1; }
+
+        /* SUCCESS STATE */
+        .success-state {
+            display: none;
+            text-align: center;
+            padding: 2rem 0;
+            opacity: 0;
+            animation: fadeUp 0.5s ease forwards;
+        }
+        .success-state.visible { display: block; }
+        .success-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid rgba(59,130,246,0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        .success-icon svg { width: 20px; height: 20px; color: var(--blue); }
+        .success-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+        }
+        .success-sub {
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* ERROR */
+        .form-error {
+            font-size: 0.75rem;
+            color: #f87171;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        .form-error.visible { display: block; }
+
+        /* DIVIDER */
+        .card-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2.5rem 0;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.6s;
+        }
+
+        .card-pills {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.7s;
+        }
+        .card-pill {
+            font-size: 0.68rem;
+            font-weight: 300;
+            color: var(--muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.8rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 999px;
+            opacity: 0.7;
+        }
+
+        /* FOOTER */
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+            color: var(--muted);
+            font-size: 0.75rem;
+            font-weight: 300;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 640px) {
+            nav { padding: 1.25rem 1.25rem; }
+            .nav-logo { font-size: 1.5rem; }
+            main { padding: 7rem 1.25rem 3rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+
+<nav>
+    <a href="/" class="nav-logo">Ové<span></span></a>
+    <a href="/" class="nav-back">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back
+    </a>
+</nav>
+
+<main>
+    <div class="waitlist-card">
+
+        <div id="form-section">
+            <p class="card-eyebrow">Early access</p>
+            <h1 class="card-title">Your <em>someday</em><br>is today.</h1>
+            <p class="card-sub">Be among the first to know when Ové launches. No payment. No commitment. Just your spot in line.</p>
+
+            <form class="waitlist-form" id="waitlist-form" novalidate>
+                <div class="form-group">
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-input"
+                        placeholder="Your email address"
+                        autocomplete="email"
+                        required
+                    >
+                    <p class="form-error" id="email-error">Please enter a valid email address.</p>
+                </div>
+
+                <label class="consent-label">
+                    <input type="checkbox" id="consent" required>
+                    <span class="consent-text">I agree to receive updates about Ové. See our <a href="/privacy">Privacy Policy</a>.</span>
+                </label>
+                <p class="form-error" id="consent-error">Please confirm you agree to receive updates.</p>
+
+                <button type="submit" class="submit-btn" id="submit-btn">
+                    <span id="submit-label">Secure your spot</span>
+                </button>
+            </form>
+
+            <hr class="card-divider">
+
+            <div class="card-pills">
+                <span class="card-pill">Free to join</span>
+                <span class="card-pill">Coming soon</span>
+                <span class="card-pill">Not handling funds yet</span>
+            </div>
+        </div>
+
+        <div class="success-state" id="success-state">
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <p class="success-title">You're on the list.</p>
+            <p class="success-sub">We'll be in touch when Ové is ready.<br>Keep an eye on <a href="https://x.com/BeginOve" target="_blank" style="color:var(--blue);text-decoration:none;">@BeginOve</a> for updates.</p>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    Ové does not currently provide investment services. This website does not enable or invite users to invest. For illustrative purposes only and should not be relied upon for investment decisions. Investing involves risk. The value of investments can go down as well as up.
+</footer>
+
+<script>
+    var form = document.getElementById('waitlist-form');
+    var emailInput = document.getElementById('email');
+    var consentInput = document.getElementById('consent');
+    var emailError = document.getElementById('email-error');
+    var consentError = document.getElementById('consent-error');
+    var submitBtn = document.getElementById('submit-btn');
+    var submitLabel = document.getElementById('submit-label');
+    var formSection = document.getElementById('form-section');
+    var successState = document.getElementById('success-state');
+
+    function isValidEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var valid = true;
+
+        emailError.classList.remove('visible');
+        consentError.classList.remove('visible');
+
+        if (!isValidEmail(emailInput.value)) {
+            emailError.classList.add('visible');
+            valid = false;
+        }
+
+        if (!consentInput.checked) {
+            consentError.classList.add('visible');
+            valid = false;
+        }
+
+        if (!valid) return;
+
+        submitBtn.disabled = true;
+        submitLabel.textContent = 'Joining…';
+
+        // Loops API subscription
+        fetch('https://app.loops.so/api/newsletter-form/YOUR_LOOPS_FORM_ID', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: 'email=' + encodeURIComponent(emailInput.value.trim())
+        })
+        .then(function(res) {
+            if (!res.ok) throw new Error('Network error');
+            return res.json();
+        })
+        .then(function() {
+            formSection.style.display = 'none';
+            successState.classList.add('visible');
+        })
+        .catch(function() {
+            submitBtn.disabled = false;
+            submitLabel.textContent = 'Secure your spot';
+            emailError.textContent = 'Something went wrong. Please try again.';
+            emailError.classList.add('visible');
+        });
+    });
+</script>
+<script src="/ove-shared.js"></script>
+</body>
+</html>
