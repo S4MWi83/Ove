@@ -6,6 +6,7 @@
     { "source": "/vision", "destination": "/vision.html" },
     { "source": "/regulatory", "destination": "/regulatory.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/waitlist", "destination": "/waitlist.html" }
+    { "source": "/waitlist", "destination": "/waitlist.html" },
+    { "source": "/terms", "destination": "/terms.html" }
   ]
 }
