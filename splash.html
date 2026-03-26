@@ -17,9 +17,7 @@
             --muted: #9db5cc;
             --border: rgba(255,255,255,0.07);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: 'DM Sans', sans-serif;
             background: var(--deep);
@@ -32,244 +30,60 @@
             padding: 2rem;
             -webkit-font-smoothing: antialiased;
         }
-
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-            z-index: 0;
-            width: 60vw; height: 60vw;
-            top: -20vw; left: 50%;
-            transform: translateX(-50%);
-            background: radial-gradient(circle, rgba(59,130,246,0.12), transparent 70%);
-        }
-
-        .card {
-            position: relative;
-            z-index: 1;
-            max-width: 480px;
-            width: 100%;
-            text-align: center;
-            opacity: 0;
-            animation: fadeUp 0.7s ease forwards 0.15s;
-        }
-
-        .logo {
-            font-family: 'Instrument Serif', serif;
-            font-size: 2.2rem;
-            color: var(--cream);
-            position: relative;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-        .logo span {
-            display: inline-block;
-            width: 6px; height: 6px;
-            background: var(--blue);
-            border-radius: 50%;
-            position: absolute;
-            top: 6px; right: -10px;
-            box-shadow: 0 0 8px rgba(59,130,246,0.5);
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.72rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--blue);
-            background: var(--blue-dim);
-            border: 1px solid rgba(59,130,246,0.2);
-            border-radius: 999px;
-            padding: 0.3rem 0.85rem;
-            margin-bottom: 1.75rem;
-        }
-
-        h1 {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            line-height: 1.2;
-            margin-bottom: 1.25rem;
-            letter-spacing: -0.01em;
-        }
-
-        .notice {
-            font-size: 0.88rem;
-            color: var(--muted);
-            font-weight: 300;
-            line-height: 1.75;
-            margin-bottom: 2rem;
-            text-align: left;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.25rem 1.5rem;
-        }
-
-        .notice strong {
-            color: var(--cream);
-            font-weight: 500;
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .notice p + p {
-            margin-top: 0.75rem;
-        }
-
-        .btn {
-            display: block;
-            width: 100%;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--cream);
-            background: transparent;
-            border: 1px solid rgba(59,130,246,0.35);
-            border-radius: 999px;
-            padding: 1rem 2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .btn::after {
-            content: '';
-            position: absolute;
-            inset: 3px;
-            border-radius: 999px;
-            border: 1px solid rgba(59,130,246,0.15);
-            transition: all 0.3s ease;
-            pointer-events: none;
-        }
-
-        .btn:hover {
-            border-color: rgba(59,130,246,0.65);
-            box-shadow: 0 0 20px rgba(59,130,246,0.15);
-            color: white;
-        }
-
-        .fine {
-            font-size: 0.72rem;
-            color: var(--muted);
-            opacity: 0.65;
-            margin-top: 1.25rem;
-            line-height: 1.5;
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .lang-switcher {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-        }
-        .lang-pill {
-            background: none;
-            border: 1px solid var(--border);
-            color: var(--muted);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.06em;
-            padding: 0.3rem 0.7rem;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
+        .orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; width: 60vw; height: 60vw; top: -20vw; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(59,130,246,0.12), transparent 70%); }
+        .card { position: relative; z-index: 1; max-width: 480px; width: 100%; text-align: center; opacity: 0; animation: fadeUp 0.7s ease forwards 0.15s; }
+        .logo { font-family: 'Instrument Serif', serif; font-size: 2.2rem; color: var(--cream); position: relative; display: inline-block; margin-bottom: 2rem; }
+        .logo span { display: inline-block; width: 6px; height: 6px; background: var(--blue); border-radius: 50%; position: absolute; top: 6px; right: -10px; box-shadow: 0 0 8px rgba(59,130,246,0.5); }
+        .badge { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); background: var(--blue-dim); border: 1px solid rgba(59,130,246,0.2); border-radius: 999px; padding: 0.3rem 0.85rem; margin-bottom: 1.75rem; }
+        h1 { font-family: 'Instrument Serif', serif; font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.2; margin-bottom: 1.25rem; letter-spacing: -0.01em; }
+        .notice { font-size: 0.88rem; color: var(--muted); font-weight: 300; line-height: 1.75; margin-bottom: 2rem; text-align: left; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem 1.5rem; }
+        .notice strong { color: var(--cream); font-weight: 500; display: block; margin-bottom: 0.5rem; font-size: 0.9rem; }
+        .notice p + p { margin-top: 0.75rem; }
+        .btn { display: block; width: 100%; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream); background: transparent; border: 1px solid rgba(59,130,246,0.35); border-radius: 999px; padding: 1rem 2rem; cursor: pointer; transition: all 0.3s ease; text-decoration: none; position: relative; }
+        .btn::after { content: ''; position: absolute; inset: 3px; border-radius: 999px; border: 1px solid rgba(59,130,246,0.15); transition: all 0.3s ease; pointer-events: none; }
+        .btn:hover { border-color: rgba(59,130,246,0.65); box-shadow: 0 0 20px rgba(59,130,246,0.15); color: white; }
+        .fine { font-size: 0.72rem; color: var(--muted); opacity: 0.65; margin-top: 1.25rem; line-height: 1.5; }
+        .lang-switcher { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; }
+        .lang-pill { background: none; border: 1px solid var(--border); color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; padding: 0.3rem 0.7rem; border-radius: 999px; cursor: pointer; transition: all 0.2s; }
         .lang-pill:hover { color: var(--cream); border-color: rgba(255,255,255,0.2); }
         .lang-pill.active { color: var(--cream); border-color: var(--blue); background: var(--blue-dim); }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
     <div class="orb"></div>
-
     <div class="card">
         <div class="logo">Ové<span></span></div>
-
         <div class="badge" data-i18n="badge">Pre-launch</div>
-
         <div class="lang-switcher">
             <button class="lang-pill active" data-lang="en" onclick="window.setSplashLang('en')">EN</button>
             <button class="lang-pill" data-lang="sv" onclick="window.setSplashLang('sv')">SV</button>
             <button class="lang-pill" data-lang="es" onclick="window.setSplashLang('es')">ES</button>
             <button class="lang-pill" data-lang="it" onclick="window.setSplashLang('it')">IT</button>
         </div>
-
         <h1 data-i18n="title">Before you continue.</h1>
-
         <div class="notice">
             <strong data-i18n="notice_strong">Ové is not currently authorised to provide investment services.</strong>
             <p data-i18n="notice_p1">The features described on this website are conceptual and will only be available if Ové partners with an authorised investment firm under MiFID II. The exact structure and partner arrangements are subject to change.</p>
             <p data-i18n="notice_p2">This website is for illustrative purposes only and does not constitute investment advice, an offer, or an invitation or inducement to engage in investment activity. It should not be relied upon for investment decisions.</p>
         </div>
-
-        <a href="/index" class="btn" data-i18n="btn" onclick="try{localStorage.setItem('ove-splash','1');}catch(e){}">I understand — continue</a>
-
+        <button class="btn" data-i18n="btn" onclick="try{localStorage.setItem('ove-splashed','1');}catch(e){}window.location.href='/index';">I understand — continue</button>
         <p class="fine"><span data-i18n="fine">By continuing you acknowledge this notice and that this website is for informational purposes only.</span> <a href="/privacy" style="color:var(--blue);text-decoration:underline;">Privacy Policy</a></p>
     </div>
     <script>
         var splashT = {
-            en: {
-                badge: 'Pre-launch',
-                title: 'Before you continue.',
-                notice_strong: 'Ové is not currently authorised to provide investment services.',
-                notice_p1: 'The features described on this website are conceptual and will only be available if Ové partners with an authorised investment firm under MiFID II. The exact structure and partner arrangements are subject to change.',
-                notice_p2: 'This website is for illustrative purposes only and does not constitute investment advice, an offer, or an invitation or inducement to engage in investment activity. It should not be relied upon for investment decisions.',
-                btn: 'I understand — continue',
-                fine: 'By continuing you acknowledge this notice and that this website is for informational purposes only.'
-            },
-            sv: {
-                badge: 'Förhandsversion',
-                title: 'Innan du fortsätter.',
-                notice_strong: 'Ové är för närvarande inte auktoriserat att tillhandahålla investeringstjänster.',
-                notice_p1: 'Funktionerna som beskrivs på denna webbplats är konceptuella och kommer endast att vara tillgängliga om Ové ingår partnerskap med ett auktoriserat investeringsföretag under MiFID II. Den exakta strukturen och partnerarrangemangen kan komma att ändras.',
-                notice_p2: 'Denna webbplats är endast för illustrativa ändamål och utgör inte investeringsrådgivning, ett erbjudande eller en uppmaning eller ett incitament att genomföra investeringsverksamhet. Den bör inte ligga till grund för investeringsbeslut.',
-                btn: 'Jag förstår — fortsätt',
-                fine: 'Genom att fortsätta bekräftar du detta meddelande och att denna webbplats är endast för informationsändamål.'
-            },
-            es: {
-                badge: 'Prelanzamiento',
-                title: 'Antes de continuar.',
-                notice_strong: 'Ové no está actualmente autorizado para prestar servicios de inversión.',
-                notice_p1: 'Las funciones descritas en este sitio web son conceptuales y solo estarán disponibles si Ové se asocia con una empresa de inversión autorizada bajo MiFID II. La estructura exacta y los acuerdos con socios están sujetos a cambios.',
-                notice_p2: 'Este sitio web es solo con fines ilustrativos y no constituye asesoramiento de inversión, una oferta ni una invitación o incentivo para realizar actividades de inversión. No debe utilizarse como base para decisiones de inversión.',
-                btn: 'Entiendo — continuar',
-                fine: 'Al continuar, reconoces este aviso y que este sitio web es únicamente con fines informativos.'
-            },
-            it: {
-                badge: 'Pre-lancio',
-                title: 'Prima di continuare.',
-                notice_strong: 'Ové non è attualmente autorizzato a fornire servizi di investimento.',
-                notice_p1: "Le funzionalità descritte su questo sito web sono concettuali e saranno disponibili solo se Ové si associa con una società di investimento autorizzata ai sensi di MiFID II. La struttura esatta e gli accordi con i partner sono soggetti a modifiche.",
-                notice_p2: "Questo sito web è solo a scopo illustrativo e non costituisce consulenza in materia di investimenti, un'offerta o un invito o incentivo a svolgere attività di investimento. Non deve essere utilizzato come base per decisioni di investimento.",
-                btn: 'Ho capito — continua',
-                fine: 'Continuando, riconosci questo avviso e che questo sito web è esclusivamente a scopo informativo.'
-            }
+            en: { badge:'Pre-launch', title:'Before you continue.', notice_strong:'Ové is not currently authorised to provide investment services.', notice_p1:'The features described on this website are conceptual and will only be available if Ové partners with an authorised investment firm under MiFID II. The exact structure and partner arrangements are subject to change.', notice_p2:'This website is for illustrative purposes only and does not constitute investment advice, an offer, or an invitation or inducement to engage in investment activity. It should not be relied upon for investment decisions.', btn:'I understand — continue', fine:'By continuing you acknowledge this notice and that this website is for informational purposes only.' },
+            sv: { badge:'Förhandsversion', title:'Innan du fortsätter.', notice_strong:'Ové är för närvarande inte auktoriserat att tillhandahålla investeringstjänster.', notice_p1:'Funktionerna som beskrivs på denna webbplats är konceptuella och kommer endast att vara tillgängliga om Ové ingår partnerskap med ett auktoriserat investeringsföretag under MiFID II. Den exakta strukturen och partnerarrangemangen kan komma att ändras.', notice_p2:'Denna webbplats är endast för illustrativa ändamål och utgör inte investeringsrådgivning, ett erbjudande eller en uppmaning eller ett incitament att genomföra investeringsverksamhet. Den bör inte ligga till grund för investeringsbeslut.', btn:'Jag förstår — fortsätt', fine:'Genom att fortsätta bekräftar du detta meddelande och att denna webbplats är endast för informationsändamål.' },
+            es: { badge:'Prelanzamiento', title:'Antes de continuar.', notice_strong:'Ové no está actualmente autorizado para prestar servicios de inversión.', notice_p1:'Las funciones descritas en este sitio web son conceptuales y solo estarán disponibles si Ové se asocia con una empresa de inversión autorizada bajo MiFID II. La estructura exacta y los acuerdos con socios están sujetos a cambios.', notice_p2:'Este sitio web es solo con fines ilustrativos y no constituye asesoramiento de inversión, una oferta ni una invitación o incentivo para realizar actividades de inversión. No debe utilizarse como base para decisiones de inversión.', btn:'Entiendo — continuar', fine:'Al continuar, reconoces este aviso y que este sitio web es únicamente con fines informativos.' },
+            it: { badge:'Pre-lancio', title:'Prima di continuare.', notice_strong:'Ové non è attualmente autorizzato a fornire servizi di investimento.', notice_p1:"Le funzionalità descritte su questo sito web sono concettuali e saranno disponibili solo se Ové si associa con una società di investimento autorizzata ai sensi di MiFID II. La struttura esatta e gli accordi con i partner sono soggetti a modifiche.", notice_p2:"Questo sito web è solo a scopo illustrativo e non costituisce consulenza in materia di investimenti, un'offerta o un invito o incentivo a svolgere attività di investimento. Non deve essere utilizzato come base per decisioni di investimento.", btn:'Ho capito — continua', fine:'Continuando, riconosci questo avviso e che questo sito web è esclusivamente a scopo informativo.' }
         };
-
         var splashLangs = ['en','sv','es','it'];
-
         document.addEventListener('DOMContentLoaded', function() {
-            var saved;
-            try { saved = localStorage.getItem('ove-lang'); } catch(e) {}
+            var saved; try { saved = localStorage.getItem('ove-lang'); } catch(e) {}
             var browser = (navigator.language || '').slice(0,2).toLowerCase();
             var lang = splashLangs.indexOf(saved) >= 0 ? saved : splashLangs.indexOf(browser) >= 0 ? browser : 'en';
             applySplashLang(lang);
         });
-
         function applySplashLang(lang) {
             var d = splashT[lang] || splashT.en;
             document.querySelectorAll('[data-i18n]').forEach(function(el) {
@@ -282,10 +96,7 @@
                 btn.classList.toggle('active', btn.dataset.lang === lang);
             });
         }
-
-        window.setSplashLang = function(lang) {
-            applySplashLang(lang);
-        };
+        window.setSplashLang = function(lang) { applySplashLang(lang); };
     </script>
     <script src="/ove-shared.js"></script>
 </body>
