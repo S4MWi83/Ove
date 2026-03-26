@@ -4,7 +4,7 @@
     <script>
         (function() {
             try {
-                if (!localStorage.getItem('ove-splash')) {
+                if (!localStorage.getItem('ove-splashed')) {
                     window.location.replace('/');
                 }
             } catch(e) {}
@@ -225,9 +225,9 @@
 <nav>
     <a href="/" class="nav-logo">Ové<span></span></a>
     <div class="nav-links">
-        <a href="/concept" class="nav-link">Ové</a>
-        <a href="/vision" class="nav-link">Vision</a>
-    </div>
+            <a href="/index" class="nav-link">Home</a>
+            <a href="/concept" class="nav-link">Concept</a>
+        </div>
 </nav>
 
 <div class="wrap">
@@ -346,12 +346,14 @@
 </div>
 
 <footer>
-    <span>© <span id="year"></span> Ové. Currently in development.</span>
-    <div class="footer-links">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms of Service</a>
-    </div>
-</footer>
+            <span>© <span id="year"></span> Ové. Currently in development.</span>
+            <div class="footer-links">
+                <a href="/vision">Vision</a>
+                <a href="/regulatory">Regulatory</a>
+                <a href="/terms">Terms</a>
+                <a href="/privacy">Privacy</a>
+            </div>
+        </footer>
 
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
