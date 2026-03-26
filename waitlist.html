@@ -63,16 +63,13 @@
             background: radial-gradient(circle, rgba(59,130,246,0.13), transparent 70%);
         }
 
-        /* NAV */
         nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 1.25rem 2rem;
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 100;
             background: rgba(6,15,30,0.6);
             backdrop-filter: blur(12px);
@@ -89,13 +86,11 @@
         }
         .nav-logo span {
             display: inline-block;
-            width: 6px;
-            height: 6px;
+            width: 6px; height: 6px;
             background: var(--blue);
             border-radius: 50%;
             position: absolute;
-            top: 6px;
-            right: -9px;
+            top: 6px; right: -9px;
             box-shadow: 0 0 8px var(--blue-glow);
         }
         .nav-back {
@@ -111,7 +106,6 @@
         .nav-back:hover { color: var(--cream); }
         .nav-back svg { width: 14px; height: 14px; }
 
-        /* MAIN */
         main {
             flex: 1;
             display: flex;
@@ -133,12 +127,10 @@
             letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--blue);
-            opacity: 0.85;
             margin-bottom: 1.25rem;
             opacity: 0;
             animation: fadeUp 0.5s ease forwards 0.2s;
         }
-
         .card-title {
             font-family: 'Instrument Serif', serif;
             font-size: clamp(2.4rem, 6vw, 3.2rem);
@@ -148,11 +140,7 @@
             opacity: 0;
             animation: fadeUp 0.6s ease forwards 0.3s;
         }
-        .card-title em {
-            font-style: italic;
-            color: #93c5fd;
-        }
-
+        .card-title em { font-style: italic; color: #93c5fd; }
         .card-sub {
             font-size: 0.95rem;
             color: var(--muted);
@@ -163,14 +151,9 @@
             animation: fadeUp 0.6s ease forwards 0.4s;
         }
 
-        /* FORM */
         .waitlist-form {
             opacity: 0;
             animation: fadeUp 0.6s ease forwards 0.5s;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
         }
 
         .form-input {
@@ -186,6 +169,7 @@
             transition: border-color 0.2s, background 0.2s;
             outline: none;
             -webkit-appearance: none;
+            margin-bottom: 1rem;
         }
         .form-input::placeholder { color: var(--muted); opacity: 0.7; }
         .form-input:focus {
@@ -204,8 +188,7 @@
             margin-top: 2px;
             accent-color: var(--blue);
             flex-shrink: 0;
-            width: 15px;
-            height: 15px;
+            width: 15px; height: 15px;
         }
         .consent-text {
             font-size: 0.72rem;
@@ -213,10 +196,7 @@
             line-height: 1.6;
             font-weight: 300;
         }
-        .consent-text a {
-            color: var(--blue);
-            text-decoration: none;
-        }
+        .consent-text a { color: var(--blue); text-decoration: none; }
         .consent-text a:hover { text-decoration: underline; }
 
         .submit-btn {
@@ -224,7 +204,6 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
             width: 100%;
             background: transparent;
             color: var(--cream);
@@ -258,31 +237,32 @@
             transition: all 0.4s ease;
             pointer-events: none;
         }
-        .submit-btn:hover::before {
-            border-color: rgba(59,130,246,0.7);
-            box-shadow: 0 0 20px rgba(59,130,246,0.2), inset 0 0 20px rgba(59,130,246,0.05);
-        }
+        .submit-btn:hover::before { border-color: rgba(59,130,246,0.7); box-shadow: 0 0 20px rgba(59,130,246,0.2), inset 0 0 20px rgba(59,130,246,0.05); }
         .submit-btn:hover::after { border-color: rgba(59,130,246,0.35); }
         .submit-btn:hover { color: white; }
-        .submit-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        .submit-btn:disabled::before { border-color: rgba(59,130,246,0.2); }
+        .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
         .submit-btn span { position: relative; z-index: 1; }
 
-        /* SUCCESS STATE */
+        .form-error {
+            font-size: 0.75rem;
+            color: #f87171;
+            margin-bottom: 0.75rem;
+            display: none;
+        }
+        .form-error.visible { display: block; }
+
+        /* SUCCESS */
         .success-state {
             display: none;
             text-align: center;
             padding: 2rem 0;
-            opacity: 0;
+        }
+        .success-state.visible {
+            display: block;
             animation: fadeUp 0.5s ease forwards;
         }
-        .success-state.visible { display: block; }
         .success-icon {
-            width: 48px;
-            height: 48px;
+            width: 48px; height: 48px;
             border-radius: 50%;
             border: 1px solid rgba(59,130,246,0.35);
             display: flex;
@@ -303,16 +283,6 @@
             line-height: 1.6;
         }
 
-        /* ERROR */
-        .form-error {
-            font-size: 0.75rem;
-            color: #f87171;
-            margin-top: 0.5rem;
-            display: none;
-        }
-        .form-error.visible { display: block; }
-
-        /* DIVIDER */
         .card-divider {
             border: none;
             border-top: 1px solid var(--border);
@@ -320,7 +290,6 @@
             opacity: 0;
             animation: fadeUp 0.6s ease forwards 0.6s;
         }
-
         .card-pills {
             display: flex;
             gap: 0.5rem;
@@ -340,7 +309,6 @@
             opacity: 0.7;
         }
 
-        /* FOOTER */
         footer {
             position: relative;
             z-index: 1;
@@ -359,7 +327,7 @@
         }
 
         @media (max-width: 640px) {
-            nav { padding: 1.25rem 1.25rem; }
+            nav { padding: 1.25rem; }
             .nav-logo { font-size: 1.5rem; }
             main { padding: 7rem 1.25rem 3rem; }
         }
@@ -386,33 +354,27 @@
             <h1 class="card-title">Your <em>someday</em><br>is today.</h1>
             <p class="card-sub">Be among the first to know when Ové launches. No payment. No commitment. Just your spot in line.</p>
 
-            <form class="waitlist-form" id="waitlist-form" novalidate>
-                <div class="form-group">
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        class="form-input"
-                        placeholder="Your email address"
-                        autocomplete="email"
-                        required
-                    >
-                    <p class="form-error" id="email-error">Please enter a valid email address.</p>
-                </div>
-
+            <form class="waitlist-form" id="waitlist-form" action="https://app.loops.so/api/newsletter-form/cmn745kvj0cck0i0vveri5afq" method="POST" novalidate>
+                <input
+                    type="email"
+                    id="email"
+                    name="newsletter-form-input"
+                    class="form-input"
+                    placeholder="Your email address"
+                    autocomplete="email"
+                    required
+                >
                 <label class="consent-label">
                     <input type="checkbox" id="consent" required>
                     <span class="consent-text">I agree to receive updates about Ové. See our <a href="/privacy">Privacy Policy</a>.</span>
                 </label>
-                <p class="form-error" id="consent-error">Please confirm you agree to receive updates.</p>
-
+                <p class="form-error" id="form-error">Please fill in your email and confirm you agree to receive updates.</p>
                 <button type="submit" class="submit-btn" id="submit-btn">
                     <span id="submit-label">Secure your spot</span>
                 </button>
             </form>
 
             <hr class="card-divider">
-
             <div class="card-pills">
                 <span class="card-pill">Free to join</span>
                 <span class="card-pill">Coming soon</span>
@@ -427,7 +389,7 @@
                 </svg>
             </div>
             <p class="success-title">You're on the list.</p>
-            <p class="success-sub">We'll be in touch when Ové is ready.<br>Keep an eye on <a href="https://x.com/BeginOve" target="_blank" style="color:var(--blue);text-decoration:none;">@BeginOve</a> for updates.</p>
+            <p class="success-sub">We'll be in touch when Ové is ready.<br>Follow <a href="https://x.com/BeginOve" target="_blank" style="color:var(--blue);text-decoration:none;">@BeginOve</a> for updates.</p>
         </div>
 
     </div>
@@ -441,8 +403,7 @@
     var form = document.getElementById('waitlist-form');
     var emailInput = document.getElementById('email');
     var consentInput = document.getElementById('consent');
-    var emailError = document.getElementById('email-error');
-    var consentError = document.getElementById('consent-error');
+    var formError = document.getElementById('form-error');
     var submitBtn = document.getElementById('submit-btn');
     var submitLabel = document.getElementById('submit-label');
     var formSection = document.getElementById('form-section');
@@ -452,48 +413,51 @@
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
     }
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-        var valid = true;
+        formError.classList.remove('visible');
 
-        emailError.classList.remove('visible');
-        consentError.classList.remove('visible');
-
-        if (!isValidEmail(emailInput.value)) {
-            emailError.classList.add('visible');
-            valid = false;
+        if (!isValidEmail(emailInput.value) || !consentInput.checked) {
+            formError.classList.add('visible');
+            return;
         }
 
-        if (!consentInput.checked) {
-            consentError.classList.add('visible');
-            valid = false;
+        // Rate limit check (mirrors Loops' own logic)
+        var timestamp = Date.now();
+        var prev = localStorage.getItem('loops-form-timestamp');
+        if (prev && Number(prev) + 60000 > timestamp) {
+            formError.textContent = 'Too many signups, please try again in a little while.';
+            formError.classList.add('visible');
+            return;
         }
-
-        if (!valid) return;
+        localStorage.setItem('loops-form-timestamp', timestamp);
 
         submitBtn.disabled = true;
         submitLabel.textContent = 'Joining…';
 
-        // Loops API subscription
-        fetch('https://app.loops.so/api/newsletter-form/YOUR_LOOPS_FORM_ID', {
+        var formBody = 'userGroup=&mailingLists=&email=' + encodeURIComponent(emailInput.value.trim());
+
+        fetch(form.action, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: 'email=' + encodeURIComponent(emailInput.value.trim())
+            body: formBody,
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         })
-        .then(function(res) {
-            if (!res.ok) throw new Error('Network error');
-            return res.json();
+        .then(function(res) { return Promise.all([res.ok, res.json()]); })
+        .then(function(arr) {
+            if (arr[0]) {
+                formSection.style.display = 'none';
+                successState.classList.add('visible');
+            } else {
+                throw new Error(arr[1].message || 'Something went wrong.');
+            }
         })
-        .then(function() {
-            formSection.style.display = 'none';
-            successState.classList.add('visible');
-        })
-        .catch(function() {
+        .catch(function(err) {
             submitBtn.disabled = false;
             submitLabel.textContent = 'Secure your spot';
-            emailError.textContent = 'Something went wrong. Please try again.';
-            emailError.classList.add('visible');
+            formError.textContent = err.message || 'Something went wrong. Please try again.';
+            formError.classList.add('visible');
+            localStorage.setItem('loops-form-timestamp', '');
         });
     });
 </script>
