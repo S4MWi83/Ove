@@ -237,7 +237,7 @@
     </div>
 
     <!-- DEMO CTA -->
-    <section class="demo-cta-section reveal">
+    <section class="demo-cta-section">
         <p class="demo-cta-label" data-i18n="demo_label">See it in action</p>
         <h2 class="demo-cta-title" data-i18n="demo_title">This is what investing could feel like.</h2>
         <p class="demo-cta-sub" data-i18n="demo_section_sub">The demo is completely free. No money moved. Takes 30 seconds.</p>
@@ -250,26 +250,26 @@
     </section>
 
     <!-- CONCEPT SECTION -->
-    <section class="section reveal" id="section-concept">
+    <section class="section" id="section-concept">
         <div class="section-inner">
             <p class="section-label" data-i18n="concept_label">What we're building</p>
             <h2 class="section-title" data-i18n="concept_title">Built for the 91% who haven't started.</h2>
             <div class="concept-points">
-                <div class="concept-point reveal">
+                <div class="concept-point">
                     <span class="concept-point-num">1</span>
                     <div class="concept-point-body">
                         <p class="concept-point-title" data-i18n="cp1_title">A pre-launch investing platform.</p>
                         <p class="concept-point-text" data-i18n="cp1_text">Ové is designed to get complete beginners invested — from €10, in under two minutes, with no unnecessary choices and no jargon.</p>
                     </div>
                 </div>
-                <div class="concept-point reveal">
+                <div class="concept-point">
                     <span class="concept-point-num">2</span>
                     <div class="concept-point-body">
                         <p class="concept-point-title" data-i18n="cp2_title">For the person who hasn't started yet.</p>
                         <p class="concept-point-text" data-i18n="cp2_text">Not for traders or experienced investors. For people who know they should be investing but have been put off by friction, jargon, or the fear of getting it wrong.</p>
                     </div>
                 </div>
-                <div class="concept-point reveal">
+                <div class="concept-point">
                     <span class="concept-point-num">3</span>
                     <div class="concept-point-body">
                         <p class="concept-point-title" data-i18n="cp3_title">Calm, simple, and regulated.</p>
@@ -278,6 +278,15 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- WAITLIST CTA -->
+    <section class="cta-section">
+        <p class="cta-section-label" data-i18n="waitlist_label">Early access</p>
+        <h2 class="cta-section-title" data-i18n="waitlist_title">Join the waitlist.</h2>
+        <a href="/waitlist" class="demo-launch-btn">
+            <div class="demo-btn-label"><span class="demo-btn-label-main" data-i18n="waitlist_cta">Secure your spot</span></div>
+        </a>
     </section>
 
     <footer>
@@ -723,4 +732,10 @@
         var saved=localStorage.getItem('ove-lang')||'en'; if(!T[saved])saved='en';
         applyLang(saved); applyDemoLang(saved);
         if(window.location.hash==='#demo'){ demoOpen(); history.replaceState(null,'',window.location.pathname); }
-        var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isInterse
+        var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting)e.target.classList.add('visible'); }); },{threshold:0.08});
+        document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    });
+</script>
+<script src="/ove-shared.js"></script>
+</body>
+</html>
