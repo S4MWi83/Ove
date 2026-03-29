@@ -732,4 +732,10 @@
         var saved=localStorage.getItem('ove-lang')||'en'; if(!T[saved])saved='en';
         applyLang(saved); applyDemoLang(saved);
         if(window.location.hash==='#demo'){ demoOpen(); history.replaceState(null,'',window.location.pathname); }
-        var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isInterse
+        var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting)e.target.classList.add('visible'); }); },{threshold:0.08});
+        document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    });
+</script>
+<script src="/ove-shared.js"></script>
+</body>
+</html>
