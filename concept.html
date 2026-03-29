@@ -168,27 +168,24 @@
         .section-inner { max-width:720px; margin:0 auto; }
         .section-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
         .section-title { font-family:'Instrument Serif',serif; font-size:clamp(2rem,4vw,2.8rem); line-height:1.1; letter-spacing:-0.01em; margin-bottom:1.25rem; }
-        .section-body { font-size:1rem; color:var(--muted); font-weight:300; line-height:1.85; max-width:580px; }
-        .section-body + .section-body { margin-top:0.9rem; }
         .stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
         .stat-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:1.5rem; }
         .stat-num { font-family:'Instrument Serif',serif; font-size:2.4rem; color:var(--cream); line-height:1; letter-spacing:-0.02em; margin-bottom:0.4rem; }
         .stat-desc { font-size:0.82rem; color:var(--muted); font-weight:300; line-height:1.6; }
-        .who-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2.5rem; }
-        .who-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:1.25rem 1.5rem; }
-        .who-card-label { font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:0.5rem; }
-        .who-card-title { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--cream); margin-bottom:0.35rem; }
-        .who-card p { font-size:0.85rem; color:var(--muted); font-weight:300; line-height:1.65; }
-        .why-list { list-style:none; display:flex; flex-direction:column; gap:1rem; margin-top:2.5rem; }
-        .why-item { display:flex; align-items:flex-start; gap:1rem; }
-        .why-icon { width:32px; height:32px; border-radius:50%; background:var(--blue-dim); border:1px solid rgba(59,130,246,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
-        .why-icon svg { color:var(--blue); }
-        .why-text-title { font-size:0.95rem; font-weight:500; color:var(--cream); margin-bottom:0.2rem; }
-        .why-text-body { font-size:0.88rem; color:var(--muted); font-weight:300; line-height:1.7; }
-        .demo-section { padding:5rem 0 6rem; border-top:1px solid var(--border); position:relative; z-index:1; text-align:center; }
-        .demo-section-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
-        .demo-section-title { font-family:'Instrument Serif',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:0.85rem; }
-        .demo-section-sub { font-size:0.95rem; color:var(--muted); font-weight:300; line-height:1.75; margin-bottom:2.5rem; }
+        .concept-points { display:flex; flex-direction:column; gap:0; margin-top:2.5rem; }
+        .concept-point { display:flex; gap:1.5rem; padding:1.75rem 0; border-top:1px solid var(--border); }
+        .concept-point:last-child { border-bottom:1px solid var(--border); }
+        .concept-point-num { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--blue); opacity:0.6; flex-shrink:0; width:1.5rem; padding-top:0.1rem; }
+        .concept-point-body { flex:1; }
+        .concept-point-title { font-family:'Instrument Serif',serif; font-size:1.25rem; color:var(--cream); margin-bottom:0.4rem; line-height:1.2; }
+        .concept-point-text { font-size:0.9rem; color:var(--muted); font-weight:300; line-height:1.75; }
+        .cta-section { padding:5rem 0 6rem; border-top:1px solid var(--border); position:relative; z-index:1; text-align:center; }
+        .cta-section-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
+        .cta-section-title { font-family:'Instrument Serif',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:2rem; }
+        .demo-cta-section { padding:5rem 0; border-top:1px solid var(--border); position:relative; z-index:1; text-align:center; }
+        .demo-cta-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
+        .demo-cta-title { font-family:'Instrument Serif',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:0.75rem; }
+        .demo-cta-sub { font-size:0.95rem; color:var(--muted); font-weight:300; line-height:1.75; margin-bottom:2.5rem; }
         @media(max-width:640px) {
             nav { padding:1.25rem 0; flex-wrap:wrap; gap:0.75rem; }
             .nav-logo { font-size:1.5rem; }
@@ -198,9 +195,9 @@
             .demo-modal { border-radius:20px; }
             .demo-panel { padding:1.5rem 1.5rem 1.75rem; }
             .stat-row { grid-template-columns:1fr; gap:0.75rem; }
-            .who-grid { grid-template-columns:1fr; }
             .section { padding:3.5rem 0; }
-            .demo-section { padding:3.5rem 0 5rem; }
+            .cta-section { padding:3.5rem 0 5rem; }
+            .demo-cta-section { padding:3.5rem 0; }
         }
     </style>
 </head>
@@ -239,97 +236,57 @@
         </a>
     </div>
 
-    <!-- WHAT IS OVÉ -->
-    <section class="section reveal" id="section-what">
-        <div class="section-inner">
-            <p class="section-label" data-i18n="what_label">What is Ové</p>
-            <h2 class="section-title" data-i18n="what_title">A pre-launch investing platform. Built from scratch for beginners.</h2>
-            <div class="stat-row">
-                <div class="stat-card reveal">
-                    <div class="stat-num" data-i18n="stat_1_num">91%</div>
-                    <div class="stat-desc" data-i18n="stat_1_desc">of Europeans have never owned stock directly</div>
-                </div>
-                <div class="stat-card reveal">
-                    <div class="stat-num" data-i18n="stat_2_num">€12T</div>
-                    <div class="stat-desc" data-i18n="stat_2_desc">sitting in cash and deposits, losing value to inflation every year</div>
-                </div>
-                <div class="stat-card reveal">
-                    <div class="stat-num" data-i18n="stat_3_num">&lt;2 min</div>
-                    <div class="stat-desc" data-i18n="stat_3_desc">is how long the intended sign-up experience takes</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHO IT'S FOR -->
-    <section class="section reveal" id="section-who">
-        <div class="section-inner">
-            <p class="section-label" data-i18n="who_label">Who it's for</p>
-            <h2 class="section-title" data-i18n="who_title">The person who knows they should invest — but hasn't.</h2>
-            <p class="section-body" data-i18n="who_body">Not the active trader. Not the person who already has three brokerage accounts. Ové is built for the person with money sitting in a savings account, who's downloaded an app before, got lost on the third screen, and closed it.</p>
-            <div class="who-grid">
-                <div class="who-card reveal">
-                    <p class="who-card-label" data-i18n="who_c1_label">Income</p>
-                    <p class="who-card-title" data-i18n="who_c1_title">Stable, not surplus</p>
-                    <p data-i18n="who_c1_body">Starting from €10/month. Enough to begin — not enough to feel exposed.</p>
-                </div>
-                <div class="who-card reveal">
-                    <p class="who-card-label" data-i18n="who_c2_label">Knowledge</p>
-                    <p class="who-card-title" data-i18n="who_c2_title">Aware, not expert</p>
-                    <p data-i18n="who_c2_body">Has heard of ETFs. Knows inflation exists. Stops there.</p>
-                </div>
-                <div class="who-card reveal">
-                    <p class="who-card-label" data-i18n="who_c3_label">Barrier</p>
-                    <p class="who-card-title" data-i18n="who_c3_title">Friction, not fear</p>
-                    <p data-i18n="who_c3_body">One confusing screen is enough to lose them permanently. Ové removes the screens.</p>
-                </div>
-                <div class="who-card reveal">
-                    <p class="who-card-label" data-i18n="who_c4_label">Geography</p>
-                    <p class="who-card-title" data-i18n="who_c4_title">Europe — where participation is lowest</p>
-                    <p data-i18n="who_c4_body">Sweden, Spain, Italy — markets where ownership sits well below the European average.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY IT EXISTS -->
-    <section class="section reveal" id="section-why">
-        <div class="section-inner">
-            <p class="section-label" data-i18n="why_label">Why it exists</p>
-            <h2 class="section-title" data-i18n="why_title">To remove the emotional baggage that comes with investing.</h2>
-            <p class="section-body" data-i18n="why_body">Most investing apps were built for people who already invest. They're loaded with charts, options, and language that assumes you know what you're doing. For everyone else, that friction is the barrier — not a lack of money, and not a lack of intent.</p>
-            <ul class="why-list">
-                <li class="why-item reveal">
-                    <div class="why-icon"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><p class="why-text-title" data-i18n="why_1_title">No unnecessary choices</p><p class="why-text-body" data-i18n="why_1_body">Three portfolios. One amount. Done. Every additional decision is a reason to quit.</p></div>
-                </li>
-                <li class="why-item reveal">
-                    <div class="why-icon"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><p class="why-text-title" data-i18n="why_2_title">No behavioural nudging</p><p class="why-text-body" data-i18n="why_2_body">No countdown timers. No FOMO. No urgency. Ové is calm by design.</p></div>
-                </li>
-                <li class="why-item reveal">
-                    <div class="why-icon"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><p class="why-text-title" data-i18n="why_3_title">Honest about risk</p><p class="why-text-body" data-i18n="why_3_body">Capital is at risk. Ové says so clearly — not buried in footnotes.</p></div>
-                </li>
-                <li class="why-item reveal">
-                    <div class="why-icon"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div>
-                    <div><p class="why-text-title" data-i18n="why_4_title">Regulated from the start</p><p class="why-text-body" data-i18n="why_4_body">Ové will operate through a licensed partner under MiFID II. Compliance is a design requirement, not an afterthought.</p></div>
-                </li>
-            </ul>
-        </div>
-    </section>
-
     <!-- DEMO CTA -->
-    <section class="demo-section reveal">
-        <p class="demo-section-label" data-i18n="demo_label">See it in action</p>
-        <h2 class="demo-section-title" data-i18n="demo_title">This is what investing could feel like.</h2>
-        <p class="demo-section-sub" data-i18n="demo_section_sub">The demo is completely free. No money moved. Takes 30 seconds.</p>
+    <section class="demo-cta-section reveal">
+        <p class="demo-cta-label" data-i18n="demo_label">See it in action</p>
+        <h2 class="demo-cta-title" data-i18n="demo_title">This is what investing could feel like.</h2>
+        <p class="demo-cta-sub" data-i18n="demo_section_sub">The demo is completely free. No money moved. Takes 30 seconds.</p>
         <button class="demo-launch-btn" onclick="demoOpen()">
             <div class="demo-btn-icon">
                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
-            <div class="demo-btn-label"><span class="demo-btn-label-main" data-i18n="demo_btn">Explore the demo</span></div>
+            <div class="demo-btn-label"><span class="demo-btn-label-main" data-i18n="demo_btn">Try the demo</span></div>
         </button>
+    </section>
+
+    <!-- CONCEPT SECTION -->
+    <section class="section reveal" id="section-concept">
+        <div class="section-inner">
+            <p class="section-label" data-i18n="concept_label">What we're building</p>
+            <h2 class="section-title" data-i18n="concept_title">Built for the 91% who haven't started.</h2>
+            <div class="concept-points">
+                <div class="concept-point reveal">
+                    <span class="concept-point-num">1</span>
+                    <div class="concept-point-body">
+                        <p class="concept-point-title" data-i18n="cp1_title">A pre-launch investing platform.</p>
+                        <p class="concept-point-text" data-i18n="cp1_text">Ové is designed to get complete beginners invested — from €10, in under two minutes, with no unnecessary choices and no jargon.</p>
+                    </div>
+                </div>
+                <div class="concept-point reveal">
+                    <span class="concept-point-num">2</span>
+                    <div class="concept-point-body">
+                        <p class="concept-point-title" data-i18n="cp2_title">For the person who hasn't started yet.</p>
+                        <p class="concept-point-text" data-i18n="cp2_text">Not for traders or experienced investors. For people who know they should be investing but have been put off by friction, jargon, or the fear of getting it wrong.</p>
+                    </div>
+                </div>
+                <div class="concept-point reveal">
+                    <span class="concept-point-num">3</span>
+                    <div class="concept-point-body">
+                        <p class="concept-point-title" data-i18n="cp3_title">Calm, simple, and regulated.</p>
+                        <p class="concept-point-text" data-i18n="cp3_text">No countdown timers. No FOMO. No behavioural nudges. Ové will operate through a licensed partner under MiFID II — compliance is a design requirement, not an afterthought.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAITLIST CTA -->
+    <section class="cta-section reveal">
+        <p class="cta-section-label" data-i18n="waitlist_label">Early access</p>
+        <h2 class="cta-section-title" data-i18n="waitlist_title">Join the waitlist.</h2>
+        <a href="/waitlist" class="demo-launch-btn">
+            <div class="demo-btn-label"><span class="demo-btn-label-main" data-i18n="waitlist_cta">Secure your spot</span></div>
+        </a>
     </section>
 
     <footer>
@@ -545,7 +502,7 @@
             demo_label:"See it in action",
             demo_title:"This is what investing could feel like.",
             demo_section_sub:"The demo is completely free. No money moved. Takes 30 seconds.",
-            demo_btn:"Explore the demo",
+            demo_btn:"Try the demo",
             step1_title:"Let\u2019s get started.", step1_sub:"This takes about 30 seconds.",
             step2_title:"How much per month?", step2_sub:"No funds are moved. Select an amount to view an example scenario.",
             step3_title:"Pick your risk level.", step3_sub:"Three options. No wrong answer.",
@@ -558,6 +515,17 @@
             edu_body:"It is not a real investment tool and does not provide investment advice or recommendations. No money is moved. All figures are illustrative examples only and do not reflect real outcomes. Any illustrative outcomes shown should not be interpreted as indicative of future performance. This website does not enable or invite users to invest.",
             edu_intent:"This experience is intentionally limited to avoid simulating real investment decisions before appropriate regulatory safeguards are in place.",
             sim_bar:"Simulation only \u2014 not investment advice \u00b7 This experience is not personalised and does not take into account your financial situation, objectives, or risk tolerance.",
+            concept_label:"What we're building",
+            concept_title:"Built for the 91% who haven't started.",
+            cp1_title:"A pre-launch investing platform.",
+            cp1_text:"Ové is designed to get complete beginners invested — from €10, in under two minutes, with no unnecessary choices and no jargon.",
+            cp2_title:"For the person who hasn't started yet.",
+            cp2_text:"Not for traders or experienced investors. For people who know they should be investing but have been put off by friction, jargon, or the fear of getting it wrong.",
+            cp3_title:"Calm, simple, and regulated.",
+            cp3_text:"No countdown timers. No FOMO. No behavioural nudges. Ové will operate through a licensed partner under MiFID II — compliance is a design requirement, not an afterthought.",
+            waitlist_label:"Early access",
+            waitlist_title:"Join the waitlist.",
+            waitlist_cta:"Secure your spot",
             edu_btn:"I understand \u2014 continue"
         },
         sv:{
@@ -589,7 +557,7 @@
             demo_label:"Se det i action",
             demo_title:"S\u00e5 h\u00e4r kan investering k\u00e4nnas.",
             demo_section_sub:"Demoversionen \u00e4r helt gratis. Inga pengar r\u00f6rs. Det tar 30 sekunder.",
-            demo_btn:"Utforska demoversionen",
+            demo_btn:"Prova demon",
             step1_title:"S\u00e5 h\u00e4r fungerar det.", step1_sub:"Det tar ungef\u00e4r 30 sekunder.",
             step2_title:"Hur mycket per m\u00e5nad?", step2_sub:"Inga medel flyttas. V\u00e4lj ett belopp f\u00f6r att se ett exempel.",
             step3_title:"V\u00e4lj din riskniv\u00e5.", step3_sub:"Tre alternativ. Inget fel svar.",
@@ -599,6 +567,17 @@
             edu_label:"Innan du b\u00f6rjar", edu_title:"Detta \u00e4r en simulering i utbildningssyfte.",
             edu_body:"Det \u00e4r inte ett verkligt investeringsverktyg och ger inte investeringsr\u00e5d. Inga pengar flyttas. Alla siffror \u00e4r endast illustrativa exempel.",
             edu_intent:"Denna upplevelse \u00e4r avsiktligt begr\u00e4nsad.",
+            concept_label:"Vad vi bygger",
+            concept_title:"Byggt för de 91% som inte börjat.",
+            cp1_title:"En plattform för investering i förhandslans.",
+            cp1_text:"Ové är designat för att få kompletta nybörjare att börja investera — från 10 euro, på under två minuter, utan onödiga val och utan fackjargong.",
+            cp2_title:"För den som inte börjat än.",
+            cp2_text:"Inte för handlare eller erfarna investerare. För personer som vet att de borde investera men har avskräckts av friktion, jargong eller rädslan för att göra fel.",
+            cp3_title:"Lugnt, enkelt och reglerat.",
+            cp3_text:"Inga nedräkningar. Inget FOMO. Inga beteendestimulanser. Ové kommer att verka genom en licensierad partner under MiFID II — regelefterlevnad är ett designkrav, inte en eftertanke.",
+            waitlist_label:"Tidig tillgång",
+            waitlist_title:"Gå med på väntelistan.",
+            waitlist_cta:"Säkra din plats",
             edu_btn:"Jag f\u00f6rst\u00e5r \u2014 forts\u00e4tt"
         },
         es:{
@@ -630,7 +609,7 @@
             demo_label:"V\u00e9alo en acci\u00f3n",
             demo_title:"As\u00ed es como podría sentirse invertir.",
             demo_section_sub:"La demo es totalmente gratuita. No se mueve ningún fondo. Tarda 30 segundos.",
-            demo_btn:"Explora la demo",
+            demo_btn:"Prueba la demo",
             step1_title:"Empecemos.", step1_sub:"Tarda unos 30 segundos.",
             step2_title:"\u00bfCu\u00e1nto al mes?", step2_sub:"No se mueve ning\u00fan fondo.",
             step3_title:"Elige tu nivel de riesgo.", step3_sub:"Tres opciones. No hay respuestas incorrectas.",
@@ -640,6 +619,17 @@
             edu_label:"Antes de empezar", edu_title:"Esta es una simulaci\u00f3n educativa.",
             edu_body:"No es una herramienta de inversi\u00f3n real. No se mueve dinero.",
             edu_intent:"Experiencia intencionadamente limitada.",
+            concept_label:"Lo que estamos construyendo",
+            concept_title:"Construido para el 91% que no ha empezado.",
+            cp1_title:"Una plataforma de inversión pre-lanzamiento.",
+            cp1_text:"Ové está diseñado para que los principiantes empiecen a invertir — desde 10 €, en menos de dos minutos, sin opciones innecesarias y sin jerga.",
+            cp2_title:"Para quien todavía no ha empezado.",
+            cp2_text:"No para traders o inversores experimentados. Para personas que saben que deberían invertir pero se han desanimado por la fricción, la jerga o el miedo a equivocarse.",
+            cp3_title:"Tranquilo, sencillo y regulado.",
+            cp3_text:"Sin cuentas regresivas. Sin FOMO. Sin estímulos conductuales. Ové operará a través de un socio con licencia bajo MiFID II — el cumplimiento normativo es un requisito de diseño, no una ocurrencia.",
+            waitlist_label:"Acceso anticipado",
+            waitlist_title:"Uúnete a la lista de espera.",
+            waitlist_cta:"Asegúra tu plaza",
             edu_btn:"Entiendo \u2014 continuar"
         },
         it:{
@@ -671,7 +661,7 @@
             demo_label:"Guardalo in azione",
             demo_title:"Ecco come potrebbe sembrare investire.",
             demo_section_sub:"La demo \u00e8 completamente gratuita. Non vengono trasferiti fondi. Dura 30 secondi.",
-            demo_btn:"Scopri la demo",
+            demo_btn:"Prova la demo",
             step1_title:"Iniziamo.", step1_sub:"Ci vorranno circa 30 secondi.",
             step2_title:"Quanto al mese?", step2_sub:"Non vengono trasferiti fondi.",
             step3_title:"Scegli il tuo livello di rischio.", step3_sub:"Tre opzioni. Non ci sono risposte sbagliate.",
@@ -681,6 +671,17 @@
             edu_label:"Prima di iniziare", edu_title:"Si tratta di una simulazione didattica.",
             edu_body:"Non \u00e8 uno strumento di investimento reale. Non viene trasferito denaro.",
             edu_intent:"Esperienza volutamente limitata.",
+            concept_label:"Cosa stiamo costruendo",
+            concept_title:"Costruito per il 91% che non ha ancora iniziato.",
+            cp1_title:"Una piattaforma di investimento pre-lancio.",
+            cp1_text:"Ové è progettato per far iniziare a investire anche i principianti assoluti — da 10 €, in meno di due minuti, senza scelte inutili e senza gergo.",
+            cp2_title:"Per chi non ha ancora iniziato.",
+            cp2_text:"Non per trader o investitori esperti. Per persone che sanno di dover investire ma sono state scoraggiate da attrito, gergo o dalla paura di sbagliare.",
+            cp3_title:"Calmo, semplice e regolamentato.",
+            cp3_text:"Nessun conto alla rovescia. Nessun FOMO. Nessun incentivo comportamentale. Ové opererà attraverso un partner autorizzato ai sensi di MiFID II — la conformità normativa è un requisito di progettazione, non un ripensamento.",
+            waitlist_label:"Accesso anticipato",
+            waitlist_title:"Iscriviti alla lista d'attesa.",
+            waitlist_cta:"Assicurati il tuo posto",
             edu_btn:"Ho compreso \u2014 continua"
         }
     };
