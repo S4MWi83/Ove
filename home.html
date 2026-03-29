@@ -557,6 +557,7 @@
             waitlist_title:"Gå med på väntelistan.",
             waitlist_cta:"Säkra din plats",
             auth_note:"OV\u00c9 \u00e4r f\u00f6r n\u00e4rvarande inte auktoriserat att tillhandah\u00e5lla investeringstj\u00e4nster.",omits_text:"Exkluderar skatter, avgifter, tidsskillnader och marknadsvolatilitet.",no_reflect_text:"Denna simulering speglar inte verkliga marknadsf\u00f6rh\u00e5llanden och b\u00f6r inte anv\u00e4ndas f\u00f6r investeringsbeslut.",sim_bar:"Endast simulering \u2014 inte investeringsr\u00e5dgivning \u00b7 Denna upplevelse \u00e4r inte personlig och tar inte h\u00e4nsyn till din ekonomiska situation, dina m\u00e5l eller din risktolerans.",
+            footer_dev:"Under utveckling.",footer_compliance:"OVÉ tillhandahåller för närvarande inga investeringstjänster. Ingenting på denna webbplats utgör ett erbjudande, en uppmaning eller en rekommendation att investera. Denna webbplats är endast i illustrativt syfte och bör inte ligga till grund för investeringsbeslut. Inte investeringsrådgivning. Investeringar innebär risker. Värdet på investeringar kan både stiga och sjunka.",
             edu_btn:"Jag f\u00f6rst\u00e5r \u2014 forts\u00e4tt"
         },
         es:{
@@ -691,7 +692,7 @@
 
     function applyLang(lang){
         var t=T[lang]; if(!t)return;
-        localStorage.setItem('ove-lang',lang);
+        localStorage.setItem('ove-lang',lang); window.dispatchEvent(new Event('ove-lang-changed'));
         document.querySelectorAll('[data-i18n]').forEach(function(el){ var k=el.getAttribute('data-i18n'); if(t[k]!==undefined)el.innerHTML=t[k]; });
         document.getElementById('lang-code').textContent=t.code;
         document.querySelectorAll('.lang-option').forEach(function(o){ o.classList.toggle('active',o.dataset.lang===lang); });
