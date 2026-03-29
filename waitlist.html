@@ -90,7 +90,7 @@
 
         .nav-links { display: flex; align-items: center; gap: 1.5rem; }
         .nav-link { font-size: 0.85rem; font-weight: 400; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-        .nav-link:hover { color: var(--cream); }
+        .nav-link:hover, .nav-link.active { color: var(--cream); }
 
         .lang-switcher { position: relative; }
         .lang-btn { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.6rem; cursor: pointer; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s; }
@@ -297,7 +297,7 @@
     <div class="nav-links">
             <a href="/index" class="nav-link" aria-label="Home" style="display:flex;align-items:center;"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a><span style="color:var(--border);font-weight:300;font-size:1rem;margin:0 0.1rem;">|</span>
             <a href="/concept" class="nav-link" data-i18n="nav_concept">Concept</a>
-            <a href="/waitlist" class="nav-link" data-i18n="nav_waitlist">Waitlist</a>
+            <a href="/waitlist" class="nav-link active" data-i18n="nav_waitlist">Waitlist</a>
             <div class="lang-switcher" id="lang-switcher">
             <button class="lang-btn" id="lang-btn">&#127760; <span id="lang-code">EN</span> &#9660;</button>
             <div class="lang-dropdown" id="lang-dropdown">
