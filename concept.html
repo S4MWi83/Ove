@@ -212,7 +212,7 @@
     <nav>
         <a href="/index" class="nav-logo">Ové<span></span></a>
         <div class="nav-links">
-            <a href="/index" class="nav-link" aria-label="Home" style="display:flex;align-items:center;"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a>
+            <a href="/index" class="nav-link" aria-label="Home" style="display:flex;align-items:center;"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a><span style="color:var(--border);font-weight:300;font-size:1rem;margin:0 0.1rem;">|</span>
             <a href="/concept" class="nav-link" data-i18n="nav_concept">Concept</a>
             <a href="/waitlist" class="nav-link" data-i18n="nav_waitlist">Waitlist</a>
             <div class="lang-switcher" id="lang-switcher">
@@ -241,8 +241,6 @@
         <div class="section-inner">
             <p class="section-label" data-i18n="what_label">What is Ové</p>
             <h2 class="section-title" data-i18n="what_title">A pre-launch investing platform. Built from scratch for beginners.</h2>
-            <p class="section-body" data-i18n="what_body_1">Ové is designed to get complete beginners invested — from a starting example of €10, in under two minutes, with no unnecessary jargon, no bank switching, and no form that requires a finance degree to complete.</p>
-            <p class="section-body" data-i18n="what_body_2">Three portfolios. A single monthly amount. Then you're done. Everything after that is handled in the background by a regulated partner.</p>
             <div class="stat-row">
                 <div class="stat-card reveal">
                     <div class="stat-num" data-i18n="stat_1_num">91%</div>
@@ -516,7 +514,7 @@
 
     var T = {
         en:{
-            nav_concept:"Ové", code:"EN",
+            nav_concept:"Concept", nav_waitlist:"Waitlist", code:"EN",
             eyebrow:"Pre-launch",
             headline_1:"Investing,", headline_2:"finally", headline_3:" simple.",
             sub:"A platform built for the people who've been meaning to start. Not for the ones who already have.",
@@ -545,7 +543,7 @@
             demo_title:"This is what investing could feel like.",
             demo_section_sub:"The demo is completely free. No money moved. Takes 30 seconds.",
             demo_btn:"Explore the demo",
-            nav_concept:"Concept",nav_waitlist:"Waitlist",step1_title:"Let\u2019s get started.", step1_sub:"This takes about 30 seconds.",
+            step1_title:"Let\u2019s get started.", step1_sub:"This takes about 30 seconds.",
             step2_title:"How much per month?", step2_sub:"No funds are moved. Select an amount to view an example scenario.",
             step3_title:"Pick your risk level.", step3_sub:"Three options. No wrong answer.",
             done_sub:"That\u2019s it. That\u2019s really all it takes.",
@@ -560,7 +558,7 @@
             edu_btn:"I understand \u2014 continue"
         },
         sv:{
-            nav_concept:"Ov\u00e9", code:"SV",
+            nav_concept:"Concept", code:"SV",
             eyebrow:"F\u00f6rhandsversion",
             headline_1:"Investering,", headline_2:"enkelt", headline_3:" \u00e4ntligen.",
             sub:"En plattform byggd f\u00f6r dig som l\u00e4nge t\u00e4nkt b\u00f6rja. Inte f\u00f6r dem som redan g\u00f6r det.",
@@ -589,7 +587,7 @@
             demo_title:"S\u00e5 h\u00e4r kan investering k\u00e4nnas.",
             demo_section_sub:"Demoversionen \u00e4r helt gratis. Inga pengar r\u00f6rs. Det tar 30 sekunder.",
             demo_btn:"Utforska demoversionen",
-            nav_concept:"Concept",nav_waitlist:"Waitlist",step1_title:"S\u00e5 h\u00e4r fungerar det.", step1_sub:"Det tar ungef\u00e4r 30 sekunder.",
+            step1_title:"S\u00e5 h\u00e4r fungerar det.", step1_sub:"Det tar ungef\u00e4r 30 sekunder.",
             step2_title:"Hur mycket per m\u00e5nad?", step2_sub:"Inga medel flyttas. V\u00e4lj ett belopp f\u00f6r att se ett exempel.",
             step3_title:"V\u00e4lj din riskniv\u00e5.", step3_sub:"Tre alternativ. Inget fel svar.",
             done_sub:"Det \u00e4r allt. Det \u00e4r verkligen allt som kr\u00e4vs.",
@@ -601,7 +599,7 @@
             edu_btn:"Jag f\u00f6rst\u00e5r \u2014 forts\u00e4tt"
         },
         es:{
-            nav_concept:"Ov\u00e9", code:"ES",
+            nav_concept:"Concept", code:"ES",
             eyebrow:"Prelanzamiento",
             headline_1:"Invertir,", headline_2:"por fin", headline_3:" sencillo.",
             sub:"Una plataforma construida para quienes llevan tiempo queriendo empezar. No para quienes ya lo hacen.",
@@ -630,7 +628,7 @@
             demo_title:"As\u00ed es como podría sentirse invertir.",
             demo_section_sub:"La demo es totalmente gratuita. No se mueve ningún fondo. Tarda 30 segundos.",
             demo_btn:"Explora la demo",
-            nav_concept:"Concept",nav_waitlist:"Waitlist",step1_title:"Empecemos.", step1_sub:"Tarda unos 30 segundos.",
+            step1_title:"Empecemos.", step1_sub:"Tarda unos 30 segundos.",
             step2_title:"\u00bfCu\u00e1nto al mes?", step2_sub:"No se mueve ning\u00fan fondo.",
             step3_title:"Elige tu nivel de riesgo.", step3_sub:"Tres opciones. No hay respuestas incorrectas.",
             done_sub:"Eso es todo.",
@@ -642,7 +640,7 @@
             edu_btn:"Entiendo \u2014 continuar"
         },
         it:{
-            nav_concept:"Ov\u00e9", code:"IT",
+            nav_concept:"Concept", code:"IT",
             eyebrow:"Pre-lancio",
             headline_1:"Investire,", headline_2:"finalmente", headline_3:" semplice.",
             sub:"Una piattaforma costruita per chi voleva iniziare da tempo. Non per chi lo fa gi\u00e0.",
@@ -671,7 +669,7 @@
             demo_title:"Ecco come potrebbe sembrare investire.",
             demo_section_sub:"La demo \u00e8 completamente gratuita. Non vengono trasferiti fondi. Dura 30 secondi.",
             demo_btn:"Scopri la demo",
-            nav_concept:"Concept",nav_waitlist:"Waitlist",step1_title:"Iniziamo.", step1_sub:"Ci vorranno circa 30 secondi.",
+            step1_title:"Iniziamo.", step1_sub:"Ci vorranno circa 30 secondi.",
             step2_title:"Quanto al mese?", step2_sub:"Non vengono trasferiti fondi.",
             step3_title:"Scegli il tuo livello di rischio.", step3_sub:"Tre opzioni. Non ci sono risposte sbagliate.",
             done_sub:"Tutto qui. \u00c8 davvero tutto ci\u00f2 che serve.",
