@@ -650,7 +650,7 @@
 
     function applyLang(lang){
         var t=T[lang]; if(!t)return;
-        localStorage.setItem('ove-lang',lang);
+        localStorage.setItem('ove-lang',lang); window.dispatchEvent(new Event('ove-lang-changed'));
         document.querySelectorAll('[data-i18n]').forEach(function(el){ var k=el.getAttribute('data-i18n'); if(t[k]!==undefined)el.innerHTML=t[k]; });
         document.getElementById('lang-code').textContent=t.code;
         document.querySelectorAll('.lang-option').forEach(function(o){ o.classList.toggle('active',o.dataset.lang===lang); });
