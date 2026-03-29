@@ -204,8 +204,8 @@
             align-items: center;
             gap: 0.6rem;
         }
-        footer a { color: var(--blue); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
+        footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: var(--cream); }
         .footer-links { display: flex; gap: 1.5rem; }
 
         @keyframes fadeUp {
@@ -226,8 +226,8 @@
     <a href="/index" class="nav-logo">Ové<span></span></a>
     <div class="nav-links">
             <a href="/index" class="nav-link" aria-label="Home" style="display:flex;align-items:center;"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a>
-            <a href="/concept" class="nav-link">Concept</a>
-            <a href="/waitlist" class="nav-link">Waitlist</a>
+            <a href="/concept" class="nav-link" data-i18n="nav_concept">Concept</a>
+            <a href="/waitlist" class="nav-link" data-i18n="nav_waitlist">Waitlist</a>
         </div>
 </nav>
 
