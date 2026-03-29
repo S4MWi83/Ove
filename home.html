@@ -62,19 +62,10 @@
         .hero-headline { font-family:'Instrument Serif',serif; font-size:clamp(2.8rem,6vw,5.5rem); line-height:1.06; letter-spacing:-0.02em; margin-bottom:1.5rem; }
         .hero-headline em { font-style:italic; color:#93c5fd; }
         .hero-sub { font-size:clamp(1rem,2vw,1.15rem); color:var(--muted); font-weight:300; max-width:400px; line-height:1.75; margin-bottom:3.5rem; }
-        .demo-launch-btn { position:relative; display:inline-flex; align-items:center; gap:1rem; background:transparent; color:var(--cream); font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:500; padding:0.9rem 1.75rem 0.9rem 1rem; border-radius:999px; border:none; cursor:pointer; transition:all 0.4s ease; letter-spacing:0.12em; text-transform:uppercase; outline:none; text-decoration:none; }
-        .demo-launch-btn::before { content:''; position:absolute; inset:0; border-radius:999px; border:1px solid rgba(59,130,246,0.35); transition:all 0.4s ease; pointer-events:none; }
-        .demo-launch-btn::after { content:''; position:absolute; inset:3px; border-radius:999px; border:1px solid rgba(59,130,246,0.15); transition:all 0.4s ease; pointer-events:none; }
-        .demo-launch-btn:hover::before { border-color:rgba(59,130,246,0.7); box-shadow:0 0 20px rgba(59,130,246,0.2),inset 0 0 20px rgba(59,130,246,0.05); }
-        .demo-launch-btn:hover::after { border-color:rgba(59,130,246,0.35); }
-        .demo-launch-btn:hover { color:white; }
-        .demo-btn-icon { position:relative; z-index:1; width:38px; height:38px; border-radius:50%; background:rgba(59,130,246,0.15); border:1px solid rgba(59,130,246,0.35); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.4s ease; box-shadow:0 0 12px rgba(59,130,246,0.2); }
-        .demo-launch-btn:hover .demo-btn-icon { background:rgba(59,130,246,0.3); border-color:rgba(59,130,246,0.6); box-shadow:0 0 20px rgba(59,130,246,0.4); }
-        .demo-btn-icon svg { color:var(--blue); transition:transform 0.3s ease; }
-        .demo-launch-btn:hover .demo-btn-icon svg { transform:scale(1.15); }
+        .demo-launch-btn { display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; background:#3b82f6; color:#fff; font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:500; padding:0.85rem 1.75rem; border-radius:10px; border:none; cursor:pointer; letter-spacing:0.08em; text-transform:uppercase; outline:none; text-decoration:none; max-width:280px; width:100%; }
+        .demo-launch-btn:hover { background:#2563eb; }
         .demo-btn-label { position:relative; z-index:1; }
-        .demo-btn-label-main { font-size:0.9rem; color:var(--cream); letter-spacing:0.06em; font-weight:500; transition:color 0.3s; }
-        .demo-launch-btn:hover .demo-btn-label-main { color:white; }
+        .demo-btn-label-main { font-size:0.9rem; color:#fff; letter-spacing:0.06em; font-weight:500; }
         footer { border-top:1px solid var(--border); padding:2.5rem 0; display:flex; align-items:center; justify-content:space-between; color:var(--muted); font-size:0.85rem; font-weight:300; flex-wrap:wrap; gap:1rem; }
         .footer-links { display:flex; gap:1.5rem; }
         .footer-links a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
@@ -104,7 +95,7 @@
         .demo-slider-mo { font-size:0.82rem; color:var(--muted); font-weight:300; }
         .demo-slider { -webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px; background:rgba(255,255,255,0.08); outline:none; cursor:pointer; }
         .demo-slider::-webkit-slider-thumb { -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; box-shadow:0 0 12px rgba(59,130,246,0.6); transition:transform 0.15s; border:2px solid rgba(255,255,255,0.2); }
-        .demo-slider::-webkit-slider-thumb:hover { transform:scale(1.25); }
+        
         .demo-slider::-moz-range-thumb { width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; border:2px solid rgba(255,255,255,0.2); box-shadow:0 0 12px rgba(59,130,246,0.6); }
         .demo-slider-labels { display:flex; justify-content:space-between; font-size:0.7rem; color:var(--muted); margin-top:0.5rem; font-weight:300; }
         .demo-custom-wrap { margin:1rem 0 1rem; }
@@ -141,8 +132,7 @@
         .demo-next-btn:hover::before { border-color:rgba(59,130,246,0.7); box-shadow:0 0 20px rgba(59,130,246,0.2),inset 0 0 20px rgba(59,130,246,0.05); }
         .demo-next-btn:hover::after { border-color:rgba(59,130,246,0.35); }
         .demo-next-btn:hover { color:white; }
-        .demo-next-btn svg { position:relative; z-index:1; transition:transform 0.2s ease; }
-        .demo-next-btn:hover svg { transform:translateX(3px); }
+        .demo-next-btn svg { position:relative; z-index:1; }
         .demo-next-btn.full { width:100%; }
         .demo-done-icon { width:56px; height:56px; border-radius:50%; background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.3); display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:var(--green); margin-bottom:1.25rem; box-shadow:0 0 24px rgba(74,222,128,0.15); animation:popIn 0.5s cubic-bezier(0.34,1.56,0.64,1); }
         @keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
@@ -231,7 +221,7 @@
             <span data-i18n="headline_2">Clear. </span><em data-i18n="headline_3">Straightforward.</em>
         </h1>
         <p class="hero-sub" data-i18n="sub">A platform for people who've been meaning to begin. Not for those already investing.</p>
-        <a href="/waitlist" class="demo-launch-btn" style="margin-top:2rem;padding:0.9rem 2rem;">
+        <a href="/waitlist" class="demo-launch-btn" style="margin-top:2rem;">
             <div class="demo-btn-label"><span class="demo-btn-label-main" data-i18n="hero_cta">Join the waitlist</span></div>
         </a>
         <p style="margin-top:1rem;font-size:0.85rem;font-weight:500;color:var(--cream);" data-i18n="auth_note">OVÉ is not currently authorised to provide investment services.</p>
@@ -273,10 +263,7 @@
         <h2 class="demo-cta-title" data-i18n="demo_title">This is a simplified illustration of how the experience may work.</h2>
         <p class="demo-cta-sub" data-i18n="demo_section_sub">The demo is free. No money involved. You can explore it at your own pace.</p>
         <button class="demo-launch-btn" onclick="demoOpen()">
-            <div class="demo-btn-icon">
-                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            </div>
-            <div class="demo-btn-label"><span class="demo-btn-label-main" data-i18n="demo_btn">Try the demo</span></div>
+            <span data-i18n="demo_btn">Try the demo</span>
         </button>
         <p style="margin-top:1rem;font-size:0.85rem;font-weight:500;color:var(--cream);" data-i18n="auth_note">OVÉ is not currently authorised to provide investment services.</p>
     </section>
@@ -297,7 +284,7 @@
 
     <footer>
         <span>© <span id="year"></span> Ové. Currently in development.</span>
-        <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.6;width:100%;margin-top:0.5rem;">OVÉ does not currently provide investment services. Nothing on this website constitutes an offer, solicitation, or recommendation to invest. This website is for illustrative purposes only and should not be relied upon for investment decisions. Not investment advice. Investing involves risk. The value of investments can go down as well as up.</p>
+        <p style="font-size:0.875rem;color:var(--muted);font-weight:300;line-height:1.65;width:100%;margin-top:0.75rem;">OVÉ does not currently provide investment services. Nothing on this website constitutes an offer, solicitation, or recommendation to invest. This website is for illustrative purposes only and should not be relied upon for investment decisions. Not investment advice. Investing involves risk. The value of investments can go down as well as up.</p>
         <div class="footer-links">
             <a href="/vision">Vision</a>
             <a href="/regulatory">Regulatory</a>
