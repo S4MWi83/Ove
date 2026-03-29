@@ -81,10 +81,34 @@
         .lang-option:hover { background:rgba(255,255,255,0.05); color:var(--cream); }
         .lang-option.active { color:var(--cream); background:rgba(59,130,246,0.1); }
         .wrap { max-width:1080px; margin:0 auto; padding:0 2rem; position:relative; z-index:1; min-height:100vh; display:flex; flex-direction:column; }
-        .demo-section { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:8rem 2rem 6rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.3s; }
-        .demo-section-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
-        .demo-section-title { font-family:'Instrument Serif',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:0.85rem; }
-        .demo-section-sub { font-size:0.95rem; color:var(--muted); font-weight:300; line-height:1.75; margin-bottom:2.5rem; }
+        .hero { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:calc(100vh - 120px); padding:4rem 0 6rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.3s; }
+        .hero-eyebrow { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:2rem; }
+        .hero-headline { font-family:'Instrument Serif',serif; font-size:clamp(2.8rem,6vw,5.5rem); line-height:1.06; letter-spacing:-0.02em; margin-bottom:1.5rem; }
+        .hero-headline em { font-style:italic; color:#93c5fd; }
+        .hero-sub { font-size:clamp(1rem,2vw,1.15rem); color:var(--muted); font-weight:300; max-width:400px; line-height:1.75; margin-bottom:3.5rem; }
+        .demo-cta-section { padding:5rem 0; border-top:1px solid var(--border); position:relative; z-index:1; text-align:center; }
+        .demo-cta-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
+        .demo-cta-title { font-family:'Instrument Serif',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:0.75rem; }
+        .demo-cta-sub { font-size:0.95rem; color:var(--muted); font-weight:300; line-height:1.75; margin-bottom:2.5rem; }
+        .demo-end-ctas { display:flex; align-items:center; justify-content:center; gap:1rem; margin-top:1.5rem; flex-wrap:wrap; }
+        .demo-end-secondary { font-size:0.85rem; color:var(--muted); text-decoration:none; font-weight:300; transition:color 0.2s; letter-spacing:0.04em; }
+        .demo-end-secondary:hover { color:var(--cream); }
+        .section { padding:5rem 0; border-top:1px solid var(--border); position:relative; z-index:1; }
+        .section-inner { max-width:720px; margin:0 auto; }
+        .section-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
+        .section-title { font-family:'Instrument Serif',serif; font-size:clamp(2rem,4vw,2.8rem); line-height:1.1; letter-spacing:-0.01em; margin-bottom:1.25rem; }
+        .concept-points { display:flex; flex-direction:column; gap:0; margin-top:2.5rem; }
+        .concept-point { display:flex; gap:1.5rem; padding:1.75rem 0; border-top:1px solid var(--border); }
+        .concept-point:last-child { border-bottom:1px solid var(--border); }
+        .concept-point-num { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--blue); opacity:0.6; flex-shrink:0; width:1.5rem; padding-top:0.1rem; }
+        .concept-point-body { flex:1; }
+        .concept-point-title { font-family:'Instrument Serif',serif; font-size:1.25rem; color:var(--cream); margin-bottom:0.4rem; line-height:1.2; }
+        .concept-point-text { font-size:0.9rem; color:var(--muted); font-weight:300; line-height:1.75; }
+        .cta-section { padding:5rem 0 6rem; border-top:1px solid var(--border); position:relative; z-index:1; text-align:center; }
+        .cta-section-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
+        .cta-section-title { font-family:'Instrument Serif',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:2rem; }
+        .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
+        .reveal.visible { opacity:1; transform:translateY(0); }
         .demo-launch-btn { position:relative; display:inline-flex; align-items:center; gap:1rem; background:transparent; color:var(--cream); font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:500; padding:0.9rem 1.75rem 0.9rem 1rem; border-radius:999px; border:none; cursor:pointer; transition:all 0.4s ease; letter-spacing:0.12em; text-transform:uppercase; outline:none; text-decoration:none; }
         .demo-launch-btn::before { content:''; position:absolute; inset:0; border-radius:999px; border:1px solid rgba(59,130,246,0.35); transition:all 0.4s ease; pointer-events:none; }
         .demo-launch-btn::after { content:''; position:absolute; inset:3px; border-radius:999px; border:1px solid rgba(59,130,246,0.15); transition:all 0.4s ease; pointer-events:none; }
@@ -99,7 +123,7 @@
         .footer-links a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
         .footer-links a:hover { color:var(--cream); }
         @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-        @media(max-width:640px) { nav{padding:1.25rem 1.35rem} .nav-logo{font-size:1.5rem} .nav-links{gap:0.85rem} .nav-link{font-size:0.78rem} }
+        @media(max-width:640px) { nav{padding:1.25rem 1.35rem} .nav-logo{font-size:1.5rem} .nav-links{gap:0.85rem} .nav-link{font-size:0.78rem} .hero{min-height:auto;padding:3rem 0 4rem} .section{padding:3.5rem 0} .cta-section{padding:3.5rem 0 5rem} .demo-cta-section{padding:3.5rem 0} }
     </style>
 </head>
 <body>
@@ -122,17 +146,75 @@
     </div>
 </nav>
 <div class="wrap">
-    <section class="demo-section">
-        <p class="demo-section-label">See it in action</p>
-        <h1 class="demo-section-title">This is what investing could feel like.</h1>
-        <p class="demo-section-sub">The demo is completely free. No money moved. Takes 30 seconds.</p>
+    <!-- HERO -->
+    <div class="hero">
+        <p class="hero-eyebrow" data-i18n="eyebrow">Pre-launch</p>
+        <h1 class="hero-headline">
+            <span data-i18n="headline_1">Investing,</span><br>
+            <em data-i18n="headline_2">finally</em><span data-i18n="headline_3"> simple.</span>
+        </h1>
+        <p class="hero-sub" data-i18n="sub">A platform built for the people who've been meaning to start. Not for the ones who already have.</p>
+    </div>
+
+    <!-- DEMO CTA -->
+    <section class="demo-cta-section reveal">
+        <p class="demo-cta-label" data-i18n="demo_label">See it in action</p>
+        <h2 class="demo-cta-title" data-i18n="demo_title">This is what investing could feel like.</h2>
+        <p class="demo-cta-sub" data-i18n="demo_sub">The demo is completely free. No money moved. Takes 30 seconds.</p>
         <a href="/index#demo" class="demo-launch-btn">
             <div class="demo-btn-icon">
                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
-            <span class="demo-btn-label">Explore the demo</span>
+            <span class="demo-btn-label" data-i18n="demo_btn">Try the demo</span>
+        </a>
+        <div class="demo-end-ctas">
+            <a href="/waitlist" class="demo-launch-btn" style="padding:0.7rem 1.5rem;">
+                <span class="demo-btn-label" data-i18n="cta_waitlist">Join the waitlist</span>
+            </a>
+            <a href="/index" class="demo-end-secondary" data-i18n="cta_home">Back to home</a>
+        </div>
+    </section>
+
+    <!-- CONCEPT SECTION -->
+    <section class="section reveal">
+        <div class="section-inner">
+            <p class="section-label" data-i18n="concept_label">What we're building</p>
+            <h2 class="section-title" data-i18n="concept_title">Built for the 91% who haven't started.</h2>
+            <div class="concept-points">
+                <div class="concept-point reveal">
+                    <span class="concept-point-num">1</span>
+                    <div class="concept-point-body">
+                        <p class="concept-point-title" data-i18n="cp1_title">A pre-launch investing platform.</p>
+                        <p class="concept-point-text" data-i18n="cp1_text">Ové is designed to get complete beginners invested — from €10, in under two minutes, with no unnecessary choices and no jargon.</p>
+                    </div>
+                </div>
+                <div class="concept-point reveal">
+                    <span class="concept-point-num">2</span>
+                    <div class="concept-point-body">
+                        <p class="concept-point-title" data-i18n="cp2_title">For the person who hasn't started yet.</p>
+                        <p class="concept-point-text" data-i18n="cp2_text">Not for traders or experienced investors. For people who know they should be investing but have been put off by friction, jargon, or the fear of getting it wrong.</p>
+                    </div>
+                </div>
+                <div class="concept-point reveal">
+                    <span class="concept-point-num">3</span>
+                    <div class="concept-point-body">
+                        <p class="concept-point-title" data-i18n="cp3_title">Calm, simple, and regulated.</p>
+                        <p class="concept-point-text" data-i18n="cp3_text">No countdown timers. No FOMO. No behavioural nudges. Ové will operate through a licensed partner under MiFID II — compliance is a design requirement, not an afterthought.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAITLIST CTA -->
+    <section class="cta-section reveal">
+        <p class="cta-section-label" data-i18n="waitlist_label">Early access</p>
+        <h2 class="cta-section-title" data-i18n="waitlist_title">Join the waitlist.</h2>
+        <a href="/waitlist" class="demo-launch-btn">
+            <span class="demo-btn-label" data-i18n="waitlist_cta">Secure your spot</span>
         </a>
     </section>
+
     <footer>
         <span>© <span id="year"></span> Ové. Currently in development.</span>
         <div class="footer-links">
@@ -146,10 +228,66 @@
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     var navT = {
-        en: { nav_concept:'Concept', nav_waitlist:'Waitlist' },
-        sv: { nav_concept:'Concept', nav_waitlist:'Waitlist' },
-        es: { nav_concept:'Concept', nav_waitlist:'Waitlist' },
-        it: { nav_concept:'Concept', nav_waitlist:'Waitlist' }
+        en: { nav_concept:'Concept', nav_waitlist:'Waitlist',
+            eyebrow:'Pre-launch', headline_1:'Investing,', headline_2:'finally', headline_3:' simple.',
+            sub:"A platform built for the people who've been meaning to start. Not for the ones who already have.",
+            demo_label:'See it in action', demo_title:'This is what investing could feel like.',
+            demo_sub:'The demo is completely free. No money moved. Takes 30 seconds.',
+            demo_btn:'Try the demo', cta_waitlist:'Join the waitlist', cta_home:'Back to home',
+            concept_label:"What we're building", concept_title:"Built for the 91% who haven't started.",
+            cp1_title:'A pre-launch investing platform.',
+            cp1_text:'Ové is designed to get complete beginners invested — from €10, in under two minutes, with no unnecessary choices and no jargon.',
+            cp2_title:"For the person who hasn't started yet.",
+            cp2_text:'Not for traders or experienced investors. For people who know they should be investing but have been put off by friction, jargon, or the fear of getting it wrong.',
+            cp3_title:'Calm, simple, and regulated.',
+            cp3_text:'No countdown timers. No FOMO. No behavioural nudges. Ové will operate through a licensed partner under MiFID II — compliance is a design requirement, not an afterthought.',
+            waitlist_label:'Early access', waitlist_title:'Join the waitlist.', waitlist_cta:'Secure your spot'
+        },
+        sv: { nav_concept:'Concept', nav_waitlist:'Waitlist',
+            eyebrow:'F\u00f6rhandsversion', headline_1:'Investering,', headline_2:'enkelt', headline_3:' \u00e4ntligen.',
+            sub:'En plattform byggd f\u00f6r dig som l\u00e4nge t\u00e4nkt b\u00f6rja. Inte f\u00f6r dem som redan g\u00f6r det.',
+            demo_label:'Se det i action', demo_title:'S\u00e5 h\u00e4r kan investering k\u00e4nnas.',
+            demo_sub:'Demoversionen \u00e4r helt gratis. Inga pengar r\u00f6rs. Det tar 30 sekunder.',
+            demo_btn:'Prova demon', cta_waitlist:'G\u00e5 med p\u00e5 v\u00e4ntelistan', cta_home:'Tillbaka till start',
+            concept_label:'Vad vi bygger', concept_title:'Byggt f\u00f6r de 91% som inte b\u00f6rjat.',
+            cp1_title:'En plattform f\u00f6r investering i f\u00f6rhandsversion.',
+            cp1_text:'Ov\u00e9 \u00e4r designat f\u00f6r att f\u00e5 kompletta nyb\u00f6rjare att b\u00f6rja investera — fr\u00e5n 10 euro, p\u00e5 under tv\u00e5 minuter, utan on\u00f6diga val och utan fackjargong.',
+            cp2_title:'F\u00f6r den som inte b\u00f6rjat \u00e4n.',
+            cp2_text:'Inte f\u00f6r handlare eller erfarna investerare. F\u00f6r personer som vet att de borde investera men har avskr\u00e4ckts av friktion, jargong eller r\u00e4dslan f\u00f6r att g\u00f6ra fel.',
+            cp3_title:'Lugnt, enkelt och reglerat.',
+            cp3_text:'Inga nedräkningar. Inget FOMO. Inga beteendestimulanser. Ov\u00e9 kommer att verka genom en licensierad partner under MiFID II.',
+            waitlist_label:'Tidig tillg\u00e5ng', waitlist_title:'G\u00e5 med p\u00e5 v\u00e4ntelistan.', waitlist_cta:'S\u00e4kra din plats'
+        },
+        es: { nav_concept:'Concept', nav_waitlist:'Waitlist',
+            eyebrow:'Prelanzamiento', headline_1:'Invertir,', headline_2:'por fin', headline_3:' sencillo.',
+            sub:'Una plataforma construida para quienes llevan tiempo queriendo empezar. No para quienes ya lo hacen.',
+            demo_label:'V\u00e9alo en acci\u00f3n', demo_title:'As\u00ed es como podr\u00eda sentirse invertir.',
+            demo_sub:'La demo es totalmente gratuita. No se mueve ning\u00fan fondo. Tarda 30 segundos.',
+            demo_btn:'Prueba la demo', cta_waitlist:'U\u00fanete a la lista de espera', cta_home:'Volver al inicio',
+            concept_label:'Lo que estamos construyendo', concept_title:'Construido para el 91% que no ha empezado.',
+            cp1_title:'Una plataforma de inversi\u00f3n pre-lanzamiento.',
+            cp1_text:'Ov\u00e9 est\u00e1 dise\u00f1ado para que los principiantes empiecen a invertir — desde 10 €, en menos de dos minutos, sin opciones innecesarias y sin jerga.',
+            cp2_title:'Para quien todav\u00eda no ha empezado.',
+            cp2_text:'No para traders o inversores experimentados. Para personas que saben que deber\u00edan invertir pero se han desanimado por la fricci\u00f3n, la jerga o el miedo a equivocarse.',
+            cp3_title:'Tranquilo, sencillo y regulado.',
+            cp3_text:'Sin cuentas regresivas. Sin FOMO. Sin est\u00edmulos conductuales. Ov\u00e9 operar\u00e1 a trav\u00e9s de un socio con licencia bajo MiFID II.',
+            waitlist_label:'Acceso anticipado', waitlist_title:'U\u00fanete a la lista de espera.', waitlist_cta:'Aseg\u00fara tu plaza'
+        },
+        it: { nav_concept:'Concept', nav_waitlist:'Waitlist',
+            eyebrow:'Pre-lancio', headline_1:'Investire,', headline_2:'finalmente', headline_3:' semplice.',
+            sub:'Una piattaforma costruita per chi voleva iniziare da tempo. Non per chi lo fa gi\u00e0.',
+            demo_label:'Guardalo in azione', demo_title:'Ecco come potrebbe sembrare investire.',
+            demo_sub:'La demo \u00e8 completamente gratuita. Non vengono trasferiti fondi. Dura 30 secondi.',
+            demo_btn:'Prova la demo', cta_waitlist:"Iscriviti alla lista d'attesa", cta_home:'Torna alla home',
+            concept_label:'Cosa stiamo costruendo', concept_title:"Costruito per il 91% che non ha ancora iniziato.",
+            cp1_title:'Una piattaforma di investimento pre-lancio.',
+            cp1_text:'Ov\u00e9 \u00e8 progettato per far iniziare a investire anche i principianti assoluti — da 10 €, in meno di due minuti, senza scelte inutili e senza gergo.',
+            cp2_title:'Per chi non ha ancora iniziato.',
+            cp2_text:'Non per trader o investitori esperti. Per persone che sanno di dover investire ma sono state scoraggiate da attrito, gergo o dalla paura di sbagliare.',
+            cp3_title:'Calmo, semplice e regolamentato.',
+            cp3_text:'Nessun conto alla rovescia. Nessun FOMO. Nessun incentivo comportamentale. Ov\u00e9 operer\u00e0 attraverso un partner autorizzato ai sensi di MiFID II.',
+            waitlist_label:'Accesso anticipato', waitlist_title:"Iscriviti alla lista d'attesa.", waitlist_cta:'Assicurati il tuo posto'
+        }
     };
     function applyLang(lang) {
         if (!navT[lang]) return;
@@ -159,6 +297,7 @@
             var k = el.getAttribute('data-i18n');
             if (t[k] !== undefined) el.textContent = t[k];
         });
+        document.getElementById('lang-code').textContent = lang.toUpperCase();
         document.querySelectorAll('.lang-option').forEach(function(o) {
             o.classList.toggle('active', o.dataset.lang === lang);
         });
@@ -168,6 +307,8 @@
     document.querySelectorAll('.lang-option').forEach(function(o) { o.addEventListener('click', function(e) { e.stopPropagation(); applyLang(o.dataset.lang); }); });
     document.addEventListener('click', function() { document.getElementById('lang-switcher').classList.remove('open'); });
     var saved = localStorage.getItem('ove-lang'); if (saved && navT[saved]) applyLang(saved);
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); }); }, {threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
 <script src="/ove-shared.js"></script>
 </body>
