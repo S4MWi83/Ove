@@ -213,7 +213,7 @@
         <a href="/index" class="nav-logo">Ové<span></span></a>
         <div class="nav-links">
             <a href="/index" class="nav-link" aria-label="Home" style="display:flex;align-items:center;"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a><span style="color:var(--border);font-weight:300;font-size:1rem;margin:0 0.1rem;">|</span>
-            <a href="/concept" class="nav-link" data-i18n="nav_concept">Concept</a>
+            <a href="/concept" class="nav-link active" data-i18n="nav_concept">Concept</a>
             <a href="/waitlist" class="nav-link" data-i18n="nav_waitlist">Waitlist</a>
             <div class="lang-switcher" id="lang-switcher">
                 <button class="lang-btn" id="lang-btn">&#127760; <span id="lang-code">EN</span> &#9660;</button>
@@ -373,7 +373,7 @@
                 </div>
                 <div class="demo-field">
                     <label id="demo-label-email">Email</label>
-                    <div class="demo-input"><span id="demo-email-display">maria@email.com</span><div class="demo-input-check" id="demo-email-check" style="opacity:1">✓</div></div>
+                    <div class="demo-input"><span id="demo-email-display"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d1bcb0a3b8b091b4bcb0b8bdffb2bebc">[email&#160;protected]</a></span><div class="demo-input-check" id="demo-email-check" style="opacity:1">✓</div></div>
                 </div>
                 <div class="demo-field">
                     <label id="demo-label-country">Country</label>
@@ -460,7 +460,7 @@
     </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     var demoPortfolio = 'balanced';
     var demoAmount = 50;
     var portfolioRates = { steady:0.05, balanced:0.08, growth:0.11 };
@@ -731,10 +731,4 @@
         var saved=localStorage.getItem('ove-lang')||'en'; if(!T[saved])saved='en';
         applyLang(saved); applyDemoLang(saved);
         if(window.location.hash==='#demo'){ demoOpen(); history.replaceState(null,'',window.location.pathname); }
-        var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting)e.target.classList.add('visible'); }); },{threshold:0.08});
-        document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-    });
-</script>
-<script src="/ove-shared.js"></script>
-</body>
-</html>
+        var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isInterse
