@@ -296,8 +296,8 @@
     <a href="/index" class="nav-logo">Ové<span></span></a>
     <div class="nav-links">
             <a href="/index" class="nav-link" aria-label="Home" style="display:flex;align-items:center;"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a>
-            <a href="/concept" class="nav-link">Concept</a>
-            <a href="/waitlist" class="nav-link">Waitlist</a>
+            <a href="/concept" class="nav-link" data-i18n="nav_concept">Concept</a>
+            <a href="/waitlist" class="nav-link" data-i18n="nav_waitlist">Waitlist</a>
             <div class="lang-switcher" id="lang-switcher">
             <button class="lang-btn" id="lang-btn">&#127760; <span id="lang-code">EN</span> &#9660;</button>
             <div class="lang-dropdown" id="lang-dropdown">
@@ -364,7 +364,7 @@
 
     var translations = {
         en: {
-            label: 'Early Access',
+            nav_concept:'Concept',nav_waitlist:'Waitlist',label:'Early Access',
             title: 'Investing, simplified.\nComing soon.',
             sub: 'Join the waitlist to get early access when we launch.',
             placeholder: 'you@example.com',
@@ -383,7 +383,7 @@
             code: 'EN'
         },
         sv: {
-            label: 'Tidig tillg\u00e5ng',
+            nav_concept:'Concept',nav_waitlist:'Waitlist',label:'Tidig tillg\u00e5ng',
             title: 'Investering, f\u00f6renklat.\nKommer snart.',
             sub: 'G\u00e5 med i v\u00e4ntelistan f\u00f6r att f\u00e5 tidig \u00e5tkomst n\u00e4r vi lanserar.',
             placeholder: 'du@exempel.se',
@@ -402,7 +402,7 @@
             code: 'SV'
         },
         es: {
-            label: 'Acceso anticipado',
+            nav_concept:'Concept',nav_waitlist:'Waitlist',label:'Acceso anticipado',
             title: 'Invertir, simplificado.\nPr\u00f3ximamente.',
             sub: 'U\u00fanete a la lista de espera para obtener acceso anticipado cuando lancemos.',
             placeholder: 'tu@ejemplo.com',
@@ -421,7 +421,7 @@
             code: 'ES'
         },
         it: {
-            label: 'Accesso anticipato',
+            nav_concept:'Concept',nav_waitlist:'Waitlist',label:'Accesso anticipato',
             title: 'Investire, semplificato.\nProssimamente.',
             sub: 'Iscriviti alla lista d\'attesa per ottenere accesso anticipato al lancio.',
             placeholder: 'tu@esempio.com',
