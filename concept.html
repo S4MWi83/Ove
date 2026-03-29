@@ -19,8 +19,8 @@
       gtag('js', new Date());
       gtag('config', 'G-CVSFPMXDRR');
     </script>
-    <title>Concept — Ové</title>
-    <meta name="description" content="How Ové works — three steps, no unnecessary jargon.">
+    <title>Ové — What we're building</title>
+    <meta name="description" content="Ové is a pre-launch investing platform for the 91% of Europeans who haven't started yet. No jargon. No complexity. Just a clear start.">
     <link rel="canonical" href="https://meetove.pro/concept.html">
     <link rel="icon" type="image/svg+xml" href="ove-favicon-e.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -163,6 +163,32 @@
         @keyframes panelIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
         .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
         .reveal.visible { opacity:1; transform:translateY(0); }
+        /* Foundation content sections */
+        .section { padding:5rem 0; border-top:1px solid var(--border); position:relative; z-index:1; }
+        .section-inner { max-width:720px; margin:0 auto; }
+        .section-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
+        .section-title { font-family:'Instrument Serif',serif; font-size:clamp(2rem,4vw,2.8rem); line-height:1.1; letter-spacing:-0.01em; margin-bottom:1.25rem; }
+        .section-body { font-size:1rem; color:var(--muted); font-weight:300; line-height:1.85; max-width:580px; }
+        .section-body + .section-body { margin-top:0.9rem; }
+        .stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+        .stat-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:1.5rem; }
+        .stat-num { font-family:'Instrument Serif',serif; font-size:2.4rem; color:var(--cream); line-height:1; letter-spacing:-0.02em; margin-bottom:0.4rem; }
+        .stat-desc { font-size:0.82rem; color:var(--muted); font-weight:300; line-height:1.6; }
+        .who-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2.5rem; }
+        .who-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:1.25rem 1.5rem; }
+        .who-card-label { font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:0.5rem; }
+        .who-card-title { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--cream); margin-bottom:0.35rem; }
+        .who-card p { font-size:0.85rem; color:var(--muted); font-weight:300; line-height:1.65; }
+        .why-list { list-style:none; display:flex; flex-direction:column; gap:1rem; margin-top:2.5rem; }
+        .why-item { display:flex; align-items:flex-start; gap:1rem; }
+        .why-icon { width:32px; height:32px; border-radius:50%; background:var(--blue-dim); border:1px solid rgba(59,130,246,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+        .why-icon svg { color:var(--blue); }
+        .why-text-title { font-size:0.95rem; font-weight:500; color:var(--cream); margin-bottom:0.2rem; }
+        .why-text-body { font-size:0.88rem; color:var(--muted); font-weight:300; line-height:1.7; }
+        .demo-section { padding:5rem 0 6rem; border-top:1px solid var(--border); position:relative; z-index:1; text-align:center; }
+        .demo-section-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
+        .demo-section-title { font-family:'Instrument Serif',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:0.85rem; }
+        .demo-section-sub { font-size:0.95rem; color:var(--muted); font-weight:300; line-height:1.75; margin-bottom:2.5rem; }
         @media(max-width:640px) {
             nav { padding:1.25rem 0; flex-wrap:wrap; gap:0.75rem; }
             .nav-logo { font-size:1.5rem; }
@@ -171,6 +197,10 @@
             .hero { min-height:auto; padding:3rem 0 4rem; }
             .demo-modal { border-radius:20px; }
             .demo-panel { padding:1.5rem 1.5rem 1.75rem; }
+            .stat-row { grid-template-columns:1fr; gap:0.75rem; }
+            .who-grid { grid-template-columns:1fr; }
+            .section { padding:3.5rem 0; }
+            .demo-section { padding:3.5rem 0 5rem; }
         }
     </style>
 </head>
@@ -197,19 +227,108 @@
     </nav>
 
     <div class="hero">
-        <p class="hero-eyebrow" data-i18n="eyebrow">Try it out</p>
+        <p class="hero-eyebrow" data-i18n="eyebrow">Pre-launch</p>
         <h1 class="hero-headline">
-            <span data-i18n="headline_1">This is what</span><br>
-            <span data-i18n="headline_2">investing could</span><br><em id="headline-feel" style="font-style:italic;color:#93c5fd" data-i18n="headline_feel">feel</em><span data-i18n="headline_3"> like.</span>
+            <span data-i18n="headline_1">Investing,</span><br>
+            <em data-i18n="headline_2">finally</em><span data-i18n="headline_3"> simple.</span>
         </h1>
-        <p class="hero-sub" data-i18n="sub">The demo is completely free, and goes quick.</p>
+        <p class="hero-sub" data-i18n="sub">A platform built for the people who've been meaning to start. Not for the ones who already have.</p>
+    </div>
+
+    <!-- WHAT IS OVÉ -->
+    <section class="section reveal" id="section-what">
+        <div class="section-inner">
+            <p class="section-label" data-i18n="what_label">What is Ové</p>
+            <h2 class="section-title" data-i18n="what_title">A pre-launch investing platform. Built from scratch for beginners.</h2>
+            <p class="section-body" data-i18n="what_body_1">Ové is designed to get complete beginners invested — from a starting example of €10, in under two minutes, with no unnecessary jargon, no bank switching, and no form that requires a finance degree to complete.</p>
+            <p class="section-body" data-i18n="what_body_2">Three portfolios. A single monthly amount. Then you're done. Everything after that is handled in the background by a regulated partner.</p>
+            <div class="stat-row">
+                <div class="stat-card reveal">
+                    <div class="stat-num" data-i18n="stat_1_num">91%</div>
+                    <div class="stat-desc" data-i18n="stat_1_desc">of Europeans have never owned stock directly</div>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-num" data-i18n="stat_2_num">€12T</div>
+                    <div class="stat-desc" data-i18n="stat_2_desc">sitting in cash and deposits, losing value to inflation every year</div>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-num" data-i18n="stat_3_num">&lt;2 min</div>
+                    <div class="stat-desc" data-i18n="stat_3_desc">is how long the intended sign-up experience takes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO IT'S FOR -->
+    <section class="section reveal" id="section-who">
+        <div class="section-inner">
+            <p class="section-label" data-i18n="who_label">Who it's for</p>
+            <h2 class="section-title" data-i18n="who_title">The person who knows they should invest — but hasn't.</h2>
+            <p class="section-body" data-i18n="who_body">Not the active trader. Not the person who already has three brokerage accounts. Ové is built for the person with money sitting in a savings account, who's downloaded an app before, got lost on the third screen, and closed it.</p>
+            <div class="who-grid">
+                <div class="who-card reveal">
+                    <p class="who-card-label" data-i18n="who_c1_label">Income</p>
+                    <p class="who-card-title" data-i18n="who_c1_title">Stable, not surplus</p>
+                    <p data-i18n="who_c1_body">Starting from €10/month. Enough to begin — not enough to feel exposed.</p>
+                </div>
+                <div class="who-card reveal">
+                    <p class="who-card-label" data-i18n="who_c2_label">Knowledge</p>
+                    <p class="who-card-title" data-i18n="who_c2_title">Aware, not expert</p>
+                    <p data-i18n="who_c2_body">Has heard of ETFs. Knows inflation exists. Stops there.</p>
+                </div>
+                <div class="who-card reveal">
+                    <p class="who-card-label" data-i18n="who_c3_label">Barrier</p>
+                    <p class="who-card-title" data-i18n="who_c3_title">Friction, not fear</p>
+                    <p data-i18n="who_c3_body">One confusing screen is enough to lose them permanently. Ové removes the screens.</p>
+                </div>
+                <div class="who-card reveal">
+                    <p class="who-card-label" data-i18n="who_c4_label">Geography</p>
+                    <p class="who-card-title" data-i18n="who_c4_title">Europe — where participation is lowest</p>
+                    <p data-i18n="who_c4_body">Sweden, Spain, Italy — markets where ownership sits well below the European average.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY IT EXISTS -->
+    <section class="section reveal" id="section-why">
+        <div class="section-inner">
+            <p class="section-label" data-i18n="why_label">Why it exists</p>
+            <h2 class="section-title" data-i18n="why_title">To remove the emotional baggage that comes with investing.</h2>
+            <p class="section-body" data-i18n="why_body">Most investing apps were built for people who already invest. They're loaded with charts, options, and language that assumes you know what you're doing. For everyone else, that friction is the barrier — not a lack of money, and not a lack of intent.</p>
+            <ul class="why-list">
+                <li class="why-item reveal">
+                    <div class="why-icon"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div>
+                    <div><p class="why-text-title" data-i18n="why_1_title">No unnecessary choices</p><p class="why-text-body" data-i18n="why_1_body">Three portfolios. One amount. Done. Every additional decision is a reason to quit.</p></div>
+                </li>
+                <li class="why-item reveal">
+                    <div class="why-icon"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div>
+                    <div><p class="why-text-title" data-i18n="why_2_title">No behavioural nudging</p><p class="why-text-body" data-i18n="why_2_body">No countdown timers. No FOMO. No urgency. Ové is calm by design.</p></div>
+                </li>
+                <li class="why-item reveal">
+                    <div class="why-icon"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div>
+                    <div><p class="why-text-title" data-i18n="why_3_title">Honest about risk</p><p class="why-text-body" data-i18n="why_3_body">Capital is at risk. Ové says so clearly — not buried in footnotes.</p></div>
+                </li>
+                <li class="why-item reveal">
+                    <div class="why-icon"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div>
+                    <div><p class="why-text-title" data-i18n="why_4_title">Regulated from the start</p><p class="why-text-body" data-i18n="why_4_body">Ové will operate through a licensed partner under MiFID II. Compliance is a design requirement, not an afterthought.</p></div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- DEMO CTA -->
+    <section class="demo-section reveal">
+        <p class="demo-section-label" data-i18n="demo_label">See it in action</p>
+        <h2 class="demo-section-title" data-i18n="demo_title">This is what investing could feel like.</h2>
+        <p class="demo-section-sub" data-i18n="demo_section_sub">The demo is completely free. No money moved. Takes 30 seconds.</p>
         <button class="demo-launch-btn" onclick="demoOpen()">
             <div class="demo-btn-icon">
                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
-            <div class="demo-btn-label"><span class="demo-btn-label-main" data-i18n="demo_btn">Try Ové</span></div>
+            <div class="demo-btn-label"><span class="demo-btn-label-main" data-i18n="demo_btn">Explore the demo</span></div>
         </button>
-    </div>
+    </section>
 
     <footer>
         <span>© <span id="year"></span> Ové. Currently in development.</span>
@@ -395,10 +514,173 @@
     }
 
     var T = {
-        en:{ nav_concept:"Ové", eyebrow:"Try it out", headline_feel:"feel", headline_1:"This is what", headline_2:"investing could", headline_3:" like.", sub:"The demo is completely free, and goes quick.", demo_btn:"Explore the demo", step1_title:"Let\u2019s get started.", step1_sub:"This takes about 30 seconds.", step2_title:"How much per month?", step2_sub:"No funds are moved. Select an amount to view an example scenario.", step3_title:"Pick your risk level.", step3_sub:"Three options. No wrong answer.", done_sub:"That\u2019s it. That\u2019s really all it takes.", receipt_label:"estimated value in 10 years", receipt_investor:"Investor", receipt_monthly:"Monthly", receipt_portfolio:"Portfolio", join_waitlist:"Waitlist", restart:"\u21a9 Restart demo", omits_text:"Omits taxes, fees, timing differences, and market volatility.", no_reflect_text:"This simulation does not reflect real market conditions and should not be used to make investment decisions.", edu_label:"Before you start", edu_title:"This is an educational simulation.", edu_body:"It is not a real investment tool and does not provide investment advice or recommendations. No money is moved. All figures are illustrative examples only and do not reflect real outcomes. Any illustrative outcomes shown should not be interpreted as indicative of future performance. This website does not enable or invite users to invest.", edu_intent:"This experience is intentionally limited to avoid simulating real investment decisions before appropriate regulatory safeguards are in place.", sim_bar:"Simulation only \u2014 not investment advice \u00b7 This experience is not personalised and does not take into account your financial situation, objectives, or risk tolerance.", edu_btn:"I understand \u2014 continue", code:"EN" },
-        sv:{ nav_concept:"Ov\u00e9", eyebrow:"Prova", headline_feel:"k\u00e4nnas", headline_1:"S\u00e5 h\u00e4r kan", headline_2:"investering", headline_3:".", sub:"Demoversionen \u00e4r helt gratis och g\u00e5r snabbt.", demo_btn:"Utforska demoversionen", step1_title:"S\u00e5 h\u00e4r fungerar det.", step1_sub:"Det tar ungef\u00e4r 30 sekunder.", step2_title:"Hur mycket per m\u00e5nad?", step2_sub:"Inga medel flyttas. V\u00e4lj ett belopp f\u00f6r att se ett exempel.", step3_title:"V\u00e4lj din riskniv\u00e5.", step3_sub:"Tre alternativ. Inget fel svar.", done_sub:"Det \u00e4r allt. Det \u00e4r verkligen allt som kr\u00e4vs.", receipt_label:"uppskattat v\u00e4rde om 10 \u00e5r", receipt_investor:"Investerare", receipt_monthly:"M\u00e5nadsbelopp", receipt_portfolio:"Portf\u00f6lj", join_waitlist:"V\u00e4ntelista", restart:"\u21a9 Starta om demo", edu_label:"Innan du b\u00f6rjar", edu_title:"Detta \u00e4r en simulering i utbildningssyfte.", edu_body:"Det \u00e4r inte ett verkligt investeringsverktyg och ger inte investeringsr\u00e5d. Inga pengar flyttas. Alla siffror \u00e4r endast illustrativa exempel.", edu_intent:"Denna upplevelse \u00e4r avsiktligt begr\u00e4nsad.", edu_btn:"Jag f\u00f6rst\u00e5r \u2014 forts\u00e4tt", code:"SV" },
-        es:{ nav_concept:"Ov\u00e9", eyebrow:"Pru\u00e9balo", headline_feel:"sentir", headline_1:"As\u00ed es como", headline_2:"invertir puede", headline_3:" se.", sub:"La demo es totalmente gratuita y se hace en un momento.", demo_btn:"Explora la demo", step1_title:"Empecemos.", step1_sub:"Tarda unos 30 segundos.", step2_title:"\u00bfCu\u00e1nto al mes?", step2_sub:"No se mueve ning\u00fan fondo.", step3_title:"Elige tu nivel de riesgo.", step3_sub:"Tres opciones. No hay respuestas incorrectas.", done_sub:"Eso es todo.", receipt_label:"valor estimado en 10 a\u00f1os", receipt_investor:"Inversor", receipt_monthly:"Mensual", receipt_portfolio:"Cartera", join_waitlist:"Lista de espera", restart:"\u21a9 Reiniciar", edu_label:"Antes de empezar", edu_title:"Esta es una simulaci\u00f3n educativa.", edu_body:"No es una herramienta de inversi\u00f3n real. No se mueve dinero.", edu_intent:"Experiencia intencionadamente limitada.", edu_btn:"Entiendo \u2014 continuar", code:"ES" },
-        it:{ nav_concept:"Ov\u00e9", eyebrow:"Provalo", headline_feel:"sembrare", headline_1:"Ecco come potrebbe", headline_2:"investire", headline_3:".", sub:"La demo \u00e8 completamente gratuita.", demo_btn:"Scopri la demo", step1_title:"Iniziamo.", step1_sub:"Ci vorranno circa 30 secondi.", step2_title:"Quanto al mese?", step2_sub:"Non vengono trasferiti fondi.", step3_title:"Scegli il tuo livello di rischio.", step3_sub:"Tre opzioni. Non ci sono risposte sbagliate.", done_sub:"Tutto qui. \u00c8 davvero tutto ci\u00f2 che serve.", receipt_label:"valore stimato tra 10 anni", receipt_investor:"Investitore", receipt_monthly:"Mensile", receipt_portfolio:"Portafoglio", join_waitlist:"Lista d'attesa", restart:"\u21a9 Riavvia demo", edu_label:"Prima di iniziare", edu_title:"Si tratta di una simulazione didattica.", edu_body:"Non \u00e8 uno strumento di investimento reale. Non viene trasferito denaro.", edu_intent:"Esperienza volutamente limitata.", edu_btn:"Ho compreso \u2014 continua", code:"IT" }
+        en:{
+            nav_concept:"Ové", code:"EN",
+            eyebrow:"Pre-launch",
+            headline_1:"Investing,", headline_2:"finally", headline_3:" simple.",
+            sub:"A platform built for the people who've been meaning to start. Not for the ones who already have.",
+            what_label:"What is Ové",
+            what_title:"A pre-launch investing platform. Built from scratch for beginners.",
+            what_body_1:"Ové is designed to get complete beginners invested — from a starting example of €10, in under two minutes, with no unnecessary jargon, no bank switching, and no form that requires a finance degree to complete.",
+            what_body_2:"Three portfolios. A single monthly amount. Then you're done. Everything after that is handled in the background by a regulated partner.",
+            stat_1_num:"91%", stat_1_desc:"of Europeans have never owned stock directly",
+            stat_2_num:"€12T", stat_2_desc:"sitting in cash and deposits, losing value to inflation every year",
+            stat_3_num:"<2 min", stat_3_desc:"is how long the intended sign-up experience takes",
+            who_label:"Who it's for",
+            who_title:"The person who knows they should invest — but hasn't.",
+            who_body:"Not the active trader. Not the person who already has three brokerage accounts. Ové is built for the person with money sitting in a savings account, who's downloaded an app before, got lost on the third screen, and closed it.",
+            who_c1_label:"Income", who_c1_title:"Stable, not surplus", who_c1_body:"Starting from €10/month. Enough to begin — not enough to feel exposed.",
+            who_c2_label:"Knowledge", who_c2_title:"Aware, not expert", who_c2_body:"Has heard of ETFs. Knows inflation exists. Stops there.",
+            who_c3_label:"Barrier", who_c3_title:"Friction, not fear", who_c3_body:"One confusing screen is enough to lose them permanently. Ové removes the screens.",
+            who_c4_label:"Geography", who_c4_title:"Europe — where participation is lowest", who_c4_body:"Sweden, Spain, Italy — markets where ownership sits well below the European average.",
+            why_label:"Why it exists",
+            why_title:"To remove the emotional baggage that comes with investing.",
+            why_body:"Most investing apps were built for people who already invest. They're loaded with charts, options, and language that assumes you know what you're doing. For everyone else, that friction is the barrier — not a lack of money, and not a lack of intent.",
+            why_1_title:"No unnecessary choices", why_1_body:"Three portfolios. One amount. Done. Every additional decision is a reason to quit.",
+            why_2_title:"No behavioural nudging", why_2_body:"No countdown timers. No FOMO. No urgency. Ové is calm by design.",
+            why_3_title:"Honest about risk", why_3_body:"Capital is at risk. Ové says so clearly — not buried in footnotes.",
+            why_4_title:"Regulated from the start", why_4_body:"Ové will operate through a licensed partner under MiFID II. Compliance is a design requirement, not an afterthought.",
+            demo_label:"See it in action",
+            demo_title:"This is what investing could feel like.",
+            demo_section_sub:"The demo is completely free. No money moved. Takes 30 seconds.",
+            demo_btn:"Explore the demo",
+            step1_title:"Let\u2019s get started.", step1_sub:"This takes about 30 seconds.",
+            step2_title:"How much per month?", step2_sub:"No funds are moved. Select an amount to view an example scenario.",
+            step3_title:"Pick your risk level.", step3_sub:"Three options. No wrong answer.",
+            done_sub:"That\u2019s it. That\u2019s really all it takes.",
+            receipt_label:"estimated value in 10 years", receipt_investor:"Investor", receipt_monthly:"Monthly", receipt_portfolio:"Portfolio",
+            join_waitlist:"Waitlist", restart:"\u21a9 Restart demo",
+            omits_text:"Omits taxes, fees, timing differences, and market volatility.",
+            no_reflect_text:"This simulation does not reflect real market conditions and should not be used to make investment decisions.",
+            edu_label:"Before you start", edu_title:"This is an educational simulation.",
+            edu_body:"It is not a real investment tool and does not provide investment advice or recommendations. No money is moved. All figures are illustrative examples only and do not reflect real outcomes. Any illustrative outcomes shown should not be interpreted as indicative of future performance. This website does not enable or invite users to invest.",
+            edu_intent:"This experience is intentionally limited to avoid simulating real investment decisions before appropriate regulatory safeguards are in place.",
+            sim_bar:"Simulation only \u2014 not investment advice \u00b7 This experience is not personalised and does not take into account your financial situation, objectives, or risk tolerance.",
+            edu_btn:"I understand \u2014 continue"
+        },
+        sv:{
+            nav_concept:"Ov\u00e9", code:"SV",
+            eyebrow:"F\u00f6rhandsversion",
+            headline_1:"Investering,", headline_2:"enkelt", headline_3:" \u00e4ntligen.",
+            sub:"En plattform byggd f\u00f6r dig som l\u00e4nge t\u00e4nkt b\u00f6rja. Inte f\u00f6r dem som redan g\u00f6r det.",
+            what_label:"Vad \u00e4r Ov\u00e9",
+            what_title:"En plattform f\u00f6r f\u00f6rstaggsinvesterare. Byggd fr\u00e5n grunden f\u00f6r nyb\u00f6rjare.",
+            what_body_1:"Ov\u00e9 \u00e4r designat f\u00f6r att f\u00e5 kompletta nyb\u00f6rjare att b\u00f6rja investera — fr\u00e5n ett startexempel p\u00e5 10 euro, p\u00e5 under tv\u00e5 minuter, utan on\u00f6digt spr\u00e5k och utan formulär som kr\u00e4ver en finansexamen att fylla i.",
+            what_body_2:"Tre portf\u00f6ljer. Ett m\u00e5nadsbelopp. Sedan \u00e4r du klar. Allt annat sk\u00f6ts i bakgrunden av en reglerad partner.",
+            stat_1_num:"91%", stat_1_desc:"av européer har aldrig \u00e4gt aktier direkt",
+            stat_2_num:"12 biljoner€", stat_2_desc:"ligger i kontanter och insättningar och f\u00f6rlorar v\u00e4rde till inflation varje \u00e5r",
+            stat_3_num:"&lt;2 min", stat_3_desc:"s\u00e5 l\u00e5ng tid tar den t\u00e4nkta registreringsupplevelsen",
+            who_label:"Vem det \u00e4r f\u00f6r",
+            who_title:"Personen som vet att de borde investera — men inte gjort det.",
+            who_body:"Inte den aktiva handlaren. Inte personen som redan har tre m\u00e4klarkonton. Ov\u00e9 \u00e4r byggt f\u00f6r personen med pengar p\u00e5 ett sparkonto, som laddat ned en app tidigare, tappat bort sig p\u00e5 den tredje sk\u00e4rmen och st\u00e4ngt den.",
+            who_c1_label:"Inkomst", who_c1_title:"Stabil, inte \u00f6verl\u00f6pande", who_c1_body:"Startexempel fr\u00e5n 10 €/m\u00e5nad. Tillräckligt f\u00f6r att b\u00f6rja — inte tillräckligt f\u00f6r att k\u00e4nna sig utsatt.",
+            who_c2_label:"Kunskap", who_c2_title:"Medveten, inte expert", who_c2_body:"Har h\u00f6rt talas om ETF:er. Vet att inflation existerar. Stannar d\u00e4r.",
+            who_c3_label:"Hinder", who_c3_title:"Fr\u00e4mlingsk\u00e4nsla, inte r\u00e4dsla", who_c3_body:"En f\u00f6rvirrande sk\u00e4rm r\u00e4cker f\u00f6r att f\u00f6rlora dem permanent. Ov\u00e9 tar bort sk\u00e4rmarna.",
+            who_c4_label:"Geografi", who_c4_title:"Europa — d\u00e4r deltagandet \u00e4r l\u00e4gst", who_c4_body:"Sverige, Spanien, Italien — marknader d\u00e4r \u00e4gande ligger l\u00e5ngt under det europeiska snittet.",
+            why_label:"Varf\u00f6r det finns",
+            why_title:"F\u00f6r att ta bort det emotionella bagaget som f\u00f6ljer med investering.",
+            why_body:"De flesta investeringsappar byggdes f\u00f6r dem som redan investerar. De \u00e4r fyllda med diagram, alternativ och spr\u00e5k som f\u00f6ruts\u00e4tter att du vet vad du g\u00f6r. F\u00f6r alla andra \u00e4r friktionen hindret — inte brist p\u00e5 pengar och inte brist p\u00e5 avsikt.",
+            why_1_title:"Inga on\u00f6diga val", why_1_body:"Tre portf\u00f6ljer. Ett belopp. Klart. Varje extra beslut \u00e4r en anledning att sluta.",
+            why_2_title:"Ingen beteendep\u00e5verkan", why_2_body:"Inga nedräkningar. Inget FOMO. Ingen br\u00e5dska. Ov\u00e9 \u00e4r lugnt av design.",
+            why_3_title:"\u00c4rligt om risk", why_3_body:"Kapital riskeras. Ov\u00e9 s\u00e4ger det tydligt — inte gömt i fotnötter.",
+            why_4_title:"Reglerat fr\u00e5n start", why_4_body:"Ov\u00e9 kommer att verka genom en licensierad partner under MiFID II. Regelefterlevnad \u00e4r ett designkrav, inte en eftertanke.",
+            demo_label:"Se det i action",
+            demo_title:"S\u00e5 h\u00e4r kan investering k\u00e4nnas.",
+            demo_section_sub:"Demoversionen \u00e4r helt gratis. Inga pengar r\u00f6rs. Det tar 30 sekunder.",
+            demo_btn:"Utforska demoversionen",
+            step1_title:"S\u00e5 h\u00e4r fungerar det.", step1_sub:"Det tar ungef\u00e4r 30 sekunder.",
+            step2_title:"Hur mycket per m\u00e5nad?", step2_sub:"Inga medel flyttas. V\u00e4lj ett belopp f\u00f6r att se ett exempel.",
+            step3_title:"V\u00e4lj din riskniv\u00e5.", step3_sub:"Tre alternativ. Inget fel svar.",
+            done_sub:"Det \u00e4r allt. Det \u00e4r verkligen allt som kr\u00e4vs.",
+            receipt_label:"uppskattat v\u00e4rde om 10 \u00e5r", receipt_investor:"Investerare", receipt_monthly:"M\u00e5nadsbelopp", receipt_portfolio:"Portf\u00f6lj",
+            join_waitlist:"V\u00e4ntelista", restart:"\u21a9 Starta om demo",
+            edu_label:"Innan du b\u00f6rjar", edu_title:"Detta \u00e4r en simulering i utbildningssyfte.",
+            edu_body:"Det \u00e4r inte ett verkligt investeringsverktyg och ger inte investeringsr\u00e5d. Inga pengar flyttas. Alla siffror \u00e4r endast illustrativa exempel.",
+            edu_intent:"Denna upplevelse \u00e4r avsiktligt begr\u00e4nsad.",
+            edu_btn:"Jag f\u00f6rst\u00e5r \u2014 forts\u00e4tt"
+        },
+        es:{
+            nav_concept:"Ov\u00e9", code:"ES",
+            eyebrow:"Prelanzamiento",
+            headline_1:"Invertir,", headline_2:"por fin", headline_3:" sencillo.",
+            sub:"Una plataforma construida para quienes llevan tiempo queriendo empezar. No para quienes ya lo hacen.",
+            what_label:"Qu\u00e9 es Ov\u00e9",
+            what_title:"Una plataforma de inversión pre-lanzamiento. Construida desde cero para principiantes.",
+            what_body_1:"Ov\u00e9 est\u00e1 dise\u00f1ado para que los principiantes empiecen a invertir — desde un ejemplo inicial de 10 €, en menos de dos minutos, sin jerga innecesaria, sin cambiar de banco y sin formularios que requieran un título en finanzas.",
+            what_body_2:"Tres carteras. Un importe mensual. Y listo. Todo lo dem\u00e1s lo gestiona en segundo plano un socio regulado.",
+            stat_1_num:"91%", stat_1_desc:"de los europeos nunca han tenido acciones directamente",
+            stat_2_num:"12 bill.€", stat_2_desc:"en efectivo y depósitos, perdiendo valor ante la inflación cada año",
+            stat_3_num:"&lt;2 min", stat_3_desc:"es lo que tarda la experiencia de registro prevista",
+            who_label:"Para qui\u00e9n es",
+            who_title:"La persona que sabe que deber\u00eda invertir, pero no lo ha hecho.",
+            who_body:"No el inversor activo. No quien ya tiene tres cuentas de corretaje. Ov\u00e9 est\u00e1 construido para quien tiene dinero en una cuenta de ahorros, ya descargó una app, se perdió en la tercera pantalla y la cerró.",
+            who_c1_label:"Ingresos", who_c1_title:"Estables, no excedentes", who_c1_body:"Desde 10 €/mes de ejemplo. Suficiente para empezar — no tanto como para sentirse expuesto.",
+            who_c2_label:"Conocimiento", who_c2_title:"Consciente, no experto", who_c2_body:"Ha o\u00eddo hablar de los ETF. Sabe que existe la inflación. Ahí se queda.",
+            who_c3_label:"Barrera", who_c3_title:"Fricci\u00f3n, no miedo", who_c3_body:"Una pantalla confusa es suficiente para perderlos para siempre. Ov\u00e9 elimina las pantallas.",
+            who_c4_label:"Geograf\u00eda", who_c4_title:"Europa — donde la participación es menor", who_c4_body:"Suecia, España, Italia — mercados donde la propiedad está muy por debajo de la media europea.",
+            why_label:"Por qu\u00e9 existe",
+            why_title:"Para eliminar el peso emocional que conlleva invertir.",
+            why_body:"La mayor\u00eda de las apps de inversión se construyeron para quienes ya invierten. Están llenas de gráficos, opciones y un lenguaje que da por sentado que sabes lo que haces. Para todos los dem\u00e1s, esa fricción es la barrera — no la falta de dinero ni de intención.",
+            why_1_title:"Sin elecciones innecesarias", why_1_body:"Tres carteras. Un importe. Listo. Cada decisión adicional es un motivo para abandonar.",
+            why_2_title:"Sin manipulación conductual", why_2_body:"Sin cuentas regresivas. Sin FOMO. Sin urgencia. Ov\u00e9 es tranquilo por diseño.",
+            why_3_title:"Honesto sobre el riesgo", why_3_body:"El capital está en riesgo. Ov\u00e9 lo dice claramente — no enterrado en las notas al pie.",
+            why_4_title:"Regulado desde el inicio", why_4_body:"Ov\u00e9 operar\u00e1 a trav\u00e9s de un socio con licencia bajo MiFID II. El cumplimiento normativo es un requisito de diseño, no una ocurrencia.",
+            demo_label:"V\u00e9alo en acci\u00f3n",
+            demo_title:"As\u00ed es como podría sentirse invertir.",
+            demo_section_sub:"La demo es totalmente gratuita. No se mueve ningún fondo. Tarda 30 segundos.",
+            demo_btn:"Explora la demo",
+            step1_title:"Empecemos.", step1_sub:"Tarda unos 30 segundos.",
+            step2_title:"\u00bfCu\u00e1nto al mes?", step2_sub:"No se mueve ning\u00fan fondo.",
+            step3_title:"Elige tu nivel de riesgo.", step3_sub:"Tres opciones. No hay respuestas incorrectas.",
+            done_sub:"Eso es todo.",
+            receipt_label:"valor estimado en 10 a\u00f1os", receipt_investor:"Inversor", receipt_monthly:"Mensual", receipt_portfolio:"Cartera",
+            join_waitlist:"Lista de espera", restart:"\u21a9 Reiniciar",
+            edu_label:"Antes de empezar", edu_title:"Esta es una simulaci\u00f3n educativa.",
+            edu_body:"No es una herramienta de inversi\u00f3n real. No se mueve dinero.",
+            edu_intent:"Experiencia intencionadamente limitada.",
+            edu_btn:"Entiendo \u2014 continuar"
+        },
+        it:{
+            nav_concept:"Ov\u00e9", code:"IT",
+            eyebrow:"Pre-lancio",
+            headline_1:"Investire,", headline_2:"finalmente", headline_3:" semplice.",
+            sub:"Una piattaforma costruita per chi voleva iniziare da tempo. Non per chi lo fa gi\u00e0.",
+            what_label:"Cos'\u00e8 Ov\u00e9",
+            what_title:"Una piattaforma di investimento pre-lancio. Costruita da zero per i principianti.",
+            what_body_1:"Ov\u00e9 \u00e8 progettato per far iniziare a investire anche i principianti assoluti — da un esempio di partenza di 10 €, in meno di due minuti, senza gergo inutile, senza cambiare banca e senza moduli che richiedono una laurea in finanza.",
+            what_body_2:"Tre portafogli. Un importo mensile. Fatto. Il resto viene gestito in background da un partner regolamentato.",
+            stat_1_num:"91%", stat_1_desc:"degli europei non ha mai posseduto azioni direttamente",
+            stat_2_num:"12 tril.€", stat_2_desc:"in contanti e depositi, che perdono valore per l'inflazione ogni anno",
+            stat_3_num:"&lt;2 min", stat_3_desc:"\u00e8 il tempo previsto per la registrazione",
+            who_label:"Per chi \u00e8",
+            who_title:"La persona che sa di dover investire — ma non l'ha ancora fatto.",
+            who_body:"Non il trader attivo. Non chi ha gi\u00e0 tre conti di intermediazione. Ov\u00e9 \u00e8 costruito per chi ha soldi su un conto di risparmio, ha scaricato un'app, si \u00e8 perso alla terza schermata e l'ha chiusa.",
+            who_c1_label:"Reddito", who_c1_title:"Stabile, non abbondante", who_c1_body:"A partire da 10 €/mese di esempio. Abbastanza per iniziare — non abbastanza da sentirsi a rischio.",
+            who_c2_label:"Conoscenza", who_c2_title:"Consapevole, non esperto", who_c2_body:"Ha sentito parlare degli ETF. Sa che l'inflazione esiste. Si ferma l\u00ec.",
+            who_c3_label:"Ostacolo", who_c3_title:"Attrito, non paura", who_c3_body:"Una schermata confusa basta per perderli per sempre. Ov\u00e9 rimuove le schermate.",
+            who_c4_label:"Geografia", who_c4_title:"Europa — dove la partecipazione \u00e8 pi\u00f9 bassa", who_c4_body:"Svezia, Spagna, Italia — mercati in cui la propriet\u00e0 \u00e8 ben al di sotto della media europea.",
+            why_label:"Perch\u00e9 esiste",
+            why_title:"Per rimuovere il bagaglio emotivo legato all'investimento.",
+            why_body:"La maggior parte delle app di investimento \u00e8 stata costruita per chi investe gi\u00e0. Sono piene di grafici, opzioni e un linguaggio che presuppone che tu sappia cosa stai facendo. Per tutti gli altri, quell'attrito \u00e8 la barriera — non la mancanza di denaro n\u00e9 di intenzione.",
+            why_1_title:"Nessuna scelta inutile", why_1_body:"Tre portafogli. Un importo. Fatto. Ogni decisione aggiuntiva \u00e8 un motivo per abbandonare.",
+            why_2_title:"Nessuna manipolazione comportamentale", why_2_body:"Nessun conto alla rovescia. Nessun FOMO. Nessuna urgenza. Ov\u00e9 \u00e8 calmo per design.",
+            why_3_title:"Onesto sul rischio", why_3_body:"Il capitale \u00e8 a rischio. Ov\u00e9 lo dice chiaramente — non sepolto nelle note a pi\u00e8 di pagina.",
+            why_4_title:"Regolamentato fin dall'inizio", why_4_body:"Ov\u00e9 operer\u00e0 attraverso un partner autorizzato ai sensi di MiFID II. La conformit\u00e0 normativa \u00e8 un requisito di progettazione, non un ripensamento.",
+            demo_label:"Guardalo in azione",
+            demo_title:"Ecco come potrebbe sembrare investire.",
+            demo_section_sub:"La demo \u00e8 completamente gratuita. Non vengono trasferiti fondi. Dura 30 secondi.",
+            demo_btn:"Scopri la demo",
+            step1_title:"Iniziamo.", step1_sub:"Ci vorranno circa 30 secondi.",
+            step2_title:"Quanto al mese?", step2_sub:"Non vengono trasferiti fondi.",
+            step3_title:"Scegli il tuo livello di rischio.", step3_sub:"Tre opzioni. Non ci sono risposte sbagliate.",
+            done_sub:"Tutto qui. \u00c8 davvero tutto ci\u00f2 che serve.",
+            receipt_label:"valore stimato tra 10 anni", receipt_investor:"Investitore", receipt_monthly:"Mensile", receipt_portfolio:"Portafoglio",
+            join_waitlist:"Lista d'attesa", restart:"\u21a9 Riavvia demo",
+            edu_label:"Prima di iniziare", edu_title:"Si tratta di una simulazione didattica.",
+            edu_body:"Non \u00e8 uno strumento di investimento reale. Non viene trasferito denaro.",
+            edu_intent:"Esperienza volutamente limitata.",
+            edu_btn:"Ho compreso \u2014 continua"
+        }
     };
 
     var currencyByLang = { en:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'e.g. 75'}, sv:{symbol:'kr',min:50,max:4500,default:500,suffix:true,placeholder:'e.g. 7 500'}, es:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'ej. 75'}, it:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'es. 75'} };
@@ -426,7 +708,7 @@
     function applyLang(lang){
         var t=T[lang]; if(!t)return;
         localStorage.setItem('ove-lang',lang);
-        document.querySelectorAll('[data-i18n]').forEach(function(el){ var k=el.getAttribute('data-i18n'); if(t[k]!==undefined)el.textContent=t[k]; });
+        document.querySelectorAll('[data-i18n]').forEach(function(el){ var k=el.getAttribute('data-i18n'); if(t[k]!==undefined)el.innerHTML=t[k]; });
         document.getElementById('lang-code').textContent=t.code;
         document.querySelectorAll('.lang-option').forEach(function(o){ o.classList.toggle('active',o.dataset.lang===lang); });
         document.getElementById('lang-switcher').classList.remove('open');
@@ -446,7 +728,8 @@
         document.addEventListener('click',function(){ document.getElementById('lang-switcher').classList.remove('open'); });
         var saved=localStorage.getItem('ove-lang')||'en'; if(!T[saved])saved='en';
         applyLang(saved); applyDemoLang(saved);
-        new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('visible');} }); },{threshold:0.1}).observe(document.body);
+        var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting)e.target.classList.add('visible'); }); },{threshold:0.08});
+        document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
     });
 </script>
 <script src="/ove-shared.js"></script>
