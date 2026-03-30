@@ -63,16 +63,14 @@
         .hero-headline { font-family:'Instrument Serif',serif; font-size:clamp(2.8rem,6vw,5.5rem); line-height:1.06; letter-spacing:-0.02em; margin-bottom:1.5rem; }
         .hero-headline em { font-style:italic; color:#93c5fd; }
         .hero-sub { font-size:clamp(1rem,2vw,1.15rem); color:var(--muted); font-weight:300; max-width:400px; line-height:1.75; margin-bottom:3.5rem; }
-        .demo-launch-btn { display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; background:#4f6fa5; color:#fff; font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:500; padding:12px 20px; border-radius:10px; border:none; cursor:pointer; letter-spacing:0.3px; text-transform:none; outline:none; text-decoration:none; max-width:280px; width:100%; box-shadow:0 4px 12px rgba(0,0,0,0.08); transition:background 150ms ease; }
-        .demo-launch-btn:hover { background:#3f5d8f; }
-        .btn-waitlist { background:#060f1e; border:1px solid rgba(255,255,255,0.3); box-shadow:none; }
-        .btn-waitlist:hover { background:#060f1e; border-color:rgba(255,255,255,0.5); }
-        .demo-next-btn { display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; flex:1; background:#4f6fa5; color:#fff; font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:500; padding:12px 20px; border-radius:10px; border:none; cursor:pointer; letter-spacing:0.3px; text-transform:none; outline:none; box-shadow:0 4px 12px rgba(0,0,0,0.08); transition:background 150ms ease; }
-        .demo-next-btn:hover { background:#3f5d8f; }
+        .demo-launch-btn { display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; background:#060f1e; color:#fff; font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:500; padding:12px 20px; border-radius:10px; border:1px solid rgba(255,255,255,0.3); cursor:pointer; letter-spacing:0.3px; text-transform:none; outline:none; text-decoration:none; max-width:280px; width:100%; transition:border-color 150ms ease; }
+        .demo-launch-btn:hover { border-color:rgba(255,255,255,0.5); }
+        .demo-next-btn { display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; flex:1; background:#060f1e; color:#fff; font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:500; padding:12px 20px; border-radius:10px; border:1px solid rgba(255,255,255,0.3); cursor:pointer; letter-spacing:0.3px; text-transform:none; outline:none; transition:border-color 150ms ease; }
+        .demo-next-btn:hover { border-color:rgba(255,255,255,0.5); }
         .demo-next-btn svg { position:relative; z-index:1; }
         .demo-next-btn.full { width:100%; }
-        .demo-back-btn { display:flex; align-items:center; justify-content:center; gap:0.4rem; background:transparent; border:1px solid rgba(255,255,255,0.2); color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:500; padding:12px 16px; border-radius:10px; cursor:pointer; transition:background 150ms ease,border-color 150ms ease; flex-shrink:0; letter-spacing:0.3px; }
-        .demo-back-btn:hover { background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.35); color:var(--cream); }
+        .demo-back-btn { display:flex; align-items:center; justify-content:center; gap:0.4rem; background:#060f1e; border:1px solid rgba(255,255,255,0.15); color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:500; padding:12px 16px; border-radius:10px; cursor:pointer; transition:border-color 150ms ease; flex-shrink:0; letter-spacing:0.3px; }
+        .demo-back-btn:hover { border-color:rgba(255,255,255,0.3); color:var(--cream); }
         .demo-overlay { display:none; position:fixed; inset:0; background:rgba(6,15,30,0.92); backdrop-filter:blur(10px); z-index:200; align-items:center; justify-content:center; padding:6.5rem 2rem 2rem; }
         .demo-overlay.open { display:flex; }
         .demo-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.18); border-radius:28px; width:100%; max-width:460px; position:relative; overflow:hidden; box-shadow:0 40px 100px rgba(0,0,0,0.6); animation:scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
@@ -213,7 +211,7 @@
             <em data-i18n="headline_2">Clearly explained.</em>
         </h1>
         <p class="hero-sub" data-i18n="sub">Information to help you decide for yourself.</p>
-        <a href="/waitlist" class="demo-launch-btn btn-waitlist" style="margin-top:1.5rem;">
+        <a href="/waitlist" class="demo-launch-btn" style="margin-top:1.5rem;">
             <div class="demo-btn-label"><span class="demo-btn-label-main" data-i18n="hero_cta">Join the waitlist</span></div>
         </a>
         <p style="margin-top:10px;font-size:0.875rem;font-weight:500;color:rgba(255,255,255,0.8);" data-i18n="auth_note">OVÉ is not currently authorised to provide investment services.</p>
@@ -394,7 +392,7 @@
                     <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_portfolio">Portfolio</span><span class="demo-receipt-val" id="receipt-portfolio">—</span></div>
                 </div>
             </div>
-            <a href="/waitlist" class="demo-launch-btn btn-waitlist" style="max-width:100%;margin-bottom:0.5rem;" data-i18n="join_waitlist">Waitlist</a>
+            <a href="/waitlist" class="demo-launch-btn" style="max-width:100%;margin-bottom:0.5rem;" data-i18n="join_waitlist">Waitlist</a>
             <button class="demo-restart" onclick="window.location.href='/index';" data-i18n="return_home">↩ Return home</button>
         </div>
         <div style="background:rgba(59,130,246,0.08);border-top:1px solid rgba(59,130,246,0.12);padding:0.5rem 1rem;text-align:center;font-size:0.7rem;color:#9db5cc;font-weight:400;line-height:1.5;" id="sim-bar">Simulation only — not investment advice · This experience is not personalised and does not take into account your financial situation, objectives, or risk tolerance.</div>
