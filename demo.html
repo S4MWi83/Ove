@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            try { if (!localStorage.getItem('ove-splashed')) { window.location.replace('/'); } } catch(e) {}
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <meta name="robots" content="noindex">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVSFPMXDRR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CVSFPMXDRR');
+    </script>
+    <title>Ové — Product illustration</title>
+    <link rel="icon" type="image/svg+xml" href="ove-favicon-e.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+    <style>
+        :root {
+            --deep:#060f1e; --blue:#3b82f6; --blue-dim:rgba(59,130,246,0.15);
+            --blue-glow:rgba(59,130,246,0.35); --cream:#f0ece4;
+            --muted:#9db5cc; --border:rgba(255,255,255,0.07); --card:rgba(255,255,255,0.03);
+            --green:#4ade80;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'DM Sans',sans-serif; background:var(--deep); color:var(--cream); min-height:100vh; overflow-x:hidden; -webkit-font-smoothing:antialiased; display:flex; flex-direction:column; }
+        body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.4; }
+        .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; }
+        .orb-1 { width:55vw; height:55vw; top:-18vw; left:50%; transform:translateX(-50%); background:radial-gradient(circle,rgba(59,130,246,0.13),transparent 70%); }
+        .orb-2 { width:28vw; height:28vw; bottom:8%; right:-6%; background:radial-gradient(circle,rgba(59,130,246,0.07),transparent 70%); }
+
+        /* ── Page chrome ── */
+        .page-top { display:flex; align-items:center; justify-content:center; padding:1.25rem 2rem; position:relative; z-index:10; }
+        .page-logo { font-family:'Instrument Serif',serif; font-size:1.6rem; color:var(--cream); text-decoration:none; position:relative; }
+        .page-logo span { display:inline-block; width:5px; height:5px; background:var(--blue); border-radius:50%; position:absolute; top:5px; right:-8px; box-shadow:0 0 8px var(--blue-glow); }
+
+        /* ── Edu disclaimer ── */
+        .edu-screen { position:fixed; inset:0; z-index:200; background:rgba(6,15,30,0.97); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:2rem; }
+        .edu-card { background:#0b1829; border:1px solid rgba(59,130,246,0.2); border-radius:20px; padding:2rem; max-width:420px; width:100%; text-align:center; }
+        .edu-eyebrow { font-size:0.68rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:#3b82f6; margin-bottom:0.75rem; }
+        .edu-title { font-family:'Instrument Serif',serif; font-size:1.3rem; color:#f0ece4; margin-bottom:1rem; line-height:1.3; }
+        .edu-body { font-size:0.85rem; color:#9db5cc; font-weight:300; line-height:1.7; margin-bottom:0.75rem; }
+        .edu-intent { font-size:0.82rem; color:#9db5cc; font-weight:300; line-height:1.7; margin-bottom:1.5rem; padding:0.75rem; background:rgba(59,130,246,0.06); border-radius:8px; border:1px solid rgba(59,130,246,0.12); }
+        .edu-btn { width:100%; font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:#3b82f6; background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.25); border-radius:999px; padding:0.75rem 2rem; cursor:pointer; }
+
+        /* ── Demo shell ── */
+        .demo-wrap { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem 1.5rem 1rem; position:relative; z-index:1; }
+        .demo-card { background:#0b1829; border:1px solid rgba(59,130,246,0.18); border-radius:28px; width:100%; max-width:460px; position:relative; overflow:hidden; box-shadow:0 40px 100px rgba(0,0,0,0.6); }
+
+        /* ── Steps indicator ── */
+        .demo-steps-indicator { display:flex; gap:6px; justify-content:center; padding:1.25rem 1.5rem 0; }
+        .demo-step-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.12); transition:all 0.3s ease; }
+        .demo-step-dot.active { background:var(--blue); box-shadow:0 0 8px rgba(59,130,246,0.6); width:18px; border-radius:3px; }
+        .demo-step-dot.done { background:rgba(74,222,128,0.5); }
+
+        /* ── Panel ── */
+        .demo-panel { display:none; padding:1.75rem 1.75rem 2rem; animation:panelIn 0.25s ease; }
+        .demo-panel.active { display:block; }
+        .demo-title { font-family:'Instrument Serif',serif; font-size:1.5rem; color:var(--cream); margin-bottom:0.4rem; line-height:1.2; }
+        .demo-sub { font-size:0.88rem; color:var(--muted); font-weight:300; line-height:1.6; margin-bottom:1.5rem; }
+
+        /* ── Form ── */
+        .demo-form { display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1.5rem; }
+        .demo-field label { display:block; font-size:0.72rem; color:var(--muted); font-weight:400; margin-bottom:0.3rem; letter-spacing:0.05em; text-transform:uppercase; }
+        .demo-input { background:rgba(255,255,255,0.04); border:1px solid rgba(59,130,246,0.15); border-radius:12px; padding:0.75rem 1rem; font-size:0.95rem; color:var(--cream); font-family:'DM Sans',sans-serif; display:flex; align-items:center; gap:0.5rem; }
+        .demo-input-check { margin-left:auto; width:16px; height:16px; background:rgba(74,222,128,0.15); border:1px solid rgba(74,222,128,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:var(--green); flex-shrink:0; }
+
+        /* ── Slider ── */
+        .demo-slider-wrap { margin-bottom:1.5rem; }
+        .demo-slider-header { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:1rem; }
+        .demo-slider-amount { font-family:'Instrument Serif',serif; font-size:3rem; color:var(--cream); line-height:1; letter-spacing:-0.02em; }
+        .demo-slider-amount span { font-size:1.4rem; color:var(--muted); }
+        .demo-slider-mo { font-size:0.82rem; color:var(--muted); font-weight:300; }
+        .demo-slider { -webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px; background:rgba(255,255,255,0.08); outline:none; cursor:pointer; }
+        .demo-slider::-webkit-slider-thumb { -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; box-shadow:0 0 12px rgba(59,130,246,0.6); border:2px solid rgba(255,255,255,0.2); }
+        .demo-slider::-moz-range-thumb { width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; border:2px solid rgba(255,255,255,0.2); box-shadow:0 0 12px rgba(59,130,246,0.6); }
+        .demo-slider-labels { display:flex; justify-content:space-between; font-size:0.7rem; color:var(--muted); margin-top:0.5rem; font-weight:300; }
+        .demo-custom-wrap { margin:1rem 0 1rem; }
+        .demo-custom-label { display:block; font-size:0.72rem; color:var(--muted); font-weight:400; margin-bottom:0.3rem; letter-spacing:0.05em; text-transform:uppercase; }
+        .demo-custom-input-wrap { display:flex; align-items:center; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.2s; }
+        .demo-custom-input-wrap:focus-within { border-color:rgba(59,130,246,0.4); }
+        .demo-custom-euro { padding:0.75rem 0.5rem 0.75rem 1rem; font-size:0.95rem; color:var(--muted); }
+        .demo-custom-input { flex:1; background:none; border:none; outline:none; padding:0.75rem 1rem 0.75rem 0; font-size:0.95rem; color:var(--cream); font-family:'DM Sans',sans-serif; caret-color:var(--blue); }
+        .demo-custom-input::placeholder { color:rgba(122,143,168,0.4); }
+        .demo-custom-input::-webkit-outer-spin-button, .demo-custom-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+        .demo-projection { margin-bottom:1.5rem; padding:1.25rem; background:rgba(74,222,128,0.05); border:1px solid rgba(74,222,128,0.12); border-radius:14px; }
+        .demo-proj-number { font-family:'Instrument Serif',serif; font-size:2.4rem; color:var(--green); line-height:1; margin-bottom:0.4rem; letter-spacing:-0.02em; }
+        .demo-proj-label { font-size:0.82rem; color:var(--muted); font-weight:300; line-height:1.5; }
+
+        /* ── Portfolios ── */
+        .demo-portfolios { display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.5rem; }
+        .demo-portfolio { border:1px solid var(--border); border-left:3px solid transparent; border-radius:14px; padding:0.85rem 1.1rem; cursor:pointer; transition:all 0.2s ease; background:rgba(255,255,255,0.02); }
+        .demo-portfolio[data-p="steady"] { --p-color:#4ade80; }
+        .demo-portfolio[data-p="balanced"] { --p-color:#3b82f6; }
+        .demo-portfolio[data-p="growth"] { --p-color:#f97316; }
+        .demo-portfolio:hover { border-color:rgba(255,255,255,0.1); border-left-color:var(--p-color); }
+        .demo-portfolio.active { border-color:rgba(255,255,255,0.1); border-left-color:var(--p-color); background:rgba(255,255,255,0.04); box-shadow:inset 3px 0 12px -4px var(--p-color); }
+        .demo-p-top { display:flex; align-items:center; justify-content:space-between; }
+        .demo-p-name { font-size:0.92rem; font-weight:500; color:var(--cream); }
+        .demo-p-risk { font-size:0.72rem; color:var(--muted); font-weight:300; margin-top:0.1rem; }
+        .demo-p-proj { font-size:0.82rem; color:var(--p-color); font-weight:500; white-space:nowrap; opacity:0.9; }
+        .demo-p-alloc { font-size:0.72rem; color:var(--muted); font-weight:300; letter-spacing:0.02em; max-height:0; overflow:hidden; opacity:0; transition:max-height 0.2s ease,opacity 0.2s ease,margin-top 0.2s ease; margin-top:0; }
+        .demo-portfolio:hover .demo-p-alloc, .demo-portfolio.active .demo-p-alloc { max-height:20px; opacity:1; margin-top:0.4rem; }
+
+        /* ── Buttons ── */
+        .demo-btn-row { display:flex; gap:0.65rem; align-items:center; }
+        .demo-next-btn { display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; flex:1; background:#060f1e; color:#fff; font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:500; padding:12px 20px; border-radius:10px; border:1px solid rgba(255,255,255,0.3); cursor:pointer; letter-spacing:0.3px; outline:none; transition:border-color 150ms ease; }
+        .demo-next-btn:hover { border-color:rgba(255,255,255,0.5); }
+        .demo-next-btn.full { width:100%; }
+        .demo-back-btn { display:flex; align-items:center; justify-content:center; gap:0.4rem; background:#060f1e; border:1px solid rgba(255,255,255,0.15); color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:500; padding:12px 16px; border-radius:10px; cursor:pointer; transition:border-color 150ms ease; flex-shrink:0; }
+        .demo-back-btn:hover { border-color:rgba(255,255,255,0.3); color:var(--cream); }
+        .demo-launch-btn { display:inline-flex; align-items:center; justify-content:center; background:#060f1e; color:#fff; font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:500; padding:12px 20px; border-radius:10px; border:1px solid rgba(255,255,255,0.3); cursor:pointer; letter-spacing:0.3px; text-decoration:none; width:100%; transition:border-color 150ms ease; }
+        .demo-launch-btn:hover { border-color:rgba(255,255,255,0.5); }
+
+        /* ── Done screen ── */
+        .demo-done-icon { width:56px; height:56px; border-radius:50%; background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.3); display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:var(--green); margin-bottom:1.25rem; box-shadow:0 0 24px rgba(74,222,128,0.15); animation:popIn 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+        .demo-receipt { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:18px; overflow:hidden; margin-bottom:1.75rem; }
+        .demo-receipt-hero { padding:1.5rem; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; }
+        .demo-receipt-proj { font-family:'Instrument Serif',serif; font-size:2.8rem; color:var(--green); line-height:1; letter-spacing:-0.02em; margin-bottom:0.3rem; }
+        .demo-receipt-proj-label { font-size:0.78rem; color:var(--muted); font-weight:300; }
+        .demo-receipt-rows { padding:0.75rem 1.25rem; }
+        .demo-receipt-row { display:flex; justify-content:space-between; align-items:center; padding:0.55rem 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+        .demo-receipt-row:last-child { border-bottom:none; }
+        .demo-receipt-key { font-size:0.78rem; color:var(--muted); font-weight:300; text-transform:uppercase; letter-spacing:0.06em; }
+        .demo-receipt-val { font-size:0.9rem; color:var(--cream); font-weight:500; }
+        .demo-return { width:100%; margin-top:0.65rem; background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.85rem; cursor:pointer; transition:color 0.2s; padding:0.5rem; text-align:center; display:block; text-decoration:none; }
+        .demo-return:hover { color:var(--cream); }
+
+        /* ── Sim bar ── */
+        .sim-bar { background:rgba(59,130,246,0.08); border-top:1px solid rgba(59,130,246,0.12); padding:0.5rem 1rem; text-align:center; font-size:0.7rem; color:#9db5cc; font-weight:400; line-height:1.5; }
+
+        /* ── Footer ── */
+        .page-footer { border-top:1px solid var(--border); padding:1.5rem 2rem; text-align:center; font-size:0.78rem; color:var(--muted); font-weight:300; position:relative; z-index:1; }
+
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes panelIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+
+        @media(max-width:480px) {
+            .demo-card { border-radius:20px; }
+            .demo-panel { padding:1.5rem 1.5rem 1.75rem; }
+            .demo-wrap { padding:1.5rem 1rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- EDUCATIONAL DISCLAIMER -->
+<div class="edu-screen" id="edu-screen">
+    <div class="edu-card">
+        <p class="edu-eyebrow" id="edu-label">Before you start</p>
+        <p class="edu-title" id="edu-title">This is an educational simulation.</p>
+        <p class="edu-body" id="edu-body">It is not a real investment tool and does not provide investment advice or recommendations. No money is moved. All figures are illustrative examples only and do not reflect real outcomes. This website does not enable or invite users to invest.</p>
+        <p class="edu-intent" id="edu-intent">This experience is intentionally limited to avoid simulating real investment decisions before appropriate regulatory safeguards are in place.</p>
+        <button class="edu-btn" id="edu-btn" onclick="startDemo()">I understand — continue</button>
+    </div>
+</div>
+
+<!-- DEMO -->
+<header class="page-top">
+    <a href="/concept" class="page-logo">Ové<span></span></a>
+</header>
+
+<main class="demo-wrap">
+    <div class="demo-card">
+        <div class="demo-steps-indicator">
+            <div class="demo-step-dot"></div>
+            <div class="demo-step-dot"></div>
+            <div class="demo-step-dot"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="demo-panel" id="demo-step-1">
+            <h2 class="demo-title" data-i18n="step1_title">Let's get started.</h2>
+            <p class="demo-sub" data-i18n="step1_sub">You can explore this at your own pace.</p>
+            <div class="demo-form">
+                <div class="demo-field">
+                    <label id="demo-label-firstname">First name</label>
+                    <div class="demo-input"><span>Maria</span><div class="demo-input-check" style="opacity:1">✓</div></div>
+                </div>
+                <div class="demo-field">
+                    <label id="demo-label-email">Email</label>
+                    <div class="demo-input"><span id="demo-email-display">maria@email.com</span><div class="demo-input-check" style="opacity:1">✓</div></div>
+                </div>
+                <div class="demo-field">
+                    <label id="demo-label-country">Country</label>
+                    <div class="demo-input" id="demo-country">EU · EUROPE <div class="demo-input-check">✓</div></div>
+                </div>
+            </div>
+            <button class="demo-next-btn full" onclick="demoGo(2)">
+                <span id="demo-btn-continue1">Continue</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="demo-panel" id="demo-step-2">
+            <h2 class="demo-title" data-i18n="step2_title">How much per month?</h2>
+            <p class="demo-sub" data-i18n="step2_sub">No funds are moved. Select an amount to view an example scenario.</p>
+            <div class="demo-slider-wrap">
+                <div class="demo-slider-header">
+                    <div>
+                        <div class="demo-slider-amount"><span id="demo-currency-symbol" class="demo-curr-prefix">€</span><span id="demo-slider-val">50</span><span id="demo-currency-suffix" class="demo-curr-suffix" style="display:none;font-size:1.4rem;color:var(--muted);margin-left:0.25rem;"></span></div>
+                        <div class="demo-slider-mo" id="demo-per-month">per month</div>
+                    </div>
+                </div>
+                <input class="demo-slider" id="demo-slider" type="range" min="5" max="500" step="5" value="50" oninput="demoSetAmount(this.value,false)" />
+                <div class="demo-slider-labels"><span id="demo-slider-min">€5</span><span id="demo-slider-max">€500</span></div>
+            </div>
+            <div class="demo-custom-wrap">
+                <label class="demo-custom-label" id="demo-label-custom">Or enter your own</label>
+                <div class="demo-custom-input-wrap">
+                    <span class="demo-custom-euro" id="demo-currency-custom">€</span>
+                    <input class="demo-custom-input" id="demo-custom-amount" type="number" min="1" max="99999" placeholder="e.g. 75" oninput="demoSetCustomAmount(this.value)" />
+                </div>
+            </div>
+            <div class="demo-projection">
+                <div class="demo-proj-number" id="demo-proj-number">Est. €9,000</div>
+                <div class="demo-proj-label" id="demo-proj-text">Illustrative range — example only.</div>
+                <p style="font-size:0.65rem;color:var(--muted);opacity:0.7;margin-top:0.3rem;line-height:1.4;font-style:italic;" id="omits-text">Omits taxes, fees, timing differences, and market volatility.</p>
+            </div>
+            <div class="demo-btn-row">
+                <button class="demo-back-btn" onclick="demoGo(1)"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg> <span id="demo-btn-back1">Back</span></button>
+                <button class="demo-next-btn" onclick="demoGo(3)"><span id="demo-btn-continue2">Continue</span> <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="demo-panel" id="demo-step-3">
+            <h2 class="demo-title" data-i18n="step3_title">Pick your risk level.</h2>
+            <div class="demo-portfolios">
+                <div class="demo-portfolio" data-p="steady" onclick="demoSelectPortfolio(this)">
+                    <div class="demo-p-top"><div><p class="demo-p-name" id="p-name-steady">Steady</p><p class="demo-p-risk" id="p-risk-steady">Lower risk</p></div><span class="demo-p-proj" id="proj-steady">—</span></div>
+                    <div class="demo-p-alloc" id="p-alloc-steady">70% funds · 20% stocks · 10% cash</div>
+                </div>
+                <div class="demo-portfolio active" data-p="balanced" onclick="demoSelectPortfolio(this)">
+                    <div class="demo-p-top"><div><p class="demo-p-name" id="p-name-balanced">Balanced</p><p class="demo-p-risk" id="p-risk-balanced">Medium risk</p></div><span class="demo-p-proj" id="proj-balanced">—</span></div>
+                    <div class="demo-p-alloc" id="p-alloc-balanced">60% stocks · 30% funds · 10% cash</div>
+                </div>
+                <div class="demo-portfolio" data-p="growth" onclick="demoSelectPortfolio(this)">
+                    <div class="demo-p-top"><div><p class="demo-p-name" id="p-name-growth">Growth</p><p class="demo-p-risk" id="p-risk-growth">Higher risk</p></div><span class="demo-p-proj" id="proj-growth">—</span></div>
+                    <div class="demo-p-alloc" id="p-alloc-growth">90% stocks · 8% funds · 2% cash</div>
+                </div>
+            </div>
+            <div class="demo-btn-row">
+                <button class="demo-back-btn" onclick="demoGo(2)"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg> <span id="demo-btn-back2">Back</span></button>
+                <button class="demo-next-btn" onclick="demoGo('done')"><span id="demo-btn-start">Done</span> <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+        </div>
+
+        <!-- Done -->
+        <div class="demo-panel" id="demo-step-done">
+            <div class="demo-done-icon">✓</div>
+            <h2 class="demo-title">This is what it could feel like.</h2>
+            <p class="demo-sub" style="margin-bottom:1.25rem" data-i18n="done_sub">This is only a simplified example and does not reflect the full process.</p>
+            <div class="demo-receipt">
+                <div class="demo-receipt-hero">
+                    <div class="demo-receipt-proj" id="receipt-proj">—</div>
+                    <div class="demo-receipt-proj-label" data-i18n="receipt_label">estimated value in 10 years</div>
+                    <p style="font-size:0.68rem;color:var(--muted);font-style:italic;margin-top:0.4rem;line-height:1.4;" id="no-reflect-text">This simulation does not reflect real market conditions and should not be used to make investment decisions.</p>
+                </div>
+                <div class="demo-receipt-rows">
+                    <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_investor">Investor</span><span class="demo-receipt-val" id="receipt-name">—</span></div>
+                    <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_monthly">Monthly</span><span class="demo-receipt-val" id="receipt-amount">—</span></div>
+                    <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_portfolio">Portfolio</span><span class="demo-receipt-val" id="receipt-portfolio">—</span></div>
+                </div>
+            </div>
+            <a href="/waitlist" class="demo-launch-btn" style="margin-bottom:0.5rem;">Join the waitlist</a>
+            <a href="/concept" class="demo-return">↩ Return to concept</a>
+        </div>
+
+        <div class="sim-bar" id="sim-bar">Simulation only — not investment advice · This experience is not personalised and does not take into account your financial situation, objectives, or risk tolerance.</div>
+    </div>
+</main>
+
+<footer class="page-footer">
+    OVÉ is not currently authorised to provide investment services. This page is for illustrative purposes only and does not constitute investment advice, an offer, or a solicitation. No money is moved. Investing involves risk, including loss of capital.
+</footer>
+
+<script>
+    var demoPortfolio = 'balanced';
+    var demoAmount = 50;
+    var portfolioRates = { steady:0.05, balanced:0.08, growth:0.11 };
+    var portfolioNames = { steady:'Steady', balanced:'Balanced', growth:'Growth' };
+
+    function calcFV(m,r,months){ if(r===0)return Math.round(m*months); var rm=r/12; return Math.round(m*((Math.pow(1+rm,months)-1)/rm)); }
+    function getCurr(){ var lang=localStorage.getItem('ove-lang')||'en'; return (currencyByLang[lang]||currencyByLang['en']); }
+    function fmt(v){ var cur=getCurr(); if(v<1000){ return cur.suffix?v+' '+cur.symbol:cur.symbol+v; } if(cur.suffix){ var rounded=Math.round(v/100)*100; var thousands=Math.floor(rounded/1000); var hundreds=Math.round((rounded%1000)/100)*100; var str=hundreds>0?thousands+' '+hundreds:thousands+' 000'; return str+' '+cur.symbol; } var k=Math.round(v/100)*100; return cur.symbol+(k/1000).toFixed(1)+'k'; }
+
+    function startDemo(){
+        document.getElementById('edu-screen').style.display='none';
+        var lang=localStorage.getItem('ove-lang')||'en';
+        var cur=currencyByLang[lang]||currencyByLang['en'];
+        demoAmount=cur.default;
+        document.getElementById('demo-slider').value=cur.default;
+        document.getElementById('demo-slider-val').textContent=cur.default;
+        document.getElementById('demo-custom-amount').value='';
+        var countryEl=document.getElementById('demo-country');
+        if(countryEl&&countryByLang[lang]){ countryEl.childNodes[0].textContent=countryByLang[lang]+' '; }
+        demoUpdateProjection();
+        document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.toggle('active',p.dataset.p==='balanced'); });
+        demoGo(1);
+        applyDemoLang(lang);
+    }
+
+    function demoGo(step){
+        document.querySelectorAll('.demo-panel').forEach(function(p){ p.classList.remove('active'); });
+        document.querySelectorAll('.demo-step-dot').forEach(function(d,i){
+            d.classList.remove('active','done');
+            if(step!=='done'){ if(i+1<step)d.classList.add('done'); if(i+1===step)d.classList.add('active'); }
+            else d.classList.add('done');
+        });
+        document.getElementById(step==='done'?'demo-step-done':'demo-step-'+step).classList.add('active');
+        if(step===3)demoUpdatePortfolioProjections();
+        if(step==='done')demoFillReceipt();
+    }
+
+    function demoSetAmount(val,fromCustom){ val=Math.round(parseFloat(val)); if(!val||val<1)return; demoAmount=val; document.getElementById('demo-slider-val').textContent=val; var lang=localStorage.getItem('ove-lang')||'en'; document.getElementById('demo-slider').value=Math.min(val,(currencyByLang[lang]||currencyByLang['en']).max); if(!fromCustom)document.getElementById('demo-custom-amount').value=''; demoUpdateProjection(); }
+    function demoSetCustomAmount(val){ var v=parseFloat(val); if(v&&v>0)demoSetAmount(v,true); }
+
+    function demoUpdateProjection(){
+        var fv=calcFV(parseFloat(demoAmount)||50,0.08,120); var fvLow=calcFV(parseFloat(demoAmount)||50,0.01,120);
+        document.getElementById('demo-proj-number').textContent=fmt(fvLow)+' – '+fmt(fv);
+        var lang=localStorage.getItem('ove-lang')||'en';
+        document.getElementById('demo-proj-text').textContent=(demoT[lang]||demoT['en']).projtext;
+    }
+
+    function demoUpdatePortfolioProjections(){
+        var monthly=parseFloat(demoAmount)||50;
+        for(var key in portfolioRates){ var fv=calcFV(monthly,portfolioRates[key],120); var fvLow=calcFV(monthly,Math.max(portfolioRates[key]-0.04,0.01),120); document.getElementById('proj-'+key).textContent=fmt(fvLow)+' – '+fmt(fv); }
+    }
+
+    function demoSelectPortfolio(el){ document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.remove('active'); }); el.classList.add('active'); demoPortfolio=el.dataset.p; }
+
+    function demoFillReceipt(){
+        document.getElementById('receipt-name').textContent='You';
+        var cur=getCurr(); document.getElementById('receipt-amount').textContent=cur.suffix?demoAmount+' '+cur.symbol+'/mo':cur.symbol+demoAmount+'/mo';
+        document.getElementById('receipt-portfolio').textContent=portfolioNames[demoPortfolio];
+        var target=calcFV(parseFloat(demoAmount)||50,portfolioRates[demoPortfolio],120);
+        var targetLow=calcFV(parseFloat(demoAmount)||50,Math.max(portfolioRates[demoPortfolio]-0.04,0.01),120);
+        var t0=performance.now(),dur=1400,penultimate=Math.round(target*0.97);
+        function tick(t){ var p=Math.min((t-t0)/dur,1); var val=p>=0.72&&p<1?penultimate:Math.round(target*Math.pow(p,0.1)); document.getElementById('receipt-proj').textContent=fmt(Math.round(targetLow*(val/target)))+' – '+fmt(val); if(p<1)requestAnimationFrame(tick); else document.getElementById('receipt-proj').textContent=fmt(targetLow)+' – '+fmt(target); }
+        requestAnimationFrame(tick);
+    }
+
+    var currencyByLang = { en:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'e.g. 75'}, sv:{symbol:'kr',min:50,max:4500,default:500,suffix:true,placeholder:'e.g. 7 500'}, es:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'ej. 75'}, it:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'es. 75'}, nl:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'bijv. 75'} };
+    var countryByLang = { en:'EU \u00b7 EUROPE', sv:'SE \u00b7 SVERIGE', es:'ES \u00b7 ESPA\u00d1A', it:'IT \u00b7 ITALIA', nl:'NL \u00b7 NEDERLAND' };
+
+    var demoT = {
+        en:{step1:'Step 1 of 3',step2:'Step 2 of 3',step3:'Step 3 of 3',firstname:'First name',email:'Email',country:'Region',permonth:'per month',enterown:'Or enter your own',back:'Back',continue:'Continue',startinvesting:'Done',pname_steady:'Steady',pname_balanced:'Balanced',pname_growth:'Growth',prisk_steady:'Lower risk',prisk_balanced:'Medium risk',prisk_growth:'Higher risk',palloc_steady:'70% funds \u00b7 20% stocks \u00b7 10% cash',palloc_balanced:'60% stocks \u00b7 30% funds \u00b7 10% cash',palloc_growth:'90% stocks \u00b7 8% funds \u00b7 2% cash',projtext:'Estimated value after 10 years.',edu_label:'Before you start',edu_title:'This is an educational simulation.',edu_body:'It is not a real investment tool and does not provide investment advice or recommendations. No money is moved. All figures are illustrative examples only and do not reflect real outcomes. This website does not enable or invite users to invest.',edu_intent:'This experience is intentionally limited to avoid simulating real investment decisions before appropriate regulatory safeguards are in place.',edu_btn:'I understand \u2014 continue',sim_bar:'Simulation only \u2014 not investment advice \u00b7 This experience is not personalised and does not take into account your financial situation, objectives, or risk tolerance.',omits_text:'Omits taxes, fees, timing differences, and market volatility.',no_reflect_text:'This simulation does not reflect real market conditions and should not be used to make investment decisions.',done_sub:'This is only a simplified example and does not reflect the full process.',receipt_label:'estimated value in 10 years',receipt_investor:'Investor',receipt_monthly:'Monthly',receipt_portfolio:'Portfolio'},
+        sv:{step1:'Steg 1 av 3',step2:'Steg 2 av 3',step3:'Steg 3 av 3',firstname:'F\u00f6rnamn',email:'E-post',country:'Land',permonth:'per m\u00e5nad',enterown:'Eller ange eget belopp',back:'Tillbaka',continue:'Forts\u00e4tt',startinvesting:'Klar',pname_steady:'Stabil',pname_balanced:'Balanserad',pname_growth:'Tillv\u00e4xt',prisk_steady:'L\u00e5gre risk',prisk_balanced:'Medel risk',prisk_growth:'H\u00f6gre risk',palloc_steady:'70% fonder \u00b7 20% aktier \u00b7 10% kontanter',palloc_balanced:'60% aktier \u00b7 30% fonder \u00b7 10% kontanter',palloc_growth:'90% aktier \u00b7 8% fonder \u00b7 2% kontanter',projtext:'Uppskattat v\u00e4rde efter 10 \u00e5r.',edu_label:'Innan du b\u00f6rjar',edu_title:'Det h\u00e4r \u00e4r en utbildningssimulering.',edu_body:'Det \u00e4r inte ett riktigt investeringsverktyg. Inga pengar flyttas.',edu_intent:'Upplevelsen \u00e4r avsiktligt begr\u00e4nsad.',edu_btn:'Jag f\u00f6rst\u00e5r \u2014 forts\u00e4tt',sim_bar:'Endast simulering \u2014 inte investeringsr\u00e5dgivning \u00b7 Denna upplevelse \u00e4r inte personlig.',omits_text:'Exkluderar skatter, avgifter, tidsskillnader och marknadsvolatilitet.',no_reflect_text:'Denna simulering speglar inte verkliga marknadsf\u00f6rh\u00e5llanden.',done_sub:'Detta \u00e4r endast ett f\u00f6renklat exempel.',receipt_label:'uppskattat v\u00e4rde efter 10 \u00e5r',receipt_investor:'Investerare',receipt_monthly:'M\u00e5nadsbelopp',receipt_portfolio:'Portf\u00f6lj'},
+        es:{step1:'Paso 1 de 3',step2:'Paso 2 de 3',step3:'Paso 3 de 3',firstname:'Nombre',email:'Correo',country:'Pa\u00eds',permonth:'por mes',enterown:'O introduce tu propio importe',back:'Atr\u00e1s',continue:'Continuar',startinvesting:'Listo',pname_steady:'Estable',pname_balanced:'Equilibrado',pname_growth:'Crecimiento',prisk_steady:'Riesgo menor',prisk_balanced:'Riesgo medio',prisk_growth:'Mayor riesgo',palloc_steady:'70% fondos \u00b7 20% acciones \u00b7 10% efectivo',palloc_balanced:'60% acciones \u00b7 30% fondos \u00b7 10% efectivo',palloc_growth:'90% acciones \u00b7 8% fondos \u00b7 2% efectivo',projtext:'Valor estimado despu\u00e9s de 10 a\u00f1os.',edu_label:'Antes de empezar',edu_title:'Esta es una simulaci\u00f3n educativa.',edu_body:'No es una herramienta de inversi\u00f3n real. No se mueve dinero.',edu_intent:'La experiencia est\u00e1 intencionalmente limitada.',edu_btn:'Entiendo \u2014 continuar',sim_bar:'Solo simulaci\u00f3n \u2014 no es asesoramiento de inversi\u00f3n \u00b7 Esta experiencia no es personalizada.',omits_text:'Excluye impuestos, comisiones, diferencias de tiempo y volatilidad.',no_reflect_text:'Esta simulaci\u00f3n no refleja condiciones reales del mercado.',done_sub:'Este es solo un ejemplo simplificado.',receipt_label:'valor estimado en 10 a\u00f1os',receipt_investor:'Inversor',receipt_monthly:'Mensual',receipt_portfolio:'Cartera'},
+        it:{step1:'Passo 1 di 3',step2:'Passo 2 di 3',step3:'Passo 3 di 3',firstname:'Nome',email:'Email',country:'Paese',permonth:'al mese',enterown:'O inserisci un importo personalizzato',back:'Indietro',continue:'Continua',startinvesting:'Fatto',pname_steady:'Stabile',pname_balanced:'Bilanciato',pname_growth:'Crescita',prisk_steady:'Rischio minore',prisk_balanced:'Rischio medio',prisk_growth:'Rischio maggiore',palloc_steady:'70% fondi \u00b7 20% azioni \u00b7 10% liquidit\u00e0',palloc_balanced:'60% azioni \u00b7 30% fondi \u00b7 10% liquidit\u00e0',palloc_growth:'90% azioni \u00b7 8% fondi \u00b7 2% liquidit\u00e0',projtext:'Valore stimato in 10 anni.',edu_label:'Prima di iniziare',edu_title:'Si tratta di una simulazione didattica.',edu_body:'Non \u00e8 uno strumento di investimento reale. Non viene trasferito denaro.',edu_intent:'Esperienza volutamente limitata.',edu_btn:'Ho compreso \u2014 continua',sim_bar:'Solo simulazione \u2014 non \u00e8 una consulenza \u00b7 Questa esperienza non \u00e8 personalizzata.',omits_text:'Esclude tasse, commissioni e volatilit\u00e0.',no_reflect_text:'Questa simulazione non riflette le condizioni reali del mercato.',done_sub:'Questo \u00e8 solo un esempio semplificato.',receipt_label:'valore stimato in 10 anni',receipt_investor:'Investitore',receipt_monthly:'Mensile',receipt_portfolio:'Portafoglio'},
+        nl:{step1:'Stap 1 van 3',step2:'Stap 2 van 3',step3:'Stap 3 van 3',firstname:'Voornaam',email:'E-mail',country:'Regio',permonth:'per maand',enterown:'Of voer uw eigen bedrag in',back:'Terug',continue:'Doorgaan',startinvesting:'Klaar',pname_steady:'Stabiel',pname_balanced:'Gebalanceerd',pname_growth:'Groei',prisk_steady:'Lager risico',prisk_balanced:'Gemiddeld risico',prisk_growth:'Hoger risico',palloc_steady:'70% fondsen \u00b7 20% aandelen \u00b7 10% contant',palloc_balanced:'60% aandelen \u00b7 30% fondsen \u00b7 10% contant',palloc_growth:'90% aandelen \u00b7 8% fondsen \u00b7 2% contant',projtext:'Geschatte waarde na 10 jaar.',edu_label:'Voordat u begint',edu_title:'Dit is een educatieve simulatie.',edu_body:'Het is geen echt beleggingsinstrument. Er wordt geen geld verplaatst.',edu_intent:'Deze ervaring is bewust beperkt.',edu_btn:'Ik begrijp het \u2014 doorgaan',sim_bar:'Alleen simulatie \u2014 geen beleggingsadvies \u00b7 Deze ervaring is niet persoonlijk.',omits_text:'Exclusief belastingen, kosten en marktvolatiliteit.',no_reflect_text:'Deze simulatie weerspiegelt geen re\u00eble marktomstandigheden.',done_sub:'Dit is slechts een vereenvoudigd voorbeeld.',receipt_label:'geschatte waarde na 10 jaar',receipt_investor:'Belegger',receipt_monthly:'Maandelijks',receipt_portfolio:'Portefeuille'}
+    };
+
+    function applyDemoLang(lang){
+        var d=demoT[lang]||demoT['en']; var cur=currencyByLang[lang]||currencyByLang['en'];
+        var ids={'demo-label-firstname':d.firstname,'demo-label-email':d.email,'demo-label-country':d.country,'demo-per-month':d.permonth,'demo-label-custom':d.enterown,'demo-btn-back1':d.back,'demo-btn-back2':d.back,'demo-btn-continue1':d.continue,'demo-btn-continue2':d.continue,'demo-btn-start':d.startinvesting,'demo-currency-custom':cur.symbol,'p-name-steady':d.pname_steady,'p-name-balanced':d.pname_balanced,'p-name-growth':d.pname_growth,'p-risk-steady':d.prisk_steady,'p-risk-balanced':d.prisk_balanced,'p-risk-growth':d.prisk_growth,'p-alloc-steady':d.palloc_steady,'p-alloc-balanced':d.palloc_balanced,'p-alloc-growth':d.palloc_growth};
+        for(var id in ids){ var el=document.getElementById(id); if(el)el.textContent=ids[id]; }
+        var px=document.getElementById('demo-currency-symbol'); var sx=document.getElementById('demo-currency-suffix');
+        if(cur.suffix){ if(px){px.textContent='';px.style.display='none';} if(sx){sx.textContent=' '+cur.symbol;sx.style.display='inline';} document.getElementById('demo-slider-min').textContent=cur.min+' '+cur.symbol; document.getElementById('demo-slider-max').textContent=cur.max+' '+cur.symbol; }
+        else{ if(px){px.textContent=cur.symbol;px.style.display='inline';} if(sx){sx.textContent='';sx.style.display='none';} document.getElementById('demo-slider-min').textContent=cur.symbol+cur.min; document.getElementById('demo-slider-max').textContent=cur.symbol+cur.max; }
+        var slider=document.getElementById('demo-slider'); if(slider){ slider.min=cur.min; slider.max=cur.max; slider.step=Math.round(cur.min); slider.value=cur.default; document.getElementById('demo-slider-val').textContent=cur.default; demoAmount=cur.default; }
+        portfolioNames={steady:d.pname_steady,balanced:d.pname_balanced,growth:d.pname_growth};
+        var ci=document.getElementById('demo-custom-amount'); if(ci&&cur.placeholder)ci.placeholder=cur.placeholder;
+        // edu screen
+        var eduIds={'edu-label':d.edu_label,'edu-title':d.edu_title,'edu-body':d.edu_body,'edu-intent':d.edu_intent,'edu-btn':d.edu_btn,'sim-bar':d.sim_bar,'omits-text':d.omits_text,'no-reflect-text':d.no_reflect_text};
+        for(var eid in eduIds){ var ee=document.getElementById(eid); if(ee)ee.textContent=eduIds[eid]; }
+        // data-i18n
+        document.querySelectorAll('[data-i18n]').forEach(function(el){ var k=el.getAttribute('data-i18n'); if(d[k]!==undefined)el.textContent=d[k]; });
+        demoUpdateProjection();
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+        var lang = localStorage.getItem('ove-lang')||'en';
+        if(!demoT[lang]) lang='en';
+        applyDemoLang(lang);
+        demoUpdateProjection();
+        // edu btn re-bind after lang apply
+        document.getElementById('edu-btn').onclick = startDemo;
+    });
+</script>
+<script src="/ove-shared.js"></script>
+</body>
+</html>

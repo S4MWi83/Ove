@@ -3,6 +3,7 @@
     { "source": "/", "destination": "/splash.html" },
     { "source": "/index", "destination": "/home.html" },
     { "source": "/concept", "destination": "/concept.html" },
+    { "source": "/demo", "destination": "/demo.html" },
     { "source": "/vision", "destination": "/vision.html" },
     { "source": "/regulatory", "destination": "/regulatory.html" },
     { "source": "/privacy", "destination": "/privacy.html" },

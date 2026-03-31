@@ -71,8 +71,6 @@
         .demo-next-btn.full { width:100%; }
         .demo-back-btn { display:flex; align-items:center; justify-content:center; gap:0.4rem; background:#060f1e; border:1px solid rgba(255,255,255,0.15); color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:500; padding:12px 16px; border-radius:10px; cursor:pointer; transition:border-color 150ms ease; flex-shrink:0; letter-spacing:0.3px; }
         .demo-back-btn:hover { border-color:rgba(255,255,255,0.3); color:var(--cream); }
-        .demo-overlay { display:none; position:fixed; inset:0; background:rgba(6,15,30,0.92); backdrop-filter:blur(10px); z-index:200; align-items:center; justify-content:center; padding:6.5rem 2rem 2rem; }
-        .demo-overlay.open { display:flex; }
         .demo-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.18); border-radius:28px; width:100%; max-width:460px; position:relative; overflow:hidden; box-shadow:0 40px 100px rgba(0,0,0,0.6); animation:scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
         .demo-steps-indicator { display:flex; gap:6px; padding:1.25rem 2rem 0; }
         .demo-step-dot { height:3px; border-radius:2px; background:rgba(255,255,255,0.1); flex:1; transition:all 0.4s ease; }
@@ -216,9 +214,7 @@
             <em data-i18n="hero_line2">concept</em><span data-i18n="hero_line3"> preview</span>
         </h1>
         <p class="hero-sub" data-i18n="steps_summary">Set up a hypothetical account and explore different investment scenarios.</p>
-        <button class="demo-launch-btn" onclick="demoOpen()" style="margin-top:1.5rem;">
-            <span data-i18n="demo_btn">See a product illustration</span>
-        </button>
+        <a href="/demo" class="demo-launch-btn" style="margin-top:1.5rem;" data-i18n="demo_btn">See a product illustration</a>
     </div>
 
     <!-- DISCLOSURE -->
@@ -242,176 +238,8 @@
         </div>
     </footer>
     </div>
-<!-- EDUCATIONAL DISCLAIMER -->
-<div id="demo-edu-disclaimer" style="display:none;position:fixed;inset:0;z-index:1100;background:rgba(6,15,30,0.97);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:2rem;">
-    <div style="background:#0b1829;border:1px solid rgba(59,130,246,0.2);border-radius:20px;padding:2rem;max-width:420px;width:100%;text-align:center;">
-        <p style="font-size:0.68rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#3b82f6;margin-bottom:0.75rem;" id="edu-label">Before you start</p>
-        <p style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:#f0ece4;margin-bottom:1rem;line-height:1.3;" id="edu-title">This is an educational simulation.</p>
-        <p style="font-size:0.85rem;color:#9db5cc;font-weight:300;line-height:1.7;margin-bottom:0.75rem;" id="edu-body">It is not a real investment tool and does not provide investment advice or recommendations. No money is moved. All figures are illustrative examples only and do not reflect real outcomes. This website does not enable or invite users to invest.</p>
-        <p style="font-size:0.82rem;color:#9db5cc;font-weight:300;line-height:1.7;margin-bottom:1.5rem;padding:0.75rem;background:rgba(59,130,246,0.06);border-radius:8px;border:1px solid rgba(59,130,246,0.12);" id="edu-intent">This experience is intentionally limited to avoid simulating real investment decisions before appropriate regulatory safeguards are in place.</p>
-        <button onclick="document.getElementById('demo-edu-disclaimer').style.display='none';demoLaunch();" style="width:100%;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#3b82f6;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.25);border-radius:999px;padding:0.75rem 2rem;cursor:pointer;" id="edu-btn">I understand — continue</button>
-    </div>
-</div>
 
-<!-- DEMO MODAL -->
-<div class="demo-overlay" id="demo-overlay" onclick="if(event.target===this)demoClose()">
-    <div class="demo-modal" style="position:relative;">
-        <button onclick="demoClose()" style="position:absolute;top:0.75rem;right:0.75rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:#9db5cc;font-size:0.8rem;cursor:pointer;z-index:20;font-family:'DM Sans',sans-serif;transition:all 0.2s;flex-shrink:0;">✕</button>
-        <div class="demo-steps-indicator">
-            <div class="demo-step-dot"></div>
-            <div class="demo-step-dot"></div>
-            <div class="demo-step-dot"></div>
-        </div>
-        <div class="demo-panel" id="demo-step-1">
-            <h2 class="demo-title" data-i18n="step1_title">Let's get started.</h2>
-            <p class="demo-sub" data-i18n="step1_sub">You can explore this at your own pace.</p>
-            <div class="demo-form">
-                <div class="demo-field">
-                    <label id="demo-label-firstname">First name</label>
-                    <div class="demo-input"><span>Maria</span><div class="demo-input-check" style="opacity:1">✓</div></div>
-                </div>
-                <div class="demo-field">
-                    <label id="demo-label-email">Email</label>
-                    <div class="demo-input"><span id="demo-email-display">maria@email.com</span><div class="demo-input-check" id="demo-email-check" style="opacity:1">✓</div></div>
-                </div>
-                <div class="demo-field">
-                    <label id="demo-label-country">Country</label>
-                    <div class="demo-input" id="demo-country">EU · EUROPE <div class="demo-input-check">✓</div></div>
-                </div>
-            </div>
-            <button class="demo-next-btn full" onclick="demoGo(2)">
-                <span id="demo-btn-continue1">Continue</span> <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-        </div>
-        <div class="demo-panel" id="demo-step-2">
-            <h2 class="demo-title" data-i18n="step2_title">How much per month?</h2>
-            <p class="demo-sub" data-i18n="step2_sub">Drag to choose, or type your own amount.</p>
-            <div class="demo-slider-wrap">
-                <div class="demo-slider-header">
-                    <div>
-                        <div class="demo-slider-amount"><span id="demo-currency-symbol" class="demo-curr-prefix">€</span><span id="demo-slider-val">50</span><span id="demo-currency-suffix" class="demo-curr-suffix" style="display:none;font-size:1.4rem;color:var(--muted);margin-left:0.25rem;"></span></div>
-                        <div class="demo-slider-mo" id="demo-per-month">per month</div>
-                    </div>
-                </div>
-                <input class="demo-slider" id="demo-slider" type="range" min="5" max="500" step="5" value="50" oninput="demoSetAmount(this.value,false)" />
-                <div class="demo-slider-labels"><span id="demo-slider-min">€5</span><span id="demo-slider-max">€500</span></div>
-            </div>
-            <div class="demo-custom-wrap">
-                <label class="demo-custom-label" id="demo-label-custom">Or enter your own</label>
-                <div class="demo-custom-input-wrap">
-                    <span class="demo-custom-euro" id="demo-currency-custom">€</span>
-                    <input class="demo-custom-input" id="demo-custom-amount" type="number" min="1" max="99999" placeholder="e.g. 75" oninput="demoSetCustomAmount(this.value)" />
-                </div>
-            </div>
-            <div class="demo-projection">
-                <div class="demo-proj-number" id="demo-proj-number">Est. €9,000</div>
-                <div class="demo-proj-label" id="demo-proj-text">Illustrative range — example only.</div>
-                <p style="font-size:0.65rem;color:var(--muted);opacity:0.7;margin-top:0.3rem;line-height:1.4;font-style:italic;" id="omits-text">Omits taxes, fees, timing differences, and market volatility.</p>
-            </div>
-            <div class="demo-btn-row">
-                <button class="demo-back-btn" onclick="demoGo(1)"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg> <span id="demo-btn-back1">Back</span></button>
-                <button class="demo-next-btn" onclick="demoGo(3)"><span id="demo-btn-continue2">Continue</span> <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-            </div>
-        </div>
-        <div class="demo-panel" id="demo-step-3">
-            <h2 class="demo-title" data-i18n="step3_title">Pick your risk level.</h2>
-            
-            <div class="demo-portfolios">
-                <div class="demo-portfolio" data-p="steady" onclick="demoSelectPortfolio(this)">
-                    <div class="demo-p-top"><div><p class="demo-p-name" id="p-name-steady">Steady</p><p class="demo-p-risk" id="p-risk-steady">Lower risk</p></div><span class="demo-p-proj" id="proj-steady">—</span></div>
-                    <div class="demo-p-alloc" id="p-alloc-steady">70% funds · 20% stocks · 10% cash</div>
-                </div>
-                <div class="demo-portfolio active" data-p="balanced" onclick="demoSelectPortfolio(this)">
-                    <div class="demo-p-top"><div><p class="demo-p-name" id="p-name-balanced">Balanced</p><p class="demo-p-risk" id="p-risk-balanced">Medium risk</p></div><span class="demo-p-proj" id="proj-balanced">—</span></div>
-                    <div class="demo-p-alloc" id="p-alloc-balanced">60% stocks · 30% funds · 10% cash</div>
-                </div>
-                <div class="demo-portfolio" data-p="growth" onclick="demoSelectPortfolio(this)">
-                    <div class="demo-p-top"><div><p class="demo-p-name" id="p-name-growth">Growth</p><p class="demo-p-risk" id="p-risk-growth">Higher risk</p></div><span class="demo-p-proj" id="proj-growth">—</span></div>
-                    <div class="demo-p-alloc" id="p-alloc-growth">90% stocks · 8% funds · 2% cash</div>
-                </div>
-            </div>
-            <div class="demo-btn-row">
-                <button class="demo-back-btn" onclick="demoGo(2)"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg> <span id="demo-btn-back2">Back</span></button>
-                <button class="demo-next-btn" onclick="demoGo('done')"><span id="demo-btn-start">Done</span> <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-            </div>
-        </div>
-        <div class="demo-panel" id="demo-step-done">
-            <div class="demo-done-icon">✓</div>
-            <h2 class="demo-title" id="demo-done-title">This is a simplified illustration only.</h2>
-            <p class="demo-sub" style="margin-bottom:1.25rem" data-i18n="done_sub">This is only a simplified example and does not reflect the full process.</p>
-            <div class="demo-receipt">
-                <div class="demo-receipt-hero">
-                    <div class="demo-receipt-proj" id="receipt-proj">—</div>
-                    <div class="demo-receipt-proj-label" data-i18n="receipt_label">estimated value in 10 years</div>
-                    <p style="font-size:0.68rem;color:var(--muted);font-style:italic;margin-top:0.4rem;line-height:1.4;" id="no-reflect-text">This simulation does not reflect real market conditions and should not be used to make investment decisions.</p>
-                </div>
-                <div class="demo-receipt-rows">
-                    <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_investor">Investor</span><span class="demo-receipt-val" id="receipt-name">—</span></div>
-                    <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_monthly">Monthly</span><span class="demo-receipt-val" id="receipt-amount">—</span></div>
-                    <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_portfolio">Portfolio</span><span class="demo-receipt-val" id="receipt-portfolio">—</span></div>
-                </div>
-            </div>
-            <a href="/waitlist" class="demo-launch-btn" style="max-width:100%;margin-bottom:0.5rem;" data-i18n="join_waitlist">Waitlist</a>
-            <button class="demo-restart" onclick="demoClose()" data-i18n="return_concept">↩ Return to concept</button>
-        </div>
-        <div style="background:rgba(59,130,246,0.08);border-top:1px solid rgba(59,130,246,0.12);padding:0.5rem 1rem;text-align:center;font-size:0.7rem;color:#9db5cc;font-weight:400;line-height:1.5;" id="sim-bar">Simulation only — not investment advice · This experience is not personalised and does not take into account your financial situation, objectives, or risk tolerance.</div>
-    </div>
-</div>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    var demoPortfolio = 'balanced';
-    var demoAmount = 50;
-    var portfolioRates = { steady:0.05, balanced:0.08, growth:0.11 };
-    var portfolioNames = { steady:'Steady', balanced:'Balanced', growth:'Growth' };
-
-    function calcFV(m,r,months){ if(r===0)return Math.round(m*months); var rm=r/12; return Math.round(m*((Math.pow(1+rm,months)-1)/rm)); }
-    function getCurr(){ var lang=localStorage.getItem('ove-lang')||'en'; return (currencyByLang[lang]||currencyByLang['en']); }
-    function calcFVLocal(m,r,mo){ return calcFV(m,r,mo); }
-    function fmt(v){ var cur=getCurr(); if(v<1000){ return cur.suffix?v+' '+cur.symbol:cur.symbol+v; } if(cur.suffix){ var rounded=Math.round(v/100)*100; var thousands=Math.floor(rounded/1000); var hundreds=Math.round((rounded%1000)/100)*100; var str=hundreds>0?thousands+' '+hundreds:thousands+' 000'; return str+' '+cur.symbol; } var k=Math.round(v/100)*100; return cur.symbol+(k/1000).toFixed(1)+'k'; }
-
-    function demoOpen(){ var d=document.getElementById('demo-edu-disclaimer'); if(d){d.style.display='flex';} }
-    function demoLaunch(){
-        demoAmount=50; demoPortfolio='balanced';
-        document.getElementById('demo-overlay').classList.add('open');
-        var lang=localStorage.getItem('ove-lang')||'en'; var cur=currencyByLang[lang]||currencyByLang['en'];
-        demoAmount=cur.default; document.getElementById('demo-slider').value=cur.default; document.getElementById('demo-slider-val').textContent=cur.default; document.getElementById('demo-custom-amount').value='';
-        var countryEl=document.getElementById('demo-country'); if(countryEl&&countryByLang[lang]){ countryEl.childNodes[0].textContent=countryByLang[lang]+' '; }
-        demoUpdateProjection();
-        document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.toggle('active',p.dataset.p==='balanced'); });
-        demoGo(1);
-    }
-    function demoClose(){ document.getElementById('demo-overlay').classList.remove('open'); }
-    function demoGo(step){
-        document.querySelectorAll('.demo-panel').forEach(function(p){ p.classList.remove('active'); });
-        document.querySelectorAll('.demo-step-dot').forEach(function(d,i){ d.classList.remove('active','done'); if(step!=='done'){ if(i+1<step)d.classList.add('done'); if(i+1===step)d.classList.add('active'); } else d.classList.add('done'); });
-        document.getElementById(step==='done'?'demo-step-done':'demo-step-'+step).classList.add('active');
-        if(step===3)demoUpdatePortfolioProjections();
-        if(step==='done')demoFillReceipt();
-    }
-    function demoSetAmount(val,fromCustom){ val=Math.round(parseFloat(val)); if(!val||val<1)return; demoAmount=val; document.getElementById('demo-slider-val').textContent=val; var lang=localStorage.getItem('ove-lang')||'en'; document.getElementById('demo-slider').value=Math.min(val,(currencyByLang[lang]||currencyByLang['en']).max); if(!fromCustom)document.getElementById('demo-custom-amount').value=''; demoUpdateProjection(); }
-    function demoSetCustomAmount(val){ var v=parseFloat(val); if(v&&v>0)demoSetAmount(v,true); }
-    function demoUpdateProjection(){
-        var fv=calcFVLocal(parseFloat(demoAmount)||50,0.08,120); var fvLow=calcFVLocal(parseFloat(demoAmount)||50,0.01,120);
-        document.getElementById('demo-proj-number').textContent=fmt(fvLow)+' – '+fmt(fv);
-        var lang=localStorage.getItem('ove-lang')||'en'; document.getElementById('demo-proj-text').textContent=(demoT[lang]||demoT['en']).projtext;
-    }
-    function demoUpdatePortfolioProjections(){
-        var monthly=parseFloat(demoAmount)||50;
-        for(var key in portfolioRates){ var fv=calcFVLocal(monthly,portfolioRates[key],120); var fvLow=calcFVLocal(monthly,Math.max(portfolioRates[key]-0.04,0.01),120); document.getElementById('proj-'+key).textContent=fmt(fvLow)+' – '+fmt(fv); }
-    }
-    function demoSelectPortfolio(el){ document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.remove('active'); }); el.classList.add('active'); demoPortfolio=el.dataset.p; }
-    function demoFillReceipt(){
-        var lang=localStorage.getItem('ove-lang')||'en'; var d=demoT[lang]||demoT['en'];
-        document.getElementById('demo-done-title').textContent=d.donename;
-        document.getElementById('receipt-name').textContent='You';
-        var cur=getCurr(); document.getElementById('receipt-amount').textContent=cur.suffix?demoAmount+' '+cur.symbol+'/mo':cur.symbol+demoAmount+'/mo';
-        document.getElementById('receipt-portfolio').textContent=portfolioNames[demoPortfolio];
-        var target=calcFVLocal(parseFloat(demoAmount)||50,portfolioRates[demoPortfolio],120);
-        var targetLow=calcFVLocal(parseFloat(demoAmount)||50,Math.max(portfolioRates[demoPortfolio]-0.04,0.01),120);
-        var t0=performance.now(),dur=1400,penultimate=Math.round(target*0.97);
-        function tick(t){ var p=Math.min((t-t0)/dur,1); var val=p>=0.72&&p<1?penultimate:Math.round(target*Math.pow(p,0.1)); document.getElementById('receipt-proj').textContent=fmt(Math.round(targetLow*(val/target)))+' – '+fmt(val); if(p<1)requestAnimationFrame(tick); else document.getElementById('receipt-proj').textContent=fmt(targetLow)+' – '+fmt(target); }
-        requestAnimationFrame(tick);
-    }
+<script>
 
     var T = {
         en:{
@@ -643,29 +471,6 @@
         nl:{nav_concept:"Concept",nav_waitlist:"Wachtlijst",hero_cta:"Op de wachtlijst",footer_compliance:"OVÉ biedt momenteel geen beleggingsdiensten aan. Niets op deze website vormt een aanbod, uitnodiging of aanbeveling om te beleggen. Deze website is uitsluitend bedoeld ter illustratie en mag niet worden gebruikt als basis voor beleggingsbeslissingen. Geen beleggingsadvies. Beleggen brengt risico's met zich mee. De waarde van beleggingen kan zowel dalen als stijgen.",footer_dev:"Momenteel in ontwikkeling.",auth_note:"OVÉ is momenteel niet bevoegd om beleggingsdiensten te verlenen.",code:"NL",eyebrow:"Pre-lancering",headline_1:"Beleggen.",headline_2:"Duidelijk ",sub:"Informatie om u te helpen zelf te beslissen.",concept_label:"Wat we bouwen",concept_title:"Gebouwd voor mensen die nog niet begonnen zijn — met controles om te zorgen dat het geschikt is voor u.",cp1_title:"Een beperkt aantal portefeuilleopties.",cp1_text:"U kiest hoeveel u belegt. Niets verborgen.",cp2_title:"U beslist of en wanneer u belegt.",cp2_text:"Neem de tijd die u nodig heeft. Zorg dat u begrijpt wat u doet.",cp3_title:"Duidelijke informatie. Geen druk om te handelen.",cp3_text:"We richten ons op zorgvuldig ontwerp vanaf het begin.",demo_label:"Zie het in actie",demo_title:"Dit is een gesimuleerde ervaring. Geen geld betrokken.",demo_btn:"Probeer de demo",not_label:"Wat Ové niet is",not_1:"Geen bank",not_2:"Geen handelsplatform",not_3:"Niet voor kortetermijnspeculatie",not_4:"Niet geschikt voor iedereen",not_5:"Momenteel niet bevoegd om beleggingsdiensten te verlenen",step1_title:"Laten we beginnen.",step1_sub:"U kunt dit in uw eigen tempo verkennen.",step2_title:"Hoeveel per maand?",step2_sub:"Geen fondsen worden verplaatst. Selecteer een bedrag om een voorbeeldscenario te bekijken.",step3_title:"Kies uw risiconiveau.",step3_sub:"Drie illustratieve risiconiveaus.",done_sub:"Dit is slechts een vereenvoudigd voorbeeld en weerspiegelt niet het volledige proces.",receipt_label:"Overzicht",receipt_investor:"Belegger",receipt_monthly:"Maandelijks",receipt_portfolio:"Portefeuille",join_waitlist:"Wachtlijst",return_home:"↩ Terug naar home",omits_text:"Exclusief belastingen, kosten, tijdsverschillen en marktvolatiliteit.",no_reflect_text:"Deze simulatie weerspiegelt geen reële marktomstandigheden en mag niet worden gebruikt voor beleggingsbeslissingen.",sim_bar:"Alleen simulatie — geen beleggingsadvies · Deze ervaring is niet persoonlijk en houdt geen rekening met uw financiële situatie, doelstellingen of risicobereidheid.",edu_label:"Voordat u begint",edu_title:"Dit is een educatieve simulatie.",edu_body:"Het is geen echt beleggingsinstrument en biedt geen beleggingsadvies. Er wordt geen geld verplaatst. Alle cijfers zijn slechts illustratieve voorbeelden.",edu_intent:"Deze ervaring is bewust beperkt om te voorkomen dat echte beleggingsbeslissingen worden gesimuleerd voordat de juiste wettelijke waarborgen aanwezig zijn.",hero_line1:"Ové's",hero_line2:"concept",hero_line3:" voorbeeld.",steps_headline:"Een pre-lancering concept",steps_qualifier:"Conceptpreview",steps_summary:"Stel een hypothetisch account in en verken verschillende beleggingsscenario's.",steps_eyebrow:"Alleen illustratief. Onderhevig aan regelgevingsvereisten en geschiktheidscontroles.",demo_btn:"Bekijk een productillustratie",demo_sim_note:"Dit is een gesimuleerde ervaring. Er worden geen beleggingsdiensten verleend.",footer_compliance:"Deze website is uitsluitend een conceptpresentatie en vormt geen aanbod, uitnodiging of verzoek om deel te nemen aan beleggingsactiviteiten.",disc_label:"Wettelijke bekendmaking",demo_section_sub:"De demo is gratis. Geen geld betrokken. Verken het in uw eigen tempo.",disc_1:"OVÉ is momenteel niet bevoegd om beleggingsdiensten te verlenen.",disc_2:"Eventuele toekomstige diensten zouden worden aangeboden via een gereguleerd beleggingsonderneming.",disc_3:"Deze pagina is uitsluitend ter illustratie en vormt geen beleggingsadvies, aanbod of verzoek.",disc_4:"Beschreven functies kunnen veranderen.",disc_5:"Beleggen brengt risico's met zich mee, inclusief verlies van kapitaal.",
             disc_p1:"OVÉ is momenteel niet bevoegd om beleggingsdiensten te verlenen. Eventuele toekomstige diensten zouden worden aangeboden via een gereguleerde beleggingsonderneming.",disc_p2:"Deze pagina is uitsluitend ter illustratie en vormt geen beleggingsadvies, aanbod of verzoek. Beschreven functies kunnen veranderen. Beleggen brengt risico's met zich mee, inclusief verlies van kapitaal.",
             edu_btn:"Ik begrijp het — doorgaan",waitlist_label:"Vroeg toegang",waitlist_title:"Op de wachtlijst.",waitlist_cta:"Zeker uw plek",stat_1_num:"91%",headline_3:"uitgelegd.",return_concept:"↩ Terug naar concept",steps_eyebrow:"Hoe het werkt",steps_headline:"Ové's 1, 2, 3",step_c:"Kies een risiconiveau.",steps_support:"Een illustratie — met vereiste controles voordat iets begint."}
-    };
-
-    var currencyByLang = { en:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'e.g. 75'}, sv:{symbol:'kr',min:50,max:4500,default:500,suffix:true,placeholder:'e.g. 7 500'}, es:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'ej. 75'}, it:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'es. 75'},nl:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'bijv. 75'} };
-    var countryByLang = { en:'EU \u00b7 EUROPE', sv:'SE \u00b7 SVERIGE', es:'ES \u00b7 ESPA\u00d1A', it:'IT \u00b7 ITALIA',nl:'NL \u00b7 NEDERLAND' };
-    var demoT = {
-        en:{step1:'Step 1 of 3',step2:'Step 2 of 3',step3:'Step 3 of 3',firstname:'First name',email:'Email',country:'Region',permonth:'per month',enterown:'Or enter your own',back:'Back',continue:'Continue',startinvesting:'Done',mostpopular:'',pname_steady:'Steady',pname_balanced:'Balanced',pname_growth:'Growth',prisk_steady:'Lower risk',prisk_balanced:'Medium risk',prisk_growth:'Higher risk',palloc_steady:'70% funds \u00b7 20% stocks \u00b7 10% cash',palloc_balanced:'60% stocks \u00b7 30% funds \u00b7 10% cash',palloc_growth:'90% stocks \u00b7 8% funds \u00b7 2% cash',donename:'In a future version of the product.',projtext:'Estimated value after 10 years.'},
-        sv:{step1:'Steg 1 av 3',step2:'Steg 2 av 3',step3:'Steg 3 av 3',firstname:'F\u00f6rnamn',email:'E-post',country:'Land',permonth:'per m\u00e5nad',enterown:'Eller ange eget belopp',back:'Tillbaka',continue:'Forts\u00e4tt',startinvesting:'Klar',mostpopular:'',pname_steady:'Stabil',pname_balanced:'Balanserad',pname_growth:'Tillv\u00e4xt',prisk_steady:'L\u00e5gre risk',prisk_balanced:'Medel risk',prisk_growth:'H\u00f6gre risk',palloc_steady:'70% fonder \u00b7 20% aktier \u00b7 10% kontanter',palloc_balanced:'60% aktier \u00b7 30% fonder \u00b7 10% kontanter',palloc_growth:'90% aktier \u00b7 8% fonder \u00b7 2% kontanter',donename:'I en framtida version av produkten,',projtext:'Uppskattat v\u00e4rde efter 10 \u00e5r.'},
-        es:{step1:'Paso 1 de 3',step2:'Paso 2 de 3',step3:'Paso 3 de 3',firstname:'Nombre',email:'Correo',country:'Pa\u00eds',permonth:'por mes',enterown:'O introduce tu propio importe',back:'Atr\u00e1s',continue:'Continuar',startinvesting:'Listo',mostpopular:'',pname_steady:'Estable',pname_balanced:'Equilibrado',pname_growth:'Crecimiento',prisk_steady:'Riesgo menor',prisk_balanced:'Riesgo medio',prisk_growth:'Mayor riesgo',palloc_steady:'70% fondos \u00b7 20% acciones \u00b7 10% efectivo',palloc_balanced:'60% acciones \u00b7 30% fondos \u00b7 10% efectivo',palloc_growth:'90% acciones \u00b7 8% fondos \u00b7 2% efectivo',donename:'En una futura versi\u00f3n del producto,',projtext:'Valor estimado despu\u00e9s de 10 a\u00f1os.'},
-        nl:{step1:'Stap 1 van 3',step2:'Stap 2 van 3',step3:'Stap 3 van 3',firstname:'Voornaam',email:'E-mail',country:'Regio',permonth:'per maand',enterown:'Of voer uw eigen bedrag in',back:'Terug',continue:'Doorgaan',startinvesting:'Klaar',mostpopular:'',pname_steady:'Stabiel',pname_balanced:'Gebalanceerd',pname_growth:'Groei',prisk_steady:'Lager risico',prisk_balanced:'Gemiddeld risico',prisk_growth:'Hoger risico',palloc_steady:'70% fondsen \u00b7 20% aandelen \u00b7 10% contant',palloc_balanced:'60% aandelen \u00b7 30% fondsen \u00b7 10% contant',palloc_growth:'90% aandelen \u00b7 8% fondsen \u00b7 2% contant',donename:'In een toekomstige versie van het product.',projtext:'Geschatte waarde na 10 jaar.'},
-        it:{step1:'Passo 1 di 3',step2:'Passo 2 di 3',step3:'Passo 3 di 3',firstname:'Nome',email:'Email',country:'Paese',permonth:'al mese',enterown:'O inserisci un importo personalizzato',back:'Indietro',continue:'Continua',startinvesting:'Fatto',mostpopular:'',pname_steady:'Stabile',pname_balanced:'Bilanciato',pname_growth:'Crescita',prisk_steady:'Rischio minore',prisk_balanced:'Rischio medio',prisk_growth:'Rischio maggiore',palloc_steady:'70% fondi \u00b7 20% azioni \u00b7 10% liquidit\u00e0',palloc_balanced:'60% azioni \u00b7 30% fondi \u00b7 10% liquidit\u00e0',palloc_growth:'90% azioni \u00b7 8% fondi \u00b7 2% liquidit\u00e0',donename:'In una futura versione del prodotto,',projtext:'Valore stimato in 10 anni.'}
-    };
-
-    function applyDemoLang(lang){
-        var d=demoT[lang]||demoT['en']; var cur=currencyByLang[lang]||currencyByLang['en'];
-        var ids={'demo-label-firstname':d.firstname,'demo-label-email':d.email,'demo-label-country':d.country,'demo-per-month':d.permonth,'demo-label-custom':d.enterown,'demo-btn-back1':d.back,'demo-btn-back2':d.back,'demo-btn-continue1':d.continue,'demo-btn-continue2':d.continue,'demo-btn-start':d.startinvesting,'demo-most-popular':d.mostpopular,'demo-currency-custom':cur.symbol,'p-name-steady':d.pname_steady,'p-name-balanced':d.pname_balanced,'p-name-growth':d.pname_growth,'p-risk-steady':d.prisk_steady,'p-risk-balanced':d.prisk_balanced,'p-risk-growth':d.prisk_growth,'p-alloc-steady':d.palloc_steady,'p-alloc-balanced':d.palloc_balanced,'p-alloc-growth':d.palloc_growth};
-        for(var id in ids){ var el=document.getElementById(id); if(el)el.textContent=ids[id]; }
-        var px=document.getElementById('demo-currency-symbol'); var sx=document.getElementById('demo-currency-suffix');
-        if(cur.suffix){ if(px){px.textContent='';px.style.display='none';} if(sx){sx.textContent=' '+cur.symbol;sx.style.display='inline';} document.getElementById('demo-slider-min').textContent=cur.min+' '+cur.symbol; document.getElementById('demo-slider-max').textContent=cur.max+' '+cur.symbol; }
-        else{ if(px){px.textContent=cur.symbol;px.style.display='inline';} if(sx){sx.textContent='';sx.style.display='none';} document.getElementById('demo-slider-min').textContent=cur.symbol+cur.min; document.getElementById('demo-slider-max').textContent=cur.symbol+cur.max; }
-        var slider=document.getElementById('demo-slider'); if(slider){ slider.min=cur.min; slider.max=cur.max; slider.step=Math.round(cur.min); slider.value=cur.default; document.getElementById('demo-slider-val').textContent=cur.default; demoAmount=cur.default; }
-        portfolioNames={steady:d.pname_steady,balanced:d.pname_balanced,growth:d.pname_growth};
-        var ci=document.getElementById('demo-custom-amount'); if(ci&&cur.placeholder)ci.placeholder=cur.placeholder;
-        demoUpdateProjection();
     }
 
     function applyLang(lang){
@@ -683,18 +488,16 @@
         var eb=document.getElementById('edu-btn'); if(eb&&t.edu_btn)eb.textContent=t.edu_btn;
     }
 
-    document.addEventListener('DOMContentLoaded',function(){
-        document.getElementById('year').textContent=new Date().getFullYear();
-        demoUpdateProjection();
-        document.getElementById('lang-btn').addEventListener('click',function(e){ e.stopPropagation(); document.getElementById('lang-switcher').classList.toggle('open'); });
-        document.querySelectorAll('.lang-option').forEach(function(o){ o.addEventListener('click',function(e){ e.stopPropagation(); applyLang(o.dataset.lang); }); });
-        document.addEventListener('click',function(){ document.getElementById('lang-switcher').classList.remove('open'); });
-        var saved=localStorage.getItem('ove-lang')||'en'; if(!T[saved])saved='en';
-        applyLang(saved); applyDemoLang(saved);
-        if(window.location.hash==='#demo'){ demoOpen(); history.replaceState(null,'',window.location.pathname); }
-        var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting)e.target.classList.add('visible'); }); },{threshold:0.08});
-        document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    document.addEventListener('DOMContentLoaded', function(){
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('lang-btn').addEventListener('click', function(e){ e.stopPropagation(); document.getElementById('lang-switcher').classList.toggle('open'); });
+        document.querySelectorAll('.lang-option').forEach(function(o){ o.addEventListener('click', function(e){ e.stopPropagation(); applyLang(o.dataset.lang); }); });
+        document.addEventListener('click', function(){ document.getElementById('lang-switcher').classList.remove('open'); });
+        var saved = localStorage.getItem('ove-lang') || 'en';
+        if (!T[saved]) saved = 'en';
+        applyLang(saved);
     });
+</script>
 </script>
 <script src="/ove-shared.js"></script>
 </body>
