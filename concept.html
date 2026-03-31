@@ -157,11 +157,11 @@
         .cta-section { padding:5rem 0 6rem; border-top:1px solid var(--border); position:relative; z-index:1; text-align:center; }
         .cta-section-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
         .cta-section-title { font-family:'Instrument Serif',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:2rem; }
-        .demo-cta-section { padding:8rem 0 4rem; border-top:none; position:relative; z-index:1; }
+        .demo-cta-section { padding:8rem 0 4rem; border-top:none; position:relative; z-index:1; text-align:center; }
         .demo-cta-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:12px; }
-        .demo-cta-title { font-family:'Instrument Serif',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:0.75rem; }
-        .demo-cta-sub { font-size:0.95rem; color:var(--muted); font-weight:300; line-height:1.75; margin-bottom:2.5rem; }
-        footer { border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:0.78rem; color:#888; font-weight:300; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:0.6rem; }
+        .demo-cta-title { font-family:'Instrument Serif',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:20px; }
+        .demo-cta-sub { font-size:0.95rem; color:var(--muted); font-weight:300; line-height:1.75; margin-bottom:2rem; }
+        footer { border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:0.8rem; color:var(--muted); font-weight:300; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:0.6rem; }
         footer a { color:var(--blue); text-decoration:none; }
         footer a:hover { text-decoration:underline; }
         .footer-links { display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; }
@@ -206,31 +206,31 @@
 
 
 
-    <!-- HERO SECTION -->
-    <section class="demo-cta-section" style="padding-bottom:0;">
-        <div style="max-width:640px;">
-            <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(2.8rem,6vw,5.5rem);line-height:1.06;letter-spacing:-0.02em;color:var(--cream);margin-bottom:16px;">Ové's concept</h2>
-            <p style="font-size:0.8rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#777;margin-bottom:24px;" data-i18n="steps_qualifier">Concept preview</p>
-            <p style="font-size:1rem;color:rgba(255,255,255,0.75);font-weight:300;line-height:1.7;margin-bottom:0;" data-i18n="steps_summary">Set up a hypothetical account and explore different investment scenarios.</p>
-        </div>
+    <!-- 1,2,3 SECTION -->
+    <section class="demo-cta-section" style="padding-bottom:3rem;">
+        <h2 class="demo-cta-title" style="font-size:clamp(2.8rem,6vw,5.5rem);letter-spacing:-0.02em;margin-bottom:16px;text-align:center;">Ové's concept</h2>
+        <p class="demo-cta-label" style="margin-bottom:16px;text-align:center;" data-i18n="steps_headline">A simpler way to explore investing</p>
+        <p style="font-size:0.875rem;color:var(--muted);font-weight:300;line-height:1.6;margin-bottom:24px;text-align:center;" data-i18n="steps_qualifier">Concept preview</p>
+        <p style="font-size:1rem;color:var(--cream);font-weight:300;line-height:1.7;max-width:480px;margin:0 auto;" data-i18n="steps_summary">Set up a hypothetical account and explore different investment scenarios.</p>
     </section>
 
     <!-- DEMO CTA -->
-    <section class="demo-cta-section" style="padding-top:48px;padding-bottom:4rem;">
-        <div style="max-width:640px;">
-            <p class="demo-cta-label" style="margin-bottom:12px;" data-i18n="demo_label">See it in action</p>
-            <p style="font-size:0.95rem;color:rgba(255,255,255,0.65);font-weight:300;line-height:1.6;margin-bottom:20px;" data-i18n="demo_title">This is a simulated experience. No money involved.</p>
-            <button class="demo-launch-btn" onclick="demoOpen()" style="max-width:240px;">
-                <span data-i18n="demo_btn">See a product illustration</span>
-            </button>
-        </div>
+    <section class="demo-cta-section" style="padding-top:32px;padding-bottom:3rem;text-align:center;">
+        <p class="demo-cta-label" style="margin-bottom:12px;" data-i18n="demo_label">See it in action</p>
+        <h2 class="demo-cta-title" style="margin-bottom:20px;" data-i18n="demo_title">This is a simulated experience. No money involved.</h2>
+        <button class="demo-launch-btn" onclick="demoOpen()">
+            <span data-i18n="demo_btn">See a product illustration</span>
+        </button>
     </section>
 
     <!-- DISCLOSURE BLOCK -->
-    <section style="padding:48px 0 4rem;position:relative;z-index:1;">
-        <div style="max-width:640px;">
-            <p style="font-size:0.875rem;color:#777;font-weight:400;line-height:1.6;margin-bottom:16px;" data-i18n="disc_p1">OVÉ is not currently authorised to provide investment services. Any future services would be offered through a regulated investment firm.</p>
-            <p style="font-size:0.875rem;color:#777;font-weight:400;line-height:1.6;" data-i18n="disc_p2">This page is for illustrative purposes only and does not constitute investment advice, an offer, or a solicitation. Features described may change. Investing involves risk, including loss of capital.</p>
+    <section style="padding:48px 0 3rem;position:relative;z-index:1;text-align:center;">
+        <div style="max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:16px;">
+            <p style="font-size:0.875rem;color:rgba(255,255,255,0.8);font-weight:500;line-height:1.6;" data-i18n="disc_1">OVÉ is not currently authorised to provide investment services.</p>
+            <p style="font-size:0.875rem;color:var(--muted);font-weight:300;line-height:1.6;" data-i18n="disc_2">Any future services would be offered through a regulated investment firm.</p>
+            <p style="font-size:0.875rem;color:var(--muted);font-weight:300;line-height:1.6;" data-i18n="disc_3">This page is for illustrative purposes only and does not constitute investment advice, an offer, or a solicitation.</p>
+            <p style="font-size:0.875rem;color:var(--muted);font-weight:300;line-height:1.6;" data-i18n="disc_4">Features described may change.</p>
+            <p style="font-size:0.875rem;color:var(--muted);font-weight:300;line-height:1.6;" data-i18n="disc_5">Investing involves risk, including loss of capital.</p>
         </div>
     </section>
 
