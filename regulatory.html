@@ -12,7 +12,6 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
     <title>Ové — Regulatory Approach</title>
     <meta name="description" content="How Ové thinks about regulation — MiFID II, investor protection, and building responsibly.">
     <link rel="icon" type="image/svg+xml" href="ove-favicon-e.svg">
@@ -57,8 +56,8 @@
         .status-text strong { color:var(--cream); font-weight:500; }
         footer { border-top:1px solid var(--border); padding:2rem; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:0.6rem; text-align:center; font-size:0.8rem; color:var(--muted); font-weight:300; }
         .footer-links { display:flex; gap:1.5rem; }
-        footer a { color: var(--blue); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
+        .footer-links a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
+        .footer-links a:hover { color:var(--cream); }
         @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
         @media(max-width:640px) { nav{padding:1.25rem 1.35rem} .wrap{padding:7rem 1.35rem 5rem} .principles{grid-template-columns:1fr} }
     </style>
@@ -140,10 +139,8 @@
     </div>
 </div>
 <footer>
-    <span style="font-size:0.75rem;opacity:0.7;">OVÉ is a concept developed by Samuel Gustaf, based in Halmstad, Sweden.</span>
     <span>© <span id="year"></span> Ové. Currently in development.</span>
     <div class="footer-links">
-        <a href="/vision">Vision</a>
         <a href="/regulatory">Regulatory</a>
         <a href="/terms">Terms</a>
         <a href="/privacy">Privacy</a>

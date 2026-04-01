@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function(){
+    var PASS = 'investor123456789';
+    var stored;
+    try { stored = sessionStorage.getItem('ove-vision-auth'); } catch(e) {}
+    if (stored === PASS) return;
+    document.documentElement.style.visibility = 'hidden';
+    document.addEventListener('DOMContentLoaded', function(){
+        var pwd = window.prompt('This page is password protected. Enter password:');
+        if (pwd === PASS) {
+            try { sessionStorage.setItem('ove-vision-auth', PASS); } catch(e) {}
+            document.documentElement.style.visibility = '';
+        } else {
+            document.body.innerHTML = '';
+            document.documentElement.style.visibility = '';
+            document.body.style.background = '#060f1e';
+            document.body.style.display = 'flex';
+            document.body.style.alignItems = 'center';
+            document.body.style.justifyContent = 'center';
+            document.body.style.minHeight = '100vh';
+            document.body.innerHTML = '<p style="font-family:DM Sans,sans-serif;color:#9db5cc;font-size:0.95rem;">Incorrect password.</p>';
+        }
+    });
+})();
+</script>
+
     <script>
         (function() {
             try {
