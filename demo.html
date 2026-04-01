@@ -160,6 +160,7 @@
 <!-- EDUCATIONAL DISCLAIMER -->
 <div class="edu-screen" id="edu-screen">
     <div class="edu-card">
+        <p style="font-size:0.75rem;color:var(--muted);font-weight:400;line-height:1.6;margin-bottom:1rem;padding:0.6rem 0.75rem;background:rgba(255,255,255,0.04);border-radius:8px;">This page demonstrates a product concept only. It does not simulate real investment decisions.</p>
         <p class="edu-eyebrow" id="edu-label">Before you start</p>
         <p class="edu-title" id="edu-title">This is an educational simulation.</p>
         <p class="edu-body" id="edu-body">It is not a real investment tool and does not provide investment advice or recommendations. No money is moved. All figures are illustrative examples only and do not reflect real outcomes. This website does not enable or invite users to invest.</p>
@@ -183,8 +184,8 @@
 
         <!-- Step 1 -->
         <div class="demo-panel" id="demo-step-1">
-            <h2 class="demo-title" data-i18n="step1_title">Let's get started.</h2>
-            <p class="demo-sub" data-i18n="step1_sub">You can explore this at your own pace.</p>
+            <h2 class="demo-title" data-i18n="step1_title">Example sign-up flow.</h2>
+            <p class="demo-sub" data-i18n="step1_sub">This shows what a sign-up screen might look like. These are example fields only.</p>
             <div class="demo-form">
                 <div class="demo-field">
                     <label id="demo-label-firstname">First name</label>
@@ -207,7 +208,7 @@
 
         <!-- Step 2 -->
         <div class="demo-panel" id="demo-step-2">
-            <h2 class="demo-title" data-i18n="step2_title">Example monthly amount</h2>
+            <h2 class="demo-title" data-i18n="step2_title">Example contribution (illustrative only)</h2>
             <p class="demo-sub" data-i18n="step2_sub">This is a hypothetical number only. No funds are moved and this does not represent a real product.</p>
             <div class="demo-slider-wrap">
                 <div class="demo-slider-header">
@@ -226,10 +227,8 @@
                     <input class="demo-custom-input" id="demo-custom-amount" type="number" min="1" max="99999" placeholder="e.g. 75" oninput="demoSetCustomAmount(this.value)" />
                 </div>
             </div>
-            <div class="demo-projection">
-                <div class="demo-proj-number" id="demo-proj-number">Est. €9,000</div>
-                <div class="demo-proj-label" id="demo-proj-text">Illustrative range — example only.</div>
-                <p style="font-size:0.65rem;color:var(--muted);opacity:0.7;margin-top:0.3rem;line-height:1.4;font-style:italic;" id="omits-text">Omits taxes, fees, timing differences, and market volatility.</p>
+            <div class="demo-projection" style="background:rgba(255,255,255,0.02);border-color:rgba(255,255,255,0.07);">
+                <div class="demo-proj-label" style="font-size:0.82rem;color:var(--muted);font-weight:300;">Illustrative example — no projected outcome shown</div>
             </div>
             <div class="demo-btn-row">
                 <button class="demo-back-btn" onclick="demoGo(1)"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 5l-7 7 7 7"/></svg> <span id="demo-btn-back1">Back</span></button>
@@ -239,19 +238,19 @@
 
         <!-- Step 3 -->
         <div class="demo-panel" id="demo-step-3">
-            <h2 class="demo-title" data-i18n="step3_title">Choose one example profile</h2>
+            <h2 class="demo-title" data-i18n="step3_title">View example portfolio types</h2>
             <div class="demo-portfolios">
                 <div class="demo-portfolio" data-p="steady" onclick="demoSelectPortfolio(this)">
                     <div class="demo-p-top"><div><p class="demo-p-name" id="p-name-steady">Steady</p><p class="demo-p-risk" id="p-risk-steady">Lower risk</p></div><span class="demo-p-proj" id="proj-steady">—</span></div>
-                    <div class="demo-p-alloc" id="p-alloc-steady">70% funds · 20% stocks · 10% cash</div>
+                    <div class="demo-p-alloc" id="p-alloc-steady">Example allocation</div>
                 </div>
                 <div class="demo-portfolio active" data-p="balanced" onclick="demoSelectPortfolio(this)">
                     <div class="demo-p-top"><div><p class="demo-p-name" id="p-name-balanced">Balanced</p><p class="demo-p-risk" id="p-risk-balanced">Medium risk</p></div><span class="demo-p-proj" id="proj-balanced">—</span></div>
-                    <div class="demo-p-alloc" id="p-alloc-balanced">60% stocks · 30% funds · 10% cash</div>
+                    <div class="demo-p-alloc" id="p-alloc-balanced">Example allocation</div>
                 </div>
                 <div class="demo-portfolio" data-p="growth" onclick="demoSelectPortfolio(this)">
                     <div class="demo-p-top"><div><p class="demo-p-name" id="p-name-growth">Growth</p><p class="demo-p-risk" id="p-risk-growth">Higher risk</p></div><span class="demo-p-proj" id="proj-growth">—</span></div>
-                    <div class="demo-p-alloc" id="p-alloc-growth">90% stocks · 8% funds · 2% cash</div>
+                    <div class="demo-p-alloc" id="p-alloc-growth">Example allocation</div>
                 </div>
             </div>
             <div class="demo-btn-row">
@@ -267,16 +266,14 @@
             <p class="demo-sub" style="margin-bottom:1.25rem" data-i18n="done_sub">This is a non-functional illustration. No investment activity takes place. OVÉ is not authorised to provide investment services.</p>
             <div class="demo-receipt">
                 <div class="demo-receipt-hero">
-                    <div class="demo-receipt-proj" id="receipt-proj">—</div>
-                    <div class="demo-receipt-proj-label" data-i18n="receipt_label">example figure — not a real projection</div>
-                    <p style="font-size:0.68rem;color:var(--muted);font-style:italic;margin-top:0.4rem;line-height:1.4;" id="no-reflect-text">This simulation does not reflect real market conditions and should not be used to make investment decisions.</p>
+                    <div style="font-size:0.82rem;color:var(--muted);font-weight:400;line-height:1.6;">Example scenario summary</div>
                 </div>
                 <div class="demo-receipt-rows">
-                    <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_investor">Investor</span><span class="demo-receipt-val" id="receipt-name">—</span></div>
-                    <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_monthly">Monthly</span><span class="demo-receipt-val" id="receipt-amount">—</span></div>
-                    <div class="demo-receipt-row"><span class="demo-receipt-key" data-i18n="receipt_portfolio">Portfolio</span><span class="demo-receipt-val" id="receipt-portfolio">—</span></div>
+                    <div class="demo-receipt-row"><span class="demo-receipt-key">Example contribution</span><span class="demo-receipt-val" id="receipt-amount">—</span></div>
+                    <div class="demo-receipt-row"><span class="demo-receipt-key">Example profile</span><span class="demo-receipt-val" id="receipt-portfolio">—</span></div>
                 </div>
             </div>
+            <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.6;text-align:center;margin-bottom:1rem;">This is a non-functional illustration. No investment activity takes place.</p>
             <a href="/waitlist" class="demo-launch-btn" style="margin-bottom:0.5rem;">Join for updates</a>
             <a href="/concept" class="demo-return">↩ Return to concept</a>
         </div>
@@ -331,39 +328,33 @@
     function demoSetCustomAmount(val){ var v=parseFloat(val); if(v&&v>0)demoSetAmount(v,true); }
 
     function demoUpdateProjection(){
-        var fv=calcFV(parseFloat(demoAmount)||50,0.08,120); var fvLow=calcFV(parseFloat(demoAmount)||50,0.01,120);
-        document.getElementById('demo-proj-number').textContent=fmt(fvLow)+' – '+fmt(fv);
-        var lang=localStorage.getItem('ove-lang')||'en';
-        document.getElementById('demo-proj-text').textContent=(demoT[lang]||demoT['en']).projtext;
+        // projection output disabled per compliance patch — no € values shown
     }
 
     function demoUpdatePortfolioProjections(){
-        var monthly=parseFloat(demoAmount)||50;
-        for(var key in portfolioRates){ var fv=calcFV(monthly,portfolioRates[key],120); var fvLow=calcFV(monthly,Math.max(portfolioRates[key]-0.04,0.01),120); document.getElementById('proj-'+key).textContent=fmt(fvLow)+' – '+fmt(fv); }
+        // projection values disabled per compliance patch
+        ['steady','balanced','growth'].forEach(function(k){ var el=document.getElementById('proj-'+k); if(el)el.textContent=''; });
     }
 
     function demoSelectPortfolio(el){ document.querySelectorAll('.demo-portfolio').forEach(function(p){ p.classList.remove('active'); }); el.classList.add('active'); demoPortfolio=el.dataset.p; }
 
     function demoFillReceipt(){
-        document.getElementById('receipt-name').textContent='You';
-        var cur=getCurr(); document.getElementById('receipt-amount').textContent=cur.suffix?demoAmount+' '+cur.symbol+'/mo':cur.symbol+demoAmount+'/mo';
-        document.getElementById('receipt-portfolio').textContent=portfolioNames[demoPortfolio];
-        var target=calcFV(parseFloat(demoAmount)||50,portfolioRates[demoPortfolio],120);
-        var targetLow=calcFV(parseFloat(demoAmount)||50,Math.max(portfolioRates[demoPortfolio]-0.04,0.01),120);
-        var t0=performance.now(),dur=1400,penultimate=Math.round(target*0.97);
-        function tick(t){ var p=Math.min((t-t0)/dur,1); var val=p>=0.72&&p<1?penultimate:Math.round(target*Math.pow(p,0.1)); document.getElementById('receipt-proj').textContent=fmt(Math.round(targetLow*(val/target)))+' – '+fmt(val); if(p<1)requestAnimationFrame(tick); else document.getElementById('receipt-proj').textContent=fmt(targetLow)+' – '+fmt(target); }
-        requestAnimationFrame(tick);
+        var cur=getCurr();
+        var amountEl=document.getElementById('receipt-amount');
+        if(amountEl) amountEl.textContent=cur.suffix?demoAmount+' '+cur.symbol:cur.symbol+demoAmount;
+        var portfolioEl=document.getElementById('receipt-portfolio');
+        if(portfolioEl) portfolioEl.textContent=portfolioNames[demoPortfolio];
     }
 
     var currencyByLang = { en:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'e.g. 75'}, sv:{symbol:'kr',min:50,max:4500,default:500,suffix:true,placeholder:'e.g. 7 500'}, es:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'ej. 75'}, it:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'es. 75'}, nl:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'bijv. 75'} };
     var countryByLang = { en:'EU \u00b7 EUROPE', sv:'SE \u00b7 SVERIGE', es:'ES \u00b7 ESPA\u00d1A', it:'IT \u00b7 ITALIA', nl:'NL \u00b7 NEDERLAND' };
 
     var demoT = {
-        en:{step1:'Step 1 of 3',step2:'Step 2 of 3',step3:'Step 3 of 3',firstname:'Example name',email:'Email',country:'Region',permonth:'(example only)',enterown:'Or enter an example amount',back:'Back',continue:'Continue',startinvesting:'Done',pname_steady:'Steady',pname_balanced:'Balanced',pname_growth:'Growth',prisk_steady:'Lower risk',prisk_balanced:'Medium risk',prisk_growth:'Higher risk',palloc_steady:'70% funds \u00b7 20% stocks \u00b7 10% cash',palloc_balanced:'60% stocks \u00b7 30% funds \u00b7 10% cash',palloc_growth:'90% stocks \u00b7 8% funds \u00b7 2% cash',projtext:'Example figure only — not a real projection or forecast.',edu_label:'Before you start',edu_title:'This is an educational simulation.',edu_body:'It is not a real investment tool and does not provide investment advice or recommendations. No money is moved. All figures are illustrative examples only and do not reflect real outcomes. This website does not enable or invite users to invest.',edu_intent:'This experience is intentionally limited to avoid simulating real investment decisions before appropriate regulatory safeguards are in place.',edu_btn:'I understand \u2014 continue',sim_bar:'Simulation only \u2014 not investment advice \u00b7 This experience is not personalised and does not take into account your financial situation, objectives, or risk tolerance.',omits_text:'Omits taxes, fees, timing differences, and market volatility.',no_reflect_text:'This simulation does not reflect real market conditions and should not be used to make investment decisions.',done_sub:'This is a non-functional illustration. No investment activity takes place. OVÉ is not authorised to provide investment services.',receipt_label:'example figure — not a real projection',receipt_investor:'Investor',receipt_monthly:'Monthly',receipt_portfolio:'Portfolio'},
-        sv:{step1:'Steg 1 av 3',step2:'Steg 2 av 3',step3:'Steg 3 av 3',firstname:'F\u00f6rnamn',email:'E-post',country:'Land',permonth:'per m\u00e5nad',enterown:'Eller ange eget belopp',back:'Tillbaka',continue:'Forts\u00e4tt',startinvesting:'Klar',pname_steady:'Stabil',pname_balanced:'Balanserad',pname_growth:'Tillv\u00e4xt',prisk_steady:'L\u00e5gre risk',prisk_balanced:'Medel risk',prisk_growth:'H\u00f6gre risk',palloc_steady:'70% fonder \u00b7 20% aktier \u00b7 10% kontanter',palloc_balanced:'60% aktier \u00b7 30% fonder \u00b7 10% kontanter',palloc_growth:'90% aktier \u00b7 8% fonder \u00b7 2% kontanter',projtext:'Uppskattat v\u00e4rde efter 10 \u00e5r.',edu_label:'Innan du b\u00f6rjar',edu_title:'Det h\u00e4r \u00e4r en utbildningssimulering.',edu_body:'Det \u00e4r inte ett riktigt investeringsverktyg. Inga pengar flyttas.',edu_intent:'Upplevelsen \u00e4r avsiktligt begr\u00e4nsad.',edu_btn:'Jag f\u00f6rst\u00e5r \u2014 forts\u00e4tt',sim_bar:'Endast simulering \u2014 inte investeringsr\u00e5dgivning \u00b7 Denna upplevelse \u00e4r inte personlig.',omits_text:'Exkluderar skatter, avgifter, tidsskillnader och marknadsvolatilitet.',no_reflect_text:'Denna simulering speglar inte verkliga marknadsf\u00f6rh\u00e5llanden.',done_sub:'Detta \u00e4r endast ett f\u00f6renklat exempel.',receipt_label:'uppskattat v\u00e4rde efter 10 \u00e5r',receipt_investor:'Investerare',receipt_monthly:'M\u00e5nadsbelopp',receipt_portfolio:'Portf\u00f6lj'},
-        es:{step1:'Paso 1 de 3',step2:'Paso 2 de 3',step3:'Paso 3 de 3',firstname:'Nombre',email:'Correo',country:'Pa\u00eds',permonth:'por mes',enterown:'O introduce tu propio importe',back:'Atr\u00e1s',continue:'Continuar',startinvesting:'Listo',pname_steady:'Estable',pname_balanced:'Equilibrado',pname_growth:'Crecimiento',prisk_steady:'Riesgo menor',prisk_balanced:'Riesgo medio',prisk_growth:'Mayor riesgo',palloc_steady:'70% fondos \u00b7 20% acciones \u00b7 10% efectivo',palloc_balanced:'60% acciones \u00b7 30% fondos \u00b7 10% efectivo',palloc_growth:'90% acciones \u00b7 8% fondos \u00b7 2% efectivo',projtext:'Valor estimado despu\u00e9s de 10 a\u00f1os.',edu_label:'Antes de empezar',edu_title:'Esta es una simulaci\u00f3n educativa.',edu_body:'No es una herramienta de inversi\u00f3n real. No se mueve dinero.',edu_intent:'La experiencia est\u00e1 intencionalmente limitada.',edu_btn:'Entiendo \u2014 continuar',sim_bar:'Solo simulaci\u00f3n \u2014 no es asesoramiento de inversi\u00f3n \u00b7 Esta experiencia no es personalizada.',omits_text:'Excluye impuestos, comisiones, diferencias de tiempo y volatilidad.',no_reflect_text:'Esta simulaci\u00f3n no refleja condiciones reales del mercado.',done_sub:'Este es solo un ejemplo simplificado.',receipt_label:'valor estimado en 10 a\u00f1os',receipt_investor:'Inversor',receipt_monthly:'Mensual',receipt_portfolio:'Cartera'},
-        it:{step1:'Passo 1 di 3',step2:'Passo 2 di 3',step3:'Passo 3 di 3',firstname:'Nome',email:'Email',country:'Paese',permonth:'al mese',enterown:'O inserisci un importo personalizzato',back:'Indietro',continue:'Continua',startinvesting:'Fatto',pname_steady:'Stabile',pname_balanced:'Bilanciato',pname_growth:'Crescita',prisk_steady:'Rischio minore',prisk_balanced:'Rischio medio',prisk_growth:'Rischio maggiore',palloc_steady:'70% fondi \u00b7 20% azioni \u00b7 10% liquidit\u00e0',palloc_balanced:'60% azioni \u00b7 30% fondi \u00b7 10% liquidit\u00e0',palloc_growth:'90% azioni \u00b7 8% fondi \u00b7 2% liquidit\u00e0',projtext:'Valore stimato in 10 anni.',edu_label:'Prima di iniziare',edu_title:'Si tratta di una simulazione didattica.',edu_body:'Non \u00e8 uno strumento di investimento reale. Non viene trasferito denaro.',edu_intent:'Esperienza volutamente limitata.',edu_btn:'Ho compreso \u2014 continua',sim_bar:'Solo simulazione \u2014 non \u00e8 una consulenza \u00b7 Questa esperienza non \u00e8 personalizzata.',omits_text:'Esclude tasse, commissioni e volatilit\u00e0.',no_reflect_text:'Questa simulazione non riflette le condizioni reali del mercato.',done_sub:'Questo \u00e8 solo un esempio semplificato.',receipt_label:'valore stimato in 10 anni',receipt_investor:'Investitore',receipt_monthly:'Mensile',receipt_portfolio:'Portafoglio'},
-        nl:{step1:'Stap 1 van 3',step2:'Stap 2 van 3',step3:'Stap 3 van 3',firstname:'Voornaam',email:'E-mail',country:'Regio',permonth:'per maand',enterown:'Of voer uw eigen bedrag in',back:'Terug',continue:'Doorgaan',startinvesting:'Klaar',pname_steady:'Stabiel',pname_balanced:'Gebalanceerd',pname_growth:'Groei',prisk_steady:'Lager risico',prisk_balanced:'Gemiddeld risico',prisk_growth:'Hoger risico',palloc_steady:'70% fondsen \u00b7 20% aandelen \u00b7 10% contant',palloc_balanced:'60% aandelen \u00b7 30% fondsen \u00b7 10% contant',palloc_growth:'90% aandelen \u00b7 8% fondsen \u00b7 2% contant',projtext:'Geschatte waarde na 10 jaar.',edu_label:'Voordat u begint',edu_title:'Dit is een educatieve simulatie.',edu_body:'Het is geen echt beleggingsinstrument. Er wordt geen geld verplaatst.',edu_intent:'Deze ervaring is bewust beperkt.',edu_btn:'Ik begrijp het \u2014 doorgaan',sim_bar:'Alleen simulatie \u2014 geen beleggingsadvies \u00b7 Deze ervaring is niet persoonlijk.',omits_text:'Exclusief belastingen, kosten en marktvolatiliteit.',no_reflect_text:'Deze simulatie weerspiegelt geen re\u00eble marktomstandigheden.',done_sub:'Dit is slechts een vereenvoudigd voorbeeld.',receipt_label:'geschatte waarde na 10 jaar',receipt_investor:'Belegger',receipt_monthly:'Maandelijks',receipt_portfolio:'Portefeuille'}
+        en:{step1:'Step 1 of 3',step2:'Step 2 of 3',step3:'Step 3 of 3',firstname:'Example',email:'Email',country:'Region',permonth:'(illustrative only)',enterown:'Or enter an example amount',back:'Back',continue:'Continue',startinvesting:'Done',pname_steady:'Steady',pname_balanced:'Balanced',pname_growth:'Growth',prisk_steady:'Lower risk',prisk_balanced:'Medium risk',prisk_growth:'Higher risk',palloc_steady:'Example allocation',palloc_balanced:'Example allocation',palloc_growth:'Example allocation',projtext:'Illustrative example — no projected outcome shown',edu_label:'Before you start',edu_title:'This is an educational simulation.',edu_body:'It is not a real investment tool and does not provide investment advice or recommendations. No money is moved. All figures are illustrative examples only and do not reflect real outcomes. This website does not enable or invite users to invest.',edu_intent:'This experience is intentionally limited to avoid simulating real investment decisions before appropriate regulatory safeguards are in place.',edu_btn:'I understand \u2014 continue',sim_bar:'Simulation only \u2014 not investment advice \u00b7 This experience is not personalised and does not take into account your financial situation, objectives, or risk tolerance.',omits_text:'Omits taxes, fees, timing differences, and market volatility.',no_reflect_text:'This simulation does not reflect real market conditions and should not be used to make investment decisions.',done_sub:'This is a non-functional illustration. No investment activity takes place. OVÉ is not authorised to provide investment services.',receipt_label:'example figure — not a real projection',receipt_investor:'Investor',receipt_monthly:'Monthly',receipt_portfolio:'Portfolio'},
+        sv:{step1:'Steg 1 av 3',step2:'Steg 2 av 3',step3:'Steg 3 av 3',firstname:'F\u00f6rnamn',email:'E-post',country:'Land',permonth:'per m\u00e5nad',enterown:'Eller ange eget belopp',back:'Tillbaka',continue:'Forts\u00e4tt',startinvesting:'Klar',pname_steady:'Stabil',pname_balanced:'Balanserad',pname_growth:'Tillv\u00e4xt',prisk_steady:'L\u00e5gre risk',prisk_balanced:'Medel risk',prisk_growth:'H\u00f6gre risk',palloc_steady:'Example allocation',palloc_balanced:'Example allocation',palloc_growth:'Example allocation',projtext:'Illustrative example — no projected outcome shown',edu_label:'Innan du b\u00f6rjar',edu_title:'Det h\u00e4r \u00e4r en utbildningssimulering.',edu_body:'Det \u00e4r inte ett riktigt investeringsverktyg. Inga pengar flyttas.',edu_intent:'Upplevelsen \u00e4r avsiktligt begr\u00e4nsad.',edu_btn:'Jag f\u00f6rst\u00e5r \u2014 forts\u00e4tt',sim_bar:'Endast simulering \u2014 inte investeringsr\u00e5dgivning \u00b7 Denna upplevelse \u00e4r inte personlig.',omits_text:'Exkluderar skatter, avgifter, tidsskillnader och marknadsvolatilitet.',no_reflect_text:'Denna simulering speglar inte verkliga marknadsf\u00f6rh\u00e5llanden.',done_sub:'Detta \u00e4r endast ett f\u00f6renklat exempel.',receipt_label:'uppskattat v\u00e4rde efter 10 \u00e5r',receipt_investor:'Investerare',receipt_monthly:'M\u00e5nadsbelopp',receipt_portfolio:'Portf\u00f6lj'},
+        es:{step1:'Paso 1 de 3',step2:'Paso 2 de 3',step3:'Paso 3 de 3',firstname:'Nombre',email:'Correo',country:'Pa\u00eds',permonth:'por mes',enterown:'O introduce tu propio importe',back:'Atr\u00e1s',continue:'Continuar',startinvesting:'Listo',pname_steady:'Estable',pname_balanced:'Equilibrado',pname_growth:'Crecimiento',prisk_steady:'Riesgo menor',prisk_balanced:'Riesgo medio',prisk_growth:'Mayor riesgo',palloc_steady:'Example allocation',palloc_balanced:'Example allocation',palloc_growth:'Example allocation',projtext:'Illustrative example — no projected outcome shown',edu_label:'Antes de empezar',edu_title:'Esta es una simulaci\u00f3n educativa.',edu_body:'No es una herramienta de inversi\u00f3n real. No se mueve dinero.',edu_intent:'La experiencia est\u00e1 intencionalmente limitada.',edu_btn:'Entiendo \u2014 continuar',sim_bar:'Solo simulaci\u00f3n \u2014 no es asesoramiento de inversi\u00f3n \u00b7 Esta experiencia no es personalizada.',omits_text:'Excluye impuestos, comisiones, diferencias de tiempo y volatilidad.',no_reflect_text:'Esta simulaci\u00f3n no refleja condiciones reales del mercado.',done_sub:'Este es solo un ejemplo simplificado.',receipt_label:'valor estimado en 10 a\u00f1os',receipt_investor:'Inversor',receipt_monthly:'Mensual',receipt_portfolio:'Cartera'},
+        it:{step1:'Passo 1 di 3',step2:'Passo 2 di 3',step3:'Passo 3 di 3',firstname:'Nome',email:'Email',country:'Paese',permonth:'al mese',enterown:'O inserisci un importo personalizzato',back:'Indietro',continue:'Continua',startinvesting:'Fatto',pname_steady:'Stabile',pname_balanced:'Bilanciato',pname_growth:'Crescita',prisk_steady:'Rischio minore',prisk_balanced:'Rischio medio',prisk_growth:'Rischio maggiore',palloc_steady:'Example allocation',palloc_balanced:'Example allocation',palloc_growth:'Example allocation',projtext:'Illustrative example — no projected outcome shown',edu_label:'Prima di iniziare',edu_title:'Si tratta di una simulazione didattica.',edu_body:'Non \u00e8 uno strumento di investimento reale. Non viene trasferito denaro.',edu_intent:'Esperienza volutamente limitata.',edu_btn:'Ho compreso \u2014 continua',sim_bar:'Solo simulazione \u2014 non \u00e8 una consulenza \u00b7 Questa esperienza non \u00e8 personalizzata.',omits_text:'Esclude tasse, commissioni e volatilit\u00e0.',no_reflect_text:'Questa simulazione non riflette le condizioni reali del mercato.',done_sub:'Questo \u00e8 solo un esempio semplificato.',receipt_label:'valore stimato in 10 anni',receipt_investor:'Investitore',receipt_monthly:'Mensile',receipt_portfolio:'Portafoglio'},
+        nl:{step1:'Stap 1 van 3',step2:'Stap 2 van 3',step3:'Stap 3 van 3',firstname:'Voornaam',email:'E-mail',country:'Regio',permonth:'per maand',enterown:'Of voer uw eigen bedrag in',back:'Terug',continue:'Doorgaan',startinvesting:'Klaar',pname_steady:'Stabiel',pname_balanced:'Gebalanceerd',pname_growth:'Groei',prisk_steady:'Lager risico',prisk_balanced:'Gemiddeld risico',prisk_growth:'Hoger risico',palloc_steady:'Example allocation',palloc_balanced:'Example allocation',palloc_growth:'Example allocation',projtext:'Illustrative example — no projected outcome shown',edu_label:'Voordat u begint',edu_title:'Dit is een educatieve simulatie.',edu_body:'Het is geen echt beleggingsinstrument. Er wordt geen geld verplaatst.',edu_intent:'Deze ervaring is bewust beperkt.',edu_btn:'Ik begrijp het \u2014 doorgaan',sim_bar:'Alleen simulatie \u2014 geen beleggingsadvies \u00b7 Deze ervaring is niet persoonlijk.',omits_text:'Exclusief belastingen, kosten en marktvolatiliteit.',no_reflect_text:'Deze simulatie weerspiegelt geen re\u00eble marktomstandigheden.',done_sub:'Dit is slechts een vereenvoudigd voorbeeld.',receipt_label:'geschatte waarde na 10 jaar',receipt_investor:'Belegger',receipt_monthly:'Maandelijks',receipt_portfolio:'Portefeuille'}
     };
 
     function applyDemoLang(lang){
