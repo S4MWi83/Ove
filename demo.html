@@ -271,20 +271,32 @@
         .sim-bar { background:rgba(59,130,246,0.05); border-top:1px solid rgba(59,130,246,0.09); padding:0.55rem 1.5rem; text-align:center; font-size:0.65rem; color:rgba(157,181,204,0.52); font-weight:400; line-height:1.5; flex-shrink:0; position:relative; z-index:10; }
         .legal-footer { padding:0.6rem 1.5rem 0.875rem; text-align:center; font-size:0.65rem; color:rgba(157,181,204,0.28); font-weight:300; line-height:1.6; flex-shrink:0; position:relative; z-index:10; }
 
-        /* ═══ DESKTOP CENTERING ════════════════════════════════════════════ */
+        /* ═══ DESKTOP / LAPTOP VIEW ════════════════════════════════════════ */
         @media(min-width:560px) {
-            body { align-items:center; background:#040c18; }
-            body::before { display:none; }
+            body { overflow:auto; align-items:flex-start; justify-content:center; }
             .app-shell {
-                width:390px; height:min(844px,95vh);
-                border-radius:44px; overflow:hidden;
-                box-shadow:0 0 0 1px rgba(255,255,255,0.06),0 40px 80px rgba(0,0,0,0.6),0 0 0 8px rgba(255,255,255,0.03);
-                background:var(--deep); position:relative;
+                width:100%; max-width:680px; min-height:100vh;
+                margin:0 auto;
+                border-radius:0;
+                box-shadow:none;
+                background:var(--deep);
                 display:flex; flex-direction:column;
             }
-            .orb { display:none; }
+            .app-body { overflow:visible; flex:none; }
+            .app-scroll-inner { max-width:620px; padding:0.5rem 2.5rem 0; }
+            .action-area { max-width:620px; padding:0.75rem 2.5rem max(env(safe-area-inset-bottom,0px),1.5rem); position:sticky; bottom:0; }
+            .app-statusbar { padding:1.25rem 2.5rem 0.75rem; }
+            .app-progress { padding:0 2.5rem 0.25rem; }
+            .app-step-label { padding:0.3rem 2.5rem 0.875rem; }
+            .sim-bar { padding:0.55rem 2.5rem; }
+            .legal-footer { padding:0.6rem 2.5rem 1.25rem; max-width:none; }
+            .screen-title { font-size:clamp(2.2rem,3.5vw,3rem); }
+            .amount-number { font-size:clamp(4rem,6vw,5.5rem); }
+            .scroll-spacer { height:60px; }
+            .orb { display:block; }
         }
         @media(max-width:559px) {
+            body { overflow:hidden; }
             .app-shell { display:contents; }
         }
     </style>
