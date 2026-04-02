@@ -296,8 +296,17 @@
             .orb { display:block; }
         }
         @media(max-width:559px) {
-            body { overflow:hidden; }
+            body { overflow:auto; }
             .app-shell { display:contents; }
+            .app-body { overflow:visible; flex:none; }
+            .action-area { position:sticky; bottom:0; max-width:none; padding:0.75rem 1.25rem max(env(safe-area-inset-bottom,0px),1rem); }
+            .app-statusbar { padding:max(env(safe-area-inset-top,0px),0.875rem) 1.25rem 0.75rem; }
+            .app-progress { padding:0 1.25rem 0.25rem; }
+            .app-step-label { padding:0.3rem 1.25rem 0.75rem; }
+            .app-scroll-inner { padding:0.5rem 1.25rem 0; }
+            .sim-bar { padding:0.55rem 1.25rem; }
+            .legal-footer { padding:0.6rem 1.25rem 0.875rem; }
+            .scroll-spacer { height:20px; }
         }
     </style>
 </head>
@@ -358,7 +367,7 @@
                     <div class="field-row">
                         <div class="field-row-left">
                             <span class="field-label" id="demo-label-email">Email</span>
-                            <span class="field-value" id="demo-email-display">maria@email.com</span>
+                            <span class="field-value" id="demo-email-display">maria@example.com</span>
                         </div>
                         <div class="field-check">✓</div>
                     </div>
