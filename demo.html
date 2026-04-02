@@ -604,7 +604,10 @@
     document.addEventListener('DOMContentLoaded', function(){
         var lang = localStorage.getItem('ove-lang')||'en';
         if(!demoT[lang]) lang='en';
-        applyDe
+        applyDemoLang(lang);
+        demoUpdateProjection();
+        document.getElementById('edu-btn').onclick = startDemo;
+    });
 </script>
 <script src="/ove-shared.js"></script>
 </body>
