@@ -367,7 +367,7 @@
                     <div class="field-row">
                         <div class="field-row-left">
                             <span class="field-label" id="demo-label-email">Email</span>
-                            <span class="field-value" id="demo-email-display"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c1aca0b3a8a081a4b9a0acb1ada4efa2aeac">[email&#160;protected]</a></span>
+                            <span class="field-value" id="demo-email-display"></span>
                         </div>
                         <div class="field-check">✓</div>
                     </div>
@@ -634,6 +634,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function(){
+        var emailEl=document.getElementById('demo-email-display'); if(emailEl){emailEl.textContent='mari'+'a@exam'+'ple.com';}
         var lang = localStorage.getItem('ove-lang')||'en';
               applyDemoLang(lang);
         // Ensure edu gate is shown if not yet acknowledged this session
