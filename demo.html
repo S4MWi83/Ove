@@ -548,6 +548,7 @@
     function fmt(v){ var cur=getCurr(); if(v<1000){ return cur.suffix?v+' '+cur.symbol:cur.symbol+v; } if(cur.suffix){ var rounded=Math.round(v/100)*100; var thousands=Math.floor(rounded/1000); var hundreds=Math.round((rounded%1000)/100)*100; var str=hundreds>0?thousands+' '+hundreds:thousands+' 000'; return str+' '+cur.symbol; } var k=Math.round(v/100)*100; return cur.symbol+(k/1000).toFixed(1)+'k'; }
 
     function startDemo(){
+        try { sessionStorage.setItem('ove-demo-ack','1'); } catch(e) {}
         document.getElementById('edu-screen').style.display='none';
         var lang=localStorage.getItem('ove-lang')||'en';
         var countryEl=document.getElementById('demo-country-val');
@@ -634,3 +635,14 @@
 
     document.addEventListener('DOMContentLoaded', function(){
         var lang = localStorage.getItem('ove-lang')||'en';
+              applyDemoLang(lang);
+        // Ensure edu gate is shown if not yet acknowledged this session
+        try {
+            if (!sessionStorage.getItem('ove-demo-ack')) {
+                document.getElementById('edu-screen').style.display='flex';
+            }
+        } catch(e) {}
+    });
+</script>
+</body>
+</html>
