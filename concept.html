@@ -211,7 +211,7 @@
         <p class="hero-eyebrow" data-i18n="steps_headline">Pre-launch concept</p>
         <h1 class="hero-headline" data-i18n="hero_headline">Investing feels harder than it should.</h1>
         <p class="hero-sub" data-i18n="steps_summary">OVÉ is exploring a simpler way to get started — built for people who haven't yet.</p>
-        <a href="/demo" class="demo-launch-btn" style="margin-top:1.5rem;" data-i18n="demo_btn">See the concept</a>
+        <a href="/demo" class="demo-launch-btn" style="margin-top:1.5rem;"><span data-i18n="demo_btn">See the concept</span></a>
     </div>
 
     <!-- HISTORICAL CONTEXT -->
@@ -499,7 +499,6 @@
         document.querySelectorAll('.lang-option').forEach(function(o){ o.classList.toggle('active',o.dataset.lang===lang); });
         document.getElementById('lang-switcher').classList.remove('open');
         var ce=document.getElementById('demo-country'); if(ce&&countryByLang[lang]){ ce.childNodes[0].textContent=countryByLang[lang]+' '; }
-        applyDemoLang(lang);
         var ids=['edu-label','edu-title','edu-body','edu-intent','sim-bar','omits-text','no-reflect-text'];
         var keys=['edu_label','edu_title','edu_body','edu_intent','sim_bar','omits_text','no_reflect_text'];
         for(var i=0;i<ids.length;i++){ var el=document.getElementById(ids[i]); if(el&&t[keys[i]])el.textContent=t[keys[i]]; }
@@ -515,7 +514,6 @@
         if (!T[saved]) saved = 'en';
         applyLang(saved);
     });
-</script>
 </script>
 <script src="/ove-shared.js"></script>
 </body>
