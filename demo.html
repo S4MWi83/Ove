@@ -550,14 +550,8 @@
     function startDemo(){
         document.getElementById('edu-screen').style.display='none';
         var lang=localStorage.getItem('ove-lang')||'en';
-        var cur=currencyByLang[lang]||currencyByLang['en'];
-        demoAmount=cur.default;
-        document.getElementById('demo-slider').value=cur.default;
-        document.getElementById('demo-slider-val').textContent=cur.default;
-        document.getElementById('demo-custom-amount').value='';
         var countryEl=document.getElementById('demo-country-val');
         if(countryEl&&countryByLang[lang]){ countryEl.textContent=countryByLang[lang]; }
-        demoUpdateProjection();
         document.querySelectorAll('.profile-row').forEach(function(p){ p.classList.toggle('active',p.dataset.p==='balanced'); });
         demoGo(1);
         applyDemoLang(lang);
