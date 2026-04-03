@@ -602,8 +602,11 @@
         if(amountEl) amountEl.textContent=cur.suffix?monthly+' '+cur.symbol:cur.symbol+monthly;
         var yearlyEl=document.getElementById('receipt-yearly');
         if(yearlyEl) yearlyEl.textContent=cur.suffix?yearly+' '+cur.symbol:cur.symbol+yearly;
+        // Read active profile directly from DOM — avoids stale variable state
+        var activeRow=document.querySelector('.profile-row.active');
+        var portfolioKey=activeRow?activeRow.dataset.p:demoPortfolio;
         var portfolioEl=document.getElementById('receipt-portfolio');
-        if(portfolioEl) portfolioEl.textContent=portfolioNames[demoPortfolio];
+        if(portfolioEl) portfolioEl.textContent=portfolioNames[portfolioKey]||portfolioKey;
     }
 
     var currencyByLang = { en:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'e.g. 75'}, sv:{symbol:'kr',min:50,max:4500,default:500,suffix:true,placeholder:'e.g. 7 500'}, es:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'ej. 75'}, it:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'es. 75'}, nl:{symbol:'\u20ac',min:5,max:500,default:50,suffix:false,placeholder:'bijv. 75'} };
@@ -631,6 +634,8 @@
         // step label
         var labelEl=document.getElementById('demo-step-label-text');
         if(labelEl&&labelEl.textContent){ var step=parseInt(labelEl.textContent.match(/\d+/)); if(!isNaN(step))labelEl.textContent=d['step'+step]||labelEl.textContent; }
+        // re-fill receipt after i18n sweep to restore user selections
+        if(document.getElementById('demo-step-done') && document.getElementById('demo-step-done').classList.contains('active')){ demoFillReceipt(); }
     }
 
     document.addEventListener('DOMContentLoaded', function(){
