@@ -12,8 +12,18 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ové — Regulatory Approach</title>
-    <meta name="description" content="How Ové thinks about regulation — MiFID II, investor protection, and building responsibly.">
+    <meta name="google" content="notranslate">
+    <title>Ové — Get Product Updates | Pre-Launch Investing Concept</title>
+    <meta name="description" content="Sign up to receive updates as OVÉ develops. No accounts, no investing, no commitment. A mailing list for product concept updates only.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meetove.pro/waitlist">
+    <meta property="og:title" content="Ové — Join for product updates.">
+    <meta property="og:description" content="Sign up to receive updates as OVÉ develops. No accounts, no investing, no commitment. A mailing list for product concept updates only.">
+    <meta property="og:image" content="https://meetove.pro/ove-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://meetove.pro/ove-og.png">
     <link rel="icon" type="image/svg+xml" href="ove-favicon-e.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,140 +31,526 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
     <style>
-        :root { --deep:#060f1e; --blue:#3b82f6; --blue-dim:rgba(59,130,246,0.12); --cream:#f0ece4; --muted:#9db5cc; --border:rgba(255,255,255,0.07); --card:rgba(255,255,255,0.03); }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        body { font-family:'DM Sans',sans-serif; background:var(--deep); color:var(--cream); line-height:1.7; -webkit-font-smoothing:antialiased; }
-        .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; width:50vw; height:50vw; top:-15vw; left:50%; transform:translateX(-50%); background:radial-gradient(circle,rgba(59,130,246,0.1),transparent 70%); }
-        nav { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 2rem; position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(6,15,30,0.6); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--border); box-shadow:0 1px 20px rgba(59,130,246,0.08); }
-        .nav-logo { font-family:'Instrument Serif',serif; font-size:1.6rem; color:var(--cream); text-decoration:none; position:relative; }
-        .nav-logo span { display:inline-block; width:5px; height:5px; background:var(--blue); border-radius:50%; position:absolute; top:5px; right:-8px; }
+        :root {
+            --deep: #060f1e;
+            --blue: #3b82f6;
+            --blue-dim: rgba(59,130,246,0.12);
+            --blue-glow: rgba(59,130,246,0.35);
+            --cream: #f0ece4;
+            --muted: #9db5cc;
+            --border: rgba(255,255,255,0.07);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--deep);
+            color: var(--cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+            width: 50vw; height: 50vw;
+            top: -15vw; left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%);
+        }
+
+        nav { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 2rem; position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(6,15,30,0.6); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.07); box-shadow:0 1px 20px rgba(59,130,246,0.08); }
+        .nav-logo { font-family:'Instrument Serif',serif; font-size:1.8rem; color:var(--cream); text-decoration:none; position:relative; }
+        .nav-logo span { display:inline-block; width:6px; height:6px; background:var(--blue); border-radius:50%; position:absolute; top:6px; right:-9px; box-shadow:0 0 8px var(--blue-glow); }
         .nav-links { display:flex; align-items:center; gap:1.5rem; }
         .nav-link { font-size:0.85rem; font-weight:400; color:var(--muted); text-decoration:none; transition:color 0.2s; }
-        .nav-link:hover,.nav-link.active { color:var(--cream); }
-        .wrap { max-width:720px; margin:0 auto; padding:8rem 2rem 6rem; position:relative; z-index:1; }
-        .hero-label { font-size:0.75rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); margin-bottom:1rem; opacity:0; animation:fadeUp 0.6s ease forwards 0.1s; }
-        .hero-title { font-family:'Instrument Serif',serif; font-size:clamp(2rem,4vw,2.8rem); line-height:1.12; margin-bottom:1rem; opacity:0; animation:fadeUp 0.6s ease forwards 0.2s; }
-        .hero-sub { font-size:1rem; color:var(--muted); font-weight:300; max-width:520px; line-height:1.75; margin-bottom:3.5rem; opacity:0; animation:fadeUp 0.6s ease forwards 0.3s; }
-        .divider { width:40px; height:1px; background:rgba(59,130,246,0.3); margin:2.5rem 0; }
-        .section { margin-bottom:1rem; opacity:0; animation:fadeUp 0.6s ease forwards 0.4s; }
-        .section-label { font-size:0.68rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:0.5rem; }
-        .section-title { font-family:'Instrument Serif',serif; font-size:1.3rem; margin-bottom:0.75rem; line-height:1.2; }
-        .section p { font-size:0.95rem; color:var(--muted); font-weight:400; margin-bottom:0.75rem; line-height:1.75; }
-        .section p strong { color:var(--cream); font-weight:500; }
-        .section ul { list-style:none; margin:0.5rem 0 0.75rem; display:flex; flex-direction:column; gap:0.4rem; }
-        .section ul li { display:flex; align-items:flex-start; gap:0.6rem; font-size:0.95rem; color:var(--muted); font-weight:400; line-height:1.6; }
-        .section ul li::before { content:'→'; color:var(--blue); flex-shrink:0; margin-top:1px; font-size:0.85rem; }
-        .principles { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.5rem 0; }
-        .principle-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:1.25rem 1.5rem; }
-        .principle-card-label { font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); margin-bottom:0.5rem; opacity:0.85; }
-        .principle-card-title { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--cream); margin-bottom:0.4rem; }
-        .principle-card p { font-size:0.85rem; color:var(--muted); font-weight:300; line-height:1.6; margin:0; }
-        .status-row { display:flex; align-items:center; gap:0.75rem; margin:1.5rem 0; padding:1rem 1.25rem; background:var(--card); border:1px solid var(--border); border-radius:12px; }
-        .status-dot { width:8px; height:8px; border-radius:50%; background:rgba(59,130,246,0.6); flex-shrink:0; box-shadow:0 0 8px rgba(59,130,246,0.4); }
-        .status-text { font-size:0.85rem; color:var(--muted); font-weight:300; }
-        .status-text strong { color:var(--cream); font-weight:500; }
-        footer { border-top:1px solid var(--border); padding:2rem; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:0.6rem; text-align:center; font-size:0.8rem; color:var(--muted); font-weight:300; }
-        .footer-links { display:flex; gap:1.5rem; }
-        .footer-links a { color:var(--blue); text-decoration:none; transition:color 0.2s; }
-        .footer-links a:hover { opacity:0.75; }
-        @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
-        @media(max-width:640px) { nav{padding:1.25rem 1.35rem} .wrap{padding:7rem 1.35rem 5rem} .principles{grid-template-columns:1fr} }
+        .nav-link:hover, .nav-link.active { color:var(--cream); }
+
+        .lang-switcher { position: relative; }
+        .lang-btn { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.6rem; cursor: pointer; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s; }
+        .lang-btn:hover { color: var(--cream); border-color: rgba(255,255,255,0.15); }
+        .lang-dropdown { display: none; position: absolute; top: calc(100% + 8px); right: 0; background: #0d1f38; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; min-width: 130px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); z-index: 10000; }
+        .lang-option { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 1rem; font-size: 0.82rem; color: var(--muted); cursor: pointer; transition: all 0.15s; border: none; background: none; width: 100%; font-family: 'DM Sans', sans-serif; text-align: left; }
+        .lang-option:hover { background: rgba(255,255,255,0.05); color: var(--cream); }
+        .lang-option.active { color: var(--cream); background: rgba(59,130,246,0.1); }
+
+        .wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+        .hero-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 7rem 0 3rem;
+        }
+        .form-wrap {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 0 0 6rem;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.1s;
+        }
+
+        .hero-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.2s;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.3s;
+        }
+
+        .form-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(59,130,246,0.15);
+            border-radius: 20px;
+            padding: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.4s;
+        }
+
+        .form-row { display: flex; flex-direction: column; gap: 0.75rem; }
+
+        .form-input {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 0.85rem 1.1rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--cream);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-input::placeholder { color: var(--muted); opacity: 0.7; }
+        .form-input:focus { border-color: rgba(59,130,246,0.5); }
+
+        .consent-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+        }
+        .consent-row input[type="checkbox"] {
+            margin-top: 3px;
+            accent-color: var(--blue);
+            flex-shrink: 0;
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
+        .consent-label {
+            font-size: 0.78rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.55;
+            cursor: pointer;
+        }
+        .consent-label a { color: var(--blue); text-decoration: none; }
+        .consent-label a:hover { text-decoration: underline; }
+
+        .form-error {
+            display: none;
+            font-size: 0.82rem;
+            color: #f87171;
+            font-weight: 300;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: #060f1e;
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            text-transform: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: border-color 150ms ease;
+        }
+        .form-submit:hover { border-color: rgba(255,255,255,0.5); }
+
+        .form-loading {
+            display: none;
+            width: 100%;
+            background: var(--blue);
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 10px;
+            padding: 0.95rem 1.5rem;
+            opacity: 0.55;
+            cursor: not-allowed;
+            text-align: center;
+        }
+
+        .form-disclaimer {
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+        .form-success-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+        .form-success-sub {
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        footer { border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:0.8rem; color:var(--muted); font-weight:300; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:0.6rem; }
+        footer a { color:var(--blue); text-decoration:none; }
+        footer a:hover { text-decoration:underline; }
+        .footer-links { display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 640px) {
+            nav { padding:1.25rem 1.35rem; flex-wrap:wrap; gap:0.75rem; }
+            .nav-logo { font-size:1.5rem; }
+            .nav-links { gap:0.85rem; }
+            .nav-link { font-size:0.78rem; }
+            .wrap { padding: 0 1.35rem; }
+            .hero-wrap { min-height: auto; padding: 6rem 0 3rem; }
+            .form-wrap { padding: 0 0 4rem; }
+            .form-card { padding: 1.5rem; }
+        }
     </style>
 </head>
 <body>
 <div class="orb"></div>
+
 <nav>
-    <a href="/" class="nav-logo">Ové<span></span></a>
+    <a href="/index" class="nav-logo">Ové<span></span></a>
     <div class="nav-links">
             <a href="/index" class="nav-link" style="display:flex;align-items:center;" aria-label="Home"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a><span style="color:var(--border);font-weight:300;font-size:1rem;margin:0 0.1rem;">|</span>
             <a href="/concept" class="nav-link" data-i18n="nav_concept">Concept</a>
-            <a href="/waitlist" class="nav-link" data-i18n="nav_waitlist">Waitlist</a>
+            <a href="/waitlist" class="nav-link active" data-i18n="nav_waitlist">Waitlist</a>
+            <div class="lang-switcher" id="lang-switcher">
+                <button class="lang-btn" id="lang-btn">&#127760; <span id="lang-code">EN</span> &#9660;</button>
+                <div class="lang-dropdown" id="lang-dropdown">
+                    <button class="lang-option active" data-lang="en">English</button>
+                    <button class="lang-option" data-lang="sv">Svenska</button>
+                    <button class="lang-option" data-lang="es">Español</button>
+                    <button class="lang-option" data-lang="it">Italiano</button>
+                    <button class="lang-option" data-lang="nl">Nederlands</button>
+                </div>
+            </div>
         </div>
     </nav>
+
 <div class="wrap">
-    <p class="hero-label">Regulatory Approach</p>
-    <h1 class="hero-title">We understand compliance.<br>We're building for it.</h1>
-    <p class="hero-sub">Most fintech products treat regulation as a constraint to work around. Ové treats it as a design requirement. Here's how we think about it.</p>
-    <div style="margin-top:1rem;padding-left:0.75rem;border-left:2px solid rgba(157,181,204,0.4);display:flex;flex-direction:column;gap:0.2rem;">
-        <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5;margin:0;">This page is provided in English only.</p>
-        <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5;margin:0;">Denna sida finns endast på engelska.</p>
-        <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5;margin:0;">Esta página solo está disponible en inglés.</p>
-        <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5;margin:0;">Questa pagina è disponibile solo in inglese.</p>
-        <p style="font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5;margin:0;">Deze pagina is alleen in het Engels beschikbaar.</p>
+    <div class="hero-wrap">
+    <p class="hero-label" data-i18n="label">Product updates</p>
+    <h1 class="hero-title" data-i18n="title">Ové product updates.</h1>
+    <p class="hero-sub" data-i18n="sub">Sign up to receive updates about this product concept.</p>
+
     </div>
-    <div class="status-row">
-        <div class="status-dot"></div>
-        <p class="status-text"><strong>Pre-launch status:</strong> Ové is not currently authorised to provide investment services. The features described here are conceptual only. No authorised partner is currently engaged. Any future regulated service would depend on a signed arrangement with an authorised firm and any applicable approvals.</p>
-    </div>
-    <div class="divider"></div>
-    <div class="section">
-        <p class="section-label">The framework</p>
-        <h2 class="section-title">One possible future model: operating under MiFID II via a licensed partner.</h2>
-        <p>One possible future model would be to operate through a licensed brokerage partner under <strong>MiFID II</strong> — the EU directive that governs investment services and sets the standards for investor protection. Rather than seeking a standalone licence, the concept explores partnering with an already-authorised firm. No authorised partner is currently engaged.</p>
-        <p>Under such a model, regulatory obligations — including KYC, AML, suitability assessments, and cost disclosures — would be met at the partner level. This arrangement does not yet exist.</p>
-    </div>
-    <div class="divider"></div>
-    <div class="section">
-        <p class="section-label">Design principles</p>
-        <h2 class="section-title">Simplicity without removing safeguards.</h2>
-        <p>Ové's entire UX premise is that complexity is the barrier to investing — not regulation. The goal is to simplify the experience without reducing the protections users would be entitled to through an authorised partner.</p>
-        <div class="principles">
-            <div class="principle-card"><p class="principle-card-label">Suitability</p><p class="principle-card-title">Matched to the user</p><p>Any future investment service, if and when available through an authorised partner, would include appropriateness and suitability assessments as required under MiFID II.</p></div>
-            <div class="principle-card"><p class="principle-card-label">Cost transparency</p><p class="principle-card-title">Fees disclosed upfront</p><p>Any fees — including any AUM fee — would be clearly disclosed before any investment is made, in line with MiFID II cost disclosure requirements. No fee structure is confirmed at this stage.</p></div>
-            <div class="principle-card"><p class="principle-card-label">Risk disclosure</p><p class="principle-card-title">Honest about downside</p><p>Capital is at risk. Any future product would surface risk disclosures prominently — not buried in footnotes.</p></div>
-            <div class="principle-card"><p class="principle-card-label">No behavioural nudging</p><p class="principle-card-title">No FOMO, no urgency</p><p>Ové does not use countdown timers, scarcity messaging, or return-based gamification. Regulators are increasingly focused on behavioural design — Ové is built to pass that scrutiny.</p></div>
+    <div class="form-wrap">
+    <div class="form-card">
+        <div id="form-area">
+            <p style="font-size:0.8rem;color:var(--muted);font-weight:300;line-height:1.6;margin-bottom:1rem;text-align:center;" data-i18n="form_note">Joining does not create an account, reserve access, or enable investment activity. This is a mailing list for product concept updates only.</p>
+            <form id="loops-form" action="https://app.loops.so/api/newsletter-form/cmn745kvj0cck0i0vveri5afq" method="POST" novalidate>
+                <div class="form-row">
+                    <input
+                        class="form-input"
+                        type="email"
+                        name="newsletter-form-input"
+                        id="loops-email"
+                        required
+                        autocomplete="email"
+                        placeholder="you@example.com"
+                        data-i18n-placeholder="placeholder"
+                    >
+                    <div class="consent-row">
+                        <input type="checkbox" id="consent-marketing" name="consent-marketing">
+                        <label class="consent-label" for="consent-marketing" data-i18n-html="consent">I agree to receive updates about Ové by email. I can unsubscribe at any time. See our <a href="/privacy">Privacy Policy</a>.</label>
+                    </div>
+                    <div id="form-error" class="form-error"></div>
+                    <button type="submit" class="form-submit" id="form-submit" data-i18n="cta">Join for updates</button>
+                    <div class="form-loading" id="form-loading" data-i18n="loading">Please wait…</div>
+                </div>
+            </form>
+            <p class="form-disclaimer" data-i18n="disclaimer">Joining this list does not create an account, reserve access, or enable any investment activity. OVÉ is not authorised to provide investment services. This is a mailing list for product updates only.</p>
+        </div>
+        <div class="form-success" id="form-success">
+            <p class="form-success-title" data-i18n="success_title">You're on the list.</p>
+            <p class="form-success-sub" data-i18n="success_sub">We'll send product updates as the concept develops.</p>
         </div>
     </div>
-    <div class="divider"></div>
-    <div class="section">
-        <p class="section-label">Investor protection</p>
-        <h2 class="section-title">What users would be entitled to.</h2>
-        <p>If and when a regulated service is available through an authorised partner under MiFID II, users would be entitled to the following protections:</p>
-        <ul>
-            <li>A suitability or appropriateness assessment before investing</li>
-            <li>Clear disclosure of all costs and charges</li>
-            <li>A Key Information Document (KID) under PRIIPs before any packaged investment is made</li>
-            <li>The right to complain to a national competent authority</li>
-            <li>Client assets would be held and safeguarded by an authorised third-party provider</li>
-        </ul>
-    </div>
-    <div class="divider"></div>
-    <div class="section">
-        <p class="section-label">Data protection</p>
-        <h2 class="section-title">GDPR-first from day one.</h2>
-        <p>Ové collects only what it needs and handles data in accordance with GDPR. Users will be provided with a full privacy notice before any data collection begins. Read our <a href="/privacy" style="color:var(--blue);text-decoration:none;">Privacy Policy</a> for full details.</p>
-    </div>
-    <div class="divider"></div>
-    <div class="section">
-        <p class="section-label">Why this experience is limited</p>
-        <h2 class="section-title">Intentional restraint, not technical limitation.</h2>
-        <p>Ové does not simulate real investment decisions, execute transactions, or provide personalised outputs. This is a deliberate choice.</p>
-        <p>Investment services in the EU require regulatory authorisation, suitability or appropriateness assessments, and investor protections that are not yet in place. Offering a more realistic simulation before these safeguards exist would risk misleading users about the nature of investing and about what Ové currently is.</p>
-        <p>This approach is designed to ensure full compliance before launch — not to minimise effort, but to protect users.</p>
-    </div>
-    <div class="divider"></div>
-    <div class="section">
-        <p class="section-label">Questions</p>
-        <h2 class="section-title">Get in touch.</h2>
-        <p>For regulatory or compliance questions, contact us at <a id="email-contact-reg" style="color:var(--blue);text-decoration:none;"></a>.</p>
     </div>
 </div>
+
+<div style="max-width:1080px;margin:0 auto;padding:0 2rem;">
 <footer>
-    <span>© <span id="year"></span> Ové. Currently in development.</span>
-    <div class="footer-links">
-        <a href="/regulatory">Regulatory</a>
-        <a href="/terms">Terms</a>
-        <a href="/privacy">Privacy</a>
-    </div>
-</footer>
+            <span style="font-size:0.75rem;opacity:0.7;" data-i18n="entity">OVÉ is a concept developed by Samuel Gustaf, based in Halmstad, Sweden.</span>
+            <span>© <span id="year"></span> Ové. <span data-i18n="footer_dev">Currently in development.</span></span>
+            <div class="footer-links">
+                <a href="/regulatory">Regulatory</a>
+                <a href="/terms">Terms</a>
+                <a href="/privacy">Privacy</a>
+            </div>
+        </footer>
+</div>
+
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    (function() {
-        var u='info', d='meetove.pro', addr=u+'\u0040'+d, href='mai'+'lto:'+addr;
-        var el=document.getElementById('email-contact-reg');
-        if(el){el.href=href;el.textContent=addr;}
-    })();
+
+    var translations = {
+        en: {
+            nav_concept:'Concept',nav_waitlist:'Waitlist',label:'Product updates',
+            title: 'Ov\u00e9 — product updates.',
+            sub: 'Sign up to receive updates about this product concept.',
+            placeholder: 'you@example.com',
+            consent: 'I agree to receive updates about Ové by email. I can unsubscribe at any time. See our <a href="/privacy">Privacy Policy</a>.',
+            cta: 'Join for updates',
+            loading: 'Please wait\u2026',
+            error_consent: 'Please confirm you agree to receive updates before joining.',
+            error_generic: 'Something went wrong. Please try again.',
+            error_rate: 'Too many signups, please try again in a little while.',
+            success_title: 'You\u2019re on the list.',
+            success_sub: 'We\u2019ll send product updates as the concept develops.',
+            disclaimer: 'Joining this list does not create an account, reserve access, or enable any investment activity. OV\u00c9 is not authorised to provide investment services. This is a mailing list for product updates only.',
+            nav_concept: 'Concept', nav_waitlist: 'Waitlist',
+            footer_dev: 'Currently in development.',
+            form_note: 'Joining does not create an account, reserve access, or enable investment activity. This is a mailing list for product concept updates only.',
+            footer_privacy: 'Privacy Policy', footer_terms: 'Terms of Service',
+            code: 'EN'
+        },
+        sv: {
+            nav_concept:'Concept',nav_waitlist:'Waitlist',label:'Produktuppdateringar',
+            title: 'Ov\u00e9 produktuppdateringar.',
+            sub: 'Registrera dig f\u00f6r uppdateringar om detta produktkoncept.',
+            placeholder: 'du@exempel.se',
+            consent: 'Jag godk\u00e4nner att ta emot uppdateringar om Ov\u00e9 via e-post. Jag kan avregistrera mig n\u00e4r som helst. Se v\u00e5r <a href="/privacy">integritetspolicy</a>.',
+            cta: 'G\u00e5 med f\u00f6r uppdateringar',
+            loading: 'V\u00e4nta\u2026',
+            error_consent: 'Bekr\u00e4fta att du godk\u00e4nner att ta emot uppdateringar innan du g\u00e5r med.',
+            error_generic: 'N\u00e5got gick fel. F\u00f6rs\u00f6k igen.',
+            error_rate: 'F\u00f6r m\u00e5nga registreringar, f\u00f6rs\u00f6k igen om en liten stund.',
+            success_title: 'Du \u00e4r med p\u00e5 listan.',
+            success_sub: 'Vi skickar produktuppdateringar n\u00e4r konceptet utvecklas.',
+            disclaimer: 'Att g\u00e5 med i listan skapar inget konto, reserverar ingen tillg\u00e5ng och m\u00f6jligg\u00f6r ingen investeringsverksamhet. Ov\u00e9 \u00e4r inte beh\u00f6rigt att tillhandah\u00e5lla investeringstj\u00e4nster. Detta \u00e4r en e-postlista f\u00f6r produktuppdateringar.',
+            nav_concept: 'Concept', nav_waitlist: 'Waitlist',
+            footer_dev: 'Under utveckling.',
+            form_note: 'Att registrera sig indikerar intresse för framtida produktuppdateringar. Ingen investeringsåtkomst eller finansiella tjänster är för närvarande tillgängliga.',
+            entity: 'OVÉ är ett koncept utvecklat av Samuel Gustaf, baserat i Halmstad, Sverige.',
+            footer_privacy: 'Integritetspolicy', footer_terms: 'Anv\u00e4ndarvillkor',
+            code: 'SV'
+        },
+        es: {
+            nav_concept:'Concept',nav_waitlist:'Waitlist',label:'Actualizaciones del producto',
+            title: 'Actualizaciones de producto Ov\u00e9.',
+            sub: 'Reg\u00edstrate para recibir actualizaciones sobre este concepto de producto.',
+            placeholder: 'tu@ejemplo.com',
+            consent: 'Acepto recibir actualizaciones sobre Ov\u00e9 por correo electr\u00f3nico. Puedo darme de baja en cualquier momento. Consulta nuestra <a href="/privacy">Pol\u00edtica de privacidad</a>.',
+            cta: 'Unirse para actualizaciones',
+            loading: 'Por favor espera\u2026',
+            error_consent: 'Confirma que aceptas recibir actualizaciones antes de unirte.',
+            error_generic: 'Algo sali\u00f3 mal. Por favor, int\u00e9ntalo de nuevo.',
+            error_rate: 'Demasiados registros, int\u00e9ntalo de nuevo en un momento.',
+            success_title: 'Est\u00e1s en la lista.',
+            success_sub: 'Enviaremos actualizaciones del producto a medida que el concepto evolucione.',
+            disclaimer: 'Unirse a esta lista no crea una cuenta, no reserva acceso ni habilita ninguna actividad de inversi\u00f3n. Ov\u00e9 no est\u00e1 autorizado para prestar servicios de inversi\u00f3n. Esta es una lista de correo solo para actualizaciones del producto.',
+            nav_concept: 'Concept', nav_waitlist: 'Waitlist',
+            footer_dev: 'Actualmente en desarrollo.',
+            form_note: 'Registrarse indica interés en futuras actualizaciones del producto. Actualmente no hay acceso a inversiones ni servicios financieros disponibles.',
+            entity: 'OVÉ es un concepto desarrollado por Samuel Gustaf, con sede en Halmstad, Suecia.',
+            footer_privacy: 'Pol\u00edtica de privacidad', footer_terms: 'T\u00e9rminos de servicio',
+            code: 'ES'
+        },
+        it: {
+            nav_concept:'Concept',nav_waitlist:'Waitlist',label:'Aggiornamenti prodotto',
+            title: 'Aggiornamenti prodotto Ov\u00e9.',
+            sub: 'Iscriviti per ricevere aggiornamenti su questo concetto di prodotto.',
+            placeholder: 'tu@esempio.com',
+            consent: 'Accetto di ricevere aggiornamenti su Ov\u00e9 via email. Posso annullare l\'iscrizione in qualsiasi momento. Consulta la nostra <a href="/privacy">Informativa sulla privacy</a>.',
+            cta: 'Iscriviti per aggiornamenti',
+            loading: 'Attendere\u2026',
+            error_consent: 'Conferma di accettare di ricevere aggiornamenti prima di iscriverti.',
+            error_generic: 'Qualcosa \u00e8 andato storto. Riprova.',
+            error_rate: 'Troppe iscrizioni, riprova tra poco.',
+            success_title: 'Sei nella lista.',
+            success_sub: 'Invieremo aggiornamenti sul prodotto man mano che il concetto si sviluppa.',
+            disclaimer: 'Iscriversi a questa lista non crea un account, non riserva l\'accesso n\u00e9 abilita alcuna attivit\u00e0 di investimento. Ov\u00e9 non \u00e8 autorizzato a fornire servizi di investimento. Questa \u00e8 una mailing list solo per aggiornamenti sul prodotto.',
+            nav_concept: 'Concept', nav_waitlist: 'Waitlist',
+            footer_dev: 'Attualmente in fase di sviluppo.',
+            form_note: 'La registrazione indica interesse per futuri aggiornamenti del prodotto. Nessun accesso a investimenti o servizi finanziari è attualmente disponibile.',
+            entity: 'OVÉ è un concetto sviluppato da Samuel Gustaf, con sede a Halmstad, Svezia.',
+            footer_privacy: 'Informativa sulla privacy', footer_terms: 'Termini di servizio',
+            code: 'IT'
+        },
+        nl: {nav_concept:"Concept",nav_waitlist:"Wachtlijst",label:"Productupdates",title:"Ové productupdates. Binnenkort beschikbaar.",sub:"Meld u aan voor updates over het productconcept.",placeholder:"u@voorbeeld.nl",consent:"Ik ga akkoord met het ontvangen van updates over Ové per e-mail. Ik kan me op elk moment afmelden. Zie ons <a href=\"/privacy\">Privacybeleid</a>.",cta:"Aanmelden voor updates",loading:"Even geduld…",error_consent:"Bevestig dat u akkoord gaat met het ontvangen van updates voordat u zich aanmeldt.",error_generic:"Er is iets misgegaan. Probeer het opnieuw.",error_rate:"Te veel aanmeldingen, probeer het over een ogenblik opnieuw.",success_title:"U staat op de lijst.",success_sub:"We sturen productupdates naarmate het concept zich ontwikkelt.",disclaimer:"Aanmelden voor deze lijst creëert geen account, reserveert geen toegang en maakt geen beleggingsactiviteit mogelijk. OVÉ is niet bevoegd om beleggingsdiensten te verlenen. Dit is een mailinglijst uitsluitend voor productupdates.",footer_dev:"Momenteel in ontwikkeling.",
+            form_note: 'Aanmelden geeft interesse aan in toekomstige productupdates. Er is momenteel geen toegang tot beleggingen of financiële diensten beschikbaar.',entity:"OVÉ is een concept ontwikkeld door Samuel Gustaf, gevestigd in Halmstad, Zweden.",footer_privacy:"Privacybeleid",footer_terms:"Servicevoorwaarden",code:"NL"}
+    };
+
+    var currentLang = 'en';
+
+    function applyLang(lang) {
+        var t = translations[lang];
+        if (!t) return;
+        currentLang = lang;
+        localStorage.setItem('ove-lang', lang);
+
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+            var key = el.getAttribute('data-i18n');
+            if (t[key] !== undefined) el.textContent = t[key];
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+            var key = el.getAttribute('data-i18n-html');
+            if (t[key] !== undefined) el.innerHTML = t[key];
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+            var key = el.getAttribute('data-i18n-placeholder');
+            if (t[key] !== undefined) el.placeholder = t[key];
+        });
+        document.getElementById('lang-code').textContent = t.code;
+        document.querySelectorAll('.lang-option').forEach(function(o) {
+            o.classList.toggle('active', o.dataset.lang === lang);
+        });
+        document.getElementById('lang-dropdown').style.display = 'none';
+    }
+
+    document.getElementById('lang-btn').addEventListener('click', function(e) {
+        e.stopPropagation();
+        var dd = document.getElementById('lang-dropdown');
+        dd.style.display = dd.style.display === 'block' ? 'none' : 'block';
+    });
+    document.querySelectorAll('.lang-option').forEach(function(o) {
+        o.addEventListener('click', function(e) {
+            e.stopPropagation();
+            applyLang(o.dataset.lang);
+        });
+    });
+    document.addEventListener('click', function(e) {
+        if (!document.getElementById('lang-switcher').contains(e.target)) {
+            document.getElementById('lang-dropdown').style.display = 'none';
+        }
+    });
+
+    var saved = localStorage.getItem('ove-lang');
+    if (saved && translations[saved]) applyLang(saved);
+
+    // Form
+    var form       = document.getElementById('loops-form');
+    var submitBtn  = document.getElementById('form-submit');
+    var loadingBtn = document.getElementById('form-loading');
+    var errorEl    = document.getElementById('form-error');
+    var successEl  = document.getElementById('form-success');
+    var formArea   = document.getElementById('form-area');
+    var emailInput = document.getElementById('loops-email');
+
+    function showError(msg) {
+        errorEl.textContent = msg;
+        errorEl.style.display = 'block';
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var t = translations[currentLang];
+        errorEl.style.display = 'none';
+
+        if (!document.getElementById('consent-marketing').checked) {
+            showError(t.error_consent);
+            return;
+        }
+
+        var now = Date.now();
+        var prev = localStorage.getItem('loops-form-timestamp');
+        if (prev && Number(prev) + 60000 > now) {
+            showError(t.error_rate);
+            return;
+        }
+        localStorage.setItem('loops-form-timestamp', now);
+        localStorage.setItem('ove-consent-ts', new Date().toISOString());
+
+        submitBtn.style.display = 'none';
+        loadingBtn.style.display = 'block';
+
+        fetch(form.action, {
+            method: 'POST',
+            body: 'userGroup=&mailingLists=&email=' + encodeURIComponent(emailInput.value),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        })
+        .then(function(res) { return Promise.all([res.ok, res.json()]); })
+        .then(function(result) {
+            var ok = result[0], data = result[1];
+            loadingBtn.style.display = 'none';
+            if (ok) {
+                formArea.style.display = 'none';
+                successEl.style.display = 'block';
+            } else {
+                submitBtn.style.display = 'block';
+                showError(data.message || t.error_generic);
+                localStorage.setItem('loops-form-timestamp', '');
+            }
+        })
+        .catch(function(err) {
+            var t2 = translations[currentLang];
+            loadingBtn.style.display = 'none';
+            submitBtn.style.display = 'block';
+            showError(err.message === 'Failed to fetch' ? t2.error_rate : (err.message || t2.error_generic));
+            localStorage.setItem('loops-form-timestamp', '');
+        });
+    });
 </script>
 <script src="/ove-shared.js"></script>
 </body>
