@@ -591,7 +591,7 @@
         document.querySelectorAll('.lang-option').forEach(function(o){ o.addEventListener('click',function(e){ e.stopPropagation(); applyLang(o.dataset.lang); }); });
         document.addEventListener('click',function(){ document.getElementById('lang-switcher').classList.remove('open'); });
         var saved=localStorage.getItem('ove-lang')||'en'; if(!T[saved])saved='en';
-        applyLang(saved); applyDemoLang(saved);
+        applyLang(saved);
         var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting)e.target.classList.add('visible'); }); },{threshold:0.1});
         document.querySelectorAll('.fade-in').forEach(function(el){ io.observe(el); });
     });
