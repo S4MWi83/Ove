@@ -13,7 +13,7 @@ OVÉ is not currently authorised to provide investment services. No regulated pa
 
 - [Home](https://meetove.pro/index): Overview of the concept and what OVÉ is exploring.
 - [Concept](https://meetove.pro/concept): An illustrative walkthrough of how a simpler investing experience could feel. Educational only — no real accounts, no money moved.
-- [Learn](https://meetove.pro/learn): Educational content about investing for beginners.
+- [Learn](https://meetove.pro/learn): Data-driven guide on why 74% of Europeans don't invest, covering the €10.8 trillion household deposit gap, the three barriers to investing, EU investor protections, UCITS index funds vs cash savings, and the European Commission's Savings and Investments Union. Sources: ESMA 2025/2026, ECB Sector Accounts Q3 2025, BlackRock People & Money Survey 2024.
 - [Waitlist](https://meetove.pro/waitlist): Mailing list for product concept updates only.
 - [Regulatory](https://meetove.pro/regulatory): How OVÉ thinks about compliance, MiFID II, and investor protection.
 
