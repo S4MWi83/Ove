@@ -1,0 +1,27 @@
+# OVÉ — llms.txt
+# https://llmstxt.org
+
+> OVÉ is a pre-launch investing concept exploring a simpler way to get started with investing. Built for people who haven't started yet. Not a live product or authorised service.
+
+## About
+
+OVÉ is developed by Samuel Gustaf, based in Halmstad, Sweden. It is a conceptual exploration of what a simpler investing experience could look like — designed for the large share of Europeans who have savings but have never invested.
+
+OVÉ is not currently authorised to provide investment services. No regulated partner is currently engaged. Nothing on this site constitutes an offer, invitation, or advice to invest.
+
+## Pages
+
+- [Home](https://meetove.pro/index): Overview of the concept and what OVÉ is exploring.
+- [Concept](https://meetove.pro/concept): An illustrative walkthrough of how a simpler investing experience could feel. Educational only — no real accounts, no money moved.
+- [Learn](https://meetove.pro/learn): Educational content about investing for beginners.
+- [Waitlist](https://meetove.pro/waitlist): Mailing list for product concept updates only.
+- [Regulatory](https://meetove.pro/regulatory): How OVÉ thinks about compliance, MiFID II, and investor protection.
+
+## Not included
+
+- /demo — excluded (illustrative simulation, not for indexing)
+- /vision — excluded (private)
+
+## Legal
+
+This website is for informational and illustrative purposes only. It does not constitute investment advice, an offer, or a solicitation. Investing involves risk, including loss of capital.

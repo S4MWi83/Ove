@@ -3,10 +3,32 @@ Allow: /
 Disallow: /demo
 Disallow: /vision
 
+# AI search engines — explicitly allowed
 User-agent: GPTBot
 Allow: /
 
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: GoogleExtendedBot
+Allow: /
+
+User-agent: Gemini
 Allow: /
 
 Sitemap: https://meetove.pro/sitemap.xml
