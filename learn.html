@@ -14,23 +14,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
 
-    <!-- SEO — placeholder, will be updated with content -->
-    <title>Ové | Learn About Investing</title>
-    <meta name="description" content="[PLACEHOLDER — to be updated with final content]">
+    <title>Ové | The €10.8 Trillion Gap: Why 74% of Europeans Don't Invest</title>
+    <meta name="description" content="74% of European adults don't invest their savings. This data-driven guide explains why — and what €10.8 trillion sitting in household deposits means for your financial future. Sources: ESMA, ECB, BlackRock.">
     <link rel="canonical" href="https://meetove.pro/learn">
 
-    <!-- Open Graph — placeholder -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://meetove.pro/learn">
-    <meta property="og:title" content="[PLACEHOLDER]">
-    <meta property="og:description" content="[PLACEHOLDER]">
+    <meta property="og:title" content="The €10.8 Trillion Gap: Why 74% of Europeans Don't Invest">
+    <meta property="og:description" content="74% of European adults don't invest their savings. This data-driven guide explains why — and what €10.8 trillion sitting in household deposits means for your financial future.">
     <meta property="og:image" content="https://meetove.pro/ove-og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://meetove.pro/ove-og.png">
 
-    <!-- hreflang -->
     <link rel="alternate" hreflang="en" href="https://meetove.pro/learn">
     <link rel="alternate" hreflang="x-default" href="https://meetove.pro/learn">
 
@@ -39,14 +36,11 @@
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "[PLACEHOLDER]",
-        "description": "[PLACEHOLDER]",
+        "headline": "The €10.8 Trillion Gap: Why 74% of Europeans Don't Invest",
+        "description": "74% of European adults don't invest their savings. This data-driven guide explains why — and what €10.8 trillion sitting in household deposits means for your financial future.",
         "url": "https://meetove.pro/learn",
-        "publisher": {
-            "@type": "Organization",
-            "name": "OVÉ",
-            "url": "https://meetove.pro"
-        },
+        "author": { "@type": "Person", "name": "Samuel Gustaf" },
+        "publisher": { "@type": "Organization", "name": "OVÉ", "url": "https://meetove.pro" },
         "datePublished": "2026-04-06",
         "dateModified": "2026-04-06",
         "inLanguage": "en"
@@ -61,18 +55,27 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "[PLACEHOLDER — FAQ question 1]",
-                "acceptedAnswer": { "@type": "Answer", "text": "[PLACEHOLDER — FAQ answer 1]" }
+                "name": "How much risk can I handle?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Risk tolerance depends on how long you can leave your money invested and how you would feel if its value dropped temporarily. Generally, the longer your time horizon, the more market volatility you can absorb. Most beginner frameworks suggest starting with a diversified, low-cost fund that matches a risk level you are comfortable with — not the highest possible return, but the one you can stay committed to without panic-selling during a downturn. Capital is always at risk in market-based investments."
+                }
             },
             {
                 "@type": "Question",
-                "name": "[PLACEHOLDER — FAQ question 2]",
-                "acceptedAnswer": { "@type": "Answer", "text": "[PLACEHOLDER — FAQ answer 2]" }
+                "name": "How much of my savings should I invest?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A common starting principle is to invest only what you can leave untouched for at least five years, after covering essential expenses and maintaining an emergency fund of three to six months of living costs. There is no universal correct amount — starting small is better than not starting at all, provided you understand what you are investing in and accept that the value can go down as well as up."
+                }
             },
             {
                 "@type": "Question",
-                "name": "[PLACEHOLDER — FAQ question 3]",
-                "acceptedAnswer": { "@type": "Answer", "text": "[PLACEHOLDER — FAQ answer 3]" }
+                "name": "How do I start investing without making a mistake?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The most common mistakes for first-time investors are starting without understanding the product, choosing based on short-term performance, and reacting emotionally to market movements. Regulators including ESMA recommend understanding any investment product before committing money, checking that the platform is authorised in your country, and diversifying rather than concentrating in a single asset. Starting with a simple, regulated, diversified fund is widely considered the lowest-friction entry point for European beginners."
+                }
             }
         ]
     }
@@ -85,7 +88,8 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://meetove.pro/index" },
-            { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://meetove.pro/learn" }
+            { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://meetove.pro/learn" },
+            
         ]
     }
     </script>
@@ -99,33 +103,17 @@
 
     <style>
         :root {
-            --deep:#060f1e; --blue:#3b82f6; --blue-dim:rgba(59,130,246,0.12);
-            --cream:#f0ece4; --muted:#9db5cc; --border:rgba(255,255,255,0.07);
-            --surface:#0d1e35;
+            --deep:#060f1e; --blue:#3b82f6; --cream:#f0ece4;
+            --muted:#9db5cc; --border:rgba(255,255,255,0.07); --surface:#0d1e35;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
-        body {
-            font-family:'DM Sans',sans-serif; background:var(--deep);
-            color:var(--cream); line-height:1.7;
-            -webkit-font-smoothing:antialiased; min-height:100vh;
-        }
-        .orb {
-            position:fixed; border-radius:50%; filter:blur(80px);
-            pointer-events:none; z-index:0; width:55vw; height:55vw;
-            top:-18vw; left:50%; transform:translateX(-50%);
-            background:radial-gradient(circle,rgba(59,130,246,0.12),transparent 70%);
-        }
+        body { font-family:'DM Sans',sans-serif; background:var(--deep); color:var(--cream); line-height:1.7; -webkit-font-smoothing:antialiased; min-height:100vh; }
+
+        .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; width:55vw; height:55vw; top:-18vw; left:50%; transform:translateX(-50%); background:radial-gradient(circle,rgba(59,130,246,0.12),transparent 70%); }
 
         /* Nav */
-        nav {
-            display:flex; align-items:center; justify-content:space-between;
-            padding:1.25rem 2rem; position:fixed; top:0; left:0; right:0;
-            z-index:100; background:rgba(6,15,30,0.6);
-            backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
-            border-bottom:1px solid var(--border);
-            box-shadow:0 1px 20px rgba(59,130,246,0.08);
-        }
+        nav { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 2rem; position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(6,15,30,0.6); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--border); box-shadow:0 1px 20px rgba(59,130,246,0.08); }
         .nav-logo { font-family:'Instrument Serif',serif; font-size:1.8rem; color:var(--cream); text-decoration:none; position:relative; }
         .nav-logo span { display:inline-block; width:6px; height:6px; background:var(--blue); border-radius:50%; position:absolute; top:6px; right:-9px; box-shadow:0 0 8px rgba(59,130,246,0.5); }
         .nav-links { display:flex; align-items:center; gap:1.5rem; }
@@ -136,46 +124,50 @@
         .wrap { max-width:1080px; margin:0 auto; padding:0 2rem; position:relative; z-index:1; }
 
         /* Hero */
-        .hero { padding:8rem 0 3.5rem; opacity:0; animation:fadeUp 0.7s ease forwards 0.2s; }
+        .hero { padding:8rem 0 3rem; opacity:0; animation:fadeUp 0.7s ease forwards 0.2s; }
 
         /* Breadcrumb */
-        .breadcrumb { font-size:0.78rem; color:var(--muted); font-weight:300; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; }
+        .breadcrumb { font-size:0.78rem; color:var(--muted); font-weight:300; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; }
         .breadcrumb a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
         .breadcrumb a:hover { color:var(--cream); }
         .breadcrumb-sep { opacity:0.4; }
 
+        /* Byline */
+        .byline { font-size:0.78rem; color:var(--muted); font-weight:300; margin-bottom:1.5rem; opacity:0.7; }
+
         /* Typography */
         .eyebrow { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:1.25rem; }
-        h1 { font-family:'Instrument Serif',serif; font-size:clamp(2.4rem,5vw,4rem); line-height:1.08; letter-spacing:-0.02em; margin-bottom:1.25rem; }
-        .hero-sub { font-size:clamp(1rem,1.8vw,1.1rem); color:var(--muted); font-weight:300; max-width:560px; line-height:1.8; margin-bottom:3rem; }
-        h2 { font-family:'Instrument Serif',serif; font-size:clamp(1.6rem,3vw,2.2rem); line-height:1.15; letter-spacing:-0.01em; margin:3rem 0 1rem; color:var(--cream); }
-        h3 { font-family:'Instrument Serif',serif; font-size:1.2rem; line-height:1.2; margin:2rem 0 0.75rem; color:var(--cream); }
+        h1 { font-family:'Instrument Serif',serif; font-size:clamp(2.2rem,5vw,3.6rem); line-height:1.1; letter-spacing:-0.02em; margin-bottom:0.75rem; }
+        .source-tag { font-size:0.72rem; color:var(--muted); font-weight:300; opacity:0.6; margin-bottom:2.5rem; display:block; }
+        h2 { font-family:'Instrument Serif',serif; font-size:clamp(1.5rem,3vw,2rem); line-height:1.15; letter-spacing:-0.01em; margin:3rem 0 1rem; color:var(--cream); }
+        h3 { font-family:'Instrument Serif',serif; font-size:1.1rem; line-height:1.2; margin:1.75rem 0 0.6rem; color:var(--cream); }
 
         /* Answer-first box */
-        .answer-first {
-            background:rgba(59,130,246,0.07); border:1px solid rgba(59,130,246,0.2);
-            border-radius:16px; padding:1.5rem 1.75rem; margin-bottom:4rem; max-width:680px;
-        }
+        .answer-first { background:rgba(59,130,246,0.07); border:1px solid rgba(59,130,246,0.2); border-radius:16px; padding:1.5rem 1.75rem; margin-bottom:3.5rem; }
         .answer-first-label { font-size:0.65rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:0.75rem; }
-        .answer-first p { font-size:0.95rem; color:var(--cream); font-weight:400; line-height:1.75; }
+        .answer-first p { font-size:0.95rem; color:var(--cream); font-weight:400; line-height:1.8; }
+        .answer-first .sources { font-size:0.72rem; color:var(--muted); font-weight:300; opacity:0.65; margin-top:0.75rem; line-height:1.6; }
 
         /* Article body */
         .article-body { max-width:680px; opacity:0; animation:fadeUp 0.7s ease forwards 0.4s; }
         .article-body p { font-size:0.975rem; color:var(--muted); font-weight:300; line-height:1.85; margin-bottom:1.25rem; }
         .article-body p strong { color:var(--cream); font-weight:500; }
+        .source-note { font-size:0.72rem; color:var(--muted); opacity:0.55; font-weight:300; line-height:1.6; margin-top:-0.75rem; margin-bottom:1.5rem; font-style:italic; }
+
+        /* Stat callout */
+        .stat-callout { background:rgba(59,130,246,0.06); border-left:3px solid var(--blue); border-radius:0 12px 12px 0; padding:1.25rem 1.5rem; margin:2rem 0; }
+        .stat-callout .stat-num { font-family:'Instrument Serif',serif; font-size:2.4rem; color:var(--cream); line-height:1; margin-bottom:0.25rem; }
+        .stat-callout .stat-desc { font-size:0.875rem; color:var(--muted); font-weight:300; line-height:1.6; }
+
+        /* Comparison table */
+        .compare-table { width:100%; border-collapse:collapse; margin:1.5rem 0 0.5rem; font-size:0.875rem; }
+        .compare-table th { text-align:left; padding:0.75rem 1rem; font-size:0.7rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue); border-bottom:1px solid var(--border); }
+        .compare-table td { padding:0.75rem 1rem; color:var(--muted); font-weight:300; border-bottom:1px solid var(--border); line-height:1.5; vertical-align:top; }
+        .compare-table tr:last-child td { border-bottom:none; }
+        .compare-table td:first-child { color:var(--cream); font-weight:400; }
 
         /* Divider */
         .divider { width:40px; height:1px; background:rgba(59,130,246,0.3); margin:3rem 0; }
-
-        /* Cluster links — no cards, clean list */
-        .cluster-grid { display:flex; flex-direction:column; gap:0; margin:1.5rem 0 3rem; }
-        .cluster-link { display:flex; align-items:center; justify-content:space-between; padding:1.1rem 0; border-bottom:1px solid var(--border); text-decoration:none; transition:all 0.2s; gap:1rem; }
-        .cluster-link:first-child { border-top:1px solid var(--border); }
-        .cluster-link:hover .cluster-link-title { color:var(--cream); }
-        .cluster-link:hover .cluster-arrow { color:var(--blue); transform:translateX(3px); }
-        .cluster-link-meta { font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); opacity:0.8; margin-bottom:0.25rem; }
-        .cluster-link-title { font-size:0.95rem; color:var(--muted); font-weight:400; transition:color 0.2s; line-height:1.4; }
-        .cluster-arrow { color:var(--muted); font-size:0.9rem; flex-shrink:0; transition:all 0.2s; }
 
         /* FAQ */
         .faq-section { margin:1.5rem 0 3rem; }
@@ -203,7 +195,9 @@
         @media(max-width:640px) {
             nav { padding:1.25rem 1.35rem; }
             .wrap { padding:0 1.35rem; }
-            .hero { padding:7rem 0 3rem; }
+            .hero { padding:7rem 0 2.5rem; }
+            .compare-table { font-size:0.8rem; }
+            .compare-table th, .compare-table td { padding:0.6rem 0.75rem; }
         }
     </style>
 </head>
@@ -227,98 +221,127 @@
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="/index">Home</a>
                 <span class="breadcrumb-sep">›</span>
-                <span>Learn</span>
+<span>Learn</span>
             </nav>
 
-            <p class="eyebrow">Learning centre</p>
-            <h1>[PLACEHOLDER — H1 title]</h1>
-            <p class="hero-sub">[PLACEHOLDER — 2–3 sentence intro. Plain language. Sets up what the article covers.]</p>
+            <p class="eyebrow">The investment gap</p>
+            <h1>The €10.8 Trillion Gap: Why 74% of Europeans Don't Invest</h1>
+            <span class="source-tag">Based on ESMA and ECB data.</span>
+            <p class="byline">By Samuel Gustaf, Computer Engineer, OVÉ</p>
 
             <div class="answer-first">
                 <p class="answer-first-label">The short answer</p>
-                <p>[PLACEHOLDER — 40–60 word direct answer. No jargon. Written for someone who has never invested.]</p>
+                <p>Many people have not started investing. Chances are it's one of three things: you're afraid of losing money, the terminology feels impenetrable, or every platform you've looked at wasn't built for someone like you. You're not alone — 74% of European adults don't participate in capital markets directly, while €10.8 trillion sits in household deposits which may lose purchasing power over time due to inflation.</p>
+                <p class="sources">Sources: ESMA Trends, Risks and Vulnerabilities Report 2025/2026, ECB Sector Accounts Q3 2025.</p>
             </div>
         </div>
 
         <div class="article-body">
 
-            <h2>[PLACEHOLDER — H2 section 1]</h2>
-            <p>[PLACEHOLDER — body copy]</p>
+            <h2>The Scale of the Problem</h2>
+            <p>Trillions of euros are sitting idle in European savings accounts — not growing significantly and may lose purchasing power over time due to inflation. What feels safe is quietly working against you.</p>
 
-            <h3>[PLACEHOLDER — H3 subsection]</h3>
-            <p>[PLACEHOLDER — body copy]</p>
+            <div class="stat-callout">
+                <p class="stat-num">74%</p>
+                <p class="stat-desc">of European adults have their money in savings rather than any form of market investment — excluding mandatory pensions and insurance.</p>
+            </div>
 
-            <div class="divider"></div>
-
-            <h2>[PLACEHOLDER — H2 section 2]</h2>
-            <p>[PLACEHOLDER — body copy]</p>
-
-            <div class="divider"></div>
-
-            <h2>[PLACEHOLDER — H2 section 3]</h2>
-            <p>[PLACEHOLDER — body copy]</p>
+            <p>That amounts to roughly <strong>€10.8 trillion</strong> in household deposits across the euro area, equivalent to an estimated €216 billion annual reduction in purchasing power at current inflation levels.</p>
+            <p class="source-note">Sources: ESMA 2025/2026, ECB Sector Accounts Q3 2025, ECB HICP data.</p>
 
             <div class="divider"></div>
 
-            <!-- Cluster article links -->
-            <h2>Go deeper</h2>
-            <p style="font-size:0.9rem;color:var(--muted);font-weight:300;line-height:1.75;margin-bottom:0.5rem;">Each of these articles covers one part of this guide in more detail.</p>
-
-            <nav class="cluster-grid" aria-label="Related articles">
-                <a href="/learn/article-1" class="cluster-link">
-                    <div>
-                        <p class="cluster-link-meta">Article 1</p>
-                        <p class="cluster-link-title">[PLACEHOLDER — cluster article 1 title]</p>
-                    </div>
-                    <span class="cluster-arrow">→</span>
-                </a>
-                <a href="/learn/article-2" class="cluster-link">
-                    <div>
-                        <p class="cluster-link-meta">Article 2</p>
-                        <p class="cluster-link-title">[PLACEHOLDER — cluster article 2 title]</p>
-                    </div>
-                    <span class="cluster-arrow">→</span>
-                </a>
-                <a href="/learn/article-3" class="cluster-link">
-                    <div>
-                        <p class="cluster-link-meta">Article 3</p>
-                        <p class="cluster-link-title">[PLACEHOLDER — cluster article 3 title]</p>
-                    </div>
-                    <span class="cluster-arrow">→</span>
-                </a>
-                <a href="/learn/article-4" class="cluster-link">
-                    <div>
-                        <p class="cluster-link-meta">Article 4</p>
-                        <p class="cluster-link-title">[PLACEHOLDER — cluster article 4 title]</p>
-                    </div>
-                    <span class="cluster-arrow">→</span>
-                </a>
-                <a href="/learn/article-5" class="cluster-link">
-                    <div>
-                        <p class="cluster-link-meta">Article 5</p>
-                        <p class="cluster-link-title">[PLACEHOLDER — cluster article 5 title]</p>
-                    </div>
-                    <span class="cluster-arrow">→</span>
-                </a>
-            </nav>
+            <h2>The Three Barriers</h2>
+            <p>Ever feel like opening an investing platform is like walking into a courtroom, being handed a law book, and being asked to defend yourself?</p>
+            <p><strong>First — you don't know which page to start with.</strong> The interface is overwhelming, the options are endless, and nobody told you where to begin.</p>
+            <p><strong>Then —</strong> even when you find your footing, the language reads like a foreign legal system. Sections, charts, terminology that assumes you already know what you're doing. A complete mess if you don't speak the language.</p>
+            <p><strong>And finally —</strong> no matter how carefully you study the law book, you're convinced you'll lose the case anyway. The fear of losing money isn't irrational. It's the natural conclusion of feeling lost from the very first screen.</p>
+            <p>You're not alone. 74% of European adults never start investing — not because they can't afford to, but because they don't know where to begin, don't understand the language, and are afraid of losing what they have.</p>
+            <p class="source-note">Source: ESMA Trends, Risks and Vulnerabilities Report 2025/2026.</p>
 
             <div class="divider"></div>
 
-            <!-- FAQ -->
-            <h2>Common questions</h2>
+            <h2>How Investing Works in the EU: The Safety Net</h2>
+            <p>When you start your journey in markets like Sweden, Spain, Italy, or the Netherlands, you are protected by a harmonised European framework designed to prevent black swan events from wiping out retail savers.</p>
+
+            <h3>The €100,000 Deposit Guarantee</h3>
+            <p>Under EU Directive 2014/49/EU, your cash deposits in any regulated EU bank are protected up to €100,000 per person, per institution. Whether you are in Amsterdam or Madrid, this floor remains the same.</p>
+
+            <h3>Asset Segregation (MiFID II)</h3>
+            <p>European regulations require that your investments — stocks and funds — are kept separate from the broker's own balance sheet. If your platform goes bankrupt, your assets remain yours.</p>
+
+            <div class="divider"></div>
+
+            <h2>Comparing Your Options: Cash vs UCITS Index Funds</h2>
+            <p>For a beginner, the choice usually stands between staying in cash or moving into UCITS — Undertakings for Collective Investment in Transferable Securities. These are the gold standard for regulated, diversified funds in Europe.</p>
+
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Savings Account (Cash)</th>
+                        <th>UCITS Index Funds</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Primary Goal</td>
+                        <td>Liquidity &amp; Emergency Fund</td>
+                        <td>Long-term Wealth Building</td>
+                    </tr>
+                    <tr>
+                        <td>Risk Type</td>
+                        <td>Inflation Risk</td>
+                        <td>Market Volatility</td>
+                    </tr>
+                    <tr>
+                        <td>EU Protection</td>
+                        <td>Deposit Guarantee (€100k)</td>
+                        <td>Investor Compensation Schemes</td>
+                    </tr>
+                    <tr>
+                        <td>Historical Return</td>
+                        <td>Usually below inflation</td>
+                        <td>Varies over time. Historical data shows positive returns over long periods but outcomes are not guaranteed.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="divider"></div>
+
+            <h2>The Tide is Turning</h2>
+            <p>Something is shifting. After years of European households keeping the majority of their wealth in low-interest deposits, the data shows a clear change in direction.</p>
+            <p>Investment fund holdings among euro area households grew <strong>11.2% year on year</strong> in Q3 2025 — more than three times faster than bank deposits, which grew just 3.2% over the same period.</p>
+            <p class="source-note">Source: ECB Sector Accounts Q3 2025.</p>
+            <p>The reasons are becoming clear. The 2022 inflation spike was a wake-up call — savings accounts experienced reductions in purchasing power in real terms during the inflation spike. At the same time, the European Commission launched the Savings and Investments Union in 2025, a policy framework explicitly designed to redirect European household deposits into capital markets and make investing more accessible across all member states.</p>
+            <p>The shift is showing up in demographics too. Women's investment participation across Europe increased by <strong>11 percentage points</strong> between 2022 and 2024 — more than double the increase seen among men over the same period.</p>
+            <p class="source-note">Source: BlackRock People &amp; Money Survey 2024.</p>
+            <p>The majority is still on the sidelines. But the direction is clear.</p>
+
+            <div class="divider"></div>
+
+            <h2>Even the EU Agrees</h2>
+            <p>The investment gap isn't just a personal problem — it's a structural challenge that European institutions are now explicitly trying to solve.</p>
+            <p>In 2025 the European Commission launched the Savings and Investments Union, built around one central diagnosis: too much European household wealth is sitting in bank deposits. Their analysis suggests that if Europeans invested like Americans, up to <strong>€8 trillion</strong> could move into capital markets — roughly €350 billion per year.</p>
+            <p class="source-note">Source: European Commission SIU Strategy, COM/2025/124.</p>
+            <p>This isn't a fringe idea. The highest levels of European economic policy are pointing at the same structural issue identified in household savings behaviour.</p>
+
+            <div class="divider"></div>
+
+            <h2>Frequently Asked Questions</h2>
 
             <div class="faq-section">
                 <div class="faq-item">
-                    <p class="faq-q">[PLACEHOLDER — FAQ question 1]</p>
-                    <p class="faq-a">[PLACEHOLDER — FAQ answer 1. 2–4 sentences. Plain language.]</p>
+                    <p class="faq-q">How much risk can I handle?</p>
+                    <p class="faq-a">Risk tolerance depends on how long you can leave your money invested and how you would feel if its value dropped temporarily. Generally, the longer your time horizon, the more market volatility you can absorb. Most beginner frameworks suggest starting with a diversified, low-cost fund that matches a risk level you are comfortable with — not the highest possible return, but the one you can stay committed to without panic-selling during a downturn. Capital is always at risk in market-based investments.</p>
                 </div>
                 <div class="faq-item">
-                    <p class="faq-q">[PLACEHOLDER — FAQ question 2]</p>
-                    <p class="faq-a">[PLACEHOLDER — FAQ answer 2. 2–4 sentences. Plain language.]</p>
+                    <p class="faq-q">How much of my savings should I invest?</p>
+                    <p class="faq-a">A common starting principle is to invest only what you can leave untouched for at least five years, after covering essential expenses and maintaining an emergency fund of three to six months of living costs. There is no universal correct amount — starting small is better than not starting at all, provided you understand what you are investing in and accept that the value can go down as well as up.</p>
                 </div>
                 <div class="faq-item">
-                    <p class="faq-q">[PLACEHOLDER — FAQ question 3]</p>
-                    <p class="faq-a">[PLACEHOLDER — FAQ answer 3. 2–4 sentences. Plain language.]</p>
+                    <p class="faq-q">How do I start investing without making a mistake?</p>
+                    <p class="faq-a">The most common mistakes for first-time investors are starting without understanding the product, choosing based on short-term performance, and reacting emotionally to market movements. Regulators including ESMA recommend understanding any investment product before committing money, checking that the platform is authorised in your country, and diversifying rather than concentrating in a single asset. Starting with a simple, regulated, diversified fund is widely considered the lowest-friction entry point for European beginners.</p>
                 </div>
             </div>
 
@@ -329,14 +352,14 @@
                 <p class="read-next-label">Read next</p>
                 <div class="read-next-links">
                     <a href="/concept" class="read-next-link">See the OVÉ concept</a>
-                    <a href="/learn/article-1" class="read-next-link">[PLACEHOLDER — cluster article 1 title]</a>
-                    <a href="/learn/article-2" class="read-next-link">[PLACEHOLDER — cluster article 2 title]</a>
                 </div>
             </div>
 
-            <!-- Compliance note -->
-            <p style="font-size:0.78rem;color:var(--muted);opacity:0.6;font-weight:300;line-height:1.6;margin:2rem 0 2rem;">This article is for informational purposes only and does not constitute investment advice. OVÉ is not currently authorised to provide investment services. Investing involves risk, including the possible loss of capital.</p>
-            <p style="font-size:0.82rem;color:var(--muted);font-weight:300;margin-bottom:4rem;">OVÉ is being built to address this. <a href="/waitlist" style="color:var(--blue);text-decoration:none;">Learn more →</a></p>
+            <!-- OVÉ link -->
+            <p style="font-size:0.82rem;color:var(--muted);font-weight:300;margin-bottom:1.5rem;">OVÉ is a concept currently under development and is being built to address this. <a href="/waitlist" style="color:var(--blue);text-decoration:none;">Learn more →</a></p>
+
+            <!-- Disclaimer -->
+            <p style="font-size:0.78rem;color:var(--muted);opacity:0.55;font-weight:300;line-height:1.65;margin-bottom:4rem;">OVÉ is not currently authorised or regulated to provide investment services in the European Union. This content is provided for educational purposes only and does not constitute investment advice, a recommendation, or an offer to invest. Past performance and historical data do not guarantee future results.</p>
 
         </div>
     </article>
