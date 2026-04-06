@@ -43,11 +43,7 @@ var OVE = (function() {
     // ─── SPLASH GUARD ─────────────────────────────────────────────────────────
 
     function splashGuard() {
-        try {
-            if (!localStorage.getItem('ove-splashed')) {
-                window.location.replace('/');
-            }
-        } catch(e) {}
+        // Splash removed — no longer redirecting
     }
 
     // ─── NAV ──────────────────────────────────────────────────────────────────
