@@ -62,4 +62,12 @@
     <priority>0.3</priority>
   </url>
 
+  <url>
+    <loc>https://meetove.pro/learn</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meetove.pro/learn"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meetove.pro/learn"/>
+  </url>
+
 </urlset>
