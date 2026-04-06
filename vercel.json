@@ -1,14 +1,51 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/splash.html" },
-    { "source": "/index", "destination": "/home.html" },
-    { "source": "/concept", "destination": "/concept.html" },
-    { "source": "/demo", "destination": "/demo.html" },
-    { "source": "/vision", "destination": "/vision.html" },
-    { "source": "/regulatory", "destination": "/regulatory.html" },
-    { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/waitlist", "destination": "/waitlist.html" },
-    { "source": "/terms", "destination": "/terms.html" },
-    { "source": "/learn", "destination": "/learn.html" }
+    {
+      "source": "/",
+      "destination": "/splash.html"
+    },
+    {
+      "source": "/index",
+      "destination": "/home.html"
+    },
+    {
+      "source": "/concept",
+      "destination": "/concept.html"
+    },
+    {
+      "source": "/demo",
+      "destination": "/demo.html"
+    },
+    {
+      "source": "/vision",
+      "destination": "/vision.html"
+    },
+    {
+      "source": "/regulatory",
+      "destination": "/regulatory.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/waitlist",
+      "destination": "/waitlist.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/learn",
+      "destination": "/learn.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/learn/european-investment-gap",
+      "destination": "/learn",
+      "permanent": true
+    }
   ]
 }
