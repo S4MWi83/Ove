@@ -193,7 +193,69 @@
             .compare-table { font-size:0.8rem; }
             .compare-table th, .compare-table td { padding:0.6rem 0.75rem; }
         }
-    </style>
+    
+        /* ── Table of Contents ────────────────────────────────────────────── */
+        .article-layout {
+            display:grid;
+            grid-template-columns:1fr 180px;
+            gap:4rem;
+            align-items:start;
+            max-width:900px;
+            margin:0 auto;
+        }
+        .toc-sidebar {
+            position:sticky;
+            top:6rem;
+            width:180px;
+            flex-shrink:0;
+        }
+        .toc-label {
+            font-size:0.65rem; font-weight:600; letter-spacing:0.12em;
+            text-transform:uppercase; color:var(--kb-muted);
+            margin-bottom:0.75rem; display:block;
+        }
+        .toc-list { list-style:none; display:flex; flex-direction:column; gap:0; }
+        .toc-link {
+            display:block; font-size:0.78rem; font-weight:300; color:var(--kb-muted);
+            text-decoration:none; padding:0.35rem 0 0.35rem 0.75rem;
+            border-left:2px solid transparent;
+            transition:color 0.2s, border-color 0.2s;
+            line-height:1.4;
+        }
+        .toc-link:hover { color:var(--kb-text); }
+        .toc-link.active {
+            color:var(--kb-text); font-weight:500;
+            border-left-color:var(--blue);
+        }
+
+        /* Mobile TOC — static, top of article */
+        .toc-mobile {
+            display:none; /* hidden by default, shown on mobile */
+            background:var(--kb-surface);
+            border-radius:12px;
+            padding:1.25rem 1.5rem;
+            margin-bottom:2.5rem;
+        }
+        .toc-mobile .toc-label { margin-bottom:0.75rem; }
+        .toc-mobile .toc-list { gap:0; }
+        .toc-mobile .toc-link {
+            border-left:none; padding:0.3rem 0;
+            border-bottom:1px solid var(--kb-border);
+        }
+        .toc-mobile .toc-list li:last-child .toc-link { border-bottom:none; }
+
+        @media(max-width:900px) {
+            .article-layout { grid-template-columns:1fr; }
+            .toc-sidebar { display:none; }
+            .toc-mobile { display:block; }
+        }
+        @media(max-width:640px) {
+            .article-layout { grid-template-columns:1fr; }
+            .toc-sidebar { display:none; }
+            .toc-mobile { display:block; }
+        }
+        /* ────────────────────────────────────────────────────────────────── */
+        </style>
 </head>
 <body>
 <div class="orb"></div>
@@ -208,7 +270,9 @@
     </div>
 </nav>
 
+
 <div class="wrap">
+    <div class="article-layout">
     <article>
 
         <div class="hero">
@@ -232,7 +296,21 @@
 
         <div class="article-body">
 
-            <h2>The Scale of the Problem</h2>
+            <!-- TOC Mobile (static) — shown below answer-first on mobile -->
+            <div class="toc-mobile" aria-label="Table of contents">
+                <span class="toc-label">Contents</span>
+                <ul class="toc-list">
+                    <li><a href="#scale" class="toc-link">The Scale of the Problem</a></li>
+                    <li><a href="#barriers" class="toc-link">The Three Barriers</a></li>
+                    <li><a href="#safety-net" class="toc-link">How Investing Works in the EU: The Safety Net</a></li>
+                    <li><a href="#options" class="toc-link">Comparing Your Options: Cash vs UCITS Index Funds</a></li>
+                    <li><a href="#tide" class="toc-link">The Tide is Turning</a></li>
+                    <li><a href="#eu-agrees" class="toc-link">Even the EU Agrees</a></li>
+                    <li><a href="#faq" class="toc-link">Frequently Asked Questions</a></li>
+                </ul>
+            </div>
+
+            <h2 id="scale">The Scale of the Problem</h2>
             <p>Trillions of euros are sitting idle in European savings accounts — not growing significantly and may lose purchasing power over time due to inflation. What feels safe is quietly working against you.</p>
 
             <div class="stat-callout">
@@ -245,7 +323,7 @@
 
             <div class="divider"></div>
 
-            <h2>The Three Barriers</h2>
+            <h2 id="barriers">The Three Barriers</h2>
             <p>Ever feel like opening an investing platform is like walking into a courtroom, being handed a law book, and being asked to defend yourself?</p>
             <p><strong>First — you don't know which page to start with.</strong> The interface is overwhelming, the options are endless, and nobody told you where to begin.</p>
             <p><strong>Then —</strong> even when you find your footing, the language reads like a foreign legal system. Sections, charts, terminology that assumes you already know what you're doing. A complete mess if you don't speak the language.</p>
@@ -255,7 +333,7 @@
 
             <div class="divider"></div>
 
-            <h2>How Investing Works in the EU: The Safety Net</h2>
+            <h2 id="safety-net">How Investing Works in the EU: The Safety Net</h2>
             <p>When you start your journey in markets like Sweden, Spain, Italy, or the Netherlands, you are protected by a harmonised European framework designed to prevent black swan events from wiping out retail savers.</p>
 
             <h3>The €100,000 Deposit Guarantee</h3>
@@ -266,7 +344,7 @@
 
             <div class="divider"></div>
 
-            <h2>Comparing Your Options: Cash vs UCITS Index Funds</h2>
+            <h2 id="options">Comparing Your Options: Cash vs UCITS Index Funds</h2>
             <p>For a beginner, the choice usually stands between staying in cash or moving into UCITS — Undertakings for Collective Investment in Transferable Securities. These are the gold standard for regulated, diversified funds in Europe.</p>
 
             <table class="compare-table">
@@ -303,7 +381,7 @@
 
             <div class="divider"></div>
 
-            <h2>The Tide is Turning</h2>
+            <h2 id="tide">The Tide is Turning</h2>
             <p>Something is shifting. After years of European households keeping the majority of their wealth in low-interest deposits, the data shows a clear change in direction.</p>
             <p>Investment fund holdings among euro area households grew <strong>11.2% year on year</strong> in Q3 2025 — more than three times faster than bank deposits, which grew just 3.2% over the same period.</p>
             <p class="source-note">Source: ECB Sector Accounts Q3 2025.</p>
@@ -314,7 +392,7 @@
 
             <div class="divider"></div>
 
-            <h2>Even the EU Agrees</h2>
+            <h2 id="eu-agrees">Even the EU Agrees</h2>
             <p>The investment gap isn't just a personal problem — it's a structural challenge that European institutions are now explicitly trying to solve.</p>
             <p>In 2025 the European Commission launched the Savings and Investments Union, built around one central diagnosis: too much European household wealth is sitting in bank deposits. Their analysis suggests that if Europeans invested like Americans, up to <strong>€8 trillion</strong> could move into capital markets — roughly €350 billion per year.</p>
             <p class="source-note">Source: European Commission SIU Strategy, COM/2025/124.</p>
@@ -322,7 +400,7 @@
 
             <div class="divider"></div>
 
-            <h2>Frequently Asked Questions</h2>
+            <h2 id="faq">Frequently Asked Questions</h2>
 
             <div class="faq-section">
                 <div class="faq-item">
@@ -357,6 +435,19 @@
 
         </div>
     </article>
+    <aside class="toc-sidebar" aria-label="Table of contents">
+        <span class="toc-label">Contents</span>
+        <ul class="toc-list">
+            <li><a href="#scale" class="toc-link" data-section="scale">The Scale of the Problem</a></li>
+            <li><a href="#barriers" class="toc-link" data-section="barriers">The Three Barriers</a></li>
+            <li><a href="#safety-net" class="toc-link" data-section="safety-net">Safety Net</a></li>
+            <li><a href="#options" class="toc-link" data-section="options">Cash vs Funds</a></li>
+            <li><a href="#tide" class="toc-link" data-section="tide">The Tide is Turning</a></li>
+            <li><a href="#eu-agrees" class="toc-link" data-section="eu-agrees">Even the EU Agrees</a></li>
+            <li><a href="#faq" class="toc-link" data-section="faq">FAQ</a></li>
+        </ul>
+    </aside>
+    </div>
 </div>
 
 <footer>
@@ -371,5 +462,31 @@
 
 <script src="/ove-shared.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<script>
+(function() {
+    var links = document.querySelectorAll('.toc-sidebar .toc-link');
+    if (!links.length) return;
+    var sections = Array.from(links).map(function(l) {
+        return document.getElementById(l.dataset.section);
+    }).filter(Boolean);
+
+    function onScroll() {
+        var scrollY = window.scrollY + 120;
+        var active = sections[0];
+        for (var i = 0; i < sections.length; i++) {
+            if (sections[i].getBoundingClientRect().top + window.scrollY <= scrollY) {
+                active = sections[i];
+            }
+        }
+        links.forEach(function(l) {
+            l.classList.toggle('active', l.dataset.section === active.id);
+        });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+})();
+</script>
 </body>
 </html>
