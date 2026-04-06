@@ -38,7 +38,7 @@
     },
     {
       "source": "/learn",
-      "destination": "/learn.html"
+      "destination": "/_learn.html"
     }
   ],
   "redirects": [
