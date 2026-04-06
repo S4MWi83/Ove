@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /demo
+Disallow: /vision
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://meetove.pro/sitemap.xml

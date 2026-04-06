@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            try {
+                if (!localStorage.getItem('ove-splashed')) {
+                    window.location.replace('/');
+                }
+            } catch(e) {}
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+
+    <!-- SEO — placeholder, will be updated with content -->
+    <title>Ové | Learn About Investing</title>
+    <meta name="description" content="[PLACEHOLDER — to be updated with final content]">
+    <link rel="canonical" href="https://meetove.pro/learn">
+
+    <!-- Open Graph — placeholder -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://meetove.pro/learn">
+    <meta property="og:title" content="[PLACEHOLDER]">
+    <meta property="og:description" content="[PLACEHOLDER]">
+    <meta property="og:image" content="https://meetove.pro/ove-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://meetove.pro/ove-og.png">
+
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="en" href="https://meetove.pro/learn">
+    <link rel="alternate" hreflang="x-default" href="https://meetove.pro/learn">
+
+    <!-- Schema: Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "[PLACEHOLDER]",
+        "description": "[PLACEHOLDER]",
+        "url": "https://meetove.pro/learn",
+        "publisher": {
+            "@type": "Organization",
+            "name": "OVÉ",
+            "url": "https://meetove.pro"
+        },
+        "datePublished": "2026-04-06",
+        "dateModified": "2026-04-06",
+        "inLanguage": "en"
+    }
+    </script>
+
+    <!-- Schema: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "[PLACEHOLDER — FAQ question 1]",
+                "acceptedAnswer": { "@type": "Answer", "text": "[PLACEHOLDER — FAQ answer 1]" }
+            },
+            {
+                "@type": "Question",
+                "name": "[PLACEHOLDER — FAQ question 2]",
+                "acceptedAnswer": { "@type": "Answer", "text": "[PLACEHOLDER — FAQ answer 2]" }
+            },
+            {
+                "@type": "Question",
+                "name": "[PLACEHOLDER — FAQ question 3]",
+                "acceptedAnswer": { "@type": "Answer", "text": "[PLACEHOLDER — FAQ answer 3]" }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Schema: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://meetove.pro/index" },
+            { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://meetove.pro/learn" }
+        ]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/ove-favicon-e.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+
+    <style>
+        :root {
+            --deep:#060f1e; --blue:#3b82f6; --blue-dim:rgba(59,130,246,0.12);
+            --cream:#f0ece4; --muted:#9db5cc; --border:rgba(255,255,255,0.07);
+            --surface:#0d1e35;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body {
+            font-family:'DM Sans',sans-serif; background:var(--deep);
+            color:var(--cream); line-height:1.7;
+            -webkit-font-smoothing:antialiased; min-height:100vh;
+        }
+        .orb {
+            position:fixed; border-radius:50%; filter:blur(80px);
+            pointer-events:none; z-index:0; width:55vw; height:55vw;
+            top:-18vw; left:50%; transform:translateX(-50%);
+            background:radial-gradient(circle,rgba(59,130,246,0.12),transparent 70%);
+        }
+
+        /* Nav */
+        nav {
+            display:flex; align-items:center; justify-content:space-between;
+            padding:1.25rem 2rem; position:fixed; top:0; left:0; right:0;
+            z-index:100; background:rgba(6,15,30,0.6);
+            backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+            border-bottom:1px solid var(--border);
+            box-shadow:0 1px 20px rgba(59,130,246,0.08);
+        }
+        .nav-logo { font-family:'Instrument Serif',serif; font-size:1.8rem; color:var(--cream); text-decoration:none; position:relative; }
+        .nav-logo span { display:inline-block; width:6px; height:6px; background:var(--blue); border-radius:50%; position:absolute; top:6px; right:-9px; box-shadow:0 0 8px rgba(59,130,246,0.5); }
+        .nav-links { display:flex; align-items:center; gap:1.5rem; }
+        .nav-link { font-size:0.85rem; font-weight:400; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+        .nav-link:hover, .nav-link.active { color:var(--cream); }
+
+        /* Layout */
+        .wrap { max-width:1080px; margin:0 auto; padding:0 2rem; position:relative; z-index:1; }
+
+        /* Hero */
+        .hero { padding:8rem 0 3.5rem; opacity:0; animation:fadeUp 0.7s ease forwards 0.2s; }
+
+        /* Breadcrumb */
+        .breadcrumb { font-size:0.78rem; color:var(--muted); font-weight:300; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; }
+        .breadcrumb a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
+        .breadcrumb a:hover { color:var(--cream); }
+        .breadcrumb-sep { opacity:0.4; }
+
+        /* Typography */
+        .eyebrow { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:1.25rem; }
+        h1 { font-family:'Instrument Serif',serif; font-size:clamp(2.4rem,5vw,4rem); line-height:1.08; letter-spacing:-0.02em; margin-bottom:1.25rem; }
+        .hero-sub { font-size:clamp(1rem,1.8vw,1.1rem); color:var(--muted); font-weight:300; max-width:560px; line-height:1.8; margin-bottom:3rem; }
+        h2 { font-family:'Instrument Serif',serif; font-size:clamp(1.6rem,3vw,2.2rem); line-height:1.15; letter-spacing:-0.01em; margin:3rem 0 1rem; color:var(--cream); }
+        h3 { font-family:'Instrument Serif',serif; font-size:1.2rem; line-height:1.2; margin:2rem 0 0.75rem; color:var(--cream); }
+
+        /* Answer-first box */
+        .answer-first {
+            background:rgba(59,130,246,0.07); border:1px solid rgba(59,130,246,0.2);
+            border-radius:16px; padding:1.5rem 1.75rem; margin-bottom:4rem; max-width:680px;
+        }
+        .answer-first-label { font-size:0.65rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:0.75rem; }
+        .answer-first p { font-size:0.95rem; color:var(--cream); font-weight:400; line-height:1.75; }
+
+        /* Article body */
+        .article-body { max-width:680px; opacity:0; animation:fadeUp 0.7s ease forwards 0.4s; }
+        .article-body p { font-size:0.975rem; color:var(--muted); font-weight:300; line-height:1.85; margin-bottom:1.25rem; }
+        .article-body p strong { color:var(--cream); font-weight:500; }
+
+        /* Divider */
+        .divider { width:40px; height:1px; background:rgba(59,130,246,0.3); margin:3rem 0; }
+
+        /* Cluster links — no cards, clean list */
+        .cluster-grid { display:flex; flex-direction:column; gap:0; margin:1.5rem 0 3rem; }
+        .cluster-link { display:flex; align-items:center; justify-content:space-between; padding:1.1rem 0; border-bottom:1px solid var(--border); text-decoration:none; transition:all 0.2s; gap:1rem; }
+        .cluster-link:first-child { border-top:1px solid var(--border); }
+        .cluster-link:hover .cluster-link-title { color:var(--cream); }
+        .cluster-link:hover .cluster-arrow { color:var(--blue); transform:translateX(3px); }
+        .cluster-link-meta { font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); opacity:0.8; margin-bottom:0.25rem; }
+        .cluster-link-title { font-size:0.95rem; color:var(--muted); font-weight:400; transition:color 0.2s; line-height:1.4; }
+        .cluster-arrow { color:var(--muted); font-size:0.9rem; flex-shrink:0; transition:all 0.2s; }
+
+        /* FAQ */
+        .faq-section { margin:1.5rem 0 3rem; }
+        .faq-item { border-top:1px solid var(--border); padding:1.5rem 0; }
+        .faq-item:last-child { border-bottom:1px solid var(--border); }
+        .faq-q { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--cream); margin-bottom:0.75rem; line-height:1.3; }
+        .faq-a { font-size:0.9rem; color:var(--muted); font-weight:300; line-height:1.8; }
+
+        /* Read next */
+        .read-next { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:1.75rem; margin:3rem 0 2rem; }
+        .read-next-label { font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); margin-bottom:1rem; }
+        .read-next-links { display:flex; flex-direction:column; gap:0.75rem; }
+        .read-next-link { font-size:0.9rem; color:var(--muted); text-decoration:none; transition:color 0.2s; display:flex; align-items:center; gap:0.5rem; }
+        .read-next-link:hover { color:var(--cream); }
+        .read-next-link::before { content:'→'; color:var(--blue); font-size:0.8rem; }
+
+        /* Footer */
+        footer { border-top:1px solid var(--border); padding:2rem; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:0.6rem; text-align:center; font-size:0.8rem; color:var(--muted); font-weight:300; }
+        .footer-links { display:flex; gap:1.5rem; }
+        .footer-links a { color:var(--blue); text-decoration:none; transition:opacity 0.2s; }
+        .footer-links a:hover { opacity:0.75; }
+
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+        @media(max-width:640px) {
+            nav { padding:1.25rem 1.35rem; }
+            .wrap { padding:0 1.35rem; }
+            .hero { padding:7rem 0 3rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="orb"></div>
+
+<nav>
+    <a href="/index" class="nav-logo">Ové<span></span></a>
+    <div class="nav-links">
+        <a href="/index" class="nav-link" style="display:flex;align-items:center;" aria-label="Home"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a><span style="color:var(--border);font-weight:300;font-size:1rem;margin:0 0.1rem;">|</span>
+        <a href="/concept" class="nav-link">Concept</a>
+        <a href="/waitlist" class="nav-link">Waitlist</a>
+        <a href="/learn" class="nav-link active">Learn</a>
+    </div>
+</nav>
+
+<div class="wrap">
+    <article>
+
+        <div class="hero">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/index">Home</a>
+                <span class="breadcrumb-sep">›</span>
+                <span>Learn</span>
+            </nav>
+
+            <p class="eyebrow">Learning centre</p>
+            <h1>[PLACEHOLDER — H1 title]</h1>
+            <p class="hero-sub">[PLACEHOLDER — 2–3 sentence intro. Plain language. Sets up what the article covers.]</p>
+
+            <div class="answer-first">
+                <p class="answer-first-label">The short answer</p>
+                <p>[PLACEHOLDER — 40–60 word direct answer. No jargon. Written for someone who has never invested.]</p>
+            </div>
+        </div>
+
+        <div class="article-body">
+
+            <h2>[PLACEHOLDER — H2 section 1]</h2>
+            <p>[PLACEHOLDER — body copy]</p>
+
+            <h3>[PLACEHOLDER — H3 subsection]</h3>
+            <p>[PLACEHOLDER — body copy]</p>
+
+            <div class="divider"></div>
+
+            <h2>[PLACEHOLDER — H2 section 2]</h2>
+            <p>[PLACEHOLDER — body copy]</p>
+
+            <div class="divider"></div>
+
+            <h2>[PLACEHOLDER — H2 section 3]</h2>
+            <p>[PLACEHOLDER — body copy]</p>
+
+            <div class="divider"></div>
+
+            <!-- Cluster article links -->
+            <h2>Go deeper</h2>
+            <p style="font-size:0.9rem;color:var(--muted);font-weight:300;line-height:1.75;margin-bottom:0.5rem;">Each of these articles covers one part of this guide in more detail.</p>
+
+            <nav class="cluster-grid" aria-label="Related articles">
+                <a href="/learn/article-1" class="cluster-link">
+                    <div>
+                        <p class="cluster-link-meta">Article 1</p>
+                        <p class="cluster-link-title">[PLACEHOLDER — cluster article 1 title]</p>
+                    </div>
+                    <span class="cluster-arrow">→</span>
+                </a>
+                <a href="/learn/article-2" class="cluster-link">
+                    <div>
+                        <p class="cluster-link-meta">Article 2</p>
+                        <p class="cluster-link-title">[PLACEHOLDER — cluster article 2 title]</p>
+                    </div>
+                    <span class="cluster-arrow">→</span>
+                </a>
+                <a href="/learn/article-3" class="cluster-link">
+                    <div>
+                        <p class="cluster-link-meta">Article 3</p>
+                        <p class="cluster-link-title">[PLACEHOLDER — cluster article 3 title]</p>
+                    </div>
+                    <span class="cluster-arrow">→</span>
+                </a>
+                <a href="/learn/article-4" class="cluster-link">
+                    <div>
+                        <p class="cluster-link-meta">Article 4</p>
+                        <p class="cluster-link-title">[PLACEHOLDER — cluster article 4 title]</p>
+                    </div>
+                    <span class="cluster-arrow">→</span>
+                </a>
+                <a href="/learn/article-5" class="cluster-link">
+                    <div>
+                        <p class="cluster-link-meta">Article 5</p>
+                        <p class="cluster-link-title">[PLACEHOLDER — cluster article 5 title]</p>
+                    </div>
+                    <span class="cluster-arrow">→</span>
+                </a>
+            </nav>
+
+            <div class="divider"></div>
+
+            <!-- FAQ -->
+            <h2>Common questions</h2>
+
+            <div class="faq-section">
+                <div class="faq-item">
+                    <p class="faq-q">[PLACEHOLDER — FAQ question 1]</p>
+                    <p class="faq-a">[PLACEHOLDER — FAQ answer 1. 2–4 sentences. Plain language.]</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">[PLACEHOLDER — FAQ question 2]</p>
+                    <p class="faq-a">[PLACEHOLDER — FAQ answer 2. 2–4 sentences. Plain language.]</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">[PLACEHOLDER — FAQ question 3]</p>
+                    <p class="faq-a">[PLACEHOLDER — FAQ answer 3. 2–4 sentences. Plain language.]</p>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Read next -->
+            <div class="read-next">
+                <p class="read-next-label">Read next</p>
+                <div class="read-next-links">
+                    <a href="/concept" class="read-next-link">See the OVÉ concept</a>
+                    <a href="/learn/article-1" class="read-next-link">[PLACEHOLDER — cluster article 1 title]</a>
+                    <a href="/learn/article-2" class="read-next-link">[PLACEHOLDER — cluster article 2 title]</a>
+                </div>
+            </div>
+
+            <!-- Compliance note -->
+            <p style="font-size:0.78rem;color:var(--muted);opacity:0.6;font-weight:300;line-height:1.6;margin:2rem 0 4rem;">This article is for informational purposes only and does not constitute investment advice. OVÉ is not currently authorised to provide investment services. Investing involves risk, including the possible loss of capital.</p>
+
+        </div>
+    </article>
+</div>
+
+<footer>
+    <span style="font-size:0.75rem;opacity:0.7;">OVÉ is a concept developed by Samuel Gustaf, based in Halmstad, Sweden.</span>
+    <span>© <span id="year"></span> Ové. Currently in development.</span>
+    <div class="footer-links">
+        <a href="/regulatory">Regulatory</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+    </div>
+</footer>
+
+<script src="/ove-shared.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
