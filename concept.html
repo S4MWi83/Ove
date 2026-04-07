@@ -174,11 +174,27 @@
         footer a { color:var(--blue); text-decoration:none; }
         footer a:hover { text-decoration:underline; }
         .footer-links { display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; }
+
+            /* Mobile hamburger */
+            .nav-hamburger { display:none; background:none; border:none; cursor:pointer; padding:0.25rem; color:var(--muted); }
+            .nav-hamburger:hover { color:var(--cream); }
+            .nav-mobile-menu { display:none; position:fixed; top:57px; left:0; right:0; background:#060f1e; border-bottom:1px solid var(--border); z-index:99; padding:1rem 1.5rem; flex-direction:column; gap:0; }
+            .nav-mobile-menu.open { display:flex; }
+            .nav-mobile-link { font-size:0.9rem; font-weight:400; color:var(--muted); text-decoration:none; padding:0.75rem 0; border-bottom:1px solid var(--border); transition:color 0.2s; display:flex; align-items:center; gap:0.5rem; }
+            .nav-mobile-link:last-child { border-bottom:none; }
+            .nav-mobile-link:hover, .nav-mobile-link.active { color:var(--cream); }
+            .nav-mobile-lang { display:flex; gap:0.5rem; padding:0.75rem 0; flex-wrap:wrap; }
+            .nav-mobile-lang-btn { background:none; border:1px solid var(--border); border-radius:6px; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.78rem; padding:0.25rem 0.5rem; cursor:pointer; transition:all 0.2s; }
+            .nav-mobile-lang-btn:hover, .nav-mobile-lang-btn.active { color:var(--cream); border-color:var(--blue); background:rgba(59,130,246,0.1); }
         @media(max-width:640px) {
             nav { padding:1rem 1.25rem; }
             .nav-logo { font-size:1.5rem; }
             .nav-links { gap:0.75rem; }
             #lang-switcher { display:none; }
+            a[href="/learn"].nav-link { display:none; }
+            span[style*="color:var(--border)"] { display:none; }
+            .nav-links > a.nav-link:not([href="/index"]) { display:none; }
+            .nav-hamburger { display:block; }
             .nav-link { font-size:0.78rem; }
             .hero { min-height:auto; padding:6rem 0 4rem; }
             .demo-modal { border-radius:20px; }
@@ -209,7 +225,26 @@
                 </div>
             </div>
         </div>
-    </nav>
+    
+</nav>
+
+<!-- Mobile menu -->
+<div class="nav-mobile-menu" id="nav-mobile-menu">
+    <a href="/index" class="nav-mobile-link">
+        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Home
+    </a>
+    <a href="/concept" class="nav-mobile-link active" data-i18n="nav_concept">Concept</a>
+    <a href="/waitlist" class="nav-mobile-link" data-i18n="nav_waitlist">Waitlist</a>
+    <a href="/learn" class="nav-mobile-link">Learn</a>
+    <div class="nav-mobile-lang">
+        <button class="nav-mobile-lang-btn active" data-lang="en">EN</button>
+        <button class="nav-mobile-lang-btn" data-lang="sv">SV</button>
+        <button class="nav-mobile-lang-btn" data-lang="es">ES</button>
+        <button class="nav-mobile-lang-btn" data-lang="it">IT</button>
+        <button class="nav-mobile-lang-btn" data-lang="nl">NL</button>
+    </div>
+</div>
 
     <div class="wrap" role="main">
 
