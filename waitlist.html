@@ -260,8 +260,20 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+
+        /* Mobile hamburger */
+        .nav-hamburger { display:none; background:none; border:none; cursor:pointer; padding:0.25rem; color:var(--muted); }
+        .nav-hamburger:hover { color:var(--cream); }
+        .nav-mobile-menu { display:none; position:fixed; top:57px; left:0; right:0; background:#060f1e; border-bottom:1px solid var(--border); z-index:99; padding:1rem 1.5rem; flex-direction:column; gap:0; }
+        .nav-mobile-menu.open { display:flex; }
+        .nav-mobile-link { font-size:0.9rem; font-weight:400; color:var(--muted); text-decoration:none; padding:0.75rem 0; border-bottom:1px solid var(--border); transition:color 0.2s; display:flex; align-items:center; gap:0.5rem; }
+        .nav-mobile-link:last-child { border-bottom:none; }
+        .nav-mobile-link:hover, .nav-mobile-link.active { color:var(--cream); }
+        .nav-mobile-lang { display:flex; gap:0.5rem; padding:0.75rem 0; flex-wrap:wrap; }
+        .nav-mobile-lang-btn { background:none; border:1px solid var(--border); border-radius:6px; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.78rem; padding:0.25rem 0.5rem; cursor:pointer; transition:all 0.2s; }
+        .nav-mobile-lang-btn:hover, .nav-mobile-lang-btn.active { color:var(--cream); border-color:var(--blue); background:rgba(59,130,246,0.1); }
         @media (max-width: 640px) {
-            nav { padding:1rem 1.25rem; } .nav-logo { font-size:1.5rem; } .nav-links { gap:0.75rem; } #lang-switcher { display:none; } a[href="/learn"].nav-link { display:none; } .nav-links > a.nav-link:not([href="/index"]) { display:none; } .nav-hamburger { display:block; }
+            nav { padding:1rem 1.25rem; } .nav-logo { font-size:1.5rem; } .nav-links { gap:0.75rem; } #lang-switcher { display:none; } a[href="/learn"].nav-link { display:none; } .nav-links > a.nav-link:not([href="/index"]) { display:none; } .nav-home-icon { display:none !important; } .nav-sep { display:none !important; } .nav-hamburger { display:block; }
             .nav-logo { font-size:1.5rem; }
             .nav-links { gap:0.85rem; }
             .nav-link { font-size:0.78rem; }
@@ -278,7 +290,7 @@
 <nav>
     <a href="/index" class="nav-logo">Ové<span></span></a>
     <div class="nav-links">
-            <a href="/index" class="nav-link" style="display:flex;align-items:center;" aria-label="Home"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a><span style="color:var(--border);font-weight:300;font-size:1rem;margin:0 0.1rem;">|</span>
+        <a href="/index" class="nav-link nav-home-icon" style="display:flex;align-items:center;" aria-label="Home"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a><span class="nav-sep" style="color:var(--border);font-weight:300;font-size:1rem;margin:0 0.1rem;">|</span>
             <a href="/concept" class="nav-link" data-i18n="nav_concept">Concept</a>
             <a href="/waitlist" class="nav-link active" data-i18n="nav_waitlist">Waitlist</a>
             <a href="/learn" class="nav-link">Learn</a>
@@ -293,7 +305,11 @@
                 </div>
             </div>
         </div>
-    
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
 </nav>
 
 <!-- Mobile menu -->
@@ -394,7 +410,7 @@
             code: 'EN'
         },
         sv: {
-            nav_concept:'Concept',nav_waitlist:'Waitlist',label:'Produktuppdateringar',
+            nav_concept:'Koncept',nav_waitlist:'Väntelista',label:'Produktuppdateringar',
             title: 'Var med och bygg det vi skapar.',
             sub: 'Varje anmälan hjälper till att validera idén.',
             placeholder: 'du@exempel.se',
@@ -408,7 +424,7 @@
             success_title: 'Du \u00e4r med p\u00e5 listan.',
             success_sub: 'Vi skickar produktuppdateringar n\u00e4r konceptet utvecklas.',
             disclaimer: 'Att g\u00e5 med i listan skapar inget konto, reserverar ingen tillg\u00e5ng och m\u00f6jligg\u00f6r ingen investeringsverksamhet. Ov\u00e9 \u00e4r inte beh\u00f6rigt att tillhandah\u00e5lla investeringstj\u00e4nster. Detta \u00e4r en e-postlista f\u00f6r produktuppdateringar.',
-            nav_concept: 'Concept', nav_waitlist: 'Waitlist',
+            nav_concept: 'Koncept', nav_waitlist: 'Väntelista',
             footer_dev: 'Under utveckling.',
             form_note: 'Att registrera sig indikerar intresse för framtida produktuppdateringar. Ingen investeringsåtkomst eller finansiella tjänster är för närvarande tillgängliga.',
             entity: 'OVÉ är ett koncept utvecklat av Samuel Gustaf, baserat i Halmstad, Sverige.',
@@ -416,7 +432,7 @@
             code: 'SV'
         },
         es: {
-            nav_concept:'Concept',nav_waitlist:'Waitlist',label:'Actualizaciones del producto',
+            nav_concept:'Concepto',nav_waitlist:'Lista de espera',label:'Actualizaciones del producto',
             title: 'Sé parte de lo que estamos construyendo.',
             sub: 'Cada registro ayuda a validar la idea.',
             placeholder: 'tu@ejemplo.com',
@@ -430,7 +446,7 @@
             success_title: 'Est\u00e1s en la lista.',
             success_sub: 'Enviaremos actualizaciones del producto a medida que el concepto evolucione.',
             disclaimer: 'Unirse a esta lista no crea una cuenta, no reserva acceso ni habilita ninguna actividad de inversi\u00f3n. Ov\u00e9 no est\u00e1 autorizado para prestar servicios de inversi\u00f3n. Esta es una lista de correo solo para actualizaciones del producto.',
-            nav_concept: 'Concept', nav_waitlist: 'Waitlist',
+            nav_concept: 'Concepto', nav_waitlist: 'Lista de espera',
             footer_dev: 'Actualmente en desarrollo.',
             form_note: 'Registrarse indica interés en futuras actualizaciones del producto. Actualmente no hay acceso a inversiones ni servicios financieros disponibles.',
             entity: 'OVÉ es un concepto desarrollado por Samuel Gustaf, con sede en Halmstad, Suecia.',
@@ -438,7 +454,7 @@
             code: 'ES'
         },
         it: {
-            nav_concept:'Concept',nav_waitlist:'Waitlist',label:'Aggiornamenti prodotto',
+            nav_concept:'Concetto',nav_waitlist:"Lista d'attesa",label:'Aggiornamenti prodotto',
             title: 'Fai parte di ciò che stiamo costruendo.',
             sub: 'Ogni iscrizione aiuta a convalidare l’idea.',
             placeholder: 'tu@esempio.com',
@@ -452,7 +468,7 @@
             success_title: 'Sei nella lista.',
             success_sub: 'Invieremo aggiornamenti sul prodotto man mano che il concetto si sviluppa.',
             disclaimer: 'Iscriversi a questa lista non crea un account, non riserva l\'accesso n\u00e9 abilita alcuna attivit\u00e0 di investimento. Ov\u00e9 non \u00e8 autorizzato a fornire servizi di investimento. Questa \u00e8 una mailing list solo per aggiornamenti sul prodotto.',
-            nav_concept: 'Concept', nav_waitlist: 'Waitlist',
+            nav_concept: 'Concetto', nav_waitlist: "Lista d'attesa",
             footer_dev: 'Attualmente in fase di sviluppo.',
             form_note: 'La registrazione indica interesse per futuri aggiornamenti del prodotto. Nessun accesso a investimenti o servizi finanziari è attualmente disponibile.',
             entity: 'OVÉ è un concetto sviluppato da Samuel Gustaf, con sede a Halmstad, Svezia.',
@@ -574,5 +590,52 @@
     });
 </script>
 <script src="/ove-shared.js"></script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var hamburger = document.getElementById('nav-hamburger');
+    var mobileMenu = document.getElementById('nav-mobile-menu');
+    if (!hamburger || !mobileMenu) return;
+
+    function syncMobileLang(lang) {
+        document.querySelectorAll('.nav-mobile-lang-btn').forEach(function(b) {
+            b.classList.toggle('active', b.dataset.lang === lang);
+        });
+    }
+
+    // Sync on load
+    var currentLang = localStorage.getItem('ove-lang') || 'en';
+    syncMobileLang(currentLang);
+
+    // Sync when lang changes from desktop switcher too
+    window.addEventListener('ove-lang-changed', function() {
+        syncMobileLang(localStorage.getItem('ove-lang') || 'en');
+    });
+
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var isOpen = mobileMenu.classList.toggle('open');
+        var path = hamburger.querySelector('svg path');
+        if (path) path.setAttribute('d', isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16');
+    });
+
+    document.addEventListener('click', function() {
+        mobileMenu.classList.remove('open');
+        var path = hamburger.querySelector('svg path');
+        if (path) path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+    });
+
+    document.querySelectorAll('.nav-mobile-lang-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var lang = btn.dataset.lang;
+            if (typeof applyLang === 'function') applyLang(lang);
+            syncMobileLang(lang);
+        });
+    });
+});
+</script>
 </body>
 </html>
