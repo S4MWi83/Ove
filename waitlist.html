@@ -261,7 +261,7 @@
         }
 
         @media (max-width: 640px) {
-            nav { padding:1rem 1.25rem; } .nav-logo { font-size:1.5rem; } .nav-links { gap:0.75rem; } .lang-btn { font-size:0; padding:0.3rem 0.4rem; } #lang-code { display:none; }
+            nav { padding:1rem 1.25rem; } .nav-logo { font-size:1.5rem; } .nav-links { gap:0.75rem; } #lang-switcher { display:none; } a[href="/learn"].nav-link { display:none; } .nav-links > a.nav-link:not([href="/index"]) { display:none; } .nav-hamburger { display:block; }
             .nav-logo { font-size:1.5rem; }
             .nav-links { gap:0.85rem; }
             .nav-link { font-size:0.78rem; }
@@ -293,7 +293,26 @@
                 </div>
             </div>
         </div>
-    </nav>
+    
+</nav>
+
+<!-- Mobile menu -->
+<div class="nav-mobile-menu" id="nav-mobile-menu">
+    <a href="/index" class="nav-mobile-link">
+        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Home
+    </a>
+    <a href="/concept" class="nav-mobile-link" data-i18n="nav_concept">Concept</a>
+    <a href="/waitlist" class="nav-mobile-link active" data-i18n="nav_waitlist">Waitlist</a>
+    <a href="/learn" class="nav-mobile-link">Learn</a>
+    <div class="nav-mobile-lang">
+        <button class="nav-mobile-lang-btn active" data-lang="en">EN</button>
+        <button class="nav-mobile-lang-btn" data-lang="sv">SV</button>
+        <button class="nav-mobile-lang-btn" data-lang="es">ES</button>
+        <button class="nav-mobile-lang-btn" data-lang="it">IT</button>
+        <button class="nav-mobile-lang-btn" data-lang="nl">NL</button>
+    </div>
+</div>
 
 <div class="wrap">
     <div class="hero-wrap">
