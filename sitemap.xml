@@ -70,4 +70,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://meetove.pro/learn"/>
   </url>
 
+  <url>
+    <loc>https://meetove.pro/learn/invest-or-save</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meetove.pro/learn/invest-or-save"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meetove.pro/learn/invest-or-save"/>
+  </url>
+
 </urlset>
