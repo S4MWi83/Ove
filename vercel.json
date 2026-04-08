@@ -45,8 +45,15 @@
       "destination": "/invest-or-save.html"
     },
     {
-      "source": "/learn/inflation-calculator",
+      "source": "/inflation-calculator",
       "destination": "/inflation-calculator.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/learn/inflation-calculator",
+      "destination": "/inflation-calculator",
+      "permanent": true
     }
   ]
 }
