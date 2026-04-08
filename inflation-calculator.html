@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+
+    <title>Ové | Inflation Erosion Calculator — What Has Inflation Done to Your Savings?</title>
+    <meta name="description" content="Use real EU27 HICP data from Eurostat to see how much purchasing power your savings have lost to inflation over the past 1 to 10 years. Educational only — no projections, no advice.">
+    <link rel="canonical" href="https://meetove.pro/learn/inflation-calculator">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://meetove.pro/learn/inflation-calculator">
+    <meta property="og:title" content="Inflation Erosion Calculator — What Has Inflation Done to Your Savings?">
+    <meta property="og:description" content="Use real EU27 HICP data from Eurostat to see how much purchasing power your savings have lost to inflation over the past 1 to 10 years.">
+    <meta property="og:image" content="https://meetove.pro/ove-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="OVÉ — A pre-launch investing concept exploring simpler investing for people who have not started yet.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://meetove.pro/ove-og.png">
+
+    <link rel="alternate" hreflang="en" href="https://meetove.pro/learn/inflation-calculator">
+    <link rel="alternate" hreflang="x-default" href="https://meetove.pro/learn/inflation-calculator">
+
+    <!-- Schema: WebApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Inflation Erosion Calculator",
+        "description": "A backwards-looking calculator using real EU27 HICP data from Eurostat to show how much purchasing power savings have lost to inflation over a chosen time period.",
+        "url": "https://meetove.pro/learn/inflation-calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "author": { "@type": "Person", "name": "Samuel Gustaf", "url": "https://meetove.pro" },
+        "publisher": { "@type": "Organization", "name": "OVÉ", "url": "https://meetove.pro" },
+        "inLanguage": "en"
+    }
+    </script>
+
+    <!-- Schema: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://meetove.pro/index" },
+            { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://meetove.pro/learn" },
+            { "@type": "ListItem", "position": 3, "name": "Inflation Erosion Calculator", "item": "https://meetove.pro/learn/inflation-calculator" }
+        ]
+    }
+    </script>
+
+    <!-- Schema: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "OVÉ",
+        "url": "https://meetove.pro",
+        "description": "OVÉ is a pre-launch investing concept exploring a simpler way to get started with investing, built for people who have not yet started.",
+        "founder": { "@type": "Person", "name": "Samuel Gustaf" },
+        "foundingLocation": { "@type": "Place", "name": "Halmstad, Sweden" },
+        "knowsAbout": ["personal investing", "retail investment", "MiFID II", "European capital markets"]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/ove-favicon-e.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+
+    <style>
+        :root {
+            --deep:#060f1e; --blue:#3b82f6; --cream:#f0ece4;
+            --muted:#9db5cc; --border:rgba(255,255,255,0.07); --surface:#0d1e35;
+            --kb-bg:#f0ece4; --kb-text:#060f1e; --kb-border:rgba(6,15,30,0.12);
+            --kb-muted:#4a6280; --kb-surface:rgba(6,15,30,0.05);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        h2[id] { scroll-margin-top:112px; }
+        body { font-family:'DM Sans',sans-serif; background:var(--kb-bg); color:var(--kb-text); line-height:1.7; -webkit-font-smoothing:antialiased; min-height:100vh; }
+
+        .orb { display:none; }
+
+        /* Nav */
+        nav { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 2rem; position:fixed; top:0; left:0; right:0; z-index:100; background:#060f1e; border-bottom:1px solid var(--border); box-shadow:0 1px 20px rgba(59,130,246,0.08); }
+        .nav-logo { font-family:'Instrument Serif',serif; font-size:1.8rem; color:var(--cream); text-decoration:none; position:relative; }
+        .nav-logo span { display:inline-block; width:6px; height:6px; background:var(--blue); border-radius:50%; position:absolute; top:6px; right:-9px; box-shadow:0 0 8px rgba(59,130,246,0.5); }
+        .nav-links { display:flex; align-items:center; gap:1.5rem; }
+        .nav-link { font-size:0.85rem; font-weight:400; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+        .nav-link:hover, .nav-link.active { color:var(--cream); }
+
+        /* Layout */
+        .wrap { max-width:720px; margin:0 auto; padding:0 2rem; position:relative; z-index:1; }
+
+        /* Hero */
+        .hero { padding:8rem 0 3rem; opacity:0; animation:fadeUp 0.7s ease forwards 0.2s; }
+
+        /* Breadcrumb */
+        .breadcrumb { font-size:0.78rem; color:var(--kb-muted); font-weight:300; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; }
+        .breadcrumb a { color:var(--kb-muted); text-decoration:none; transition:color 0.2s; }
+        .breadcrumb a:hover { color:var(--kb-text); }
+        .breadcrumb-sep { opacity:0.4; }
+
+        /* Typography */
+        .eyebrow { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:1.25rem; }
+        h1 { font-family:'Instrument Serif',serif; font-size:clamp(2rem,5vw,3.2rem); line-height:1.1; letter-spacing:-0.02em; margin-bottom:0.75rem; color:var(--kb-text); }
+        .source-tag { font-size:0.72rem; color:var(--kb-muted); font-weight:300; margin-bottom:2.5rem; display:block; }
+
+        /* Answer-first box */
+        .answer-first { background:var(--kb-text); border:none; border-radius:16px; padding:2rem; margin-bottom:3rem; box-shadow:0 4px 24px rgba(6,15,30,0.15); }
+        .answer-first-label { font-size:0.65rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:0.75rem; }
+        .answer-first p { font-size:0.975rem; color:var(--cream); font-weight:400; line-height:1.85; }
+
+        /* Article body */
+        .article-body { opacity:0; animation:fadeUp 0.7s ease forwards 0.4s; }
+        .article-body p { font-size:0.975rem; color:var(--kb-muted); font-weight:300; line-height:1.85; margin-bottom:1.25rem; }
+
+        /* ── Calculator ─────────────────────────────────────────────────── */
+        .calc-card {
+            background:#fff;
+            border:1px solid var(--kb-border);
+            border-radius:20px;
+            padding:2.5rem 2rem;
+            margin-bottom:2rem;
+            box-shadow:0 2px 16px rgba(6,15,30,0.07);
+        }
+
+        .calc-field { margin-bottom:1.75rem; }
+        .calc-label {
+            display:block;
+            font-size:0.75rem;
+            font-weight:500;
+            letter-spacing:0.1em;
+            text-transform:uppercase;
+            color:var(--kb-muted);
+            margin-bottom:0.6rem;
+        }
+
+        .calc-input-wrap { position:relative; display:flex; align-items:center; }
+        .calc-currency {
+            position:absolute;
+            left:1rem;
+            font-size:1rem;
+            font-weight:500;
+            color:var(--kb-muted);
+            pointer-events:none;
+        }
+        .calc-input {
+            width:100%;
+            padding:0.85rem 1rem 0.85rem 2.25rem;
+            font-family:'DM Sans',sans-serif;
+            font-size:1.1rem;
+            font-weight:400;
+            color:var(--kb-text);
+            background:#f8f7f4;
+            border:1.5px solid var(--kb-border);
+            border-radius:12px;
+            outline:none;
+            transition:border-color 0.2s;
+            -moz-appearance:textfield;
+        }
+        .calc-input::-webkit-outer-spin-button,
+        .calc-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+        .calc-input:focus { border-color:var(--blue); background:#fff; }
+        .calc-input.error { border-color:#e55; }
+
+        /* Slider */
+        .slider-row { display:flex; align-items:center; gap:1rem; }
+        .calc-slider {
+            flex:1;
+            -webkit-appearance:none;
+            appearance:none;
+            height:4px;
+            border-radius:2px;
+            background:var(--kb-border);
+            outline:none;
+            cursor:pointer;
+        }
+        .calc-slider::-webkit-slider-thumb {
+            -webkit-appearance:none;
+            width:20px; height:20px;
+            border-radius:50%;
+            background:var(--blue);
+            cursor:pointer;
+            box-shadow:0 1px 6px rgba(59,130,246,0.35);
+            transition:transform 0.15s;
+        }
+        .calc-slider::-webkit-slider-thumb:hover { transform:scale(1.15); }
+        .calc-slider::-moz-range-thumb {
+            width:20px; height:20px;
+            border-radius:50%;
+            background:var(--blue);
+            cursor:pointer;
+            border:none;
+            box-shadow:0 1px 6px rgba(59,130,246,0.35);
+        }
+        .slider-value {
+            font-family:'Instrument Serif',serif;
+            font-size:1.4rem;
+            color:var(--kb-text);
+            min-width:80px;
+            text-align:right;
+        }
+        .slider-range { display:flex; justify-content:space-between; font-size:0.72rem; color:var(--kb-muted); font-weight:300; margin-top:0.4rem; padding:0 2px; }
+
+        /* Results */
+        .calc-results {
+            background:var(--kb-text);
+            border-radius:16px;
+            padding:2rem;
+            margin-top:2rem;
+            display:none;
+        }
+        .calc-results.visible { display:block; }
+        .results-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin-bottom:1.75rem; }
+        .result-item { text-align:center; }
+        .result-label { font-size:0.65rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(240,236,228,0.55); margin-bottom:0.5rem; }
+        .result-value { font-family:'Instrument Serif',serif; font-size:clamp(1.4rem,3vw,2rem); color:var(--cream); line-height:1.1; }
+        .result-value.loss { color:#f87171; }
+
+        /* Chart */
+        .chart-wrap { margin:1.5rem 0 0; }
+        .chart-bars { display:flex; align-items:flex-end; gap:3px; height:80px; }
+        .chart-bar-group { flex:1; display:flex; flex-direction:column; align-items:center; gap:0; }
+        .chart-bar {
+            width:100%;
+            border-radius:3px 3px 0 0;
+            transition:height 0.3s ease;
+        }
+        .chart-bar.original { background:rgba(59,130,246,0.25); }
+        .chart-bar.real { background:var(--blue); }
+        .chart-year { font-size:0.6rem; color:rgba(240,236,228,0.4); margin-top:4px; text-align:center; }
+        .chart-legend { display:flex; gap:1.25rem; margin-top:0.75rem; }
+        .chart-legend-item { display:flex; align-items:center; gap:0.4rem; font-size:0.72rem; color:rgba(240,236,228,0.55); font-weight:300; }
+        .chart-legend-dot { width:8px; height:8px; border-radius:2px; flex-shrink:0; }
+
+        /* Disclaimer */
+        .calc-disclaimer {
+            font-size:0.78rem;
+            color:var(--kb-muted);
+            font-weight:300;
+            line-height:1.7;
+            background:var(--kb-surface);
+            border-radius:12px;
+            padding:1.25rem 1.5rem;
+            margin-top:1.5rem;
+        }
+
+        /* CTA */
+        .calc-cta {
+            margin-top:1.25rem;
+            font-size:0.875rem;
+            color:var(--kb-muted);
+            font-weight:300;
+            line-height:1.7;
+        }
+        .calc-cta a { color:var(--blue); text-decoration:none; }
+        .calc-cta a:hover { text-decoration:underline; }
+
+        /* Divider */
+        .divider { width:40px; height:1px; background:rgba(6,15,30,0.2); margin:3rem 0; }
+
+        /* Read next */
+        .read-next { background:var(--kb-surface); border:1px solid var(--kb-border); border-radius:16px; padding:1.75rem; margin:3rem 0 2rem; }
+        .read-next-label { font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); margin-bottom:1rem; }
+        .read-next-links { display:flex; flex-direction:column; gap:0.75rem; }
+        .read-next-link { font-size:0.9rem; color:var(--kb-muted); text-decoration:none; transition:color 0.2s; display:flex; align-items:center; gap:0.5rem; }
+        .read-next-link:hover { color:var(--kb-text); }
+        .read-next-link::before { content:'→'; color:var(--blue); font-size:0.8rem; }
+
+        /* Footer */
+        footer { border-top:none; margin-top:4rem; padding:2rem; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:0.6rem; text-align:center; font-size:0.8rem; color:var(--muted); font-weight:300; background:var(--deep); }
+        .footer-links { display:flex; gap:1.5rem; }
+        .footer-links a { color:var(--blue); text-decoration:none; transition:opacity 0.2s; }
+        .footer-links a:hover { opacity:0.75; }
+
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+        @media(max-width:640px) {
+            nav { padding:1rem 1.25rem; }
+            .nav-logo { font-size:1.5rem; }
+            .nav-links { gap:1rem; }
+            .wrap { padding:0 1.35rem; }
+            .hero { padding:7rem 0 2.5rem; }
+            .results-grid { grid-template-columns:1fr; gap:1.25rem; }
+            .result-item { text-align:left; display:flex; align-items:baseline; justify-content:space-between; }
+            .result-value { font-size:1.4rem; }
+            .calc-card { padding:1.75rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="orb"></div>
+
+<nav>
+    <a href="/index" class="nav-logo">Ové<span></span></a>
+    <div class="nav-links">
+        <a href="/index" class="nav-link" style="display:flex;align-items:center;" aria-label="Home"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a><span style="color:var(--border);font-weight:300;font-size:1rem;margin:0 0.1rem;">|</span>
+        <a href="/concept" class="nav-link" data-i18n="nav_concept">Concept</a>
+        <a href="/waitlist" class="nav-link" data-i18n="nav_waitlist">Waitlist</a>
+        <a href="/learn" class="nav-link active">Learn</a>
+    </div>
+</nav>
+
+<div class="wrap">
+    <div class="hero">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/index">Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="/learn">Learn</a>
+            <span class="breadcrumb-sep">›</span>
+            <span data-i18n="breadcrumb_page">Inflation Calculator</span>
+        </nav>
+
+        <p class="eyebrow" data-i18n="eyebrow">Educational tool</p>
+        <h1 data-i18n="h1">What Has Inflation Done to Your Savings?</h1>
+        <span class="source-tag" data-i18n="source_tag">Using real EU27 HICP data from Eurostat, 2015–2025.</span>
+
+        <div class="answer-first">
+            <p class="answer-first-label" data-i18n="af_label">What this calculator does</p>
+            <p data-i18n="af_body">Inflation has been quietly reducing the purchasing power of European savings for decades. This calculator uses real EU27 HICP data from Eurostat to show exactly how much purchasing power your savings have lost over the past 1 to 10 years. No projections. No advice. Just the data.</p>
+        </div>
+    </div>
+
+    <div class="article-body">
+
+        <!-- Calculator -->
+        <div class="calc-card">
+
+            <div class="calc-field">
+                <label class="calc-label" for="calc-amount" data-i18n="label_amount">Your savings amount</label>
+                <div class="calc-input-wrap">
+                    <span class="calc-currency">€</span>
+                    <input
+                        class="calc-input"
+                        type="number"
+                        id="calc-amount"
+                        min="1"
+                        step="1"
+                        placeholder="10000"
+                        inputmode="numeric"
+                    >
+                </div>
+            </div>
+
+            <div class="calc-field">
+                <label class="calc-label" data-i18n="label_years">Time period</label>
+                <div class="slider-row">
+                    <input type="range" class="calc-slider" id="calc-years" min="1" max="10" value="5">
+                    <span class="slider-value" id="slider-display">5 <span style="font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:300;" data-i18n="years_label">years</span></span>
+                </div>
+                <div class="slider-range">
+                    <span>1 <span data-i18n="year_label">year</span></span>
+                    <span>10 <span data-i18n="years_label">years</span></span>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="calc-results" id="calc-results">
+                <div class="results-grid">
+                    <div class="result-item">
+                        <p class="result-label" data-i18n="result_had">What you had</p>
+                        <p class="result-value" id="result-original">—</p>
+                    </div>
+                    <div class="result-item">
+                        <p class="result-label" data-i18n="result_worth">Worth today</p>
+                        <p class="result-value" id="result-real">—</p>
+                    </div>
+                    <div class="result-item">
+                        <p class="result-label" data-i18n="result_lost">Purchasing power lost</p>
+                        <p class="result-value loss" id="result-loss">—</p>
+                    </div>
+                </div>
+
+                <!-- Bar chart -->
+                <div class="chart-wrap">
+                    <div class="chart-bars" id="chart-bars" role="img" aria-label="Inflation erosion chart"></div>
+                    <div class="chart-legend">
+                        <div class="chart-legend-item">
+                            <div class="chart-legend-dot" style="background:rgba(59,130,246,0.3);"></div>
+                            <span data-i18n="legend_nominal">Nominal value</span>
+                        </div>
+                        <div class="chart-legend-item">
+                            <div class="chart-legend-dot" style="background:var(--blue);"></div>
+                            <span data-i18n="legend_real">Real value (after inflation)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Compliance disclaimer -->
+        <div class="calc-disclaimer" data-i18n-html="disclaimer">
+            This calculator uses actual EU27 HICP inflation data from Eurostat. It shows historical purchasing power changes only. It does not constitute financial advice or a recommendation to invest. OVÉ is not currently authorised to provide investment services.
+        </div>
+
+        <!-- CTA -->
+        <p class="calc-cta">
+            <span data-i18n="cta_text">OVÉ is being built to explore ways to address this.</span> <a href="/waitlist" data-i18n="cta_link">Join for updates →</a>
+        </p>
+
+        <div class="divider"></div>
+
+        <!-- Read next -->
+        <div class="read-next">
+            <p class="read-next-label" data-i18n="read_next_label">Read next</p>
+            <div class="read-next-links">
+                <a href="/learn" class="read-next-link" data-i18n="rn_pillar">The €10.8 Trillion Gap — Why 74% of Europeans Don't Invest</a>
+                <a href="/learn/invest-or-save" class="read-next-link" data-i18n="rn_cluster">Invest or Save Monthly? One of which may be quietly eating your money</a>
+                <a href="/concept" class="read-next-link" data-i18n="rn_concept">See the OVÉ concept</a>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <p style="font-size:0.78rem;color:var(--kb-muted);font-weight:300;line-height:1.65;margin-bottom:4rem;" data-i18n="footer_disclaimer">OVÉ is not currently authorised or regulated to provide investment services in the European Union. This content is provided for educational purposes only and does not constitute investment advice, a recommendation, or an offer to invest. Past performance and historical data do not guarantee future results.</p>
+
+    </div>
+</div>
+
+<footer>
+    <span style="font-size:0.75rem;opacity:0.7;">OVÉ is a concept developed by Samuel Gustaf, based in Halmstad, Sweden.</span>
+    <span>© <span id="year"></span> Ové. Currently in development.</span>
+    <div class="footer-links">
+        <a href="/regulatory">Regulatory</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+    </div>
+</footer>
+
+<script src="/ove-shared.js"></script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ── i18n ────────────────────────────────────────────────────────────── */
+var T = {
+    en: {
+        nav_concept:'Concept', nav_waitlist:'Waitlist',
+        breadcrumb_page:'Inflation Calculator',
+        eyebrow:'Educational tool',
+        h1:'What Has Inflation Done to Your Savings?',
+        source_tag:'Using real EU27 HICP data from Eurostat, 2015–2025.',
+        af_label:'What this calculator does',
+        af_body:'Inflation has been quietly reducing the purchasing power of European savings for decades. This calculator uses real EU27 HICP data from Eurostat to show exactly how much purchasing power your savings have lost over the past 1 to 10 years. No projections. No advice. Just the data.',
+        label_amount:'Your savings amount',
+        label_years:'Time period',
+        years_label:'years',
+        year_label:'year',
+        result_had:'What you had',
+        result_worth:'Worth today',
+        result_lost:'Purchasing power lost',
+        legend_nominal:'Nominal value',
+        legend_real:'Real value (after inflation)',
+        disclaimer:'This calculator uses actual EU27 HICP inflation data from Eurostat. It shows historical purchasing power changes only. It does not constitute financial advice or a recommendation to invest. OVÉ is not currently authorised to provide investment services.',
+        cta_text:'OVÉ is being built to explore ways to address this.',
+        cta_link:'Join for updates →',
+        read_next_label:'Read next',
+        rn_pillar:'The €10.8 Trillion Gap — Why 74% of Europeans Don\'t Invest',
+        rn_cluster:'Invest or Save Monthly? One of which may be quietly eating your money',
+        rn_concept:'See the OVÉ concept',
+        footer_disclaimer:'OVÉ is not currently authorised or regulated to provide investment services in the European Union. This content is provided for educational purposes only and does not constitute investment advice, a recommendation, or an offer to invest. Past performance and historical data do not guarantee future results.'
+    },
+    sv: {
+        nav_concept:'Koncept', nav_waitlist:'Väntelista',
+        breadcrumb_page:'Inflationskalkylator',
+        eyebrow:'Utbildningsverktyg',
+        h1:'Vad har inflationen gjort med dina besparingar?',
+        source_tag:'Baserat på verklig EU27 HIKP-data från Eurostat, 2015–2025.',
+        af_label:'Vad denna kalkylator gör',
+        af_body:'Inflationen har tyst minskat köpkraften för europeiska besparingar under decennier. Den här kalkylatorn använder verklig EU27 HIKP-data från Eurostat för att visa exakt hur mycket köpkraft dina besparingar har förlorat under de senaste 1 till 10 åren. Inga prognoser. Inga råd. Bara data.',
+        label_amount:'Ditt sparbelopp',
+        label_years:'Tidsperiod',
+        years_label:'år',
+        year_label:'år',
+        result_had:'Vad du hade',
+        result_worth:'Värde idag',
+        result_lost:'Förlorad köpkraft',
+        legend_nominal:'Nominellt värde',
+        legend_real:'Reellt värde (efter inflation)',
+        disclaimer:'Denna kalkylator använder faktisk EU27 HIKP-inflationsdata från Eurostat. Den visar enbart historiska förändringar i köpkraft. Den utgör inte finansiell rådgivning eller en rekommendation att investera. OVÉ är för närvarande inte auktoriserat att tillhandahålla investeringstjänster.',
+        cta_text:'OVÉ byggs för att utforska sätt att hantera detta.',
+        cta_link:'Anmäl dig för uppdateringar →',
+        read_next_label:'Läs vidare',
+        rn_pillar:'€10,8-biljonsgapet — varför 74% av européerna inte investerar',
+        rn_cluster:'Investera eller spara varje månad? Ett av dem äter tyst din pengar',
+        rn_concept:'Se OVÉ-konceptet',
+        footer_disclaimer:'OVÉ är för närvarande inte auktoriserat eller reglerat att tillhandahålla investeringstjänster inom Europeiska unionen. Detta innehåll tillhandahålls endast i utbildningssyfte och utgör inte investeringsrådgivning, en rekommendation eller ett erbjudande att investera. Historisk data garanterar inte framtida resultat.'
+    },
+    es: {
+        nav_concept:'Concepto', nav_waitlist:'Lista de espera',
+        breadcrumb_page:'Calculadora de inflación',
+        eyebrow:'Herramienta educativa',
+        h1:'¿Qué ha hecho la inflación con tus ahorros?',
+        source_tag:'Usando datos reales del IPCA EU27 de Eurostat, 2015–2025.',
+        af_label:'Qué hace esta calculadora',
+        af_body:'La inflación ha estado reduciendo silenciosamente el poder adquisitivo de los ahorros europeos durante décadas. Esta calculadora utiliza datos reales del IPCA EU27 de Eurostat para mostrar exactamente cuánto poder adquisitivo han perdido tus ahorros en los últimos 1 a 10 años. Sin proyecciones. Sin consejos. Solo los datos.',
+        label_amount:'Tu cantidad de ahorros',
+        label_years:'Período de tiempo',
+        years_label:'años',
+        year_label:'año',
+        result_had:'Lo que tenías',
+        result_worth:'Valor hoy',
+        result_lost:'Poder adquisitivo perdido',
+        legend_nominal:'Valor nominal',
+        legend_real:'Valor real (después de inflación)',
+        disclaimer:'Esta calculadora utiliza datos reales de inflación IPCA EU27 de Eurostat. Muestra solo cambios históricos en el poder adquisitivo. No constituye asesoramiento financiero ni una recomendación para invertir. OVÉ no está actualmente autorizado para prestar servicios de inversión.',
+        cta_text:'OVÉ se está construyendo para explorar formas de abordar esto.',
+        cta_link:'Únete para recibir actualizaciones →',
+        read_next_label:'Leer a continuación',
+        rn_pillar:'La brecha de €10,8 billones — por qué el 74% de los europeos no invierte',
+        rn_cluster:'¿Invertir o ahorrar mensualmente? Uno de ellos puede estar comiendo tu dinero en silencio',
+        rn_concept:'Ver el concepto de OVÉ',
+        footer_disclaimer:'OVÉ no está actualmente autorizado ni regulado para prestar servicios de inversión en la Unión Europea. Este contenido se proporciona únicamente con fines educativos y no constituye asesoramiento de inversión, una recomendación ni una oferta de inversión. Los datos históricos no garantizan resultados futuros.'
+    },
+    it: {
+        nav_concept:'Concetto', nav_waitlist:"Lista d'attesa",
+        breadcrumb_page:'Calcolatore di inflazione',
+        eyebrow:'Strumento educativo',
+        h1:"Cosa ha fatto l'inflazione ai tuoi risparmi?",
+        source_tag:'Utilizzando dati IPCA EU27 reali di Eurostat, 2015–2025.',
+        af_label:'Cosa fa questo calcolatore',
+        af_body:"L'inflazione ha silenziosamente ridotto il potere d'acquisto dei risparmi europei per decenni. Questo calcolatore utilizza dati IPCA EU27 reali di Eurostat per mostrare esattamente quanto potere d'acquisto hanno perso i tuoi risparmi negli ultimi 1-10 anni. Nessuna proiezione. Nessun consiglio. Solo i dati.",
+        label_amount:'Il tuo importo di risparmio',
+        label_years:'Periodo di tempo',
+        years_label:'anni',
+        year_label:'anno',
+        result_had:'Cosa avevi',
+        result_worth:'Valore oggi',
+        result_lost:"Potere d'acquisto perso",
+        legend_nominal:'Valore nominale',
+        legend_real:"Valore reale (dopo l'inflazione)",
+        disclaimer:"Questo calcolatore utilizza dati reali sull'inflazione IPCA EU27 di Eurostat. Mostra solo le variazioni storiche del potere d'acquisto. Non costituisce consulenza finanziaria o una raccomandazione ad investire. OVÉ non è attualmente autorizzato a fornire servizi di investimento.",
+        cta_text:'OVÉ è in fase di sviluppo per esplorare modi per affrontare questo problema.',
+        cta_link:'Iscriviti per aggiornamenti →',
+        read_next_label:'Leggi di seguito',
+        rn_pillar:"Il gap di €10,8 trilioni — perché il 74% degli europei non investe",
+        rn_cluster:'Investire o risparmiare mensilmente? Uno di essi potrebbe stare silenziosamente erodendo il tuo denaro',
+        rn_concept:'Vedi il concetto OVÉ',
+        footer_disclaimer:"OVÉ non è attualmente autorizzato o regolamentato per fornire servizi di investimento nell'Unione Europea. Questo contenuto è fornito esclusivamente a scopo educativo e non costituisce consulenza sugli investimenti, una raccomandazione o un'offerta di investimento. I dati storici non garantiscono risultati futuri."
+    },
+    nl: {
+        nav_concept:'Concept', nav_waitlist:'Wachtlijst',
+        breadcrumb_page:'Inflatiecalculator',
+        eyebrow:'Educatief hulpmiddel',
+        h1:'Wat heeft inflatie gedaan met uw spaargeld?',
+        source_tag:'Met behulp van echte EU27 HICP-gegevens van Eurostat, 2015–2025.',
+        af_label:'Wat deze calculator doet',
+        af_body:'Inflatie heeft al decennialang stilletjes de koopkracht van Europees spaargeld verminderd. Deze calculator gebruikt echte EU27 HICP-gegevens van Eurostat om precies te laten zien hoeveel koopkracht uw spaargeld de afgelopen 1 tot 10 jaar heeft verloren. Geen projecties. Geen advies. Alleen de gegevens.',
+        label_amount:'Uw spaarbedrag',
+        label_years:'Tijdsperiode',
+        years_label:'jaar',
+        year_label:'jaar',
+        result_had:'Wat u had',
+        result_worth:'Waarde vandaag',
+        result_lost:'Verloren koopkracht',
+        legend_nominal:'Nominale waarde',
+        legend_real:'Reële waarde (na inflatie)',
+        disclaimer:'Deze calculator gebruikt feitelijke EU27 HICP-inflatiegegevens van Eurostat. Het toont alleen historische veranderingen in koopkracht. Het vormt geen financieel advies of een aanbeveling om te investeren. OVÉ is momenteel niet bevoegd om beleggingsdiensten te verlenen.',
+        cta_text:'OVÉ wordt gebouwd om manieren te verkennen om dit aan te pakken.',
+        cta_link:'Aanmelden voor updates →',
+        read_next_label:'Lees verder',
+        rn_pillar:'De €10,8 biljoen kloof — waarom 74% van de Europeanen niet investeert',
+        rn_cluster:'Investeren of maandelijks sparen? Een van beide eet stilletjes uw geld op',
+        rn_concept:'Bekijk het OVÉ-concept',
+        footer_disclaimer:'OVÉ is momenteel niet gemachtigd of gereguleerd om beleggingsdiensten te verlenen in de Europese Unie. Deze inhoud is uitsluitend bedoeld voor educatieve doeleinden en vormt geen beleggingsadvies, aanbeveling of aanbod om te investeren. Historische gegevens garanderen geen toekomstige resultaten.'
+    }
+};
+
+function applyLang(lang) {
+    var t = T[lang] || T.en;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-html');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    // Update slider display year/years label
+    updateSliderDisplay();
+}
+
+var savedLang = localStorage.getItem('ove-lang') || 'en';
+window.addEventListener('ove-lang-changed', function() {
+    applyLang(localStorage.getItem('ove-lang') || 'en');
+});
+
+/* ── HICP Data ───────────────────────────────────────────────────────── */
+// EU27 HICP annual inflation rates, most recent year first
+var HICP = [
+    { year: 2025, rate: 0.025 },
+    { year: 2024, rate: 0.026 },
+    { year: 2023, rate: 0.069 },
+    { year: 2022, rate: 0.107 },
+    { year: 2021, rate: 0.028 },
+    { year: 2020, rate: 0.007 },
+    { year: 2019, rate: 0.014 },
+    { year: 2018, rate: 0.018 },
+    { year: 2017, rate: 0.016 },
+    { year: 2016, rate: 0.002 },
+    { year: 2015, rate: 0.001 }
+];
+
+/* ── Calculator logic ────────────────────────────────────────────────── */
+var amountInput = document.getElementById('calc-amount');
+var yearSlider  = document.getElementById('calc-years');
+var sliderDisplay = document.getElementById('slider-display');
+var resultsDiv  = document.getElementById('calc-results');
+var chartBars   = document.getElementById('chart-bars');
+
+function formatEuro(n) {
+    return '€' + Math.round(n).toLocaleString('en-EU', { minimumFractionDigits: 0 });
+}
+
+function updateSliderDisplay() {
+    var y = parseInt(yearSlider.value);
+    var t = T[localStorage.getItem('ove-lang') || 'en'] || T.en;
+    var label = (y === 1) ? t.year_label : t.years_label;
+    sliderDisplay.innerHTML = y + ' <span style="font-family:\'DM Sans\',sans-serif;font-size:0.85rem;font-weight:300;">' + label + '</span>';
+}
+
+function calculate() {
+    var amount = parseFloat(amountInput.value);
+    var years  = parseInt(yearSlider.value);
+
+    amountInput.classList.remove('error');
+    if (!amount || amount < 1) {
+        resultsDiv.classList.remove('visible');
+        return;
+    }
+
+    // Working backwards from 2025, apply N years of inflation
+    var yearData = HICP.slice(0, years); // already sorted most recent first
+
+    // Build year-by-year values going forward in time (chronological for chart)
+    var chronological = yearData.slice().reverse(); // oldest first
+    var values = [amount]; // index 0 = start (before any inflation applies)
+    var running = amount;
+    for (var i = 0; i < chronological.length; i++) {
+        running = running / (1 + chronological[i].rate);
+        values.push(running);
+    }
+
+    var realValue = values[values.length - 1];
+    var lost = amount - realValue;
+
+    document.getElementById('result-original').textContent = formatEuro(amount);
+    document.getElementById('result-real').textContent = formatEuro(realValue);
+    document.getElementById('result-loss').textContent = '−' + formatEuro(lost);
+
+    resultsDiv.classList.add('visible');
+    renderChart(amount, values, chronological);
+}
+
+function renderChart(nominal, values, chronological) {
+    chartBars.innerHTML = '';
+    var maxVal = nominal;
+    // Each bar group: nominal bar + real bar side by side, one per year transition
+    // We show start + one bar per year elapsed
+    var points = values; // length = years + 1
+    var barWidth = Math.floor(100 / points.length);
+
+    for (var i = 0; i < points.length; i++) {
+        var realH = Math.round((points[i] / maxVal) * 80);
+        var nomH  = 80; // nominal always full height (flat reference)
+
+        var group = document.createElement('div');
+        group.className = 'chart-bar-group';
+        group.style.flex = '1';
+
+        var barsRow = document.createElement('div');
+        barsRow.style.display = 'flex';
+        barsRow.style.alignItems = 'flex-end';
+        barsRow.style.gap = '1px';
+        barsRow.style.width = '100%';
+        barsRow.style.height = '80px';
+
+        var nomBar = document.createElement('div');
+        nomBar.className = 'chart-bar original';
+        nomBar.style.height = nomH + 'px';
+        nomBar.style.flex = '1';
+
+        var realBar = document.createElement('div');
+        realBar.className = 'chart-bar real';
+        realBar.style.height = realH + 'px';
+        realBar.style.flex = '1';
+
+        barsRow.appendChild(nomBar);
+        barsRow.appendChild(realBar);
+
+        var yearLabel = document.createElement('div');
+        yearLabel.className = 'chart-year';
+        if (i === 0) {
+            yearLabel.textContent = chronological.length > 0 ? (chronological[0].year - 1) : '—';
+        } else {
+            yearLabel.textContent = String(chronological[i - 1].year).slice(2);
+        }
+
+        group.appendChild(barsRow);
+        group.appendChild(yearLabel);
+        chartBars.appendChild(group);
+    }
+}
+
+amountInput.addEventListener('input', calculate);
+yearSlider.addEventListener('input', function() {
+    updateSliderDisplay();
+    calculate();
+});
+
+// Init
+updateSliderDisplay();
+applyLang(savedLang);
+</script>
+</body>
+</html>
