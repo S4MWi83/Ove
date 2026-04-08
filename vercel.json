@@ -43,6 +43,10 @@
     {
       "source": "/learn/invest-or-save",
       "destination": "/invest-or-save.html"
+    },
+    {
+      "source": "/learn/inflation-calculator",
+      "destination": "/inflation-calculator.html"
     }
   ]
 }
