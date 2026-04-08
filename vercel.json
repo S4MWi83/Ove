@@ -44,12 +44,5 @@
       "source": "/learn/invest-or-save",
       "destination": "/invest-or-save.html"
     }
-  ],
-  "redirects": [
-    {
-      "source": "/learn/european-investment-gap",
-      "destination": "/learn",
-      "permanent": true
-    }
   ]
 }
