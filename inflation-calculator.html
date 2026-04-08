@@ -7,10 +7,10 @@
 
     <title>Ové | Inflation Erosion Calculator — What Has Inflation Done to Your Money?</title>
     <meta name="description" content="Use real EU27 HICP data from Eurostat to see how much purchasing power your savings have lost to inflation over the past 1 to 10 years. Educational only — no projections, no advice.">
-    <link rel="canonical" href="https://meetove.pro/learn/inflation-calculator">
+    <link rel="canonical" href="https://meetove.pro/inflation-calculator">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://meetove.pro/learn/inflation-calculator">
+    <meta property="og:url" content="https://meetove.pro/inflation-calculator">
     <meta property="og:title" content="Inflation Erosion Calculator — What Has Inflation Done to Your Money?">
     <meta property="og:description" content="Use real EU27 HICP data from Eurostat to see how much purchasing power your savings have lost to inflation over the past 1 to 10 years.">
     <meta property="og:image" content="https://meetove.pro/ove-og.png">
@@ -20,19 +20,26 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://meetove.pro/ove-og.png">
 
-    <link rel="alternate" hreflang="en" href="https://meetove.pro/learn/inflation-calculator">
-    <link rel="alternate" hreflang="x-default" href="https://meetove.pro/learn/inflation-calculator">
+    <link rel="alternate" hreflang="en" href="https://meetove.pro/inflation-calculator">
+    <link rel="alternate" hreflang="x-default" href="https://meetove.pro/inflation-calculator">
 
-    <!-- Schema: WebApplication -->
+    <!-- Schema: SoftwareApplication + WebApplication -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebApplication",
+        "@type": ["SoftwareApplication", "WebApplication"],
         "name": "Inflation Erosion Calculator",
-        "description": "A backwards-looking calculator using real EU27 HICP data from Eurostat to show how much purchasing power savings have lost to inflation over a chosen time period.",
-        "url": "https://meetove.pro/learn/inflation-calculator",
+        "description": "An interactive calculator using published EU27 HICP annual average data from Eurostat to show the real purchasing power loss of savings over a selected time period of 1 to 10 years.",
+        "url": "https://meetove.pro/inflation-calculator",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
+        "featureList": [
+            "Calculate real purchasing power loss using EU27 HICP data",
+            "Supports savings amounts in EUR",
+            "Covers 2015–2025 historical inflation data",
+            "1 to 10 year time period selection",
+            "Visual bar chart of year-by-year erosion"
+        ],
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
         "author": { "@type": "Person", "name": "Samuel Gustaf", "url": "https://meetove.pro" },
         "publisher": { "@type": "Organization", "name": "OVÉ", "url": "https://meetove.pro" },
@@ -48,7 +55,7 @@
         "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://meetove.pro/index" },
             { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://meetove.pro/learn" },
-            { "@type": "ListItem", "position": 3, "name": "Inflation Erosion Calculator", "item": "https://meetove.pro/learn/inflation-calculator" }
+            { "@type": "ListItem", "position": 3, "name": "Inflation Erosion Calculator", "item": "https://meetove.pro/inflation-calculator" }
         ]
     }
     </script>
@@ -332,6 +339,8 @@
     <div class="article-body">
 
         <!-- Calculator -->
+        <h2 id="calculator" style="font-family:'Instrument Serif',serif;font-size:clamp(1.4rem,2.5vw,1.75rem);line-height:1.15;letter-spacing:-0.01em;margin:0 0 0.75rem;color:var(--kb-text);">Interactive Inflation Erosion Calculator</h2>
+        <p style="font-size:0.9rem;color:var(--kb-muted);font-weight:300;line-height:1.75;margin-bottom:1.5rem;">This interactive tool uses EU27 HICP annual average data from Eurostat to calculate the real purchasing power loss of your savings over a chosen time period.</p>
         <div class="calc-card">
 
             <div class="calc-field">
