@@ -310,8 +310,8 @@
     <a href="/index" class="nav-logo">Ové<span></span></a>
     <div class="nav-links">
         <a href="/index" class="nav-link" style="display:flex;align-items:center;" aria-label="Home"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a><span style="color:var(--border);font-weight:300;font-size:1rem;margin:0 0.1rem;">|</span>
-        <a href="/concept" class="nav-link" data-i18n="nav_concept">Concept</a>
-        <a href="/waitlist" class="nav-link" data-i18n="nav_waitlist">Waitlist</a>
+        <a href="/concept" class="nav-link">Concept</a>
+        <a href="/waitlist" class="nav-link">Waitlist</a>
         <a href="/learn" class="nav-link active">Learn</a>
     </div>
 </nav>
@@ -323,16 +323,16 @@
             <span class="breadcrumb-sep">›</span>
             <a href="/learn">Learn</a>
             <span class="breadcrumb-sep">›</span>
-            <span data-i18n="breadcrumb_page">Inflation Calculator</span>
+            <span>Inflation Calculator</span>
         </nav>
 
-        <p class="eyebrow" data-i18n="eyebrow">Educational tool</p>
-        <h1 data-i18n="h1">What Has Inflation Done to Your Money?</h1>
-        <span class="source-tag" data-i18n="source_tag">Using real EU27 HICP data from Eurostat, 2015–2025.</span>
+        <p class="eyebrow">Educational tool</p>
+        <h1>What Has Inflation Done to Your Money?</h1>
+        <span class="source-tag">Using real EU27 HICP data from Eurostat, 2015–2025.</span>
 
         <div class="answer-first">
-            <p class="answer-first-label" data-i18n="af_label">What this calculator does</p>
-            <p data-i18n="af_body">This calculator uses published EU27 HICP annual average inflation data from Eurostat to show how the purchasing power of a savings amount has changed over a chosen time period. Calculations apply each year's published annual average rate sequentially, working backwards from 2025. No projections, no forward-looking estimates, no investment advice. Historical data only.</p>
+            <p class="answer-first-label">What this calculator does</p>
+            <p>This calculator uses published EU27 HICP annual average inflation data from Eurostat to show how the purchasing power of a savings amount has changed over a chosen time period. Calculations apply each year's published annual average rate sequentially, working backwards from 2025. No projections, no forward-looking estimates, no investment advice. Historical data only.</p>
         </div>
     </div>
 
@@ -344,7 +344,7 @@
         <div class="calc-card">
 
             <div class="calc-field">
-                <label class="calc-label" for="calc-amount" data-i18n="label_amount">Your savings amount</label>
+                <label class="calc-label" for="calc-amount">Your savings amount</label>
                 <div class="calc-input-wrap">
                     <span class="calc-currency">€</span>
                     <input
@@ -360,14 +360,14 @@
             </div>
 
             <div class="calc-field">
-                <label class="calc-label" data-i18n="label_years">Time period</label>
+                <label class="calc-label">Time period</label>
                 <div class="slider-row">
                     <input type="range" class="calc-slider" id="calc-years" min="1" max="10" value="5">
-                    <span class="slider-value" id="slider-display">5 <span style="font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:300;" data-i18n="years_label">years</span></span>
+                    <span class="slider-value" id="slider-display">5 <span style="font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:300;">years</span></span>
                 </div>
                 <div class="slider-range">
-                    <span>1 <span data-i18n="year_label">year</span></span>
-                    <span>10 <span data-i18n="years_label">years</span></span>
+                    <span>1 <span>year</span></span>
+                    <span>10 <span>years</span></span>
                 </div>
             </div>
 
@@ -375,15 +375,15 @@
             <div class="calc-results" id="calc-results">
                 <div class="results-grid">
                     <div class="result-item">
-                        <p class="result-label" data-i18n="result_had">Nominal amount</p>
+                        <p class="result-label">Nominal amount</p>
                         <p class="result-value" id="result-original">—</p>
                     </div>
                     <div class="result-item">
-                        <p class="result-label" data-i18n="result_worth">Inflation-adjusted value (2025 €)</p>
+                        <p class="result-label">Inflation-adjusted value (2025 €)</p>
                         <p class="result-value" id="result-real">—</p>
                     </div>
                     <div class="result-item">
-                        <p class="result-label" data-i18n="result_lost">Estimated purchasing power change</p>
+                        <p class="result-label">Estimated purchasing power change</p>
                         <p class="result-value loss" id="result-loss">—</p>
                     </div>
                 </div>
@@ -394,11 +394,11 @@
                     <div class="chart-legend">
                         <div class="chart-legend-item">
                             <div class="chart-legend-dot" style="background:rgba(59,130,246,0.3);"></div>
-                            <span data-i18n="legend_nominal">Nominal value</span>
+                            <span>Nominal value</span>
                         </div>
                         <div class="chart-legend-item">
                             <div class="chart-legend-dot" style="background:var(--blue);"></div>
-                            <span data-i18n="legend_real">Real value (after inflation)</span>
+                            <span>Real value (after inflation)</span>
                         </div>
                     </div>
                 </div>
@@ -407,17 +407,17 @@
         </div>
 
         <!-- Compliance disclaimer -->
-        <div class="calc-disclaimer" data-i18n-html="disclaimer">
+        <div class="calc-disclaimer">
             This calculator applies EU27 HICP annual average inflation rates published by Eurostat. It shows estimated changes in purchasing power based on historical data only. It does not constitute financial advice, a personal recommendation, or an inducement to invest. OVÉ is not authorised or regulated to provide investment services in any jurisdiction. Intended for residents of the European Union aged 18 and over for educational purposes only.
         </div>
 
         <!-- Methodology note -->
-        <p style="font-size:0.72rem;color:var(--kb-muted);font-weight:300;line-height:1.6;margin-top:0.75rem;" data-i18n="methodology">Methodology: EU27 HICP annual average rates (Eurostat). Applied sequentially, most recent year first. Source data covers 2015–2025.</p>
+        <p style="font-size:0.72rem;color:var(--kb-muted);font-weight:300;line-height:1.6;margin-top:0.75rem;">Methodology: EU27 HICP annual average rates (Eurostat). Applied sequentially, most recent year first. Source data covers 2015–2025.</p>
 
         <!-- CTA — visually separated -->
         <div style="border-top:1px solid var(--kb-border);margin-top:2.5rem;padding-top:2rem;">
             <p class="calc-cta">
-                <span data-i18n="cta_text">OVÉ is a pre-launch concept exploring simpler ways to get started with investing.</span> <a href="/waitlist" data-i18n="cta_link">Join the waitlist for updates →</a>
+                <span>OVÉ is a pre-launch concept exploring simpler ways to get started with investing.</span> <a href="/waitlist">Join the waitlist for updates →</a>
             </p>
         </div>
 
@@ -425,16 +425,16 @@
 
         <!-- Read next -->
         <div class="read-next">
-            <p class="read-next-label" data-i18n="read_next_label">Read next</p>
+            <p class="read-next-label">Read next</p>
             <div class="read-next-links">
-                <a href="/learn" class="read-next-link" data-i18n="rn_pillar">The €10.8 Trillion Gap — Why 74% of Europeans Don't Invest</a>
-                <a href="/learn/invest-or-save" class="read-next-link" data-i18n="rn_cluster">Invest or Save Monthly? One of which may be quietly eating your money</a>
-                <a href="/concept" class="read-next-link" data-i18n="rn_concept">See the OVÉ concept</a>
+                <a href="/learn" class="read-next-link">The €10.8 Trillion Gap — Why 74% of Europeans Don't Invest</a>
+                <a href="/learn/invest-or-save" class="read-next-link">Invest or Save Monthly? One of which may be quietly eating your money</a>
+                <a href="/concept" class="read-next-link">See the OVÉ concept</a>
             </div>
         </div>
 
         <!-- Disclaimer -->
-        <p style="font-size:0.78rem;color:var(--kb-muted);font-weight:300;line-height:1.65;margin-bottom:4rem;" data-i18n="footer_disclaimer">OVÉ is not authorised or regulated to provide investment services in any jurisdiction. This calculator is provided for educational purposes only. It does not constitute investment advice, a personal recommendation, or an offer or inducement to invest. Results are estimates based on published historical data and do not represent actual past or future performance of any savings or investment product. Capital is always at risk in market-based investments.</p>
+        <p style="font-size:0.78rem;color:var(--kb-muted);font-weight:300;line-height:1.65;margin-bottom:4rem;">OVÉ is not authorised or regulated to provide investment services in any jurisdiction. This calculator is provided for educational purposes only. It does not constitute investment advice, a personal recommendation, or an offer or inducement to invest. Results are estimates based on published historical data and do not represent actual past or future performance of any savings or investment product. Capital is always at risk in market-based investments.</p>
 
     </div>
 </div>
@@ -454,162 +454,8 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 /* ── i18n ────────────────────────────────────────────────────────────── */
-var T = {
-    en: {
-        nav_concept:'Concept', nav_waitlist:'Waitlist',
-        breadcrumb_page:'Inflation Calculator',
-        eyebrow:'Educational tool',
-        h1:'What Has Inflation Done to Your Money?',
-        source_tag:'Using real EU27 HICP data from Eurostat, 2015–2025.',
-        af_label:'What this calculator does',
-        af_body:'This calculator uses published EU27 HICP annual average inflation data from Eurostat to show how the purchasing power of a savings amount has changed over a chosen time period. Calculations apply each year\'s published annual average rate sequentially, working backwards from 2025. No projections, no forward-looking estimates, no investment advice. Historical data only.',
-        label_amount:'Your savings amount',
-        label_years:'Time period',
-        years_label:'years',
-        year_label:'year',
-        result_had:'Nominal amount',
-        result_worth:'Inflation-adjusted value (2025 €)',
-        result_lost:'Estimated purchasing power change',
-        legend_nominal:'Nominal value',
-        legend_real:'Real value (after inflation)',
-        disclaimer:'This calculator applies EU27 HICP annual average inflation rates published by Eurostat. It shows estimated changes in purchasing power based on historical data only. It does not constitute financial advice, a personal recommendation, or an inducement to invest. OVÉ is not authorised or regulated to provide investment services in any jurisdiction. Intended for residents of the European Union aged 18 and over for educational purposes only.',
-        methodology:'Methodology: EU27 HICP annual average rates (Eurostat). Applied sequentially, most recent year first. Source data covers 2015–2025.',
-        cta_text:'OVÉ is a pre-launch concept exploring simpler ways to get started with investing.',
-        cta_link:'Join the waitlist for updates →',
-        read_next_label:'Read next',
-        rn_pillar:'The €10.8 Trillion Gap — Why 74% of Europeans Don\'t Invest',
-        rn_cluster:'Invest or Save Monthly? One of which may be quietly eating your money',
-        rn_concept:'See the OVÉ concept',
-        footer_disclaimer:'OVÉ is not authorised or regulated to provide investment services in any jurisdiction. This calculator is provided for educational purposes only. It does not constitute investment advice, a personal recommendation, or an offer or inducement to invest. Results are estimates based on published historical data and do not represent actual past or future performance of any savings or investment product. Capital is always at risk in market-based investments.'
-    },
-    sv: {
-        nav_concept:'Koncept', nav_waitlist:'Väntelista',
-        breadcrumb_page:'Inflationskalkylator',
-        eyebrow:'Utbildningsverktyg',
-        h1:'Vad har inflationen gjort med dina besparingar?',
-        source_tag:'Baserat på verklig EU27 HIKP-data från Eurostat, 2015–2025.',
-        af_label:'Vad denna kalkylator gör',
-        af_body:'Den här kalkylatorn använder publicerade EU27 HIKP-årsgenomsnittsdata från Eurostat för att visa hur köpkraften för ett sparbelopp har förändrats under en vald tidsperiod. Beräkningarna tillämpar varje års publicerade årsgenomsnittsränta sekventiellt, med start från 2025 och bakåt. Inga prognoser, inga framåtblickande uppskattningar, ingen investeringsrådgivning. Endast historiska data.',
-        label_amount:'Ditt sparbelopp',
-        label_years:'Tidsperiod',
-        years_label:'år',
-        year_label:'år',
-        result_had:'Nominellt belopp',
-        result_worth:'Inflationsjusterat värde (2025 €)',
-        result_lost:'Uppskattad förändring i köpkraft',
-        legend_nominal:'Nominellt värde',
-        legend_real:'Reellt värde (efter inflation)',
-        disclaimer:'Denna kalkylator tillämpar EU27 HIKP-årsgenomsnittliga inflationsräntor publicerade av Eurostat. Den visar uppskattade förändringar i köpkraft baserade på historiska data. Den utgör inte finansiell rådgivning, en personlig rekommendation eller en uppmaning att investera. OVÉ är inte auktoriserat eller reglerat att tillhandahålla investeringstjänster i någon jurisdiktion. Avsedd för personer bosatta i Europeiska unionen som är 18 år eller äldre, enbart i utbildningssyfte.',
-        methodology:'Metodik: EU27 HIKP årsgenomsnittsräntor (Eurostat). Tillämpas sekventiellt, senaste år först. Källdata täcker 2015–2025.',
-        cta_text:'OVÉ är ett förhandskoncept som utforskar enklare sätt att komma igång med investeringar.',
-        cta_link:'Anmäl dig till väntelistan för uppdateringar →',
-        read_next_label:'Läs vidare',
-        rn_pillar:'€10,8-biljonsgapet — varför 74% av européerna inte investerar',
-        rn_cluster:'Investera eller spara varje månad? Ett av dem äter tyst din pengar',
-        rn_concept:'Se OVÉ-konceptet',
-        footer_disclaimer:'OVÉ är inte auktoriserat eller reglerat att tillhandahålla investeringstjänster i någon jurisdiktion. Denna kalkylator tillhandahålls enbart i utbildningssyfte. Den utgör inte investeringsrådgivning, en personlig rekommendation eller ett erbjudande eller en uppmaning att investera. Resultaten är uppskattningar baserade på publicerade historiska data och representerar inte faktisk tidigare eller framtida avkastning för någon sparprodukt. Kapital är alltid i riskzonen vid marknadsbaserade investeringar.'
-    },
-    es: {
-        nav_concept:'Concepto', nav_waitlist:'Lista de espera',
-        breadcrumb_page:'Calculadora de inflación',
-        eyebrow:'Herramienta educativa',
-        h1:'¿Qué ha hecho la inflación con tus ahorros?',
-        source_tag:'Usando datos reales del IPCA EU27 de Eurostat, 2015–2025.',
-        af_label:'Qué hace esta calculadora',
-        af_body:'Esta calculadora utiliza datos anuales medios del IPCA EU27 publicados por Eurostat para mostrar cómo ha cambiado el poder adquisitivo de un ahorro durante un período de tiempo elegido. Los cálculos aplican secuencialmente la tasa media anual publicada de cada año, retrocediendo desde 2025. Sin proyecciones, sin estimaciones prospectivas, sin asesoramiento sobre inversiones. Solo datos históricos.',
-        label_amount:'Tu cantidad de ahorros',
-        label_years:'Período de tiempo',
-        years_label:'años',
-        year_label:'año',
-        result_had:'Importe nominal',
-        result_worth:'Valor ajustado por inflación (€ 2025)',
-        result_lost:'Cambio estimado en el poder adquisitivo',
-        legend_nominal:'Valor nominal',
-        legend_real:'Valor real (después de inflación)',
-        disclaimer:'Esta calculadora aplica tasas de inflación medias anuales del IPCA EU27 publicadas por Eurostat. Muestra cambios estimados en el poder adquisitivo basados únicamente en datos históricos. No constituye asesoramiento financiero, una recomendación personal ni una inducción a invertir. OVÉ no está autorizado ni regulado para prestar servicios de inversión en ninguna jurisdicción. Destinada a residentes de la Unión Europea mayores de 18 años únicamente con fines educativos.',
-        methodology:'Metodología: tasas medias anuales del IPCA EU27 (Eurostat). Aplicadas secuencialmente, año más reciente primero. Los datos de origen cubren 2015–2025.',
-        cta_text:'OVÉ es un concepto en fase previa al lanzamiento que explora formas más sencillas de empezar a invertir.',
-        cta_link:'Únete a la lista de espera para recibir actualizaciones →',
-        read_next_label:'Leer a continuación',
-        rn_pillar:'La brecha de €10,8 billones — por qué el 74% de los europeos no invierte',
-        rn_cluster:'¿Invertir o ahorrar mensualmente? Uno de ellos puede estar comiendo tu dinero en silencio',
-        rn_concept:'Ver el concepto de OVÉ',
-        footer_disclaimer:'OVÉ no está autorizado ni regulado para prestar servicios de inversión en ninguna jurisdicción. Esta calculadora se proporciona únicamente con fines educativos. No constituye asesoramiento de inversión, una recomendación personal ni una oferta o inducción a invertir. Los resultados son estimaciones basadas en datos históricos publicados y no representan el rendimiento real pasado o futuro de ningún producto de ahorro. El capital siempre está en riesgo en las inversiones basadas en el mercado.'
-    },
-    it: {
-        nav_concept:'Concetto', nav_waitlist:"Lista d'attesa",
-        breadcrumb_page:'Calcolatore di inflazione',
-        eyebrow:'Strumento educativo',
-        h1:"Cosa ha fatto l'inflazione ai tuoi risparmi?",
-        source_tag:'Utilizzando dati IPCA EU27 reali di Eurostat, 2015–2025.',
-        af_label:'Cosa fa questo calcolatore',
-        af_body:"Questo calcolatore utilizza dati medi annuali IPCA EU27 pubblicati da Eurostat per mostrare come il potere d'acquisto di un importo di risparmio è cambiato nel corso di un periodo di tempo scelto. I calcoli applicano sequenzialmente il tasso medio annuale pubblicato di ogni anno, lavorando a ritroso dal 2025. Nessuna proiezione, nessuna stima prospettica, nessun consiglio sugli investimenti. Solo dati storici.",
-        label_amount:'Il tuo importo di risparmio',
-        label_years:'Periodo di tempo',
-        years_label:'anni',
-        year_label:'anno',
-        result_had:'Importo nominale',
-        result_worth:'Valore adeguato all\'inflazione (€ 2025)',
-        result_lost:"Variazione stimata del potere d'acquisto",
-        legend_nominal:'Valore nominale',
-        legend_real:"Valore reale (dopo l'inflazione)",
-        disclaimer:"Questo calcolatore applica i tassi di inflazione medi annuali IPCA EU27 pubblicati da Eurostat. Mostra variazioni stimate del potere d'acquisto basate solo su dati storici. Non costituisce consulenza finanziaria, una raccomandazione personale o un'istigazione ad investire. OVÉ non è autorizzato o regolamentato per fornire servizi di investimento in alcuna giurisdizione. Destinato a residenti dell'Unione Europea di età pari o superiore a 18 anni solo a scopo educativo.",
-        methodology:"Metodologia: tassi medi annuali IPCA EU27 (Eurostat). Applicati sequenzialmente, anno più recente prima. I dati di origine coprono il 2015–2025.",
-        cta_text:"OVÉ è un concetto pre-lancio che esplora modi più semplici per iniziare a investire.",
-        cta_link:'Iscriviti alla lista d\'attesa per aggiornamenti →',
-        read_next_label:'Leggi di seguito',
-        rn_pillar:"Il gap di €10,8 trilioni — perché il 74% degli europei non investe",
-        rn_cluster:'Investire o risparmiare mensilmente? Uno di essi potrebbe stare silenziosamente erodendo il tuo denaro',
-        rn_concept:'Vedi il concetto OVÉ',
-        footer_disclaimer:"OVÉ non è autorizzato o regolamentato per fornire servizi di investimento in alcuna giurisdizione. Questo calcolatore è fornito esclusivamente a scopo educativo. Non costituisce consulenza sugli investimenti, una raccomandazione personale o un'offerta o istigazione ad investire. I risultati sono stime basate su dati storici pubblicati e non rappresentano le performance passate o future effettive di alcun prodotto di risparmio. Il capitale è sempre a rischio negli investimenti basati sul mercato."
-    },
-    nl: {
-        nav_concept:'Concept', nav_waitlist:'Wachtlijst',
-        breadcrumb_page:'Inflatiecalculator',
-        eyebrow:'Educatief hulpmiddel',
-        h1:'Wat heeft inflatie gedaan met uw spaargeld?',
-        source_tag:'Met behulp van echte EU27 HICP-gegevens van Eurostat, 2015–2025.',
-        af_label:'Wat deze calculator doet',
-        af_body:'Deze calculator gebruikt gepubliceerde jaarlijkse gemiddelde EU27 HICP-inflatiegegevens van Eurostat om te laten zien hoe de koopkracht van een spaarbedrag is veranderd over een gekozen tijdsperiode. Berekeningen passen het gepubliceerde jaarlijkse gemiddelde tarief van elk jaar sequentieel toe, terugwerkend vanaf 2025. Geen projecties, geen toekomstgerichte schattingen, geen beleggingsadvies. Alleen historische gegevens.',
-        label_amount:'Uw spaarbedrag',
-        label_years:'Tijdsperiode',
-        years_label:'jaar',
-        year_label:'jaar',
-        result_had:'Nominaal bedrag',
-        result_worth:'Inflatiegecorrigeerde waarde (€ 2025)',
-        result_lost:'Geschatte verandering in koopkracht',
-        legend_nominal:'Nominale waarde',
-        legend_real:'Reële waarde (na inflatie)',
-        disclaimer:'Deze calculator past jaarlijkse gemiddelde EU27 HICP-inflatietarieven toe die zijn gepubliceerd door Eurostat. Het toont geschatte veranderingen in koopkracht op basis van uitsluitend historische gegevens. Het vormt geen financieel advies, een persoonlijke aanbeveling of een aansporing om te investeren. OVÉ is niet gemachtigd of gereguleerd om beleggingsdiensten te verlenen in enige jurisdictie. Bedoeld voor inwoners van de Europese Unie van 18 jaar en ouder, uitsluitend voor educatieve doeleinden.',
-        methodology:'Methodologie: EU27 HICP jaarlijkse gemiddelde tarieven (Eurostat). Sequentieel toegepast, meest recente jaar eerst. Brongegevens beslaan 2015–2025.',
-        cta_text:'OVÉ is een pre-lancering concept dat eenvoudigere manieren verkent om te beginnen met beleggen.',
-        cta_link:'Aanmelden voor de wachtlijst voor updates →',
-        read_next_label:'Lees verder',
-        rn_pillar:'De €10,8 biljoen kloof — waarom 74% van de Europeanen niet investeert',
-        rn_cluster:'Investeren of maandelijks sparen? Een van beide eet stilletjes uw geld op',
-        rn_concept:'Bekijk het OVÉ-concept',
-        footer_disclaimer:'OVÉ is niet gemachtigd of gereguleerd om beleggingsdiensten te verlenen in enige jurisdictie. Deze calculator is uitsluitend bedoeld voor educatieve doeleinden. Het vormt geen beleggingsadvies, een persoonlijke aanbeveling of een aanbod of aansporing om te investeren. Resultaten zijn schattingen op basis van gepubliceerde historische gegevens en vertegenwoordigen niet de feitelijke vroegere of toekomstige prestaties van enig spaar- of beleggingsproduct. Kapitaal is altijd at risk bij marktgebaseerde beleggingen.'
-    }
-};
 
-function applyLang(lang) {
-    var t = T[lang] || T.en;
-    document.querySelectorAll('[data-i18n]').forEach(function(el) {
-        var key = el.getAttribute('data-i18n');
-        if (t[key] !== undefined) el.textContent = t[key];
-    });
-    document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
-        var key = el.getAttribute('data-i18n-html');
-        if (t[key] !== undefined) el.innerHTML = t[key];
-    });
-    // Update slider display year/years label
-    updateSliderDisplay();
-}
 
-var savedLang = localStorage.getItem('ove-lang') || 'en';
-window.addEventListener('ove-lang-changed', function() {
-    applyLang(localStorage.getItem('ove-lang') || 'en');
-});
 
 /* ── HICP Data ───────────────────────────────────────────────────────── */
 // EU27 HICP annual inflation rates, most recent year first
@@ -640,8 +486,7 @@ function formatEuro(n) {
 
 function updateSliderDisplay() {
     var y = parseInt(yearSlider.value);
-    var t = T[localStorage.getItem('ove-lang') || 'en'] || T.en;
-    var label = (y === 1) ? t.year_label : t.years_label;
+    var label = (y === 1) ? 'year' : 'years';
     sliderDisplay.innerHTML = y + ' <span style="font-family:\'DM Sans\',sans-serif;font-size:0.85rem;font-weight:300;">' + label + '</span>';
 }
 
@@ -736,7 +581,6 @@ yearSlider.addEventListener('input', function() {
 
 // Init
 updateSliderDisplay();
-applyLang(savedLang);
 </script>
 </body>
 </html>
