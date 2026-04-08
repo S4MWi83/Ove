@@ -95,6 +95,8 @@
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
+        /* Offset anchor scroll targets below the sticky nav */
+        h2[id] { scroll-margin-top:112px; }
         body { font-family:'DM Sans',sans-serif; background:var(--kb-bg); color:var(--kb-text); line-height:1.7; -webkit-font-smoothing:antialiased; min-height:100vh; }
 
         .orb { display:none; }
@@ -433,7 +435,7 @@
             <p>But inflation isn't human. It doesn't knock on your door or send a warning. It works slowly, invisibly, and consistently — and it will reach your savings no matter where you keep them.</p>
             <p>The data reflects this psychology. According to the ECB Household Finance and Consumption Survey, nearly every European household — <strong>97.7%</strong> — holds a bank deposit of some kind. Direct stock ownership tells a different story: only <strong>8.6%</strong> of households hold listed shares. The savings account isn't just common — it's the overwhelming default.</p>
             <p>Deep distrust of financial platforms, decision paralysis from too many options, and a mindset that says "at least I won't lose it all." The savings account wins not because it's optimal — but because it feels like the one place where nothing can go catastrophically wrong.</p>
-            <p>The silent killer doesn't care about that logic. This is part of <a href="/learn/european-investment-gap" style="color:var(--blue);text-decoration:none;">the €10.8 trillion gap</a> — the scale of European household savings sitting outside capital markets.</p>
+            <p>The silent killer doesn't care about that logic. This is part of <a href="/learn" style="color:var(--blue);text-decoration:none;">the €10.8 trillion gap</a> — the scale of European household savings sitting outside capital markets.</p>
             <p class="source-note">Sources: ECB Household Finance and Consumption Survey (HFCS), ESMA Retail Investor Journey Report 2025/2026</p>
 
             <div class="divider"></div>
@@ -508,7 +510,7 @@
             <div class="read-next">
                 <p class="read-next-label">Read next</p>
                 <div class="read-next-links">
-                    <a href="/learn/european-investment-gap" class="read-next-link">The €10.8 Trillion Gap — Why 74% of Europeans Don't Invest</a>
+                    <a href="/learn" class="read-next-link">The €10.8 Trillion Gap — Why 74% of Europeans Don't Invest</a>
                     <a href="/concept" class="read-next-link">See the OVÉ concept</a>
                 </div>
             </div>
