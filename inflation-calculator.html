@@ -83,53 +83,57 @@
 
     <style>
         :root {
-            --deep:#060f1e; --blue:#3b82f6; --cream:#f0ece4;
-            --muted:#9db5cc; --border:rgba(255,255,255,0.07); --surface:#0d1e35;
+            --deep:#060f1e; --blue:#3b82f6; --blue-glow:rgba(59,130,246,0.35);
+            --cream:#f0ece4; --muted:#9db5cc; --border:rgba(255,255,255,0.07);
+            --card:rgba(255,255,255,0.03); --green:#4ade80; --surface:#0d1e35;
             --kb-bg:#f0ece4; --kb-text:#060f1e; --kb-border:rgba(6,15,30,0.12);
             --kb-muted:#4a6280; --kb-surface:rgba(6,15,30,0.05);
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
-        h2[id] { scroll-margin-top:112px; }
-        body { font-family:'DM Sans',sans-serif; background:var(--kb-bg); color:var(--kb-text); line-height:1.7; -webkit-font-smoothing:antialiased; min-height:100vh; }
-
-        .orb { display:none; }
+        body { font-family:'DM Sans',sans-serif; background:var(--deep); color:var(--cream); line-height:1.7; -webkit-font-smoothing:antialiased; min-height:100vh; overflow-x:hidden; }
+        body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.4; }
+        .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; width:55vw; height:55vw; top:-18vw; left:50%; transform:translateX(-50%); background:radial-gradient(circle,rgba(59,130,246,0.13),transparent 70%); }
 
         /* Nav */
-        nav { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 2rem; position:fixed; top:0; left:0; right:0; z-index:100; background:#060f1e; border-bottom:1px solid var(--border); box-shadow:0 1px 20px rgba(59,130,246,0.08); }
+        nav { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 2rem; position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(6,15,30,0.6); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--border); box-shadow:0 1px 20px rgba(59,130,246,0.08); }
         .nav-logo { font-family:'Instrument Serif',serif; font-size:1.8rem; color:var(--cream); text-decoration:none; position:relative; }
-        .nav-logo span { display:inline-block; width:6px; height:6px; background:var(--blue); border-radius:50%; position:absolute; top:6px; right:-9px; box-shadow:0 0 8px rgba(59,130,246,0.5); }
+        .nav-logo span { display:inline-block; width:6px; height:6px; background:var(--blue); border-radius:50%; position:absolute; top:6px; right:-9px; box-shadow:0 0 8px var(--blue-glow); }
         .nav-links { display:flex; align-items:center; gap:1.5rem; }
         .nav-link { font-size:0.85rem; font-weight:400; color:var(--muted); text-decoration:none; transition:color 0.2s; }
         .nav-link:hover, .nav-link.active { color:var(--cream); }
 
         /* Layout */
         .wrap { max-width:720px; margin:0 auto; padding:0 2rem; position:relative; z-index:1; }
+        .content-col { background:var(--kb-bg); border-radius:24px; padding:3rem 2.5rem; margin-bottom:4rem; position:relative; z-index:1; }
 
         /* Hero */
         .hero { padding:8rem 0 3rem; opacity:0; animation:fadeUp 0.7s ease forwards 0.2s; }
 
         /* Breadcrumb */
-        .breadcrumb { font-size:0.78rem; color:var(--kb-muted); font-weight:300; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; }
-        .breadcrumb a { color:var(--kb-muted); text-decoration:none; transition:color 0.2s; }
-        .breadcrumb a:hover { color:var(--kb-text); }
+        .breadcrumb { font-size:0.78rem; color:var(--muted); font-weight:300; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; }
+        .breadcrumb a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
+        .breadcrumb a:hover { color:var(--cream); }
         .breadcrumb-sep { opacity:0.4; }
 
         /* Typography */
         .eyebrow { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:1.25rem; }
-        h1 { font-family:'Instrument Serif',serif; font-size:clamp(2rem,5vw,3.2rem); line-height:1.1; letter-spacing:-0.02em; margin-bottom:0.75rem; color:var(--kb-text); }
-        .source-tag { font-size:0.72rem; color:var(--kb-muted); font-weight:300; margin-bottom:2.5rem; display:block; }
+        h1 { font-family:'Instrument Serif',serif; font-size:clamp(2rem,5vw,3.2rem); line-height:1.1; letter-spacing:-0.02em; margin-bottom:0.75rem; color:var(--cream); }
+        .source-tag { font-size:0.72rem; color:var(--muted); font-weight:300; margin-bottom:2.5rem; display:block; }
 
-        /* Answer-first box */
-        .answer-first { background:var(--kb-text); border:none; border-radius:16px; padding:2rem; margin-bottom:3rem; box-shadow:0 4px 24px rgba(6,15,30,0.15); }
+        /* Answer-first box — KB cream box on dark bg */
+        .answer-first { background:var(--kb-text); border-radius:16px; padding:1.75rem 2rem; margin-bottom:3rem; box-shadow:0 4px 24px rgba(6,15,30,0.15); }
         .answer-first-label { font-size:0.65rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:0.75rem; }
-        .answer-first p { font-size:0.975rem; color:var(--cream); font-weight:400; line-height:1.85; }
+        .answer-first p { font-size:0.95rem; color:var(--cream); font-weight:400; line-height:1.85; }
 
-        /* Article body */
+        /* Article body — KB rhythm, site colors */
         .article-body { opacity:0; animation:fadeUp 0.7s ease forwards 0.4s; }
-        .article-body p { font-size:0.975rem; color:var(--kb-muted); font-weight:300; line-height:1.85; margin-bottom:1.25rem; }
+        .article-body p { font-size:0.95rem; color:var(--kb-muted); font-weight:300; line-height:1.85; margin-bottom:1.25rem; }
 
-        /* ── Calculator ─────────────────────────────────────────────────── */
+        /* Section divider — KB style */
+        .section-divider { width:40px; height:2px; background:var(--blue); opacity:0.4; margin:2.5rem 0; border-radius:2px; }
+
+        /* Calculator card — site glass with KB spacing */
         .calc-card {
             background:#fff;
             border:1px solid var(--kb-border);
@@ -139,29 +143,23 @@
             box-shadow:0 2px 16px rgba(6,15,30,0.07);
         }
 
-        .calc-field { margin-bottom:1.75rem; }
+        .calc-field { margin-bottom:2rem; }
         .calc-label {
             display:block;
-            font-size:0.75rem;
-            font-weight:500;
-            letter-spacing:0.1em;
+            font-size:0.7rem;
+            font-weight:600;
+            letter-spacing:0.12em;
             text-transform:uppercase;
             color:var(--kb-muted);
-            margin-bottom:0.6rem;
+            margin-bottom:0.75rem;
+            opacity:0.85;
         }
 
         .calc-input-wrap { position:relative; display:flex; align-items:center; }
-        .calc-currency {
-            position:absolute;
-            left:1rem;
-            font-size:1rem;
-            font-weight:500;
-            color:var(--kb-muted);
-            pointer-events:none;
-        }
+        .calc-currency { position:absolute; left:1rem; font-size:1rem; font-weight:400; color:var(--kb-muted); pointer-events:none; }
         .calc-input {
             width:100%;
-            padding:0.85rem 1rem 0.85rem 2.25rem;
+            padding:0.9rem 1rem 0.9rem 2.25rem;
             font-family:'DM Sans',sans-serif;
             font-size:1.1rem;
             font-weight:400;
@@ -176,7 +174,7 @@
         .calc-input::-webkit-outer-spin-button,
         .calc-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
         .calc-input:focus { border-color:var(--blue); background:#fff; }
-        .calc-input.error { border-color:#e55; }
+        .calc-input::placeholder { color:var(--kb-muted); opacity:0.6; }
 
         /* Slider */
         .slider-row { display:flex; align-items:center; gap:1rem; }
@@ -186,95 +184,91 @@
             appearance:none;
             height:4px;
             border-radius:2px;
-            background:var(--kb-border);
+            background:rgba(6,15,30,0.12);
             outline:none;
             cursor:pointer;
         }
         .calc-slider::-webkit-slider-thumb {
             -webkit-appearance:none;
-            width:20px; height:20px;
+            width:22px; height:22px;
             border-radius:50%;
             background:var(--blue);
             cursor:pointer;
-            box-shadow:0 1px 6px rgba(59,130,246,0.35);
+            box-shadow:0 0 12px rgba(59,130,246,0.6);
+            border:2px solid rgba(255,255,255,0.2);
             transition:transform 0.15s;
         }
-        .calc-slider::-webkit-slider-thumb:hover { transform:scale(1.15); }
+        .calc-slider::-webkit-slider-thumb:hover { transform:scale(1.1); }
         .calc-slider::-moz-range-thumb {
-            width:20px; height:20px;
+            width:22px; height:22px;
             border-radius:50%;
             background:var(--blue);
             cursor:pointer;
-            border:none;
-            box-shadow:0 1px 6px rgba(59,130,246,0.35);
+            border:2px solid rgba(255,255,255,0.2);
+            box-shadow:0 0 12px rgba(59,130,246,0.6);
         }
         .slider-value {
             font-family:'Instrument Serif',serif;
-            font-size:1.4rem;
+            font-size:1.5rem;
             color:var(--kb-text);
             min-width:80px;
             text-align:right;
         }
-        .slider-range { display:flex; justify-content:space-between; font-size:0.72rem; color:var(--kb-muted); font-weight:300; margin-top:0.4rem; padding:0 2px; }
+        .slider-range { display:flex; justify-content:space-between; font-size:0.7rem; color:var(--kb-muted); font-weight:300; margin-top:0.5rem; padding:0 2px; }
 
-        /* Results */
+        /* Results — KB stat callout style on dark */
         .calc-results {
-            background:var(--kb-text);
-            border-radius:16px;
-            padding:2rem;
+            border-top:1px solid var(--kb-border);
+            padding-top:2rem;
             margin-top:2rem;
             display:none;
         }
         .calc-results.visible { display:block; }
-        .results-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin-bottom:1.75rem; }
-        .result-item { text-align:center; }
-        .result-label { font-size:0.65rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(240,236,228,0.55); margin-bottom:0.5rem; }
-        .result-value { font-family:'Instrument Serif',serif; font-size:clamp(1.4rem,3vw,2rem); color:var(--cream); line-height:1.1; }
+        .results-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin-bottom:2rem; }
+        .result-item {
+            background:var(--kb-surface);
+            border:1px solid var(--kb-border);
+            border-radius:14px;
+            padding:1.25rem 1rem;
+            text-align:center;
+        }
+        .result-label { font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--kb-muted); margin-bottom:0.6rem; }
+        .result-value { font-family:'Instrument Serif',serif; font-size:clamp(1.4rem,3vw,2rem); color:var(--kb-text); line-height:1.1; }
         .result-value.loss { color:#f87171; }
 
         /* Chart */
-        .chart-wrap { margin:1.5rem 0 0; }
+        .chart-wrap { background:var(--kb-surface); border:1px solid var(--kb-border); border-radius:14px; padding:1.5rem; }
         .chart-bars { display:flex; align-items:flex-end; gap:3px; height:80px; }
-        .chart-bar-group { flex:1; display:flex; flex-direction:column; align-items:center; gap:0; }
-        .chart-bar {
-            width:100%;
-            border-radius:3px 3px 0 0;
-            transition:height 0.3s ease;
-        }
-        .chart-bar.original { background:rgba(59,130,246,0.25); }
+        .chart-bar-group { flex:1; display:flex; flex-direction:column; align-items:center; }
+        .chart-bar { width:100%; border-radius:3px 3px 0 0; transition:height 0.3s ease; }
+        .chart-bar.original { background:rgba(59,130,246,0.2); }
         .chart-bar.real { background:var(--blue); }
-        .chart-year { font-size:0.6rem; color:rgba(240,236,228,0.4); margin-top:4px; text-align:center; }
-        .chart-legend { display:flex; gap:1.25rem; margin-top:0.75rem; }
-        .chart-legend-item { display:flex; align-items:center; gap:0.4rem; font-size:0.72rem; color:rgba(240,236,228,0.55); font-weight:300; }
+        .chart-year { font-size:0.6rem; color:var(--kb-muted); margin-top:4px; text-align:center; }
+        .chart-legend { display:flex; gap:1.25rem; margin-top:1rem; }
+        .chart-legend-item { display:flex; align-items:center; gap:0.4rem; font-size:0.72rem; color:var(--kb-muted); font-weight:300; }
         .chart-legend-dot { width:8px; height:8px; border-radius:2px; flex-shrink:0; }
 
-        /* Disclaimer */
+        /* Disclaimer — KB note style */
         .calc-disclaimer {
             font-size:0.78rem;
             color:var(--kb-muted);
             font-weight:300;
             line-height:1.7;
-            background:var(--kb-surface);
-            border-radius:12px;
-            padding:1.25rem 1.5rem;
+            border-left:2px solid rgba(59,130,246,0.3);
+            padding:1rem 1.25rem;
             margin-top:1.5rem;
+            opacity:0.8;
         }
 
         /* CTA */
-        .calc-cta {
-            margin-top:1.25rem;
-            font-size:0.875rem;
-            color:var(--kb-muted);
-            font-weight:300;
-            line-height:1.7;
-        }
+        .calc-cta { margin-top:1.25rem; font-size:0.875rem; color:var(--kb-muted); font-weight:300; line-height:1.7; }
         .calc-cta a { color:var(--blue); text-decoration:none; }
         .calc-cta a:hover { text-decoration:underline; }
 
         /* Divider */
         .divider { width:40px; height:1px; background:rgba(6,15,30,0.2); margin:3rem 0; }
 
-        /* Read next */
+        /* Read next — site card style */
         .read-next { background:var(--kb-surface); border:1px solid var(--kb-border); border-radius:16px; padding:1.75rem; margin:3rem 0 2rem; }
         .read-next-label { font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); margin-bottom:1rem; }
         .read-next-links { display:flex; flex-direction:column; gap:0.75rem; }
@@ -283,10 +277,20 @@
         .read-next-link::before { content:'→'; color:var(--blue); font-size:0.8rem; }
 
         /* Footer */
-        footer { border-top:none; margin-top:4rem; padding:2rem; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:0.6rem; text-align:center; font-size:0.8rem; color:var(--muted); font-weight:300; background:var(--deep); }
+        footer { border-top:1px solid var(--border); margin-top:0; padding:2rem; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:0.6rem; text-align:center; font-size:0.8rem; color:var(--muted); font-weight:300; }
         .footer-links { display:flex; gap:1.5rem; }
         .footer-links a { color:var(--blue); text-decoration:none; transition:opacity 0.2s; }
         .footer-links a:hover { opacity:0.75; }
+
+        /* Mobile hamburger */
+        .nav-hamburger { display:none; background:none; border:none; border-radius:8px; cursor:pointer; padding:0.35rem 0.5rem; color:var(--cream); margin-right:0.75rem; }
+        .nav-hamburger:hover { opacity:0.75; }
+        .nav-mobile-menu { display:none; position:fixed; top:57px; left:0; right:0; background:#060f1e; border-bottom:1px solid var(--border); z-index:99; padding:1rem 1.5rem; flex-direction:column; gap:0; }
+        .nav-mobile-menu.open { display:flex; }
+        .nav-mobile-link { font-size:0.9rem; font-weight:400; color:var(--muted); text-decoration:none; padding:0.75rem 0; border-bottom:1px solid var(--border); transition:color 0.2s; display:flex; align-items:center; gap:0.5rem; }
+        .nav-mobile-link:last-child { border-bottom:none; }
+        .nav-mobile-link:hover { color:var(--cream); }
+
 
         @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
@@ -294,6 +298,10 @@
             nav { padding:1rem 1.25rem; }
             .nav-logo { font-size:1.5rem; }
             .nav-links { gap:1rem; }
+            .nav-links > a.nav-link:not([href="/index"]) { display:none; }
+            .nav-home-icon { display:none !important; }
+            .nav-sep { display:none !important; }
+            .nav-hamburger { display:block; }
             .wrap { padding:0 1.35rem; }
             .hero { padding:7rem 0 2.5rem; }
             .results-grid { grid-template-columns:1fr; gap:1.25rem; }
@@ -309,12 +317,27 @@
 <nav>
     <a href="/index" class="nav-logo">Ové<span></span></a>
     <div class="nav-links">
-        <a href="/index" class="nav-link" style="display:flex;align-items:center;" aria-label="Home"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a><span style="color:var(--border);font-weight:300;font-size:1rem;margin:0 0.1rem;">|</span>
+        <a href="/index" class="nav-link nav-home-icon" style="display:flex;align-items:center;" aria-label="Home"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></a><span class="nav-sep" style="color:var(--border);font-weight:300;font-size:1rem;margin:0 0.1rem;">|</span>
         <a href="/concept" class="nav-link">Concept</a>
         <a href="/waitlist" class="nav-link">Waitlist</a>
         <a href="/learn" class="nav-link active">Learn</a>
     </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
 </nav>
+
+<div class="nav-mobile-menu" id="nav-mobile-menu">
+    <a href="/index" class="nav-mobile-link">
+        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Home
+    </a>
+    <a href="/concept" class="nav-mobile-link">Concept</a>
+    <a href="/waitlist" class="nav-mobile-link">Waitlist</a>
+    <a href="/learn" class="nav-mobile-link">Learn</a>
+</div>
 
 <div class="wrap">
     <div class="hero">
@@ -336,26 +359,18 @@
         </div>
     </div>
 
+    <div class="content-col">
     <div class="article-body">
 
-        <!-- Calculator -->
-        <h2 id="calculator" style="font-family:'Instrument Serif',serif;font-size:clamp(1.4rem,2.5vw,1.75rem);line-height:1.15;letter-spacing:-0.01em;margin:0 0 0.75rem;color:var(--kb-text);">Interactive Inflation Erosion Calculator</h2>
-        <p style="font-size:0.9rem;color:var(--kb-muted);font-weight:300;line-height:1.75;margin-bottom:1.5rem;">This interactive tool uses EU27 HICP annual average data from Eurostat to calculate the real purchasing power loss of your savings over a chosen time period.</p>
-        <div class="calc-card">
+        <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(1.4rem,2.5vw,1.75rem);line-height:1.15;letter-spacing:-0.01em;margin:0 0 0.75rem;color:var(--kb-text);">Interactive Inflation Erosion Calculator</h2>
+        <p style="font-size:0.9rem;color:var(--muted);font-weight:300;line-height:1.75;margin-bottom:1.5rem;">This interactive tool uses EU27 HICP annual average data from Eurostat to calculate the real purchasing power loss of your savings over a chosen time period.</p>
 
+        <div class="calc-card">
             <div class="calc-field">
                 <label class="calc-label" for="calc-amount">Your savings amount</label>
                 <div class="calc-input-wrap">
                     <span class="calc-currency">€</span>
-                    <input
-                        class="calc-input"
-                        type="number"
-                        id="calc-amount"
-                        min="1"
-                        step="1"
-                        placeholder="10000"
-                        inputmode="numeric"
-                    >
+                    <input class="calc-input" type="number" id="calc-amount" min="1" step="1" placeholder="10000" inputmode="numeric">
                 </div>
             </div>
 
@@ -366,12 +381,11 @@
                     <span class="slider-value" id="slider-display">5 <span style="font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:300;">years</span></span>
                 </div>
                 <div class="slider-range">
-                    <span>1 <span>year</span></span>
-                    <span>10 <span>years</span></span>
+                    <span>1 year</span>
+                    <span>10 years</span>
                 </div>
             </div>
 
-            <!-- Results -->
             <div class="calc-results" id="calc-results">
                 <div class="results-grid">
                     <div class="result-item">
@@ -379,21 +393,20 @@
                         <p class="result-value" id="result-original">—</p>
                     </div>
                     <div class="result-item">
-                        <p class="result-label">Inflation-adjusted value (2025 €)</p>
+                        <p class="result-label">Inflation-adjusted value</p>
                         <p class="result-value" id="result-real">—</p>
                     </div>
                     <div class="result-item">
-                        <p class="result-label">Estimated purchasing power change</p>
+                        <p class="result-label">Purchasing power lost</p>
                         <p class="result-value loss" id="result-loss">—</p>
                     </div>
                 </div>
 
-                <!-- Bar chart -->
                 <div class="chart-wrap">
                     <div class="chart-bars" id="chart-bars" role="img" aria-label="Inflation erosion chart"></div>
                     <div class="chart-legend">
                         <div class="chart-legend-item">
-                            <div class="chart-legend-dot" style="background:rgba(59,130,246,0.3);"></div>
+                            <div class="chart-legend-dot" style="background:rgba(59,130,246,0.25);"></div>
                             <span>Nominal value</span>
                         </div>
                         <div class="chart-legend-item">
@@ -403,19 +416,15 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <!-- Compliance disclaimer -->
         <div class="calc-disclaimer">
             This calculator applies EU27 HICP annual average inflation rates published by Eurostat. It shows estimated changes in purchasing power based on historical data only. It does not constitute financial advice, a personal recommendation, or an inducement to invest. OVÉ is not authorised or regulated to provide investment services in any jurisdiction. Intended for residents of the European Union aged 18 and over for educational purposes only.
         </div>
 
-        <!-- Methodology note -->
         <p style="font-size:0.72rem;color:var(--kb-muted);font-weight:300;line-height:1.6;margin-top:0.75rem;">Methodology: EU27 HICP annual average rates (Eurostat). Applied sequentially, most recent year first. Source data covers 2015–2025.</p>
 
-        <!-- CTA — visually separated -->
-        <div style="border-top:1px solid var(--kb-border);margin-top:2.5rem;padding-top:2rem;">
+        <div style="border-top:1px solid var(--border);margin-top:2.5rem;padding-top:2rem;">
             <p class="calc-cta">
                 <span>OVÉ is a pre-launch concept exploring simpler ways to get started with investing.</span> <a href="/waitlist">Join the waitlist for updates →</a>
             </p>
@@ -423,19 +432,18 @@
 
         <div class="divider"></div>
 
-        <!-- Read next -->
         <div class="read-next">
             <p class="read-next-label">Read next</p>
             <div class="read-next-links">
-                <a href="/learn" class="read-next-link">The €10.8 Trillion Gap — Why 74% of Europeans Don't Invest</a>
+                <a href="/learn" class="read-next-link">The €10.8 Trillion Gap — Why Europeans Don't Invest</a>
                 <a href="/learn/invest-or-save" class="read-next-link">Invest or Save Monthly? One of which may be quietly eating your money</a>
                 <a href="/concept" class="read-next-link">See the OVÉ concept</a>
             </div>
         </div>
 
-        <!-- Disclaimer -->
         <p style="font-size:0.78rem;color:var(--kb-muted);font-weight:300;line-height:1.65;margin-bottom:4rem;">OVÉ is not authorised or regulated to provide investment services in any jurisdiction. This calculator is provided for educational purposes only. It does not constitute investment advice, a personal recommendation, or an offer or inducement to invest. Results are estimates based on published historical data and do not represent actual past or future performance of any savings or investment product. Capital is always at risk in market-based investments.</p>
 
+    </div>
     </div>
 </div>
 
@@ -449,16 +457,11 @@
     </div>
 </footer>
 
+
 <script src="/ove-shared.js"></script>
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ── i18n ────────────────────────────────────────────────────────────── */
-
-
-
-/* ── HICP Data ───────────────────────────────────────────────────────── */
-// EU27 HICP annual inflation rates, most recent year first
 var HICP = [
     { year: 2025, rate: 0.025 },
     { year: 2024, rate: 0.026 },
@@ -473,12 +476,11 @@ var HICP = [
     { year: 2015, rate: 0.001 }
 ];
 
-/* ── Calculator logic ────────────────────────────────────────────────── */
-var amountInput = document.getElementById('calc-amount');
-var yearSlider  = document.getElementById('calc-years');
+var amountInput   = document.getElementById('calc-amount');
+var yearSlider    = document.getElementById('calc-years');
 var sliderDisplay = document.getElementById('slider-display');
-var resultsDiv  = document.getElementById('calc-results');
-var chartBars   = document.getElementById('chart-bars');
+var resultsDiv    = document.getElementById('calc-results');
+var chartBars     = document.getElementById('chart-bars');
 
 function formatEuro(n) {
     return '€' + Math.round(n).toLocaleString('en-EU', { minimumFractionDigits: 0 });
@@ -493,32 +495,21 @@ function updateSliderDisplay() {
 function calculate() {
     var amount = parseFloat(amountInput.value);
     var years  = parseInt(yearSlider.value);
-
     amountInput.classList.remove('error');
-    if (!amount || amount < 1) {
-        resultsDiv.classList.remove('visible');
-        return;
-    }
-
-    // Working backwards from 2025, apply N years of inflation
-    var yearData = HICP.slice(0, years); // already sorted most recent first
-
-    // Build year-by-year values going forward in time (chronological for chart)
-    var chronological = yearData.slice().reverse(); // oldest first
-    var values = [amount]; // index 0 = start (before any inflation applies)
+    if (!amount || amount < 1) { resultsDiv.classList.remove('visible'); return; }
+    var yearData = HICP.slice(0, years);
+    var chronological = yearData.slice().reverse();
+    var values = [amount];
     var running = amount;
     for (var i = 0; i < chronological.length; i++) {
         running = running / (1 + chronological[i].rate);
         values.push(running);
     }
-
     var realValue = values[values.length - 1];
     var lost = amount - realValue;
-
     document.getElementById('result-original').textContent = formatEuro(amount);
     document.getElementById('result-real').textContent = formatEuro(realValue);
     document.getElementById('result-loss').textContent = '−' + formatEuro(lost);
-
     resultsDiv.classList.add('visible');
     renderChart(amount, values, chronological);
 }
@@ -526,47 +517,24 @@ function calculate() {
 function renderChart(nominal, values, chronological) {
     chartBars.innerHTML = '';
     var maxVal = nominal;
-    // Each bar group: nominal bar + real bar side by side, one per year transition
-    // We show start + one bar per year elapsed
-    var points = values; // length = years + 1
-    var barWidth = Math.floor(100 / points.length);
-
-    for (var i = 0; i < points.length; i++) {
-        var realH = Math.round((points[i] / maxVal) * 80);
-        var nomH  = 80; // nominal always full height (flat reference)
-
+    for (var i = 0; i < values.length; i++) {
+        var realH = Math.round((values[i] / maxVal) * 80);
         var group = document.createElement('div');
         group.className = 'chart-bar-group';
         group.style.flex = '1';
-
         var barsRow = document.createElement('div');
-        barsRow.style.display = 'flex';
-        barsRow.style.alignItems = 'flex-end';
-        barsRow.style.gap = '1px';
-        barsRow.style.width = '100%';
-        barsRow.style.height = '80px';
-
+        barsRow.style.cssText = 'display:flex;align-items:flex-end;gap:1px;width:100%;height:80px;';
         var nomBar = document.createElement('div');
         nomBar.className = 'chart-bar original';
-        nomBar.style.height = nomH + 'px';
-        nomBar.style.flex = '1';
-
+        nomBar.style.cssText = 'height:80px;flex:1;';
         var realBar = document.createElement('div');
         realBar.className = 'chart-bar real';
-        realBar.style.height = realH + 'px';
-        realBar.style.flex = '1';
-
+        realBar.style.cssText = 'height:' + realH + 'px;flex:1;';
         barsRow.appendChild(nomBar);
         barsRow.appendChild(realBar);
-
         var yearLabel = document.createElement('div');
         yearLabel.className = 'chart-year';
-        if (i === 0) {
-            yearLabel.textContent = chronological.length > 0 ? (chronological[0].year - 1) : '—';
-        } else {
-            yearLabel.textContent = String(chronological[i - 1].year).slice(2);
-        }
-
+        yearLabel.textContent = i === 0 ? (chronological.length > 0 ? (chronological[0].year - 1) : '—') : String(chronological[i - 1].year).slice(2);
         group.appendChild(barsRow);
         group.appendChild(yearLabel);
         chartBars.appendChild(group);
@@ -574,13 +542,25 @@ function renderChart(nominal, values, chronological) {
 }
 
 amountInput.addEventListener('input', calculate);
-yearSlider.addEventListener('input', function() {
-    updateSliderDisplay();
-    calculate();
-});
-
-// Init
+yearSlider.addEventListener('input', function() { updateSliderDisplay(); calculate(); });
 updateSliderDisplay();
+
+// Mobile hamburger
+var hamburger = document.getElementById('nav-hamburger');
+var mobileMenu = document.getElementById('nav-mobile-menu');
+if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var isOpen = mobileMenu.classList.toggle('open');
+        var path = hamburger.querySelector('svg path');
+        if (path) path.setAttribute('d', isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16');
+    });
+    document.addEventListener('click', function() {
+        mobileMenu.classList.remove('open');
+        var path = hamburger.querySelector('svg path');
+        if (path) path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+    });
+}
 </script>
 </body>
 </html>
