@@ -91,12 +91,12 @@
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
-        body { font-family:'DM Sans',sans-serif; background:var(--deep); color:var(--cream); line-height:1.7; -webkit-font-smoothing:antialiased; min-height:100vh; overflow-x:hidden; }
+        body { font-family:'DM Sans',sans-serif; background:var(--kb-bg); color:var(--kb-text); line-height:1.7; -webkit-font-smoothing:antialiased; min-height:100vh; overflow-x:hidden; }
         body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.4; }
         .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; width:55vw; height:55vw; top:-18vw; left:50%; transform:translateX(-50%); background:radial-gradient(circle,rgba(59,130,246,0.13),transparent 70%); }
 
         /* Nav */
-        nav { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 2rem; position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(6,15,30,0.6); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--border); box-shadow:0 1px 20px rgba(59,130,246,0.08); }
+        nav { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 2rem; position:fixed; top:0; left:0; right:0; z-index:100; background:#060f1e; border-bottom:1px solid var(--border); box-shadow:0 1px 20px rgba(59,130,246,0.08); }
         .nav-logo { font-family:'Instrument Serif',serif; font-size:1.8rem; color:var(--cream); text-decoration:none; position:relative; }
         .nav-logo span { display:inline-block; width:6px; height:6px; background:var(--blue); border-radius:50%; position:absolute; top:6px; right:-9px; box-shadow:0 0 8px var(--blue-glow); }
         .nav-links { display:flex; align-items:center; gap:1.5rem; }
@@ -105,21 +105,21 @@
 
         /* Layout */
         .wrap { max-width:720px; margin:0 auto; padding:0 2rem; position:relative; z-index:1; }
-        .content-col { background:var(--kb-bg); border-radius:24px; padding:3rem 2.5rem; margin-bottom:4rem; position:relative; z-index:1; }
+        .content-col { margin-bottom:4rem; position:relative; z-index:1; }
 
         /* Hero */
         .hero { padding:8rem 0 3rem; opacity:0; animation:fadeUp 0.7s ease forwards 0.2s; }
 
         /* Breadcrumb */
-        .breadcrumb { font-size:0.78rem; color:var(--muted); font-weight:300; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; }
-        .breadcrumb a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
-        .breadcrumb a:hover { color:var(--cream); }
+        .breadcrumb { font-size:0.78rem; color:var(--kb-muted); font-weight:300; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; }
+        .breadcrumb a { color:var(--kb-muted); text-decoration:none; transition:color 0.2s; }
+        .breadcrumb a:hover { color:var(--kb-text); }
         .breadcrumb-sep { opacity:0.4; }
 
         /* Typography */
         .eyebrow { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:1.25rem; }
-        h1 { font-family:'Instrument Serif',serif; font-size:clamp(2rem,5vw,3.2rem); line-height:1.1; letter-spacing:-0.02em; margin-bottom:0.75rem; color:var(--cream); }
-        .source-tag { font-size:0.72rem; color:var(--muted); font-weight:300; margin-bottom:2.5rem; display:block; }
+        h1 { font-family:'Instrument Serif',serif; font-size:clamp(2rem,5vw,3.2rem); line-height:1.1; letter-spacing:-0.02em; margin-bottom:0.75rem; color:var(--kb-text); }
+        .source-tag { font-size:0.72rem; color:var(--kb-muted); font-weight:300; margin-bottom:2.5rem; display:block; }
 
         /* Answer-first box — KB cream box on dark bg */
         .answer-first { background:var(--kb-text); border-radius:16px; padding:1.75rem 2rem; margin-bottom:3rem; box-shadow:0 4px 24px rgba(6,15,30,0.15); }
@@ -135,12 +135,12 @@
 
         /* Calculator card — site glass with KB spacing */
         .calc-card {
-            background:#fff;
-            border:1px solid var(--kb-border);
+            background:#0b1829;
+            border:1px solid rgba(59,130,246,0.18);
             border-radius:20px;
             padding:2.5rem 2rem;
             margin-bottom:2rem;
-            box-shadow:0 2px 16px rgba(6,15,30,0.07);
+            box-shadow:0 8px 40px rgba(0,0,0,0.3);
         }
 
         .calc-field { margin-bottom:2rem; }
@@ -150,22 +150,22 @@
             font-weight:600;
             letter-spacing:0.12em;
             text-transform:uppercase;
-            color:var(--kb-muted);
+            color:var(--muted);
             margin-bottom:0.75rem;
             opacity:0.85;
         }
 
         .calc-input-wrap { position:relative; display:flex; align-items:center; }
-        .calc-currency { position:absolute; left:1rem; font-size:1rem; font-weight:400; color:var(--kb-muted); pointer-events:none; }
+        .calc-currency { position:absolute; left:1rem; font-size:1rem; font-weight:400; color:var(--muted); pointer-events:none; }
         .calc-input {
             width:100%;
             padding:0.9rem 1rem 0.9rem 2.25rem;
             font-family:'DM Sans',sans-serif;
             font-size:1.1rem;
             font-weight:400;
-            color:var(--kb-text);
-            background:#f8f7f4;
-            border:1.5px solid var(--kb-border);
+            color:var(--cream);
+            background:rgba(255,255,255,0.05);
+            border:1.5px solid rgba(255,255,255,0.1);
             border-radius:12px;
             outline:none;
             transition:border-color 0.2s;
@@ -173,8 +173,8 @@
         }
         .calc-input::-webkit-outer-spin-button,
         .calc-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
-        .calc-input:focus { border-color:var(--blue); background:#fff; }
-        .calc-input::placeholder { color:var(--kb-muted); opacity:0.6; }
+        .calc-input:focus { border-color:rgba(59,130,246,0.5); background:rgba(255,255,255,0.07); }
+        .calc-input::placeholder { color:var(--muted); opacity:0.4; }
 
         /* Slider */
         .slider-row { display:flex; align-items:center; gap:1rem; }
@@ -184,7 +184,7 @@
             appearance:none;
             height:4px;
             border-radius:2px;
-            background:rgba(6,15,30,0.12);
+            background:rgba(255,255,255,0.1);
             outline:none;
             cursor:pointer;
         }
@@ -210,15 +210,15 @@
         .slider-value {
             font-family:'Instrument Serif',serif;
             font-size:1.5rem;
-            color:var(--kb-text);
+            color:var(--cream);
             min-width:80px;
             text-align:right;
         }
-        .slider-range { display:flex; justify-content:space-between; font-size:0.7rem; color:var(--kb-muted); font-weight:300; margin-top:0.5rem; padding:0 2px; }
+        .slider-range { display:flex; justify-content:space-between; font-size:0.7rem; color:var(--muted); font-weight:300; margin-top:0.5rem; padding:0 2px; opacity:0.6; }
 
         /* Results — KB stat callout style on dark */
         .calc-results {
-            border-top:1px solid var(--kb-border);
+            border-top:1px solid rgba(255,255,255,0.07);
             padding-top:2rem;
             margin-top:2rem;
             display:none;
@@ -226,32 +226,32 @@
         .calc-results.visible { display:block; }
         .results-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin-bottom:2rem; }
         .result-item {
-            background:var(--kb-surface);
-            border:1px solid var(--kb-border);
+            background:rgba(255,255,255,0.04);
+            border:1px solid rgba(255,255,255,0.07);
             border-radius:14px;
             padding:1.25rem 1rem;
             text-align:center;
         }
-        .result-label { font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--kb-muted); margin-bottom:0.6rem; }
-        .result-value { font-family:'Instrument Serif',serif; font-size:clamp(1.4rem,3vw,2rem); color:var(--kb-text); line-height:1.1; }
+        .result-label { font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); opacity:0.7; margin-bottom:0.6rem; }
+        .result-value { font-family:'Instrument Serif',serif; font-size:clamp(1.4rem,3vw,2rem); color:var(--cream); line-height:1.1; }
         .result-value.loss { color:#f87171; }
 
         /* Chart */
-        .chart-wrap { background:var(--kb-surface); border:1px solid var(--kb-border); border-radius:14px; padding:1.5rem; }
+        .chart-wrap { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:1.5rem; }
         .chart-bars { display:flex; align-items:flex-end; gap:3px; height:80px; }
         .chart-bar-group { flex:1; display:flex; flex-direction:column; align-items:center; }
         .chart-bar { width:100%; border-radius:3px 3px 0 0; transition:height 0.3s ease; }
         .chart-bar.original { background:rgba(59,130,246,0.2); }
         .chart-bar.real { background:var(--blue); }
-        .chart-year { font-size:0.6rem; color:var(--kb-muted); margin-top:4px; text-align:center; }
+        .chart-year { font-size:0.6rem; color:var(--muted); opacity:0.5; margin-top:4px; text-align:center; }
         .chart-legend { display:flex; gap:1.25rem; margin-top:1rem; }
-        .chart-legend-item { display:flex; align-items:center; gap:0.4rem; font-size:0.72rem; color:var(--kb-muted); font-weight:300; }
+        .chart-legend-item { display:flex; align-items:center; gap:0.4rem; font-size:0.72rem; color:var(--muted); font-weight:300; opacity:0.7; }
         .chart-legend-dot { width:8px; height:8px; border-radius:2px; flex-shrink:0; }
 
         /* Disclaimer — KB note style */
         .calc-disclaimer {
             font-size:0.78rem;
-            color:var(--kb-muted);
+            color:var(--kb-muted); /* disclaimer */
             font-weight:300;
             line-height:1.7;
             border-left:2px solid rgba(59,130,246,0.3);
@@ -277,7 +277,7 @@
         .read-next-link::before { content:'→'; color:var(--blue); font-size:0.8rem; }
 
         /* Footer */
-        footer { border-top:1px solid var(--border); margin-top:0; padding:2rem; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:0.6rem; text-align:center; font-size:0.8rem; color:var(--muted); font-weight:300; }
+        footer { border-top:none; margin-top:4rem; padding:2rem; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:0.6rem; text-align:center; font-size:0.8rem; color:var(--muted); font-weight:300; background:var(--deep); }
         .footer-links { display:flex; gap:1.5rem; }
         .footer-links a { color:var(--blue); text-decoration:none; transition:opacity 0.2s; }
         .footer-links a:hover { opacity:0.75; }
@@ -363,7 +363,7 @@
     <div class="article-body">
 
         <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(1.4rem,2.5vw,1.75rem);line-height:1.15;letter-spacing:-0.01em;margin:0 0 0.75rem;color:var(--kb-text);">Interactive Inflation Erosion Calculator</h2>
-        <p style="font-size:0.9rem;color:var(--muted);font-weight:300;line-height:1.75;margin-bottom:1.5rem;">This interactive tool uses EU27 HICP annual average data from Eurostat to calculate the real purchasing power loss of your savings over a chosen time period.</p>
+        <p style="font-size:0.9rem;color:var(--kb-muted);font-weight:300;line-height:1.75;margin-bottom:1.5rem;">This interactive tool uses EU27 HICP annual average data from Eurostat to calculate the real purchasing power loss of your savings over a chosen time period.</p>
 
         <div class="calc-card">
             <div class="calc-field">
