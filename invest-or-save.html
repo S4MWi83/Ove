@@ -158,10 +158,13 @@
 
         /* FAQ */
         .faq-section { margin:1.5rem 0 3rem; background:var(--kb-surface); border-radius:16px; padding:0.5rem 1.5rem; }
-        .faq-item { border-top:1px solid var(--kb-border); padding:1.5rem 0; }
-        .faq-item:last-child { border-bottom:none; }
-        .faq-q { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--kb-text); margin-bottom:0.75rem; line-height:1.3; }
-        .faq-a { font-size:0.9rem; color:var(--kb-muted); font-weight:300; line-height:1.8; }
+        .faq-item { border-top:1px solid var(--kb-border); }
+        .faq-item:last-child { border-bottom:1px solid var(--kb-border); }
+        .faq-q { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--kb-text); line-height:1.3; padding:1.25rem 0; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; user-select:none; }
+        .faq-icon { width:20px; height:20px; flex-shrink:0; color:var(--blue); transition:transform 0.3s ease; }
+        .faq-item.open .faq-icon { transform:rotate(45deg); }
+        .faq-a { font-size:0.9rem; color:var(--kb-muted); font-weight:300; line-height:1.8; max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.3s ease; padding-bottom:0; }
+        .faq-item.open .faq-a { max-height:300px; padding-bottom:1.25rem; }
 
         /* Read next */
         .read-next { background:var(--kb-surface); border:1px solid var(--kb-border); border-radius:16px; padding:1.75rem; margin:3rem 0 2rem; }
@@ -489,17 +492,24 @@
 
             <div class="faq-section">
                 <div class="faq-item">
-                    <p class="faq-q">How does inflation affect my savings account?</p>
+                    <p class="faq-q">How does inflation affect my savings account?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    </p>
                     <p class="faq-a">Inflation reduces the purchasing power of money over time. If your savings account pays less interest than the inflation rate — which most European accounts did in 2024 and 2025 — your money buys less each year even though the number in your account stays the same. Source: ECB Banking Statistics, Eurostat HICP data.</p>
                 </div>
                 <div class="faq-item">
-                    <p class="faq-q">Should I invest or save monthly?</p>
+                    <p class="faq-q">Should I invest or save monthly?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    </p>
                     <p class="faq-a">Both serve different purposes. Savings accounts provide liquidity and security for short-term needs and emergencies. Investing is generally considered more appropriate for money you can leave untouched for five years or more. The question isn't which to choose — it's understanding what each one does to your money over time. Capital is at risk when investing. Source: ESMA Retail Investor Guidelines.</p>
                 </div>
                 <div class="faq-item">
-                    <p class="faq-q">How do I start investing without losing?</p>
+                    <p class="faq-q">How do I start investing without losing?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    </p>
                     <p class="faq-a">There is no way to invest without any risk of loss. Capital is always at risk in market-based investments. What you can control is how much risk you take on, how diversified your investments are, and how long you stay invested. Regulators including ESMA recommend understanding any product before committing money, starting with regulated and diversified funds, and only investing what you can leave untouched for the medium to long term. Source: ESMA Retail Investor Guidelines.</p>
                 </div>
+            </div>
             </div>
 
             <div class="divider"></div>
@@ -550,29 +560,14 @@
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
 <script>
-(function() {
-    var links = document.querySelectorAll('.toc-sidebar .toc-link');
-    if (!links.length) return;
-    var sections = Array.from(links).map(function(l) {
-        return document.getElementById(l.dataset.section);
-    }).filter(Boolean);
-
-    function onScroll() {
-        var scrollY = window.scrollY + 120;
-        var active = sections[0];
-        for (var i = 0; i < sections.length; i++) {
-            if (sections[i].getBoundingClientRect().top + window.scrollY <= scrollY) {
-                active = sections[i];
-            }
-        }
-        links.forEach(function(l) {
-            l.classList.toggle('active', l.dataset.section === active.id);
-        });
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-})();
+document.querySelectorAll('.faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+        var item = q.parentElement;
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+    });
+});
 </script>
 </body>
 </html>
