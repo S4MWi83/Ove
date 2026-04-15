@@ -121,6 +121,8 @@
 
         /* Byline */
         .byline { font-size:0.78rem; color:var(--kb-muted); font-weight:300; margin-bottom:1.5rem; }
+        /* Read timer */
+        .read-time { font-size:0.8rem; color:#3b82f6; font-weight:400; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:1rem; opacity:0.85; display:flex; align-items:center; gap:0.4rem; }
 
         /* Typography */
         .eyebrow { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:1.25rem; }
@@ -309,6 +311,7 @@
                 <p class="sources">Sources: ECB HICP data, ECB Sector Accounts Q3 2025.</p>
             </div>
         </div>
+        <p class="read-time" id="read-time-display"></p>
 
         <div class="article-body">
 
@@ -568,6 +571,13 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
         if (!isOpen) item.classList.add('open');
     });
 });
+</script>
+<script>
+(function() {
+    var words = document.querySelector('.article-body').innerText.trim().split(/\s+/).length;
+    var mins = Math.ceil(words / 200);
+    document.getElementById('read-time-display').innerHTML = '<svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="opacity:0.6;flex-shrink:0;"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/></svg>' + mins + ' min read';
+})();
 </script>
 </body>
 </html>
