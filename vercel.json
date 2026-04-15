@@ -49,9 +49,14 @@
       "destination": "/should-i-start-investing.html"
     },
     {
+      "source": "/learn/archive",
+      "destination": "/archive.html"
+    },
+    {
       "source": "/inflation-calculator",
       "destination": "/inflation-calculator.html"
     }
+    
   ],
   "redirects": [
     {
