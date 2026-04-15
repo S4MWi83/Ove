@@ -121,6 +121,7 @@
         .breadcrumb-sep { opacity:0.4; }
 
         .byline { font-size:0.78rem; color:var(--kb-muted); font-weight:300; margin-bottom:1.5rem; }
+        .read-time { font-size:0.8rem; color:var(--kb-muted); font-weight:400; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:2rem; opacity:0.7; }
 
         .eyebrow { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:1.25rem; }
         h1 { font-family:'Instrument Serif',serif; font-size:clamp(2.2rem,5vw,3.6rem); line-height:1.1; letter-spacing:-0.02em; margin-bottom:0.75rem; color:var(--kb-text); }
@@ -283,12 +284,13 @@
             <p class="eyebrow">The investment gap</p>
             <h1>The €10.8 Trillion Gap: Why 80%+ of European Savings Never Reach the Market</h1>
             <span class="source-tag">Source: ECB Sector Accounts Q3 2025.</span>
-            <p class="byline">By Samuel Gustaf, Founder, OVÉ &nbsp;·&nbsp; <span id="read-time"></span></p>
+            <p class="byline">By Samuel Gustaf, Founder, OVÉ</p>
 
             <div class="answer-first">
                 <p class="answer-first-label">The short answer</p>
                 <p>Most Europeans aren't just not investing — most of their money isn't either. Only about 1 in 6 euros is invested in stocks and funds. The remaining 80%+ sits outside the market, much of it in deposits losing purchasing power to inflation. Source: ECB Sector Accounts Q3 2025.</p>
             </div>
+            <p class="read-time" id="read-time-display"></p>
         </div>
 
         <div class="article-body">
@@ -480,7 +482,7 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
 (function() {
     var words = document.querySelector('.article-body').innerText.trim().split(/\s+/).length;
     var mins = Math.ceil(words / 200);
-    document.getElementById('read-time').textContent = mins + ' min read';
+    document.getElementById('read-time-display').textContent = mins + ' min read';
 })();
 </script>
 </body>
