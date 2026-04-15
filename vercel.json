@@ -45,6 +45,10 @@
       "destination": "/invest-or-save.html"
     },
     {
+      "source": "/learn/should-i-start-investing",
+      "destination": "/should-i-start-investing.html"
+    },
+    {
       "source": "/inflation-calculator",
       "destination": "/inflation-calculator.html"
     }
