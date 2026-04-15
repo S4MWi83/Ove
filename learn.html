@@ -283,7 +283,7 @@
             <p class="eyebrow">The investment gap</p>
             <h1>The €10.8 Trillion Gap: Why 80%+ of European Savings Never Reach the Market</h1>
             <span class="source-tag">Source: ECB Sector Accounts Q3 2025.</span>
-            <p class="byline">By Samuel Gustaf, Founder, OVÉ</p>
+            <p class="byline">By Samuel Gustaf, Founder, OVÉ &nbsp;·&nbsp; <span id="read-time"></span></p>
 
             <div class="answer-first">
                 <p class="answer-first-label">The short answer</p>
@@ -475,6 +475,13 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
         if (!isOpen) item.classList.add('open');
     });
 });
+</script>
+<script>
+(function() {
+    var words = document.querySelector('.article-body').innerText.trim().split(/\s+/).length;
+    var mins = Math.ceil(words / 200);
+    document.getElementById('read-time').textContent = mins + ' min read';
+})();
 </script>
 </body>
 </html>
