@@ -47,26 +47,17 @@
             {
                 "@type": "Question",
                 "name": "How much risk can I handle?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Start with the question: how would you feel if your investment dropped 20% in a year? If the answer is panic, you need a lower-risk allocation. The longer you can leave money untouched, the more volatility you can absorb. Capital is always at risk in market-based investments."
-                }
+                "acceptedAnswer": { "@type": "Answer", "text": "Start with the question: how would you feel if your investment dropped 20% in a year? If the answer is panic, you need a lower-risk allocation. The longer you can leave money untouched, the more volatility you can absorb. Capital is always at risk in market-based investments." }
             },
             {
                 "@type": "Question",
                 "name": "How much of my savings should I invest?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Only invest what you can leave untouched for at least five years, after maintaining an emergency fund of three to six months of living costs. Starting small is better than not starting — but only with money you can afford to leave in the market through downturns."
-                }
+                "acceptedAnswer": { "@type": "Answer", "text": "Only invest what you can leave untouched for at least five years, after maintaining an emergency fund of three to six months of living costs. Starting small is better than not starting — but only with money you can afford to leave in the market through downturns." }
             },
             {
                 "@type": "Question",
                 "name": "How do I start investing without making a mistake?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "ESMA's research identifies three patterns behind most first-time investor losses: not understanding the product, chasing recent performance, and selling during downturns. For personalised guidance, consult a regulated financial adviser."
-                }
+                "acceptedAnswer": { "@type": "Answer", "text": "ESMA's research identifies three patterns behind most first-time investor losses: not understanding the product, chasing recent performance, and selling during downturns. For personalised guidance, consult a regulated financial adviser." }
             }
         ]
     }
@@ -114,6 +105,8 @@
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
+        /* Fix: scroll offset for sticky nav */
+        h2[id] { scroll-margin-top:112px; }
         body { font-family:'DM Sans',sans-serif; background:var(--kb-bg); color:var(--kb-text); line-height:1.7; -webkit-font-smoothing:antialiased; min-height:100vh; }
         .orb { display:none; }
         nav { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 2rem; position:fixed; top:0; left:0; right:0; z-index:100; background:#060f1e; border-bottom:1px solid var(--border); box-shadow:0 1px 20px rgba(59,130,246,0.08); }
@@ -172,8 +165,10 @@
         .footer-links a { color:var(--blue); text-decoration:none; transition:opacity 0.2s; }
         .footer-links a:hover { opacity:0.75; }
         @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+        /* Fix: align-self:start on sidebar */
         .article-layout { display:grid; grid-template-columns:1fr 180px; gap:4rem; align-items:start; max-width:900px; margin:0 auto; }
-        .toc-sidebar { position:sticky; top:6rem; width:180px; flex-shrink:0; }
+        .toc-sidebar { position:sticky; top:6rem; width:180px; align-self:start; }
         .toc-label { font-size:0.65rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--kb-muted); margin-bottom:0.75rem; display:block; }
         .toc-list { list-style:none; display:flex; flex-direction:column; gap:0; }
         .toc-link { display:block; font-size:0.78rem; font-weight:300; color:var(--kb-muted); text-decoration:none; padding:0.35rem 0 0.35rem 0.75rem; border-left:2px solid transparent; transition:color 0.2s, border-color 0.2s; line-height:1.4; }
@@ -221,7 +216,7 @@
                 <p>Most Europeans aren't just not investing — most of their money isn't either. Only about 1 in 6 euros is invested in stocks and funds. The remaining 80%+ sits outside the market, much of it in deposits losing purchasing power to inflation. Source: ECB Sector Accounts Q3 2025.</p>
             </div>
 
-            <!-- Read time -->
+            <!-- Read time (excludes FAQ) -->
             <p class="read-time" id="read-time-display"></p>
         </div>
 
@@ -275,13 +270,7 @@
             <p>For a beginner, the choice usually stands between staying in cash or moving into UCITS — Undertakings for Collective Investment in Transferable Securities. These are the gold standard for regulated, diversified funds in Europe.</p>
 
             <table class="compare-table">
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Savings Account (Cash)</th>
-                        <th>UCITS Index Funds</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Feature</th><th>Savings Account (Cash)</th><th>UCITS Index Funds</th></tr></thead>
                 <tbody>
                     <tr><td>Primary Goal</td><td>Liquidity &amp; Emergency Fund</td><td>Long-term Wealth Building</td></tr>
                     <tr><td>Risk Type</td><td>Inflation Risk</td><td>Market Volatility</td></tr>
@@ -351,6 +340,7 @@
         </div>
     </article>
 
+    <!-- Fix: align-self:start prevents TOC from stretching to article bottom -->
     <aside class="toc-sidebar" aria-label="Table of contents">
         <span class="toc-label">Contents</span>
         <ul class="toc-list">
@@ -390,20 +380,10 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
 });
 </script>
 
-<!-- Read time calculator -->
-<script>
-(function() {
-    var words = document.querySelector('.article-body').innerText.trim().split(/\s+/).length;
-    var mins = Math.ceil(words / 200);
-    document.getElementById('read-time-display').innerHTML = '<svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="opacity:0.6;flex-shrink:0;"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/></svg>' + mins + ' min read';
-})();
-</script>
-
 <!-- Read time calculator (excludes FAQ) -->
 <script>
 (function() {
     var body = document.querySelector('.article-body');
-    var faq = body.querySelector('.faq-section');
     var clone = body.cloneNode(true);
     var faqClone = clone.querySelector('.faq-section');
     if (faqClone) faqClone.remove();
@@ -412,6 +392,30 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
     document.getElementById('read-time-display').innerHTML = '<svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="opacity:0.6;flex-shrink:0;"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/></svg>' + mins + ' min read';
 })();
 </script>
+
+<!-- TOC scroll highlight -->
+<script>
+(function() {
+    var links = document.querySelectorAll('.toc-sidebar .toc-link');
+    if (!links.length) return;
+    var sections = Array.from(links).map(function(l) {
+        return document.getElementById(l.dataset.section);
+    }).filter(Boolean);
+    function onScroll() {
+        var scrollY = window.scrollY + 140;
+        var active = sections[0];
+        for (var i = 0; i < sections.length; i++) {
+            if (sections[i].getBoundingClientRect().top + window.scrollY <= scrollY) {
+                active = sections[i];
+            }
+        }
+        links.forEach(function(l) {
+            l.classList.toggle('active', l.dataset.section === active.id);
+        });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+})();
 </script>
 </body>
 </html>
