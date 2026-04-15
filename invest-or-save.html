@@ -108,6 +108,7 @@
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
+        /* Fix: scroll offset for sticky nav */
         h2[id] { scroll-margin-top:112px; }
         body { font-family:'DM Sans',sans-serif; background:var(--kb-bg); color:var(--kb-text); line-height:1.7; -webkit-font-smoothing:antialiased; min-height:100vh; }
         .orb { display:none; }
@@ -128,7 +129,6 @@
         .read-time { font-size:0.8rem; color:#3b82f6; font-weight:400; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:1rem; opacity:0.85; display:flex; align-items:center; gap:0.4rem; }
         .eyebrow { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:1.25rem; }
         h1 { font-family:'Instrument Serif',serif; font-size:clamp(2.2rem,5vw,3.6rem); line-height:1.1; letter-spacing:-0.02em; margin-bottom:0.75rem; color:var(--kb-text); }
-        .source-tag { font-size:0.72rem; color:var(--kb-muted); font-weight:300; margin-bottom:2.5rem; display:block; }
         h2 { font-family:'Instrument Serif',serif; font-size:clamp(1.5rem,3vw,2rem); line-height:1.15; letter-spacing:-0.01em; margin:3rem 0 1rem; color:var(--kb-text); }
         h3 { font-family:'Instrument Serif',serif; font-size:1.1rem; line-height:1.2; margin:1.75rem 0 0.6rem; color:var(--kb-text); }
         .answer-first { background:var(--kb-text); border:none; border-radius:16px; padding:2rem; margin-bottom:1rem; box-shadow:0 4px 24px rgba(6,15,30,0.15); }
@@ -167,8 +167,14 @@
         .footer-links a { color:var(--blue); text-decoration:none; transition:opacity 0.2s; }
         .footer-links a:hover { opacity:0.75; }
         @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+        .chart-wrap { margin:2rem 0; }
+        .inflation-chart { width:100%; height:auto; display:block; border-radius:12px; overflow:visible; }
+        .chart-source { font-size:0.72rem; color:var(--kb-muted); font-weight:300; margin-top:0.75rem; font-style:italic; }
+        .chart-note { font-size:0.82rem; color:var(--kb-muted); font-weight:300; line-height:1.7; margin-top:0.5rem; }
+
+        /* Fix: align-self:start on sidebar */
         .article-layout { display:grid; grid-template-columns:1fr 180px; gap:4rem; align-items:start; max-width:900px; margin:0 auto; }
-        .toc-sidebar { position:sticky; top:6rem; width:180px; flex-shrink:0; }
+        .toc-sidebar { position:sticky; top:6rem; width:180px; align-self:start; }
         .toc-label { font-size:0.65rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--kb-muted); margin-bottom:0.75rem; display:block; }
         .toc-list { list-style:none; display:flex; flex-direction:column; gap:0; }
         .toc-link { display:block; font-size:0.78rem; font-weight:300; color:var(--kb-muted); text-decoration:none; padding:0.35rem 0 0.35rem 0.75rem; border-left:2px solid transparent; transition:color 0.2s, border-color 0.2s; line-height:1.4; }
@@ -179,10 +185,6 @@
         .toc-mobile .toc-list { gap:0; }
         .toc-mobile .toc-link { border-left:none; padding:0.3rem 0; border-bottom:1px solid var(--kb-border); }
         .toc-mobile .toc-list li:last-child .toc-link { border-bottom:none; }
-        .chart-wrap { margin:2rem 0; }
-        .inflation-chart { width:100%; height:auto; display:block; border-radius:12px; overflow:visible; }
-        .chart-source { font-size:0.72rem; color:var(--kb-muted); font-weight:300; margin-top:0.75rem; font-style:italic; }
-        .chart-note { font-size:0.82rem; color:var(--kb-muted); font-weight:300; line-height:1.7; margin-top:0.5rem; }
         @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .toc-sidebar { display:none; } .toc-mobile { display:block; } }
         @media(max-width:640px) { nav { padding:1rem 1.25rem; } .nav-logo { font-size:1.5rem; } .nav-links { gap:1rem; } .wrap { padding:0 1.35rem; } .hero { padding:7rem 0 2.5rem; } .compare-table { font-size:0.8rem; } .compare-table th, .compare-table td { padding:0.6rem 0.75rem; } .article-layout { grid-template-columns:1fr; } .toc-sidebar { display:none; } .toc-mobile { display:block; } }
     </style>
@@ -222,13 +224,12 @@
                 <p class="sources">Sources: ECB HICP data, ECB Sector Accounts Q3 2025.</p>
             </div>
 
-            <!-- Read time -->
+            <!-- Read time (excludes FAQ) -->
             <p class="read-time" id="read-time-display"></p>
         </div>
 
         <div class="article-body">
 
-            <!-- TOC Mobile -->
             <div class="toc-mobile" aria-label="Table of contents">
                 <span class="toc-label">Contents</span>
                 <ul class="toc-list">
@@ -251,14 +252,7 @@
             <p>Below is a concrete way to see inflation: imagine you have €10,000 in a savings account, but your money doesn't grow as fast as prices. The purchasing power — what your money can actually buy — decreases over time.</p>
 
             <table class="compare-table">
-                <thead>
-                    <tr>
-                        <th>Inflation per year</th>
-                        <th>After 2 years</th>
-                        <th>After 5 years</th>
-                        <th>After 10 years</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Inflation per year</th><th>After 2 years</th><th>After 5 years</th><th>After 10 years</th></tr></thead>
                 <tbody>
                     <tr><td>2%</td><td>€9,612</td><td>€9,057</td><td>€8,203</td></tr>
                     <tr><td>3%</td><td>€9,426</td><td>€8,626</td><td>€7,441</td></tr>
@@ -268,7 +262,6 @@
             <p>At 3% inflation, €10,000 loses approximately €2,559 in purchasing power over 10 years — even though the number in your account still says "10,000."</p>
             <p class="source-note">Source: ECB HICP data</p>
 
-            <!-- Inflation Chart -->
             <div class="chart-wrap">
                 <svg class="inflation-chart" viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EU27 HICP Annual Inflation 2015-2025">
                     <title>EU27 HICP Annual Inflation 2015-2025</title>
@@ -327,14 +320,7 @@
             <p>Here's what European banks were actually paying in December 2025, compared to an inflation rate of 2.5%:</p>
 
             <table class="compare-table">
-                <thead>
-                    <tr>
-                        <th>Account type</th>
-                        <th>Interest rate</th>
-                        <th>EU Inflation 2025</th>
-                        <th>Real return</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Account type</th><th>Interest rate</th><th>EU Inflation 2025</th><th>Real return</th></tr></thead>
                 <tbody>
                     <tr><td>Overnight deposits</td><td>0.25%</td><td>2.5%</td><td style="color:#c0392b;font-weight:500;">-2.25%</td></tr>
                     <tr><td>3-month notice accounts</td><td>1.22%</td><td>2.5%</td><td style="color:#c0392b;font-weight:500;">-1.28%</td></tr>
@@ -361,13 +347,7 @@
             <p>What does the same monthly amount look like across two different approaches over 10 years? Based on historical data, the outcomes have differed historically.</p>
 
             <table class="compare-table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Savings account</th>
-                        <th>Global index fund (MSCI World, broad market example — not a recommendation)</th>
-                    </tr>
-                </thead>
+                <thead><tr><th></th><th>Savings account</th><th>Global index fund (MSCI World, broad market example — not a recommendation)</th></tr></thead>
                 <tbody>
                     <tr><td>Monthly amount</td><td>€100</td><td>€100</td></tr>
                     <tr><td>Total invested</td><td>€12,000</td><td>€12,000</td></tr>
@@ -384,14 +364,7 @@
             <p>These figures show the raw numbers. Inflation reduces the buying power of both. Using the actual average EU27 HICP inflation rate of 2.85% per year between 2015 and 2025 — a cumulative increase of approximately 32.5% — the real purchasing power of each outcome in 2015 euros:</p>
 
             <table class="compare-table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>After 10 years (raw)</th>
-                        <th>Real purchasing power (2015 €)</th>
-                        <th>Real outcome vs €12,000 invested</th>
-                    </tr>
-                </thead>
+                <thead><tr><th></th><th>After 10 years (raw)</th><th>Real purchasing power (2015 €)</th><th>Real outcome vs €12,000 invested</th></tr></thead>
                 <tbody>
                     <tr><td>Savings account</td><td>€12,150</td><td>≈€9,170</td><td style="color:#c0392b;font-weight:500;">Lost €2,830 in real terms</td></tr>
                     <tr><td>Global index fund</td><td>€22,593</td><td>≈€17,051</td><td style="color:#2ecc71;font-weight:500;">Gained €5,051 in real terms</td></tr>
@@ -428,25 +401,22 @@
 
             <div class="divider"></div>
 
-            <!-- Read next -->
             <div class="read-next">
                 <p class="read-next-label">Read next</p>
                 <div class="read-next-links">
                     <a href="/learn" class="read-next-link">The €10.8 Trillion Gap — Why 74% of Europeans Don't Invest</a>
-                    <a href="/inflation-calculator" class="read-next-link">Inflation Erosion Calculator — see what inflation has done to your savings</a>
+                    <a href="/learn/should-i-start-investing" class="read-next-link">Should I Start Investing? What Most People Ask Before They Begin</a>
                     <a href="/concept" class="read-next-link">See the OVÉ concept</a>
                 </div>
             </div>
 
-            <!-- OVÉ link -->
             <p style="font-size:0.82rem;color:var(--kb-muted);font-weight:300;margin-bottom:1.5rem;">OVÉ is a concept currently under development and is being built to explore ways to address this. <a href="/waitlist" style="color:var(--blue);text-decoration:none;">Learn more →</a></p>
-
-            <!-- Disclaimer -->
             <p style="font-size:0.78rem;color:var(--kb-muted);font-weight:300;line-height:1.65;margin-bottom:4rem;">OVÉ is not currently authorised or regulated to provide investment services in the European Union. This content is provided for educational purposes only and does not constitute investment advice, a recommendation, or an offer to invest. Past performance and historical data do not guarantee future results.</p>
 
         </div>
     </article>
 
+    <!-- Fix: align-self:start prevents TOC from stretching to article bottom -->
     <aside class="toc-sidebar" aria-label="Table of contents">
         <span class="toc-label">Contents</span>
         <ul class="toc-list">
@@ -485,26 +455,41 @@ document.querySelectorAll('.faq-q').forEach(function(q) {
 });
 </script>
 
-<!-- Read time calculator -->
-<script>
-(function() {
-    var words = document.querySelector('.article-body').innerText.trim().split(/\s+/).length;
-    var mins = Math.ceil(words / 200);
-    document.getElementById('read-time-display').innerHTML = '<svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="opacity:0.6;flex-shrink:0;"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/></svg>' + mins + ' min read';
-})();
-</script>
-
 <!-- Read time calculator (excludes FAQ) -->
 <script>
 (function() {
     var body = document.querySelector('.article-body');
-    var faq = body.querySelector('.faq-section');
     var clone = body.cloneNode(true);
     var faqClone = clone.querySelector('.faq-section');
     if (faqClone) faqClone.remove();
     var words = clone.innerText.trim().split(/\s+/).length;
     var mins = Math.ceil(words / 200);
     document.getElementById('read-time-display').innerHTML = '<svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="opacity:0.6;flex-shrink:0;"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/></svg>' + mins + ' min read';
+})();
+</script>
+
+<!-- TOC scroll highlight -->
+<script>
+(function() {
+    var links = document.querySelectorAll('.toc-sidebar .toc-link');
+    if (!links.length) return;
+    var sections = Array.from(links).map(function(l) {
+        return document.getElementById(l.dataset.section);
+    }).filter(Boolean);
+    function onScroll() {
+        var scrollY = window.scrollY + 140;
+        var active = sections[0];
+        for (var i = 0; i < sections.length; i++) {
+            if (sections[i].getBoundingClientRect().top + window.scrollY <= scrollY) {
+                active = sections[i];
+            }
+        }
+        links.forEach(function(l) {
+            l.classList.toggle('active', l.dataset.section === active.id);
+        });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 })();
 </script>
 </body>
