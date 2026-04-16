@@ -74,89 +74,13 @@
         .demo-next-btn.full { width:100%; }
         .demo-back-btn { display:flex; align-items:center; justify-content:center; gap:0.4rem; background:#060f1e; border:1px solid rgba(255,255,255,0.15); color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.875rem; font-weight:500; padding:12px 16px; border-radius:10px; cursor:pointer; transition:border-color 150ms ease; flex-shrink:0; letter-spacing:0.3px; }
         .demo-back-btn:hover { border-color:rgba(255,255,255,0.3); color:var(--cream); }
-        .demo-modal { background:#0b1829; border:1px solid rgba(59,130,246,0.18); border-radius:28px; width:100%; max-width:460px; position:relative; overflow:hidden; box-shadow:0 40px 100px rgba(0,0,0,0.6); animation:scaleIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
-        .demo-steps-indicator { display:flex; gap:6px; padding:1.25rem 2rem 0; }
-        .demo-step-dot { height:3px; border-radius:2px; background:rgba(255,255,255,0.1); flex:1; transition:all 0.4s ease; }
-        .demo-step-dot.active { background:var(--blue); }
-        .demo-step-dot.done { background:rgba(59,130,246,0.4); }
-        .demo-panel { display:none; padding:1.75rem 2rem 2rem; }
-        .demo-panel.active { display:block; animation:panelIn 0.3s ease; }
-        .demo-title { font-family:'Instrument Serif',serif; font-size:1.75rem; line-height:1.15; margin-bottom:0.4rem; }
-        .demo-sub { font-size:0.88rem; color:var(--muted); font-weight:300; line-height:1.65; margin-bottom:1.5rem; }
-        .demo-form { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:1.5rem; }
-        .demo-field label { display:block; font-size:0.72rem; color:var(--muted); font-weight:400; margin-bottom:0.3rem; letter-spacing:0.05em; text-transform:uppercase; }
-        .demo-input { background:rgba(255,255,255,0.04); border:1px solid rgba(59,130,246,0.15); border-radius:12px; padding:0.75rem 1rem; font-size:0.95rem; color:var(--cream); font-family:'DM Sans',sans-serif; display:flex; align-items:center; gap:0.5rem; }
-        .demo-input-check { margin-left:auto; width:16px; height:16px; background:rgba(74,222,128,0.15); border:1px solid rgba(74,222,128,0.3); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:var(--green); flex-shrink:0; transition:opacity 0.2s; }
-        .demo-slider-wrap { margin-bottom:1.5rem; }
-        .demo-slider-header { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:1rem; }
-        .demo-slider-amount { font-family:'Instrument Serif',serif; font-size:3rem; color:var(--cream); line-height:1; letter-spacing:-0.02em; transition:all 0.15s ease; }
-        .demo-slider-amount span { font-size:1.4rem; color:var(--muted); }
-        .demo-slider-mo { font-size:0.82rem; color:var(--muted); font-weight:300; }
-        .demo-slider { -webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px; background:rgba(255,255,255,0.08); outline:none; cursor:pointer; }
-        .demo-slider::-webkit-slider-thumb { -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; box-shadow:0 0 12px rgba(59,130,246,0.6); border:2px solid rgba(255,255,255,0.2); }
-        .demo-slider::-moz-range-thumb { width:22px; height:22px; border-radius:50%; background:var(--blue); cursor:pointer; border:2px solid rgba(255,255,255,0.2); box-shadow:0 0 12px rgba(59,130,246,0.6); }
-        .demo-slider-labels { display:flex; justify-content:space-between; font-size:0.7rem; color:var(--muted); margin-top:0.5rem; font-weight:300; }
-        .demo-custom-wrap { margin:1rem 0 1rem; }
-        .demo-custom-label { display:block; font-size:0.72rem; color:var(--muted); font-weight:400; margin-bottom:0.3rem; letter-spacing:0.05em; text-transform:uppercase; }
-        .demo-custom-input-wrap { display:flex; align-items:center; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.2s; }
-        .demo-custom-input-wrap:focus-within { border-color:rgba(59,130,246,0.4); }
-        .demo-custom-euro { padding:0.75rem 0.5rem 0.75rem 1rem; font-size:0.95rem; color:var(--muted); }
-        .demo-custom-input { flex:1; background:none; border:none; outline:none; padding:0.75rem 1rem 0.75rem 0; font-size:0.95rem; color:var(--cream); font-family:'DM Sans',sans-serif; caret-color:var(--blue); }
-        .demo-custom-input::placeholder { color:rgba(122,143,168,0.4); }
-        .demo-custom-input::-webkit-outer-spin-button, .demo-custom-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
-        .demo-projection { margin-bottom:1.5rem; padding:1.25rem; background:rgba(74,222,128,0.05); border:1px solid rgba(74,222,128,0.12); border-radius:14px; }
-        .demo-proj-number { font-family:'Instrument Serif',serif; font-size:2.4rem; color:var(--green); line-height:1; margin-bottom:0.4rem; letter-spacing:-0.02em; transition:all 0.3s ease; }
-        .demo-proj-label { font-size:0.82rem; color:var(--muted); font-weight:300; line-height:1.5; }
-        .demo-portfolios { display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.5rem; }
-        .demo-portfolio { border:1px solid var(--border); border-left:3px solid transparent; border-radius:14px; padding:0.85rem 1.1rem; cursor:pointer; transition:all 0.2s ease; background:rgba(255,255,255,0.02); position:relative; }
-        .demo-portfolio[data-p="steady"] { --p-color:#4ade80; }
-        .demo-portfolio[data-p="balanced"] { --p-color:#3b82f6; }
-        .demo-portfolio[data-p="growth"] { --p-color:#f97316; }
-        .demo-portfolio:hover { border-color:rgba(255,255,255,0.1); border-left-color:var(--p-color); }
-        .demo-portfolio.active { border-color:rgba(255,255,255,0.1); border-left-color:var(--p-color); background:rgba(255,255,255,0.04); box-shadow:inset 3px 0 12px -4px var(--p-color); }
-        .demo-p-top { display:flex; align-items:center; justify-content:space-between; }
-        .demo-p-name { font-size:0.92rem; font-weight:500; color:var(--cream); }
-        .demo-p-risk { font-size:0.72rem; color:var(--muted); font-weight:300; margin-top:0.1rem; }
-        .demo-p-proj { font-size:0.82rem; color:var(--p-color); font-weight:500; white-space:nowrap; opacity:0.9; }
-        .demo-p-alloc { font-size:0.72rem; color:var(--muted); font-weight:300; letter-spacing:0.02em; max-height:0; overflow:hidden; opacity:0; transition:max-height 0.2s ease,opacity 0.2s ease,margin-top 0.2s ease; margin-top:0; }
-        .demo-portfolio:hover .demo-p-alloc, .demo-portfolio.active .demo-p-alloc { max-height:20px; opacity:1; margin-top:0.4rem; }
-        .demo-btn-row { display:flex; gap:0.65rem; align-items:center; } { width:56px; height:56px; border-radius:50%; background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.3); display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:var(--green); margin-bottom:1.25rem; box-shadow:0 0 24px rgba(74,222,128,0.15); animation:popIn 0.5s cubic-bezier(0.34,1.56,0.64,1); }
-        @keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
-        .demo-receipt { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:18px; overflow:hidden; margin-bottom:1.75rem; }
-        .demo-receipt-hero { padding:1.5rem; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; }
-        .demo-receipt-proj { font-family:'Instrument Serif',serif; font-size:2.8rem; color:var(--green); line-height:1; letter-spacing:-0.02em; margin-bottom:0.3rem; }
-        .demo-receipt-proj-label { font-size:0.78rem; color:var(--muted); font-weight:300; }
-        .demo-receipt-rows { padding:0.75rem 1.25rem; }
-        .demo-receipt-row { display:flex; justify-content:space-between; align-items:center; padding:0.55rem 0; border-bottom:1px solid rgba(255,255,255,0.04); }
-        .demo-receipt-row:last-child { border-bottom:none; }
-        .demo-receipt-key { font-size:0.78rem; color:var(--muted); font-weight:300; text-transform:uppercase; letter-spacing:0.06em; }
-        .demo-receipt-val { font-size:0.9rem; color:var(--cream); font-weight:500; }
-        .demo-restart { width:100%; margin-top:0.65rem; background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.85rem; cursor:pointer; transition:color 0.2s; padding:0.5rem; }
-        .demo-restart:hover { color:var(--cream); }
-        @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
-        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-        @keyframes scaleIn { from{opacity:0;transform:scale(0.94)} to{opacity:1;transform:scale(1)} }
-        @keyframes panelIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
         .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
         .reveal.visible { opacity:1; transform:translateY(0); }
         .section { padding:5rem 0; border-top:1px solid var(--border); position:relative; z-index:1; }
         .section-inner { max-width:720px; margin:0 auto; }
         .section-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
         .section-title { font-family:'Instrument Serif',serif; font-size:clamp(2rem,4vw,2.8rem); line-height:1.1; letter-spacing:-0.01em; margin-bottom:1.25rem; }
-        .stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
-        .stat-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:1.5rem; }
-        .stat-num { font-family:'Instrument Serif',serif; font-size:2.4rem; color:var(--cream); line-height:1; letter-spacing:-0.02em; margin-bottom:0.4rem; }
-        .stat-desc { font-size:0.82rem; color:var(--muted); font-weight:300; line-height:1.6; }
-        .concept-points { display:flex; flex-direction:column; gap:0; margin-top:2.5rem; }
-        .concept-point { display:flex; gap:1.5rem; padding:1.75rem 0; border-top:1px solid var(--border); }
-        .concept-point:last-child { border-bottom:1px solid var(--border); }
-        .concept-point-num { font-family:'Instrument Serif',serif; font-size:1.1rem; color:var(--blue); opacity:0.6; flex-shrink:0; width:1.5rem; padding-top:0.1rem; }
-        .concept-point-body { flex:1; }
-        .concept-point-title { font-family:'Instrument Serif',serif; font-size:1.25rem; color:var(--cream); margin-bottom:0.4rem; line-height:1.2; }
-        .concept-point-text { font-size:0.9rem; color:var(--muted); font-weight:300; line-height:1.75; }
         .cta-section { padding:5rem 0 6rem; border-top:1px solid var(--border); position:relative; z-index:1; text-align:center; }
-        .cta-section-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
-        .cta-section-title { font-family:'Instrument Serif',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:2rem; }
         .demo-cta-section { padding:5rem 0; border-top:1px solid var(--border); position:relative; z-index:1; text-align:center; }
         .demo-cta-label { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); opacity:0.85; margin-bottom:1rem; }
         .demo-cta-title { font-family:'Instrument Serif',serif; font-size:clamp(1.8rem,3.5vw,2.4rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:0.75rem; }
@@ -165,7 +89,6 @@
         footer a { color:var(--blue); text-decoration:none; }
         footer a:hover { text-decoration:underline; }
         .footer-links { display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; }
-
         .how-section { padding:5rem 0 4rem; border-top:1px solid var(--border); position:relative; z-index:1; }
         .how-steps { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.5rem; margin-bottom:3rem; }
         .how-step { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:1.75rem 1.5rem; position:relative; }
@@ -174,19 +97,20 @@
         .how-step-body { font-size:0.85rem; color:var(--muted); font-weight:300; line-height:1.7; }
         .how-cta { text-align:center; }
         .how-cta-note { font-size:0.8rem; color:var(--muted); opacity:0.6; margin-top:0.875rem; font-weight:300; }
-
-            .nav-hamburger { display:none; background:none; border:none; border-radius:8px; cursor:pointer; padding:0.35rem 0.5rem; color:var(--cream); margin-right:0.75rem; }
-            .nav-hamburger:hover { opacity:0.75; }
-            .nav-mobile-menu { display:none; position:fixed; top:57px; left:0; right:0; background:#060f1e; border-bottom:1px solid var(--border); z-index:99; padding:1rem 1.5rem; flex-direction:column; gap:0; }
-            .nav-mobile-menu.open { display:flex; }
-            .nav-mobile-link { font-size:0.9rem; font-weight:400; color:var(--muted); text-decoration:none; padding:0.75rem 0; border-bottom:1px solid var(--border); transition:color 0.2s; display:flex; align-items:center; gap:0.5rem; }
-            .nav-mobile-link:last-child { border-bottom:none; }
-            .nav-mobile-link:hover, .nav-mobile-link.active { color:var(--cream); }
-            .nav-mobile-lang { display:flex; gap:0.5rem; padding:0.75rem 0; flex-wrap:wrap; }
-            .nav-mobile-lang-btn { background:none; border:1px solid var(--border); border-radius:6px; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.78rem; padding:0.25rem 0.5rem; cursor:pointer; transition:all 0.2s; }
-            .nav-mobile-lang-btn:hover, .nav-mobile-lang-btn.active { color:var(--cream); border-color:var(--blue); background:rgba(59,130,246,0.1); }
-        @media(max-width:640px) { .how-steps { grid-template-columns:1fr; gap:0.875rem; } .how-section { padding:3rem 0 4rem; } }
+        .nav-hamburger { display:none; background:none; border:none; border-radius:8px; cursor:pointer; padding:0.35rem 0.5rem; color:var(--cream); margin-right:0.75rem; }
+        .nav-hamburger:hover { opacity:0.75; }
+        .nav-mobile-menu { display:none; position:fixed; top:57px; left:0; right:0; background:#060f1e; border-bottom:1px solid var(--border); z-index:99; padding:1rem 1.5rem; flex-direction:column; gap:0; }
+        .nav-mobile-menu.open { display:flex; }
+        .nav-mobile-link { font-size:0.9rem; font-weight:400; color:var(--muted); text-decoration:none; padding:0.75rem 0; border-bottom:1px solid var(--border); transition:color 0.2s; display:flex; align-items:center; gap:0.5rem; }
+        .nav-mobile-link:last-child { border-bottom:none; }
+        .nav-mobile-link:hover, .nav-mobile-link.active { color:var(--cream); }
+        .nav-mobile-lang { display:flex; gap:0.5rem; padding:0.75rem 0; flex-wrap:wrap; }
+        .nav-mobile-lang-btn { background:none; border:1px solid var(--border); border-radius:6px; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.78rem; padding:0.25rem 0.5rem; cursor:pointer; transition:all 0.2s; }
+        .nav-mobile-lang-btn:hover, .nav-mobile-lang-btn.active { color:var(--cream); border-color:var(--blue); background:rgba(59,130,246,0.1); }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
         @media(max-width:640px) {
+            .how-steps { grid-template-columns:1fr; gap:0.875rem; }
+            .how-section { padding:3rem 0 4rem; }
             nav { padding:1rem 1.25rem; }
             .nav-logo { font-size:1.5rem; }
             .nav-links { gap:0.75rem; }
@@ -198,16 +122,12 @@
             .nav-sep { display:none !important; }
             .nav-hamburger { display:block; }
             .nav-link { font-size:0.78rem; }
-            .hero { min-height:100vh; padding:6rem 0 6rem; }
-            .demo-modal { border-radius:20px; }
-            .demo-panel { padding:1.5rem 1.5rem 1.75rem; }
-            .stat-row { grid-template-columns:1fr; gap:0.75rem; }
+            .hero { min-height:70vh; padding:6rem 0 6rem; }
             .section { padding:3.5rem 0; }
             .cta-section { padding:3.5rem 0 5rem; }
             .demo-cta-section { padding:3.5rem 0; }
         }
     </style>
-    <!-- Schema: Organization -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -215,14 +135,8 @@
         "name": "OVÉ",
         "url": "https://meetove.pro",
         "description": "OVÉ is a pre-launch investing concept exploring a simpler way to get started with investing, built for people who have not yet started.",
-        "founder": {
-            "@type": "Person",
-            "name": "Samuel Gustaf"
-        },
-        "foundingLocation": {
-            "@type": "Place",
-            "name": "Halmstad, Sweden"
-        },
+        "founder": { "@type": "Person", "name": "Samuel Gustaf" },
+        "foundingLocation": { "@type": "Place", "name": "Halmstad, Sweden" },
         "sameAs": [],
         "knowsAbout": ["personal investing", "retail investment", "MiFID II", "European capital markets"]
     }
@@ -255,25 +169,24 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
         </button>
-</nav>
+    </nav>
 
-<!-- Mobile menu -->
-<div class="nav-mobile-menu" id="nav-mobile-menu">
-    <a href="/index" class="nav-mobile-link active">
-        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        Home
-    </a>
-    <a href="/concept" class="nav-mobile-link" data-i18n="nav_concept">Concept</a>
-    <a href="/waitlist" class="nav-mobile-link" data-i18n="nav_waitlist">Waitlist</a>
-    <a href="/learn" class="nav-mobile-link">Learn</a>
-    <div class="nav-mobile-lang">
-        <button class="nav-mobile-lang-btn active" data-lang="en">EN</button>
-        <button class="nav-mobile-lang-btn" data-lang="sv">SV</button>
-        <button class="nav-mobile-lang-btn" data-lang="es">ES</button>
-        <button class="nav-mobile-lang-btn" data-lang="it">IT</button>
-        <button class="nav-mobile-lang-btn" data-lang="nl">NL</button>
+    <div class="nav-mobile-menu" id="nav-mobile-menu">
+        <a href="/index" class="nav-mobile-link active">
+            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            Home
+        </a>
+        <a href="/concept" class="nav-mobile-link" data-i18n="nav_concept">Concept</a>
+        <a href="/waitlist" class="nav-mobile-link" data-i18n="nav_waitlist">Waitlist</a>
+        <a href="/learn" class="nav-mobile-link">Learn</a>
+        <div class="nav-mobile-lang">
+            <button class="nav-mobile-lang-btn active" data-lang="en">EN</button>
+            <button class="nav-mobile-lang-btn" data-lang="sv">SV</button>
+            <button class="nav-mobile-lang-btn" data-lang="es">ES</button>
+            <button class="nav-mobile-lang-btn" data-lang="it">IT</button>
+            <button class="nav-mobile-lang-btn" data-lang="nl">NL</button>
+        </div>
     </div>
-</div>
 
     <div class="hero">
         <p class="hero-eyebrow" data-i18n="eyebrow">Pre-launch</p>
@@ -281,8 +194,6 @@
         <p class="hero-sub" data-i18n="sub"></p>
     </div>
 
-
-    <!-- HOW IT WORKS — 3-step flow -->
     <section class="how-section">
         <div class="section-inner">
             <div class="how-steps">
@@ -312,7 +223,6 @@
         </div>
     </section>
 
-    <!-- WAITLIST SECTION -->
     <section class="section" style="text-align:center;">
         <div class="section-inner" style="max-width:520px;margin:0 auto;">
             <p class="section-label" data-i18n="waitlist_label">Product updates</p>
@@ -337,104 +247,14 @@
     </footer>
 </div>
 
-
 <script>
-
-
     var T = {
-        en:{
-            nav_concept:"Concept", nav_waitlist:"Waitlist", hero_cta:"Join for updates",cta_microcopy:"Each signup helps validate the idea.", footer_compliance:"OVÉ does not currently provide investment services. Nothing on this website constitutes an offer, solicitation, or recommendation to invest. This website is for illustrative purposes only and should not be relied upon for investment decisions. Not investment advice. Investing involves risk. The value of investments can go down as well as up.",footer_dev:"Currently in development.",entity:"OVÉ is a concept developed by Samuel Gustaf, based in Halmstad, Sweden.",auth_note:"OVÉ is not currently authorised to provide investment services.", code:"EN",
-            eyebrow:"Pre-launch",
-            headline_1:"Most people haven't started investing. There's a reason for that.",
-            sub:"",
-            waitlist_label:"Product updates",
-            waitlist_title:"Stay informed.",
-            waitlist_sub:"Sign up to receive updates as the concept develops. No accounts, no commitments.",
-            edu_btn:"I understand \u2014 continue",
-            how_step1_title:"Sign up in minutes",
-            how_step1_body:"First name and email only. Any future identity checks would be handled by a regulated partner.",
-            how_step2_title:"Pick a risk level",
-            how_step2_body:"Steady, Balanced, or Growth. Three options, clearly explained. No spreadsheets. No jargon. You choose one.",
-            how_step3_title:"Set a monthly amount",
-            how_step3_body:"Choose how much to invest each month. In a future model, this could be handled by a regulated partner. No such partner is currently engaged.",
-            how_cta:"See it in an example",
-            how_cta_note:"Illustrative only — no real accounts, no money moved."
-        },
-        sv:{
-            nav_concept:"Koncept", nav_waitlist:"Väntelista", hero_cta:"Gå med för uppdateringar",cta_microcopy:"Varje anmälan hjälper till att validera idén.", code:"SV",
-            eyebrow:"F\u00f6rhandsversion",
-            headline_1:"De flesta har inte börjat investera. Det finns en anledning till det.",
-            sub:"OV\u00c9 utforskar ett enklare s\u00e4tt att komma ig\u00e5ng \u2014 byggt f\u00f6r dem som \u00e4nnu inte b\u00f6rjat.",
-            waitlist_label:"Tidig tillgång", waitlist_title:"Gå med på väntelistan.",
-            waitlist_sub:"Anmäl dig för att få uppdateringar när konceptet utvecklas. Inga konton, inga åtaganden.",
-            auth_note:"OV\u00c9 \u00e4r f\u00f6r n\u00e4rvarande inte auktoriserat att tillhandah\u00e5lla investeringstj\u00e4nster.",
-            footer_dev:"Under utveckling.",entity:"OVÉ är ett koncept utvecklat av Samuel Gustaf, baserat i Halmstad, Sverige.",
-            edu_btn:"Jag f\u00f6rst\u00e5r \u2014 forts\u00e4tt",
-            how_step1_title:"Registrera dig på minuter",
-            how_step1_body:"Förnamn och e-post. Eventuella framtida identitetskontroller skulle hanteras av en reglerad partner.",
-            how_step2_title:"Välj en risknivå",
-            how_step2_body:"Stabil, Balanserad eller Tillväxt. Tre alternativ, tydligt förklarade. Inga kalkylark. Inget jargong. Du väljer ett.",
-            how_step3_title:"Ange ett månadsbelopp",
-            how_step3_body:"Välj hur mycket du vill investera varje månad. I en framtida modell kan detta hanteras av en reglerad partner. Det finns för närvarande ingen sådan partner.",
-            how_cta:"Se det i ett exempel",
-            how_cta_note:"Illustrativt — inga riktiga konton, inga pengar rör sig."
-        },
-        es:{
-            nav_concept:"Concepto", nav_waitlist:"Lista de espera", hero_cta:"Unirse para actualizaciones",cta_microcopy:"Cada registro ayuda a validar la idea.", code:"ES",
-            eyebrow:"Prelanzamiento",
-            headline_1:"La mayoría no ha empezado a invertir. Hay una razón para eso.",
-            sub:"OVÉ explora una forma más sencilla de empezar — creada para quienes todavía no lo han hecho.",
-            waitlist_label:"Acceso anticipado", waitlist_title:"Únete a la lista de espera.",
-            waitlist_sub:"Regístrate para recibir actualizaciones a medida que el concepto se desarrolla. Sin cuentas, sin compromisos.",
-            footer_dev:"Actualmente en desarrollo.",entity:"OVÉ es un concepto desarrollado por Samuel Gustaf, con sede en Halmstad, Suecia.",auth_note:"OVÉ no está actualmente autorizado para prestar servicios de inversión.",
-            edu_btn:"Entiendo \u2014 continuar",
-            how_step1_title:"Regístrate en minutos",
-            how_step1_body:"Solo nombre y correo. Cualquier verificación de identidad futura sería gestionada por un socio regulado.",
-            how_step2_title:"Elige un nivel de riesgo",
-            how_step2_body:"Estable, Equilibrado o Crecimiento. Tres opciones, claramente explicadas. Sin hojas de cálculo. Sin jerga. Tú eliges una.",
-            how_step3_title:"Establece un importe mensual",
-            how_step3_body:"Elige cuánto invertir cada mes. En un modelo futuro, esto podría gestionarlo un socio regulado. Actualmente no hay ningún socio comprometido.",
-            how_cta:"Véelo en un ejemplo",
-            how_cta_note:"Solo ilustrativo — sin cuentas reales, sin dinero movido."
-        },
-        it:{
-            nav_concept:"Concetto", nav_waitlist:"Lista d'attesa", hero_cta:"Iscriviti per aggiornamenti",cta_microcopy:"Ogni iscrizione aiuta a convalidare l'idea.", code:"IT",
-            eyebrow:"Pre-lancio",
-            headline_1:"La maggior parte delle persone non ha iniziato a investire. C'è una ragione.",
-            sub:"OV\u00c9 esplora un modo pi\u00f9 semplice per iniziare \u2014 pensato per chi non ha ancora cominciato.",
-            waitlist_label:"Accesso anticipato", waitlist_title:"Iscriviti alla lista d'attesa.",
-            waitlist_sub:"Iscriviti per ricevere aggiornamenti man mano che il concetto si sviluppa. Nessun conto, nessun impegno.",
-            footer_dev:"Attualmente in fase di sviluppo.",entity:"OVÉ è un concetto sviluppato da Samuel Gustaf, con sede a Halmstad, Svezia.",auth_note:"OVÉ non è attualmente autorizzato a fornire servizi di investimento.",
-            edu_btn:"Ho compreso \u2014 continua",
-            how_step1_title:"Registrati in pochi minuti",
-            how_step1_body:"Solo nome ed email. Eventuali future verifiche dell'identità sarebbero gestite da un partner regolamentato.",
-            how_step2_title:"Scegli un livello di rischio",
-            how_step2_body:"Stabile, Bilanciato o Crescita. Tre opzioni, spiegate chiaramente. Nessun foglio di calcolo. Nessun gergo. Tu ne scegli uno.",
-            how_step3_title:"Imposta un importo mensile",
-            how_step3_body:"Scegli quanto investire ogni mese. In un modello futuro, questo potrebbe essere gestito da un partner regolamentato. Al momento non è coinvolto nessun partner.",
-            how_cta:"Guardalo in un esempio",
-            how_cta_note:"Solo illustrativo — nessun conto reale, nessun movimento di denaro."
-        },
-        nl:{
-            nav_concept:"Concept",nav_waitlist:"Wachtlijst",hero_cta:"Aanmelden voor updates",cta_microcopy:"Elke aanmelding helpt het idee te valideren.",
-            footer_dev:"Momenteel in ontwikkeling.",entity:"OVÉ is een concept ontwikkeld door Samuel Gustaf, gevestigd in Halmstad, Zweden.",auth_note:"OVÉ is momenteel niet bevoegd om beleggingsdiensten te verlenen.",code:"NL",
-            eyebrow:"Pre-lancering",
-            headline_1:"De meeste mensen zijn nog niet begonnen met beleggen. Daar is een reden voor.",
-            sub:"OVÉ verkent een eenvoudigere manier om te beginnen — gebouwd voor mensen die nog niet begonnen zijn.",
-            waitlist_label:"Vroeg toegang",waitlist_title:"Op de wachtlijst.",
-            waitlist_sub:"Meld je aan voor updates naarmate het concept zich ontwikkelt. Geen accounts, geen verplichtingen.",
-            edu_btn:"Ik begrijp het — doorgaan",
-            how_step1_title:"Registreer je in minuten",
-            how_step1_body:"Alleen voornaam en e-mail. Eventuele toekomstige identiteitscontroles zouden worden afgehandeld door een gereguleerde partner.",
-            how_step2_title:"Kies een risiconiveau",
-            how_step2_body:"Stabiel, Gebalanceerd of Groei. Drie opties, duidelijk uitgelegd. Geen spreadsheets. Geen jargon. Jij kiest er één.",
-            how_step3_title:"Stel een maandbedrag in",
-            how_step3_body:"Kies hoeveel je elke maand wilt beleggen. In een toekomstig model kan dit worden afgehandeld door een gereguleerde partner. Er is momenteel geen partner betrokken.",
-            how_cta:"Bekijk het in een voorbeeld",
-            how_cta_note:"Alleen illustratief — geen echte rekeningen, geen geld verplaatst."
-        }
+        en:{ nav_concept:"Concept", nav_waitlist:"Waitlist", hero_cta:"Join for updates", cta_microcopy:"Each signup helps validate the idea.", footer_dev:"Currently in development.", entity:"OVÉ is a concept developed by Samuel Gustaf, based in Halmstad, Sweden.", auth_note:"OVÉ is not currently authorised to provide investment services.", code:"EN", eyebrow:"Pre-launch", headline_1:"Most people haven't started investing. There's a reason for that.", sub:"", waitlist_label:"Product updates", waitlist_title:"Stay informed.", waitlist_sub:"Sign up to receive updates as the concept develops. No accounts, no commitments.", how_step1_title:"Sign up in minutes", how_step1_body:"First name and email only. Any future identity checks would be handled by a regulated partner.", how_step2_title:"Pick a risk level", how_step2_body:"Steady, Balanced, or Growth. Three options, clearly explained. No spreadsheets. No jargon. You choose one.", how_step3_title:"Set a monthly amount", how_step3_body:"Choose how much to invest each month. In a future model, this could be handled by a regulated partner. No such partner is currently engaged.", how_cta:"See it in an example", how_cta_note:"Illustrative only — no real accounts, no money moved." },
+        sv:{ nav_concept:"Koncept", nav_waitlist:"Väntelista", hero_cta:"Gå med för uppdateringar", cta_microcopy:"Varje anmälan hjälper till att validera idén.", code:"SV", eyebrow:"Förhandsversion", headline_1:"De flesta har inte börjat investera. Det finns en anledning till det.", sub:"OVÉ utforskar ett enklare sätt att komma igång — byggt för dem som ännu inte börjat.", waitlist_label:"Tidig tillgång", waitlist_title:"Gå med på väntelistan.", waitlist_sub:"Anmäl dig för att få uppdateringar när konceptet utvecklas. Inga konton, inga åtaganden.", auth_note:"OVÉ är för närvarande inte auktoriserat att tillhandahålla investeringstjänster.", footer_dev:"Under utveckling.", entity:"OVÉ är ett koncept utvecklat av Samuel Gustaf, baserat i Halmstad, Sverige.", how_step1_title:"Registrera dig på minuter", how_step1_body:"Förnamn och e-post. Eventuella framtida identitetskontroller skulle hanteras av en reglerad partner.", how_step2_title:"Välj en risknivå", how_step2_body:"Stabil, Balanserad eller Tillväxt. Tre alternativ, tydligt förklarade. Inga kalkylark. Inget jargong. Du väljer ett.", how_step3_title:"Ange ett månadsbelopp", how_step3_body:"Välj hur mycket du vill investera varje månad. I en framtida modell kan detta hanteras av en reglerad partner. Det finns för närvarande ingen sådan partner.", how_cta:"Se det i ett exempel", how_cta_note:"Illustrativt — inga riktiga konton, inga pengar rör sig." },
+        es:{ nav_concept:"Concepto", nav_waitlist:"Lista de espera", hero_cta:"Unirse para actualizaciones", cta_microcopy:"Cada registro ayuda a validar la idea.", code:"ES", eyebrow:"Prelanzamiento", headline_1:"La mayoría no ha empezado a invertir. Hay una razón para eso.", sub:"OVÉ explora una forma más sencilla de empezar — creada para quienes todavía no lo han hecho.", waitlist_label:"Acceso anticipado", waitlist_title:"Únete a la lista de espera.", waitlist_sub:"Regístrate para recibir actualizaciones a medida que el concepto se desarrolla. Sin cuentas, sin compromisos.", footer_dev:"Actualmente en desarrollo.", entity:"OVÉ es un concepto desarrollado por Samuel Gustaf, con sede en Halmstad, Suecia.", auth_note:"OVÉ no está actualmente autorizado para prestar servicios de inversión.", how_step1_title:"Regístrate en minutos", how_step1_body:"Solo nombre y correo. Cualquier verificación de identidad futura sería gestionada por un socio regulado.", how_step2_title:"Elige un nivel de riesgo", how_step2_body:"Estable, Equilibrado o Crecimiento. Tres opciones, claramente explicadas. Sin hojas de cálculo. Sin jerga. Tú eliges una.", how_step3_title:"Establece un importe mensual", how_step3_body:"Elige cuánto invertir cada mes. En un modelo futuro, esto podría gestionarlo un socio regulado. Actualmente no hay ningún socio comprometido.", how_cta:"Véelo en un ejemplo", how_cta_note:"Solo ilustrativo — sin cuentas reales, sin dinero movido." },
+        it:{ nav_concept:"Concetto", nav_waitlist:"Lista d'attesa", hero_cta:"Iscriviti per aggiornamenti", cta_microcopy:"Ogni iscrizione aiuta a convalidare l'idea.", code:"IT", eyebrow:"Pre-lancio", headline_1:"La maggior parte delle persone non ha iniziato a investire. C'è una ragione.", sub:"OVÉ esplora un modo più semplice per iniziare — pensato per chi non ha ancora cominciato.", waitlist_label:"Accesso anticipato", waitlist_title:"Iscriviti alla lista d'attesa.", waitlist_sub:"Iscriviti per ricevere aggiornamenti man mano che il concetto si sviluppa. Nessun conto, nessun impegno.", footer_dev:"Attualmente in fase di sviluppo.", entity:"OVÉ è un concetto sviluppato da Samuel Gustaf, con sede a Halmstad, Svezia.", auth_note:"OVÉ non è attualmente autorizzato a fornire servizi di investimento.", how_step1_title:"Registrati in pochi minuti", how_step1_body:"Solo nome ed email. Eventuali future verifiche dell'identità sarebbero gestite da un partner regolamentato.", how_step2_title:"Scegli un livello di rischio", how_step2_body:"Stabile, Bilanciato o Crescita. Tre opzioni, spiegate chiaramente. Nessun foglio di calcolo. Nessun gergo. Tu ne scegli uno.", how_step3_title:"Imposta un importo mensile", how_step3_body:"Scegli quanto investire ogni mese. In un modello futuro, questo potrebbe essere gestito da un partner regolamentato. Al momento non è coinvolto nessun partner.", how_cta:"Guardalo in un esempio", how_cta_note:"Solo illustrativo — nessun conto reale, nessun movimento di denaro." },
+        nl:{ nav_concept:"Concept", nav_waitlist:"Wachtlijst", hero_cta:"Aanmelden voor updates", cta_microcopy:"Elke aanmelding helpt het idee te valideren.", footer_dev:"Momenteel in ontwikkeling.", entity:"OVÉ is een concept ontwikkeld door Samuel Gustaf, gevestigd in Halmstad, Zweden.", auth_note:"OVÉ is momenteel niet bevoegd om beleggingsdiensten te verlenen.", code:"NL", eyebrow:"Pre-lancering", headline_1:"De meeste mensen zijn nog niet begonnen met beleggen. Daar is een reden voor.", sub:"OVÉ verkent een eenvoudigere manier om te beginnen — gebouwd voor mensen die nog niet begonnen zijn.", waitlist_label:"Vroeg toegang", waitlist_title:"Op de wachtlijst.", waitlist_sub:"Meld je aan voor updates naarmate het concept zich ontwikkelt. Geen accounts, geen verplichtingen.", how_step1_title:"Registreer je in minuten", how_step1_body:"Alleen voornaam en e-mail. Eventuele toekomstige identiteitscontroles zouden worden afgehandeld door een gereguleerde partner.", how_step2_title:"Kies een risiconiveau", how_step2_body:"Stabiel, Gebalanceerd of Groei. Drie opties, duidelijk uitgelegd. Geen spreadsheets. Geen jargon. Jij kiest er één.", how_step3_title:"Stel een maandbedrag in", how_step3_body:"Kies hoeveel je elke maand wilt beleggen. In een toekomstig model kan dit worden afgehandeld door een gereguleerde partner. Er is momenteel geen partner betrokken.", how_cta:"Bekijk het in een voorbeeld", how_cta_note:"Alleen illustratief — geen echte rekeningen, geen geld verplaatst." }
     };
-
 
     function applyLang(lang){
         var t=T[lang]; if(!t)return;
@@ -452,35 +272,13 @@
         document.addEventListener('click',function(){ document.getElementById('lang-switcher').classList.remove('open'); });
         var saved=localStorage.getItem('ove-lang')||'en'; if(!T[saved])saved='en';
         applyLang(saved);
-
-    // Mobile menu
-    var hamburger = document.getElementById('nav-hamburger');
-    var mobileMenu = document.getElementById('nav-mobile-menu');
-    if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', function(e) {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('open');
-            hamburger.querySelector('svg path').setAttribute('d',
-                mobileMenu.classList.contains('open')
-                    ? 'M6 18L18 6M6 6l12 12'
-                    : 'M4 6h16M4 12h16M4 18h16'
-            );
-        });
-        document.addEventListener('click', function() {
-            mobileMenu.classList.remove('open');
-            hamburger.querySelector('svg path').setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-        });
-    }
-    // Mobile lang buttons
-    document.querySelectorAll('.nav-mobile-lang-btn').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            applyLang(btn.dataset.lang);
-            document.querySelectorAll('.nav-mobile-lang-btn').forEach(function(b) {
-                b.classList.toggle('active', b.dataset.lang === btn.dataset.lang);
-            });
-        });
-    });
+        var hamburger=document.getElementById('nav-hamburger');
+        var mobileMenu=document.getElementById('nav-mobile-menu');
+        if(hamburger&&mobileMenu){
+            hamburger.addEventListener('click',function(e){ e.stopPropagation(); mobileMenu.classList.toggle('open'); hamburger.querySelector('svg path').setAttribute('d', mobileMenu.classList.contains('open') ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'); });
+            document.addEventListener('click',function(){ mobileMenu.classList.remove('open'); hamburger.querySelector('svg path').setAttribute('d','M4 6h16M4 12h16M4 18h16'); });
+        }
+        document.querySelectorAll('.nav-mobile-lang-btn').forEach(function(btn){ btn.addEventListener('click',function(e){ e.stopPropagation(); applyLang(btn.dataset.lang); document.querySelectorAll('.nav-mobile-lang-btn').forEach(function(b){ b.classList.toggle('active',b.dataset.lang===btn.dataset.lang); }); }); });
         var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting)e.target.classList.add('visible'); }); },{threshold:0.1});
         document.querySelectorAll('.fade-in').forEach(function(el){ io.observe(el); });
     });
