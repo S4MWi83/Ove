@@ -222,7 +222,7 @@
         </nav>
         <p class="eyebrow">Educational tool</p>
         <h1>What Has Inflation Done to Your Money?</h1>
-        <span class="source-tag">Using real HICP data from Eurostat, by country.</span>
+        <span class="source-tag">Using real HICP data from Eurostat, 1996–2025, by country.</span>
         <div class="answer-first">
             <p class="answer-first-label">What this calculator does</p>
             <p>Enter an amount, select your country and a time period, and see how much purchasing power has been lost to inflation. Based on published HICP annual average rates from Eurostat. Historical data only — no projections, no advice.</p>
@@ -312,7 +312,7 @@
         This calculator applies HICP annual average inflation rates published by Eurostat. It shows estimated changes in purchasing power based on historical data only. It does not constitute financial advice, a personal recommendation, or an inducement to invest. OVÉ is not authorised or regulated to provide investment services. For educational purposes only.
     </div>
 
-    <p style="font-size:0.72rem;color:var(--kb-muted);font-weight:300;line-height:1.6;margin-top:0.75rem;">Source: Eurostat HICP annual average rates (prc_hicp_aind). Sweden uses SEK; all other countries use EUR.</p>
+    <p style="font-size:0.72rem;color:var(--kb-muted);font-weight:300;line-height:1.6;margin-top:0.75rem;">Source: Eurostat HICP annual average rates (prc_hicp_aind), 1996–2025. Sweden uses SEK; all other countries use EUR.</p>
 
     <div style="border-top:1px solid rgba(6,15,30,0.12);margin-top:2.5rem;padding-top:2rem;">
         <p style="font-size:0.875rem;color:var(--kb-muted);font-weight:300;line-height:1.7;">OVÉ is a pre-launch concept exploring simpler ways to get started with investing. <a href="/waitlist" style="color:var(--blue);text-decoration:none;">Join the waitlist →</a></p>
@@ -346,20 +346,40 @@
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// HICP annual average rates by country, 2015-2025
-// Source: Eurostat prc_hicp_aind
+// HICP annual average rates by country, 1996-2025
+// Source: Eurostat prc_hicp_aind / ECB
 var HICP_DATA = {
-    EU27: { 2015:0.001, 2016:0.002, 2017:0.017, 2018:0.019, 2019:0.015, 2020:0.007, 2021:0.029, 2022:0.092, 2023:0.064, 2024:0.026, 2025:0.025 },
-    SE:   { 2015:0.007, 2016:0.011, 2017:0.019, 2018:0.020, 2019:0.018, 2020:0.005, 2021:0.023, 2022:0.084, 2023:0.085, 2024:0.026, 2025:0.016 },
-    ES:   { 2015:-0.006, 2016:-0.003, 2017:0.020, 2018:0.017, 2019:0.007, 2020:-0.003, 2021:0.030, 2022:0.084, 2023:0.036, 2024:0.028, 2025:0.025 },
-    IT:   { 2015:0.001, 2016:-0.001, 2017:0.013, 2018:0.013, 2019:0.006, 2020:-0.001, 2021:0.020, 2022:0.086, 2023:0.059, 2024:0.011, 2025:0.016 },
-    NL:   { 2015:0.002, 2016:0.001, 2017:0.014, 2018:0.016, 2019:0.027, 2020:0.013, 2021:0.027, 2022:0.117, 2023:0.040, 2024:0.029, 2025:0.030 }
+    EU27: {
+        1996:0.026, 1997:0.017, 1998:0.013, 1999:0.012, 2000:0.022, 2001:0.024, 2002:0.023, 2003:0.021, 2004:0.022, 2005:0.022,
+        2006:0.022, 2007:0.022, 2008:0.034, 2009:0.003, 2010:0.016, 2011:0.027, 2012:0.025, 2013:0.014, 2014:0.004,
+        2015:0.001, 2016:0.002, 2017:0.017, 2018:0.019, 2019:0.015, 2020:0.007, 2021:0.029, 2022:0.092, 2023:0.064, 2024:0.026, 2025:0.025
+    },
+    SE: {
+        1996:0.009, 1997:0.018, 1998:0.010, 1999:0.005, 2000:0.013, 2001:0.027, 2002:0.020, 2003:0.023, 2004:0.010, 2005:0.008,
+        2006:0.014, 2007:0.022, 2008:0.034, 2009:0.019, 2010:0.013, 2011:0.014, 2012:0.009, 2013:0.004, 2014:0.002,
+        2015:0.007, 2016:0.011, 2017:0.019, 2018:0.020, 2019:0.018, 2020:0.005, 2021:0.023, 2022:0.084, 2023:0.085, 2024:0.026, 2025:0.016
+    },
+    ES: {
+        1996:0.036, 1997:0.020, 1998:0.018, 1999:0.023, 2000:0.035, 2001:0.040, 2002:0.036, 2003:0.031, 2004:0.031, 2005:0.034,
+        2006:0.036, 2007:0.028, 2008:0.041, 2009:-0.002, 2010:0.020, 2011:0.031, 2012:0.024, 2013:0.015, 2014:-0.002,
+        2015:-0.006, 2016:-0.003, 2017:0.020, 2018:0.017, 2019:0.007, 2020:-0.003, 2021:0.030, 2022:0.084, 2023:0.036, 2024:0.028, 2025:0.025
+    },
+    IT: {
+        1996:0.040, 1997:0.020, 1998:0.020, 1999:0.017, 2000:0.026, 2001:0.028, 2002:0.026, 2003:0.028, 2004:0.023, 2005:0.022,
+        2006:0.022, 2007:0.020, 2008:0.035, 2009:0.008, 2010:0.016, 2011:0.029, 2012:0.033, 2013:0.013, 2014:0.002,
+        2015:0.001, 2016:-0.001, 2017:0.013, 2018:0.013, 2019:0.006, 2020:-0.001, 2021:0.020, 2022:0.086, 2023:0.059, 2024:0.011, 2025:0.016
+    },
+    NL: {
+        1996:0.021, 1997:0.021, 1998:0.020, 1999:0.021, 2000:0.027, 2001:0.051, 2002:0.039, 2003:0.022, 2004:0.013, 2005:0.015,
+        2006:0.017, 2007:0.016, 2008:0.022, 2009:0.010, 2010:0.009, 2011:0.025, 2012:0.028, 2013:0.027, 2014:0.003,
+        2015:0.002, 2016:0.001, 2017:0.014, 2018:0.016, 2019:0.027, 2020:0.013, 2021:0.027, 2022:0.117, 2023:0.040, 2024:0.029, 2025:0.030
+    }
 };
 
 var CURRENCY = { EU27:'€', SE:'kr', ES:'€', IT:'€', NL:'€' };
 var COUNTRY_NAMES = { EU27:'EU average', SE:'Sweden', ES:'Spain', IT:'Italy', NL:'Netherlands' };
 
-var MIN_YEAR = 2015;
+var MIN_YEAR = 1996;
 var MAX_YEAR = 2025;
 
 var selectedCountry = 'EU27';
@@ -380,7 +400,7 @@ function populateYears() {
         o2.value = y; o2.textContent = y;
         endYearEl.appendChild(o2);
     }
-    startYearEl.value = 2015;
+    startYearEl.value = 1996;
     endYearEl.value = 2025;
 }
 populateYears();
