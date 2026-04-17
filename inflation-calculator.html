@@ -4,42 +4,28 @@
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
-
     <title>Ové | Inflation Erosion Calculator — What Has Inflation Done to Your Money?</title>
-    <meta name="description" content="Use real EU27 HICP data from Eurostat to see how much purchasing power your savings have lost to inflation over the past 1 to 10 years. Educational only — no projections, no advice.">
+    <meta name="description" content="Use real HICP data from Eurostat to see how much purchasing power your savings have lost to inflation. Select your country and time period.">
     <link rel="canonical" href="https://meetove.pro/inflation-calculator">
-
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://meetove.pro/inflation-calculator">
     <meta property="og:title" content="Inflation Erosion Calculator — What Has Inflation Done to Your Money?">
-    <meta property="og:description" content="Use real EU27 HICP data from Eurostat to see how much purchasing power your savings have lost to inflation over the past 1 to 10 years.">
+    <meta property="og:description" content="Use real HICP data from Eurostat to see how much purchasing power your savings have lost to inflation.">
     <meta property="og:image" content="https://meetove.pro/ove-og.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="OVÉ — A pre-launch investing concept exploring simpler investing for people who have not started yet.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://meetove.pro/ove-og.png">
-
     <link rel="alternate" hreflang="en" href="https://meetove.pro/inflation-calculator">
     <link rel="alternate" hreflang="x-default" href="https://meetove.pro/inflation-calculator">
 
-    <!-- Schema: SoftwareApplication + WebApplication -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": ["SoftwareApplication", "WebApplication"],
         "name": "Inflation Erosion Calculator",
-        "description": "An interactive calculator using published EU27 HICP annual average data from Eurostat to show the real purchasing power loss of savings over a selected time period of 1 to 10 years.",
+        "description": "An interactive calculator using published HICP annual average data from Eurostat to show the real purchasing power loss of savings over a selected time period.",
         "url": "https://meetove.pro/inflation-calculator",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
-        "featureList": [
-            "Calculate real purchasing power loss using EU27 HICP data",
-            "Supports savings amounts in EUR",
-            "Covers 2015–2025 historical inflation data",
-            "1 to 10 year time period selection",
-            "Visual bar chart of year-by-year erosion"
-        ],
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
         "author": { "@type": "Person", "name": "Samuel Gustaf", "url": "https://meetove.pro" },
         "publisher": { "@type": "Organization", "name": "OVÉ", "url": "https://meetove.pro" },
@@ -47,7 +33,6 @@
     }
     </script>
 
-    <!-- Schema: BreadcrumbList -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -57,20 +42,6 @@
             { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://meetove.pro/learn" },
             { "@type": "ListItem", "position": 3, "name": "Inflation Erosion Calculator", "item": "https://meetove.pro/inflation-calculator" }
         ]
-    }
-    </script>
-
-    <!-- Schema: Organization -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "OVÉ",
-        "url": "https://meetove.pro",
-        "description": "OVÉ is a pre-launch investing concept exploring a simpler way to get started with investing, built for people who have not yet started.",
-        "founder": { "@type": "Person", "name": "Samuel Gustaf" },
-        "foundingLocation": { "@type": "Place", "name": "Halmstad, Sweden" },
-        "knowsAbout": ["personal investing", "retail investment", "MiFID II", "European capital markets"]
     }
     </script>
 
@@ -85,162 +56,84 @@
         :root {
             --deep:#060f1e; --blue:#3b82f6; --blue-glow:rgba(59,130,246,0.35);
             --cream:#f0ece4; --muted:#9db5cc; --border:rgba(255,255,255,0.07);
-            --card:rgba(255,255,255,0.03); --green:#4ade80; --surface:#0d1e35;
+            --green:#4ade80;
             --kb-bg:#f0ece4; --kb-text:#060f1e; --kb-border:rgba(6,15,30,0.12);
             --kb-muted:#4a6280; --kb-surface:rgba(6,15,30,0.05);
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
         body { font-family:'DM Sans',sans-serif; background:var(--kb-bg); color:var(--kb-text); line-height:1.7; -webkit-font-smoothing:antialiased; min-height:100vh; overflow-x:hidden; }
-        body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.4; }
         .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; width:55vw; height:55vw; top:-18vw; left:50%; transform:translateX(-50%); background:radial-gradient(circle,rgba(59,130,246,0.13),transparent 70%); }
-
-        /* Nav */
         nav { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 2rem; position:fixed; top:0; left:0; right:0; z-index:100; background:#060f1e; border-bottom:1px solid var(--border); box-shadow:0 1px 20px rgba(59,130,246,0.08); }
         .nav-logo { font-family:'Instrument Serif',serif; font-size:1.8rem; color:var(--cream); text-decoration:none; position:relative; }
         .nav-logo span { display:inline-block; width:6px; height:6px; background:var(--blue); border-radius:50%; position:absolute; top:6px; right:-9px; box-shadow:0 0 8px var(--blue-glow); }
         .nav-links { display:flex; align-items:center; gap:1.5rem; }
         .nav-link { font-size:0.85rem; font-weight:400; color:var(--muted); text-decoration:none; transition:color 0.2s; }
         .nav-link:hover, .nav-link.active { color:var(--cream); }
-
-        /* Layout */
         .wrap { max-width:720px; margin:0 auto; padding:0 2rem; position:relative; z-index:1; }
-        .content-col { margin-bottom:4rem; position:relative; z-index:1; }
-
-        /* Hero */
         .hero { padding:8rem 0 3rem; opacity:0; animation:fadeUp 0.7s ease forwards 0.2s; }
-
-        /* Breadcrumb */
         .breadcrumb { font-size:0.78rem; color:var(--kb-muted); font-weight:300; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; }
         .breadcrumb a { color:var(--kb-muted); text-decoration:none; transition:color 0.2s; }
         .breadcrumb a:hover { color:var(--kb-text); }
         .breadcrumb-sep { opacity:0.4; }
-
-        /* Typography */
         .eyebrow { font-size:0.75rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:1.25rem; }
         h1 { font-family:'Instrument Serif',serif; font-size:clamp(2rem,5vw,3.2rem); line-height:1.1; letter-spacing:-0.02em; margin-bottom:0.75rem; color:var(--kb-text); }
         .source-tag { font-size:0.72rem; color:var(--kb-muted); font-weight:300; margin-bottom:2.5rem; display:block; }
-
-        /* Answer-first box — KB cream box on dark bg */
         .answer-first { background:var(--kb-text); border-radius:16px; padding:1.75rem 2rem; margin-bottom:3rem; box-shadow:0 4px 24px rgba(6,15,30,0.15); }
         .answer-first-label { font-size:0.65rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin-bottom:0.75rem; }
         .answer-first p { font-size:0.95rem; color:var(--cream); font-weight:400; line-height:1.85; }
 
-        /* Article body — KB rhythm, site colors */
-        .article-body { opacity:0; animation:fadeUp 0.7s ease forwards 0.4s; }
-        .article-body p { font-size:0.95rem; color:var(--kb-muted); font-weight:300; line-height:1.85; margin-bottom:1.25rem; }
-
-        /* Section divider — KB style */
-        .section-divider { width:40px; height:2px; background:var(--blue); opacity:0.4; margin:2.5rem 0; border-radius:2px; }
-
-        /* Calculator card — site glass with KB spacing */
-        .calc-card {
-            background:#0b1829;
-            border:1px solid rgba(59,130,246,0.18);
-            border-radius:20px;
-            padding:2.5rem 2rem;
-            margin-bottom:2rem;
-            box-shadow:0 8px 40px rgba(0,0,0,0.3);
-        }
-
+        /* Calculator */
+        .calc-card { background:#0b1829; border:1px solid rgba(59,130,246,0.18); border-radius:20px; padding:2.5rem 2rem; margin-bottom:2rem; box-shadow:0 8px 40px rgba(0,0,0,0.3); opacity:0; animation:fadeUp 0.7s ease forwards 0.4s; }
         .calc-field { margin-bottom:2rem; }
-        .calc-label {
-            display:block;
-            font-size:0.7rem;
-            font-weight:600;
-            letter-spacing:0.12em;
-            text-transform:uppercase;
-            color:var(--muted);
-            margin-bottom:0.75rem;
-            opacity:0.85;
-        }
+        .calc-label { display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:0.75rem; opacity:0.85; }
 
+        /* Country selector */
+        .country-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:0.5rem; }
+        .country-btn { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:0.6rem 0.5rem; font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:400; color:var(--muted); cursor:pointer; transition:all 0.2s; text-align:center; line-height:1.3; }
+        .country-btn:hover { border-color:rgba(59,130,246,0.4); color:var(--cream); }
+        .country-btn.active { background:rgba(59,130,246,0.15); border-color:rgba(59,130,246,0.6); color:var(--cream); font-weight:500; }
+
+        /* Year selectors */
+        .year-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+        .year-select { width:100%; background:rgba(255,255,255,0.05); border:1.5px solid rgba(255,255,255,0.1); border-radius:12px; padding:0.75rem 1rem; font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:400; color:var(--cream); outline:none; cursor:pointer; transition:border-color 0.2s; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%239db5cc' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; }
+        .year-select:focus { border-color:rgba(59,130,246,0.5); }
+        .year-select option { background:#0b1829; color:var(--cream); }
+
+        /* Amount */
         .calc-input-wrap { position:relative; display:flex; align-items:center; }
         .calc-currency { position:absolute; left:1rem; font-size:1rem; font-weight:400; color:var(--muted); pointer-events:none; }
-        .calc-input {
-            width:100%;
-            padding:0.9rem 1rem 0.9rem 2.25rem;
-            font-family:'DM Sans',sans-serif;
-            font-size:1.1rem;
-            font-weight:400;
-            color:var(--cream);
-            background:rgba(255,255,255,0.05);
-            border:1.5px solid rgba(255,255,255,0.1);
-            border-radius:12px;
-            outline:none;
-            transition:border-color 0.2s;
-            -moz-appearance:textfield;
-        }
-        .calc-input::-webkit-outer-spin-button,
-        .calc-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
-        .calc-input:focus { border-color:rgba(59,130,246,0.5); background:rgba(255,255,255,0.07); }
+        .calc-input { width:100%; padding:0.9rem 1rem 0.9rem 2.25rem; font-family:'DM Sans',sans-serif; font-size:1.1rem; font-weight:400; color:var(--cream); background:rgba(255,255,255,0.05); border:1.5px solid rgba(255,255,255,0.1); border-radius:12px; outline:none; transition:border-color 0.2s; -moz-appearance:textfield; }
+        .calc-input::-webkit-outer-spin-button, .calc-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+        .calc-input:focus { border-color:rgba(59,130,246,0.5); }
         .calc-input::placeholder { color:var(--muted); opacity:0.4; }
 
-        /* Slider */
-        .slider-row { display:flex; align-items:center; gap:1rem; }
-        .calc-slider {
-            flex:1;
-            -webkit-appearance:none;
-            appearance:none;
-            height:4px;
-            border-radius:2px;
-            background:rgba(255,255,255,0.1);
-            outline:none;
-            cursor:pointer;
-        }
-        .calc-slider::-webkit-slider-thumb {
-            -webkit-appearance:none;
-            width:22px; height:22px;
-            border-radius:50%;
-            background:var(--blue);
-            cursor:pointer;
-            box-shadow:0 0 12px rgba(59,130,246,0.6);
-            border:2px solid rgba(255,255,255,0.2);
-            transition:transform 0.15s;
-        }
-        .calc-slider::-webkit-slider-thumb:hover { transform:scale(1.1); }
-        .calc-slider::-moz-range-thumb {
-            width:22px; height:22px;
-            border-radius:50%;
-            background:var(--blue);
-            cursor:pointer;
-            border:2px solid rgba(255,255,255,0.2);
-            box-shadow:0 0 12px rgba(59,130,246,0.6);
-        }
-        .slider-value {
-            font-family:'Instrument Serif',serif;
-            font-size:1.5rem;
-            color:var(--cream);
-            min-width:80px;
-            text-align:right;
-        }
-        .slider-range { display:flex; justify-content:space-between; font-size:0.7rem; color:var(--muted); font-weight:300; margin-top:0.5rem; padding:0 2px; opacity:0.6; }
-
-        /* Results — KB stat callout style on dark */
-        .calc-results {
-            border-top:1px solid rgba(255,255,255,0.07);
-            padding-top:2rem;
-            margin-top:2rem;
-            display:none;
-        }
+        /* Results */
+        .calc-results { border-top:1px solid rgba(255,255,255,0.07); padding-top:2rem; margin-top:2rem; display:none; }
         .calc-results.visible { display:block; }
+        .result-headline { font-family:'Instrument Serif',serif; font-size:clamp(1rem,2vw,1.15rem); color:var(--muted); font-weight:400; line-height:1.5; margin-bottom:1.5rem; }
+        .result-headline strong { color:var(--cream); }
+        .result-headline .loss { color:#f87171; }
+
         .results-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin-bottom:2rem; }
-        .result-item {
-            background:rgba(255,255,255,0.04);
-            border:1px solid rgba(255,255,255,0.07);
-            border-radius:14px;
-            padding:1.25rem 1rem;
-            text-align:center;
-        }
+        .result-item { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:1.25rem 1rem; text-align:center; }
         .result-label { font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); opacity:0.7; margin-bottom:0.6rem; }
         .result-value { font-family:'Instrument Serif',serif; font-size:clamp(1.4rem,3vw,2rem); color:var(--cream); line-height:1.1; }
         .result-value.loss { color:#f87171; }
 
+        /* Year table */
+        .year-table { width:100%; border-collapse:collapse; font-size:0.82rem; margin-bottom:1rem; }
+        .year-table th { text-align:left; padding:0.5rem 0.75rem; font-size:0.65rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); opacity:0.6; border-bottom:1px solid rgba(255,255,255,0.07); }
+        .year-table td { padding:0.5rem 0.75rem; color:var(--muted); font-weight:300; border-bottom:1px solid rgba(255,255,255,0.04); }
+        .year-table tr:last-child td { border-bottom:none; }
+        .year-table td:first-child { color:var(--cream); font-weight:400; }
+        .year-table td.neg { color:#f87171; }
+
         /* Chart */
-        .chart-wrap { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:1.5rem; }
+        .chart-wrap { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:1.5rem; margin-bottom:1.5rem; }
         .chart-bars { display:flex; align-items:flex-end; gap:3px; height:80px; }
         .chart-bar-group { flex:1; display:flex; flex-direction:column; align-items:center; }
-        .chart-bar { width:100%; border-radius:3px 3px 0 0; transition:height 0.3s ease; }
+        .chart-bar { width:100%; border-radius:3px 3px 0 0; }
         .chart-bar.original { background:rgba(59,130,246,0.2); }
         .chart-bar.real { background:var(--blue); }
         .chart-year { font-size:0.6rem; color:var(--muted); opacity:0.5; margin-top:4px; text-align:center; }
@@ -248,27 +141,11 @@
         .chart-legend-item { display:flex; align-items:center; gap:0.4rem; font-size:0.72rem; color:var(--muted); font-weight:300; opacity:0.7; }
         .chart-legend-dot { width:8px; height:8px; border-radius:2px; flex-shrink:0; }
 
-        /* Disclaimer — KB note style */
-        .calc-disclaimer {
-            font-size:0.78rem;
-            color:var(--kb-muted); /* disclaimer */
-            font-weight:300;
-            line-height:1.7;
-            border-left:2px solid rgba(59,130,246,0.3);
-            padding:1rem 1.25rem;
-            margin-top:1.5rem;
-            opacity:0.8;
-        }
+        /* Disclaimer */
+        .calc-disclaimer { font-size:0.75rem; color:var(--kb-muted); font-weight:300; line-height:1.7; border-left:2px solid rgba(59,130,246,0.3); padding:1rem 1.25rem; margin-top:1.5rem; opacity:0.8; }
 
-        /* CTA */
-        .calc-cta { margin-top:1.25rem; font-size:0.875rem; color:var(--kb-muted); font-weight:300; line-height:1.7; }
-        .calc-cta a { color:var(--blue); text-decoration:none; }
-        .calc-cta a:hover { text-decoration:underline; }
-
-        /* Divider */
+        /* Read next */
         .divider { width:40px; height:1px; background:rgba(6,15,30,0.2); margin:3rem 0; }
-
-        /* Read next — site card style */
         .read-next { background:var(--kb-surface); border:1px solid var(--kb-border); border-radius:16px; padding:1.75rem; margin:3rem 0 2rem; }
         .read-next-label { font-size:0.7rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); margin-bottom:1rem; }
         .read-next-links { display:flex; flex-direction:column; gap:0.75rem; }
@@ -276,13 +153,11 @@
         .read-next-link:hover { color:var(--kb-text); }
         .read-next-link::before { content:'→'; color:var(--blue); font-size:0.8rem; }
 
-        /* Footer */
         footer { border-top:none; margin-top:4rem; padding:2rem; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:0.6rem; text-align:center; font-size:0.8rem; color:var(--muted); font-weight:300; background:var(--deep); }
         .footer-links { display:flex; gap:1.5rem; }
         .footer-links a { color:var(--blue); text-decoration:none; transition:opacity 0.2s; }
         .footer-links a:hover { opacity:0.75; }
 
-        /* Mobile hamburger */
         .nav-hamburger { display:none; background:none; border:none; border-radius:8px; cursor:pointer; padding:0.35rem 0.5rem; color:var(--cream); margin-right:0.75rem; }
         .nav-hamburger:hover { opacity:0.75; }
         .nav-mobile-menu { display:none; position:fixed; top:57px; left:0; right:0; background:#060f1e; border-bottom:1px solid var(--border); z-index:99; padding:1rem 1.5rem; flex-direction:column; gap:0; }
@@ -290,7 +165,6 @@
         .nav-mobile-link { font-size:0.9rem; font-weight:400; color:var(--muted); text-decoration:none; padding:0.75rem 0; border-bottom:1px solid var(--border); transition:color 0.2s; display:flex; align-items:center; gap:0.5rem; }
         .nav-mobile-link:last-child { border-bottom:none; }
         .nav-mobile-link:hover { color:var(--cream); }
-
 
         @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
@@ -304,10 +178,11 @@
             .nav-hamburger { display:block; }
             .wrap { padding:0 1.35rem; }
             .hero { padding:7rem 0 2.5rem; }
-            .results-grid { grid-template-columns:1fr; gap:1.25rem; }
-            .result-item { text-align:left; display:flex; align-items:baseline; justify-content:space-between; }
-            .result-value { font-size:1.4rem; }
+            .country-grid { grid-template-columns:repeat(3,1fr); }
+            .results-grid { grid-template-columns:1fr; }
+            .result-item { display:flex; align-items:baseline; justify-content:space-between; text-align:left; }
             .calc-card { padding:1.75rem 1.25rem; }
+            .year-row { grid-template-columns:1fr 1fr; }
         }
     </style>
 </head>
@@ -330,10 +205,7 @@
 </nav>
 
 <div class="nav-mobile-menu" id="nav-mobile-menu">
-    <a href="/index" class="nav-mobile-link">
-        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        Home
-    </a>
+    <a href="/index" class="nav-mobile-link"><svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>Home</a>
     <a href="/concept" class="nav-mobile-link">Concept</a>
     <a href="/waitlist" class="nav-mobile-link">Waitlist</a>
     <a href="/learn" class="nav-mobile-link">Learn</a>
@@ -348,103 +220,116 @@
             <span class="breadcrumb-sep">›</span>
             <span>Inflation Calculator</span>
         </nav>
-
         <p class="eyebrow">Educational tool</p>
         <h1>What Has Inflation Done to Your Money?</h1>
-        <span class="source-tag">Using real EU27 HICP data from Eurostat, 2015–2025.</span>
-
+        <span class="source-tag">Using real HICP data from Eurostat, by country.</span>
         <div class="answer-first">
             <p class="answer-first-label">What this calculator does</p>
-            <p>This calculator uses published EU27 HICP annual average inflation data from Eurostat to show how the purchasing power of a savings amount has changed over a chosen time period. Calculations apply each year's published annual average rate sequentially, working backwards from 2025. No projections, no forward-looking estimates, no investment advice. Historical data only.</p>
+            <p>Enter an amount, select your country and a time period, and see how much purchasing power has been lost to inflation. Based on published HICP annual average rates from Eurostat. Historical data only — no projections, no advice.</p>
         </div>
     </div>
 
-    <div class="content-col">
-    <div class="article-body">
+    <div class="calc-card">
 
-        <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(1.4rem,2.5vw,1.75rem);line-height:1.15;letter-spacing:-0.01em;margin:0 0 0.75rem;color:var(--kb-text);">Interactive Inflation Erosion Calculator</h2>
-        <p style="font-size:0.9rem;color:var(--kb-muted);font-weight:300;line-height:1.75;margin-bottom:1.5rem;">This interactive tool uses EU27 HICP annual average data from Eurostat to calculate the real purchasing power loss of your savings over a chosen time period.</p>
-
-        <div class="calc-card">
-            <div class="calc-field">
-                <label class="calc-label" for="calc-amount">Your savings amount</label>
-                <div class="calc-input-wrap">
-                    <span class="calc-currency">€</span>
-                    <input class="calc-input" type="number" id="calc-amount" min="1" step="1" placeholder="10000" inputmode="numeric">
-                </div>
+        <!-- Country -->
+        <div class="calc-field">
+            <label class="calc-label">Country</label>
+            <div class="country-grid">
+                <button class="country-btn active" data-country="EU27">🇪🇺 EU avg</button>
+                <button class="country-btn" data-country="SE">🇸🇪 Sweden</button>
+                <button class="country-btn" data-country="ES">🇪🇸 Spain</button>
+                <button class="country-btn" data-country="IT">🇮🇹 Italy</button>
+                <button class="country-btn" data-country="NL">🇳🇱 Netherlands</button>
             </div>
+        </div>
 
-            <div class="calc-field">
-                <label class="calc-label">Time period</label>
-                <div class="slider-row">
-                    <input type="range" class="calc-slider" id="calc-years" min="1" max="10" value="5">
-                    <span class="slider-value" id="slider-display">5 <span style="font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:300;">years</span></span>
-                </div>
-                <div class="slider-range">
-                    <span>1 year</span>
-                    <span>10 years</span>
-                </div>
+        <!-- Amount -->
+        <div class="calc-field">
+            <label class="calc-label" for="calc-amount">Your savings amount</label>
+            <div class="calc-input-wrap">
+                <span class="calc-currency" id="currency-symbol">€</span>
+                <input class="calc-input" type="number" id="calc-amount" min="1" step="1" placeholder="10000" inputmode="numeric">
             </div>
+        </div>
 
-            <div class="calc-results" id="calc-results">
-                <div class="results-grid">
-                    <div class="result-item">
-                        <p class="result-label">Nominal amount</p>
-                        <p class="result-value" id="result-original">—</p>
-                    </div>
-                    <div class="result-item">
-                        <p class="result-label">Inflation-adjusted value</p>
-                        <p class="result-value" id="result-real">—</p>
-                    </div>
-                    <div class="result-item">
-                        <p class="result-label">Purchasing power lost</p>
-                        <p class="result-value loss" id="result-loss">—</p>
-                    </div>
+        <!-- Year range -->
+        <div class="calc-field">
+            <label class="calc-label">Time period</label>
+            <div class="year-row">
+                <div>
+                    <label class="calc-label" for="start-year" style="margin-bottom:0.4rem;">From</label>
+                    <select class="year-select" id="start-year"></select>
                 </div>
-
-                <div class="chart-wrap">
-                    <div class="chart-bars" id="chart-bars" role="img" aria-label="Inflation erosion chart"></div>
-                    <div class="chart-legend">
-                        <div class="chart-legend-item">
-                            <div class="chart-legend-dot" style="background:rgba(59,130,246,0.25);"></div>
-                            <span>Nominal value</span>
-                        </div>
-                        <div class="chart-legend-item">
-                            <div class="chart-legend-dot" style="background:var(--blue);"></div>
-                            <span>Real value (after inflation)</span>
-                        </div>
-                    </div>
+                <div>
+                    <label class="calc-label" for="end-year" style="margin-bottom:0.4rem;">To</label>
+                    <select class="year-select" id="end-year"></select>
                 </div>
             </div>
         </div>
 
-        <div class="calc-disclaimer">
-            This calculator applies EU27 HICP annual average inflation rates published by Eurostat. It shows estimated changes in purchasing power based on historical data only. It does not constitute financial advice, a personal recommendation, or an inducement to invest. OVÉ is not authorised or regulated to provide investment services in any jurisdiction. Intended for residents of the European Union aged 18 and over for educational purposes only.
-        </div>
+        <!-- Results -->
+        <div class="calc-results" id="calc-results">
+            <p class="result-headline" id="result-headline"></p>
 
-        <p style="font-size:0.72rem;color:var(--kb-muted);font-weight:300;line-height:1.6;margin-top:0.75rem;">Methodology: EU27 HICP annual average rates (Eurostat). Applied sequentially, most recent year first. Source data covers 2015–2025.</p>
-
-        <div style="border-top:1px solid var(--border);margin-top:2.5rem;padding-top:2rem;">
-            <p class="calc-cta">
-                <span>OVÉ is a pre-launch concept exploring simpler ways to get started with investing.</span> <a href="/waitlist">Join the waitlist for updates →</a>
-            </p>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="read-next">
-            <p class="read-next-label">Read next</p>
-            <div class="read-next-links">
-                <a href="/learn" class="read-next-link">The €10.8 Trillion Gap — Why Europeans Don't Invest</a>
-                <a href="/learn/invest-or-save" class="read-next-link">Invest or Save Monthly? One of which may be quietly eating your money</a>
-                <a href="/concept" class="read-next-link">See the OVÉ concept</a>
+            <div class="results-grid">
+                <div class="result-item">
+                    <p class="result-label">Nominal amount</p>
+                    <p class="result-value" id="result-original">—</p>
+                </div>
+                <div class="result-item">
+                    <p class="result-label">Real value today</p>
+                    <p class="result-value" id="result-real">—</p>
+                </div>
+                <div class="result-item">
+                    <p class="result-label">Purchasing power lost</p>
+                    <p class="result-value loss" id="result-loss">—</p>
+                </div>
             </div>
+
+            <div class="chart-wrap">
+                <div class="chart-bars" id="chart-bars" role="img" aria-label="Inflation erosion chart"></div>
+                <div class="chart-legend">
+                    <div class="chart-legend-item"><div class="chart-legend-dot" style="background:rgba(59,130,246,0.25);"></div><span>Nominal value</span></div>
+                    <div class="chart-legend-item"><div class="chart-legend-dot" style="background:var(--blue);"></div><span>Real value</span></div>
+                </div>
+            </div>
+
+            <table class="year-table" id="year-table">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Inflation rate</th>
+                        <th>Real value</th>
+                        <th>Loss that year</th>
+                    </tr>
+                </thead>
+                <tbody id="year-table-body"></tbody>
+            </table>
         </div>
-
-        <p style="font-size:0.78rem;color:var(--kb-muted);font-weight:300;line-height:1.65;margin-bottom:4rem;">OVÉ is not authorised or regulated to provide investment services in any jurisdiction. This calculator is provided for educational purposes only. It does not constitute investment advice, a personal recommendation, or an offer or inducement to invest. Results are estimates based on published historical data and do not represent actual past or future performance of any savings or investment product. Capital is always at risk in market-based investments.</p>
-
     </div>
+
+    <div class="calc-disclaimer">
+        This calculator applies HICP annual average inflation rates published by Eurostat. It shows estimated changes in purchasing power based on historical data only. It does not constitute financial advice, a personal recommendation, or an inducement to invest. OVÉ is not authorised or regulated to provide investment services. For educational purposes only.
     </div>
+
+    <p style="font-size:0.72rem;color:var(--kb-muted);font-weight:300;line-height:1.6;margin-top:0.75rem;">Source: Eurostat HICP annual average rates (prc_hicp_aind). Sweden uses SEK; all other countries use EUR.</p>
+
+    <div style="border-top:1px solid rgba(6,15,30,0.12);margin-top:2.5rem;padding-top:2rem;">
+        <p style="font-size:0.875rem;color:var(--kb-muted);font-weight:300;line-height:1.7;">OVÉ is a pre-launch concept exploring simpler ways to get started with investing. <a href="/waitlist" style="color:var(--blue);text-decoration:none;">Join the waitlist →</a></p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="read-next">
+        <p class="read-next-label">Read next</p>
+        <div class="read-next-links">
+            <a href="/learn" class="read-next-link">The €10.8 Trillion Gap — Why Europeans Don't Invest</a>
+            <a href="/learn/invest-or-save" class="read-next-link">Invest or Save Monthly? Your Savings Account May Be Working Against You</a>
+            <a href="/concept" class="read-next-link">See the OVÉ concept</a>
+        </div>
+    </div>
+
+    <p style="font-size:0.78rem;color:var(--kb-muted);font-weight:300;line-height:1.65;margin-bottom:4rem;">OVÉ is not authorised or regulated to provide investment services. This calculator is provided for educational purposes only. Results are estimates based on published historical data. Capital is always at risk in market-based investments.</p>
 </div>
 
 <footer>
@@ -457,68 +342,93 @@
     </div>
 </footer>
 
-
 <script src="/ove-shared.js"></script>
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-var HICP = [
-    { year: 2025, rate: 0.025 },
-    { year: 2024, rate: 0.026 },
-    { year: 2023, rate: 0.069 },
-    { year: 2022, rate: 0.107 },
-    { year: 2021, rate: 0.028 },
-    { year: 2020, rate: 0.007 },
-    { year: 2019, rate: 0.014 },
-    { year: 2018, rate: 0.018 },
-    { year: 2017, rate: 0.016 },
-    { year: 2016, rate: 0.002 },
-    { year: 2015, rate: 0.001 }
-];
+// HICP annual average rates by country, 2015-2025
+// Source: Eurostat prc_hicp_aind
+var HICP_DATA = {
+    EU27: { 2015:0.001, 2016:0.002, 2017:0.017, 2018:0.019, 2019:0.015, 2020:0.007, 2021:0.029, 2022:0.092, 2023:0.064, 2024:0.026, 2025:0.025 },
+    SE:   { 2015:0.007, 2016:0.011, 2017:0.019, 2018:0.020, 2019:0.018, 2020:0.005, 2021:0.023, 2022:0.084, 2023:0.085, 2024:0.026, 2025:0.016 },
+    ES:   { 2015:-0.006, 2016:-0.003, 2017:0.020, 2018:0.017, 2019:0.007, 2020:-0.003, 2021:0.030, 2022:0.084, 2023:0.036, 2024:0.028, 2025:0.025 },
+    IT:   { 2015:0.001, 2016:-0.001, 2017:0.013, 2018:0.013, 2019:0.006, 2020:-0.001, 2021:0.020, 2022:0.086, 2023:0.059, 2024:0.011, 2025:0.016 },
+    NL:   { 2015:0.002, 2016:0.001, 2017:0.014, 2018:0.016, 2019:0.027, 2020:0.013, 2021:0.027, 2022:0.117, 2023:0.040, 2024:0.029, 2025:0.030 }
+};
 
-var amountInput   = document.getElementById('calc-amount');
-var yearSlider    = document.getElementById('calc-years');
-var sliderDisplay = document.getElementById('slider-display');
-var resultsDiv    = document.getElementById('calc-results');
-var chartBars     = document.getElementById('chart-bars');
+var CURRENCY = { EU27:'€', SE:'kr', ES:'€', IT:'€', NL:'€' };
+var COUNTRY_NAMES = { EU27:'EU average', SE:'Sweden', ES:'Spain', IT:'Italy', NL:'Netherlands' };
 
-function formatEuro(n) {
-    return '€' + Math.round(n).toLocaleString('en-EU', { minimumFractionDigits: 0 });
+var MIN_YEAR = 2015;
+var MAX_YEAR = 2025;
+
+var selectedCountry = 'EU27';
+var startYearEl = document.getElementById('start-year');
+var endYearEl = document.getElementById('end-year');
+var amountEl = document.getElementById('calc-amount');
+var resultsDiv = document.getElementById('calc-results');
+
+// Populate year dropdowns
+function populateYears() {
+    startYearEl.innerHTML = '';
+    endYearEl.innerHTML = '';
+    for (var y = MIN_YEAR; y <= MAX_YEAR; y++) {
+        var o1 = document.createElement('option');
+        o1.value = y; o1.textContent = y;
+        startYearEl.appendChild(o1);
+        var o2 = document.createElement('option');
+        o2.value = y; o2.textContent = y;
+        endYearEl.appendChild(o2);
+    }
+    startYearEl.value = 2015;
+    endYearEl.value = 2025;
 }
+populateYears();
 
-function updateSliderDisplay() {
-    var y = parseInt(yearSlider.value);
-    var label = (y === 1) ? 'year' : 'years';
-    sliderDisplay.innerHTML = y + ' <span style="font-family:\'DM Sans\',sans-serif;font-size:0.85rem;font-weight:300;">' + label + '</span>';
+function formatAmount(n, country) {
+    var sym = CURRENCY[country];
+    var rounded = Math.round(n);
+    var formatted = rounded.toLocaleString('en-EU');
+    return sym === '€' ? '€' + formatted : formatted + ' ' + sym;
 }
 
 function calculate() {
-    var amount = parseFloat(amountInput.value);
-    var years  = parseInt(yearSlider.value);
-    amountInput.classList.remove('error');
-    if (!amount || amount < 1) { resultsDiv.classList.remove('visible'); return; }
-    var yearData = HICP.slice(0, years);
-    var chronological = yearData.slice().reverse();
-    var values = [amount];
-    var running = amount;
-    for (var i = 0; i < chronological.length; i++) {
-        running = running / (1 + chronological[i].rate);
-        values.push(running);
+    var amount = parseFloat(amountEl.value);
+    var startYear = parseInt(startYearEl.value);
+    var endYear = parseInt(endYearEl.value);
+    if (!amount || amount < 1 || startYear >= endYear) {
+        resultsDiv.classList.remove('visible');
+        return;
     }
-    var realValue = values[values.length - 1];
-    var lost = amount - realValue;
-    document.getElementById('result-original').textContent = formatEuro(amount);
-    document.getElementById('result-real').textContent = formatEuro(realValue);
-    document.getElementById('result-loss').textContent = '−' + formatEuro(lost);
-    resultsDiv.classList.add('visible');
-    renderChart(amount, values, chronological);
-}
+    var data = HICP_DATA[selectedCountry];
+    var sym = CURRENCY[selectedCountry];
+    var rows = [];
+    var running = amount;
+    for (var y = startYear + 1; y <= endYear; y++) {
+        var rate = data[y] || 0;
+        var before = running;
+        running = running / (1 + rate);
+        rows.push({ year: y, rate: rate, real: running, loss: before - running });
+    }
+    var totalLoss = amount - running;
 
-function renderChart(nominal, values, chronological) {
+    // Headline
+    document.getElementById('result-headline').innerHTML =
+        sym + (sym === '€' ? '' : '') + ' in <strong>' + startYear + '</strong> had the purchasing power of <strong>' +
+        formatAmount(running, selectedCountry) + '</strong> by <strong>' + endYear + '</strong> — a loss of <span class="loss">' +
+        formatAmount(totalLoss, selectedCountry) + '</span>.';
+
+    document.getElementById('result-original').textContent = formatAmount(amount, selectedCountry);
+    document.getElementById('result-real').textContent = formatAmount(running, selectedCountry);
+    document.getElementById('result-loss').textContent = '−' + formatAmount(totalLoss, selectedCountry);
+
+    // Chart
+    var chartBars = document.getElementById('chart-bars');
     chartBars.innerHTML = '';
-    var maxVal = nominal;
-    for (var i = 0; i < values.length; i++) {
-        var realH = Math.round((values[i] / maxVal) * 80);
+    var allValues = [amount].concat(rows.map(function(r) { return r.real; }));
+    var maxVal = amount;
+    allValues.forEach(function(v, i) {
+        var realH = Math.round((v / maxVal) * 80);
         var group = document.createElement('div');
         group.className = 'chart-bar-group';
         group.style.flex = '1';
@@ -534,16 +444,41 @@ function renderChart(nominal, values, chronological) {
         barsRow.appendChild(realBar);
         var yearLabel = document.createElement('div');
         yearLabel.className = 'chart-year';
-        yearLabel.textContent = i === 0 ? (chronological.length > 0 ? (chronological[0].year - 1) : '—') : String(chronological[i - 1].year).slice(2);
+        yearLabel.textContent = i === 0 ? String(startYear).slice(2) : String(rows[i-1].year).slice(2);
         group.appendChild(barsRow);
         group.appendChild(yearLabel);
         chartBars.appendChild(group);
-    }
+    });
+
+    // Table
+    var tbody = document.getElementById('year-table-body');
+    tbody.innerHTML = '';
+    rows.forEach(function(r) {
+        var tr = document.createElement('tr');
+        tr.innerHTML = '<td>' + r.year + '</td>' +
+            '<td>' + (r.rate >= 0 ? '+' : '') + (r.rate * 100).toFixed(1) + '%</td>' +
+            '<td>' + formatAmount(r.real, selectedCountry) + '</td>' +
+            '<td class="neg">−' + formatAmount(r.loss, selectedCountry) + '</td>';
+        tbody.appendChild(tr);
+    });
+
+    resultsDiv.classList.add('visible');
 }
 
-amountInput.addEventListener('input', calculate);
-yearSlider.addEventListener('input', function() { updateSliderDisplay(); calculate(); });
-updateSliderDisplay();
+// Country buttons
+document.querySelectorAll('.country-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.country-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        selectedCountry = btn.dataset.country;
+        document.getElementById('currency-symbol').textContent = CURRENCY[selectedCountry];
+        calculate();
+    });
+});
+
+amountEl.addEventListener('input', calculate);
+startYearEl.addEventListener('change', calculate);
+endYearEl.addEventListener('change', calculate);
 
 // Mobile hamburger
 var hamburger = document.getElementById('nav-hamburger');
