@@ -39,40 +39,16 @@
             --muted: #9db5cc;
             --border: rgba(255,255,255,0.07);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--deep);
-            color: var(--cream);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-            z-index: 0;
-            width: 50vw; height: 50vw;
-            top: -15vw; left: 50%;
-            transform: translateX(-50%);
-            background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%);
-        }
-
+        body { font-family: 'DM Sans', sans-serif; background: var(--deep); color: var(--cream); line-height: 1.7; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+        .orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; width: 50vw; height: 50vw; top: -15vw; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%); }
         nav { display:flex; align-items:center; justify-content:space-between; padding:1.25rem 2rem; position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(6,15,30,0.6); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.07); box-shadow:0 1px 20px rgba(59,130,246,0.08); }
         .nav-logo { font-family:'Instrument Serif',serif; font-size:1.8rem; color:var(--cream); text-decoration:none; position:relative; }
         .nav-logo span { display:inline-block; width:6px; height:6px; background:var(--blue); border-radius:50%; position:absolute; top:6px; right:-9px; box-shadow:0 0 8px var(--blue-glow); }
         .nav-links { display:flex; align-items:center; gap:1.5rem; }
         .nav-link { font-size:0.85rem; font-weight:400; color:var(--muted); text-decoration:none; transition:color 0.2s; }
         .nav-link:hover, .nav-link.active { color:var(--cream); }
-
         .lang-switcher { position: relative; }
         .lang-btn { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 0.8rem; padding: 0.3rem 0.6rem; cursor: pointer; display: flex; align-items: center; gap: 0.3rem; transition: all 0.2s; }
         .lang-btn:hover { color: var(--cream); border-color: rgba(255,255,255,0.15); }
@@ -80,190 +56,35 @@
         .lang-option { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 1rem; font-size: 0.82rem; color: var(--muted); cursor: pointer; transition: all 0.15s; border: none; background: none; width: 100%; font-family: 'DM Sans', sans-serif; text-align: left; }
         .lang-option:hover { background: rgba(255,255,255,0.05); color: var(--cream); }
         .lang-option.active { color: var(--cream); background: rgba(59,130,246,0.1); }
-
-        .wrap {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 1;
-            flex: 1;
-        }
-        .hero-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 7rem 0 3rem;
-        }
-        .form-wrap {
-            max-width: 520px;
-            margin: 0 auto;
-            padding: 0 0 4rem;
-        }
-
-        .hero-label {
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--blue);
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeUp 0.6s ease forwards 0.1s;
-        }
-
-        .hero-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            line-height: 1.15;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeUp 0.6s ease forwards 0.2s;
-        }
-
-        .hero-sub {
-            font-size: 1rem;
-            color: var(--muted);
-            font-weight: 300;
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            animation: fadeUp 0.6s ease forwards 0.3s;
-        }
-
-        .form-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(59,130,246,0.15);
-            border-radius: 20px;
-            padding: 2rem;
-            opacity: 0;
-            animation: fadeUp 0.6s ease forwards 0.4s;
-        }
-
+        .wrap { max-width: 1080px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; flex: 1; }
+        .hero-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 7rem 0 3rem; }
+        .form-wrap { max-width: 520px; margin: 0 auto; padding: 0 0 4rem; }
+        .hero-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; }
+        .hero-title { font-family: 'Instrument Serif', serif; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; margin-bottom: 1rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
+        .hero-sub { font-size: 1rem; color: var(--muted); font-weight: 300; line-height: 1.7; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s; }
+        .form-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(59,130,246,0.15); border-radius: 20px; padding: 2rem; opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
         .form-row { display: flex; flex-direction: column; gap: 0.75rem; }
-
-        .form-input {
-            width: 100%;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 10px;
-            padding: 0.85rem 1.1rem;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 300;
-            color: var(--cream);
-            outline: none;
-            transition: border-color 0.2s;
-        }
+        .form-input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 0.85rem 1.1rem; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 300; color: var(--cream); outline: none; transition: border-color 0.2s; }
         .form-input::placeholder { color: var(--muted); opacity: 0.7; }
         .form-input:focus { border-color: rgba(59,130,246,0.5); }
-
-        .consent-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.65rem;
-        }
-        .consent-row input[type="checkbox"] {
-            margin-top: 3px;
-            accent-color: var(--blue);
-            flex-shrink: 0;
-            width: 15px;
-            height: 15px;
-            cursor: pointer;
-        }
-        .consent-label {
-            font-size: 0.78rem;
-            color: var(--muted);
-            font-weight: 300;
-            line-height: 1.55;
-            cursor: pointer;
-        }
+        .consent-row { display: flex; align-items: flex-start; gap: 0.65rem; }
+        .consent-row input[type="checkbox"] { margin-top: 3px; accent-color: var(--blue); flex-shrink: 0; width: 15px; height: 15px; cursor: pointer; }
+        .consent-label { font-size: 0.78rem; color: var(--muted); font-weight: 300; line-height: 1.55; cursor: pointer; }
         .consent-label a { color: var(--blue); text-decoration: none; }
         .consent-label a:hover { text-decoration: underline; }
-
-        .form-error {
-            display: none;
-            font-size: 0.82rem;
-            color: #f87171;
-            font-weight: 300;
-        }
-
-        .form-submit {
-            width: 100%;
-            background: #060f1e;
-            color: #fff;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            text-transform: none;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 10px;
-            padding: 12px 20px;
-            cursor: pointer;
-            transition: border-color 150ms ease;
-        }
+        .form-error { display: none; font-size: 0.82rem; color: #f87171; font-weight: 300; }
+        .form-submit { width: 100%; background: #060f1e; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.3px; text-transform: none; border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; padding: 12px 20px; cursor: pointer; transition: border-color 150ms ease; }
         .form-submit:hover { border-color: rgba(255,255,255,0.5); }
-
-        .form-loading {
-            display: none;
-            width: 100%;
-            background: var(--blue);
-            color: #fff;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 10px;
-            padding: 0.95rem 1.5rem;
-            opacity: 0.55;
-            cursor: not-allowed;
-            text-align: center;
-        }
-
-        .form-disclaimer {
-            margin-top: 1.25rem;
-            padding-top: 1.25rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.75rem;
-            color: var(--muted);
-            font-weight: 300;
-            line-height: 1.6;
-            opacity: 0.8;
-        }
-
-        .form-success {
-            display: none;
-            text-align: center;
-            padding: 0.5rem 0;
-        }
-        .form-success-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-        }
-        .form-success-sub {
-            font-size: 0.9rem;
-            color: var(--muted);
-            font-weight: 300;
-        }
-
-        
-
+        .form-loading { display: none; width: 100%; background: var(--blue); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: none; border-radius: 10px; padding: 0.95rem 1.5rem; opacity: 0.55; cursor: not-allowed; text-align: center; }
+        .form-disclaimer { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--muted); font-weight: 300; line-height: 1.6; opacity: 0.8; }
+        .form-success { display: none; text-align: center; padding: 0.5rem 0; }
+        .form-success-title { font-family: 'Instrument Serif', serif; font-size: 1.6rem; margin-bottom: 0.5rem; }
+        .form-success-sub { font-size: 0.9rem; color: var(--muted); font-weight: 300; }
         footer { border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:0.8rem; color:var(--muted); font-weight:300; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:0.6rem; }
         footer a { color:var(--blue); text-decoration:none; }
         footer a:hover { text-decoration:underline; }
         .footer-links { display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(16px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
         .nav-hamburger { display:none; background:none; border:none; border-radius:8px; cursor:pointer; padding:0.35rem 0.5rem; color:var(--cream); margin-right:0.75rem; }
         .nav-hamburger:hover { opacity:0.75; }
         .nav-mobile-menu { display:none; position:fixed; top:57px; left:0; right:0; background:#060f1e; border-bottom:1px solid var(--border); z-index:99; padding:1rem 1.5rem; flex-direction:column; gap:0; }
@@ -274,13 +95,11 @@
         .nav-mobile-lang { display:flex; gap:0.5rem; padding:0.75rem 0; flex-wrap:wrap; }
         .nav-mobile-lang-btn { background:none; border:1px solid var(--border); border-radius:6px; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:0.78rem; padding:0.25rem 0.5rem; cursor:pointer; transition:all 0.2s; }
         .nav-mobile-lang-btn:hover, .nav-mobile-lang-btn.active { color:var(--cream); border-color:var(--blue); background:rgba(59,130,246,0.1); }
-
         @media (max-width: 640px) {
             nav { padding:1rem 1.25rem; }
             .nav-logo { font-size:1.5rem; }
             .nav-links { gap:0.75rem; }
             #lang-switcher { display:none; }
-            a[href="/learn"].nav-link { display:none; }
             .nav-links > a.nav-link:not([href="/index"]) { display:none; }
             .nav-home-icon { display:none !important; }
             .nav-sep { display:none !important; }
@@ -289,14 +108,8 @@
             .hero-wrap { padding: 6rem 0 3rem; }
             .form-wrap { padding: 0 0 3rem; }
             .form-card { padding: 1.5rem; }
-            .inflation-tool { padding: 1.5rem; }
-            .inflation-inputs { flex-direction: column; gap: 1rem; }
-            .inflation-result.visible { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-            .inflation-result-item { display: flex; align-items: baseline; justify-content: space-between; width: 100%; }
-            .inflation-tool-footer { flex-direction: column; align-items: flex-start; }
         }
     </style>
-    <!-- Schema: Organization -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -339,7 +152,6 @@
     </button>
 </nav>
 
-<!-- Mobile menu -->
 <div class="nav-mobile-menu" id="nav-mobile-menu">
     <a href="/index" class="nav-mobile-link">
         <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
@@ -366,7 +178,6 @@
     <div class="form-wrap">
         <div class="form-card">
             <div id="form-area">
-                <p style="font-size:0.8rem;color:var(--muted);font-weight:300;line-height:1.6;margin-bottom:1rem;text-align:center;" data-i18n="form_note">Joining does not create an account, reserve access, or enable investment activity. This is a mailing list for product concept updates only.</p>
                 <form id="loops-form" action="https://app.loops.so/api/newsletter-form/cmn745kvj0cck0i0vveri5afq" method="POST" novalidate>
                     <div class="form-row">
                         <input class="form-input" type="email" name="newsletter-form-input" id="loops-email" required autocomplete="email" placeholder="you@example.com" data-i18n-placeholder="placeholder">
@@ -379,7 +190,7 @@
                         <div class="form-loading" id="form-loading" data-i18n="loading">Please wait…</div>
                     </div>
                 </form>
-                <p class="form-disclaimer" data-i18n="disclaimer">Joining this list does not create an account, reserve access, or enable any investment activity. OVÉ is not authorised to provide investment services. This is a mailing list for product updates only.</p>
+                <p class="form-disclaimer" data-i18n="disclaimer">OVÉ is not authorised to provide investment services. This is a mailing list for product updates only.</p>
             </div>
             <div class="form-success" id="form-success">
                 <p class="form-success-title" data-i18n="success_title">You're on the list.</p>
@@ -388,12 +199,12 @@
         </div>
     </div>
 
-    <!-- TOOL NUDGE -->
     <div style="max-width:520px;margin:0 auto 4rem;text-align:center;opacity:0;animation:fadeUp 0.6s ease forwards 0.55s;">
         <p style="font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);opacity:0.85;margin-bottom:0.75rem;">While you wait</p>
-        <p style="font-family:'Instrument Serif',serif;font-size:1.35rem;color:var(--cream);line-height:1.25;margin-bottom:0.6rem;">What has inflation already done to your savings?</p>
-        <p style="font-size:0.82rem;color:var(--muted);font-weight:300;line-height:1.65;margin-bottom:1.25rem;">Use our free calculator — real EU27 HICP data from Eurostat. No signup, no advice, no strings.</p>
-        <a href="/inflation-calculator" style="display:inline-flex;align-items:center;gap:0.5rem;background:#060f1e;color:#fff;font-family:'DM Sans',sans-serif;font-size:0.875rem;font-weight:500;padding:11px 20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);text-decoration:none;transition:border-color 150ms ease;" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">Calculate your inflation loss →</a>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+        <a href="/inflation-calculator" style="display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;background:#060f1e;color:#fff;font-family:'DM Sans',sans-serif;font-size:0.875rem;font-weight:500;padding:11px 20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);text-decoration:none;transition:border-color 150ms ease;" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">Calculate your inflation loss →</a>
+        <a href="/learn/archive" style="display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;background:#060f1e;color:#fff;font-family:'DM Sans',sans-serif;font-size:0.875rem;font-weight:500;padding:11px 20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);text-decoration:none;transition:border-color 150ms ease;" onmouseover="this.style.borderColor='rgba(255,255,255,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">Explore our investing articles →</a>
+        </div>
     </div>
 </div>
 
@@ -409,17 +220,15 @@
     </footer>
 </div>
 
-
-
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
     var translations = {
-        en: { nav_concept:'Concept', nav_waitlist:'Waitlist', label:'Product updates', title:'Be part of what we\'re building.', sub:'Each signup helps validate the idea.', placeholder:'you@example.com', consent:'I agree to receive updates about Ové by email. I can unsubscribe at any time. See our <a href="/privacy">Privacy Policy</a>.', cta:'Join for updates', loading:'Please wait\u2026', error_consent:'Please confirm you agree to receive updates before joining.', error_generic:'Something went wrong. Please try again.', error_rate:'Too many signups, please try again in a little while.', success_title:'You\u2019re on the list.', success_sub:'We\u2019ll send product updates as the concept develops.', disclaimer:'Joining this list does not create an account, reserve access, or enable any investment activity. OV\u00c9 is not authorised to provide investment services. This is a mailing list for product updates only.', footer_dev:'Currently in development.', form_note:'Joining does not create an account, reserve access, or enable investment activity. This is a mailing list for product concept updates only.', entity:'OVÉ is a concept developed by Samuel Gustaf, based in Halmstad, Sweden.', code:'EN' },
-        sv: { nav_concept:'Koncept', nav_waitlist:'Väntelista', label:'Produktuppdateringar', title:'Var med och bygg det vi skapar.', sub:'Varje anmälan hjälper till att validera idén.', placeholder:'du@exempel.se', consent:'Jag godk\u00e4nner att ta emot uppdateringar om Ov\u00e9 via e-post. Jag kan avregistrera mig n\u00e4r som helst. Se v\u00e5r <a href="/privacy">integritetspolicy</a>.', cta:'Gå med för uppdateringar', loading:'V\u00e4nta\u2026', error_consent:'Bekr\u00e4fta att du godk\u00e4nner att ta emot uppdateringar innan du g\u00e5r med.', error_generic:'N\u00e5got gick fel. F\u00f6rs\u00f6k igen.', error_rate:'F\u00f6r m\u00e5nga registreringar, f\u00f6rs\u00f6k igen om en liten stund.', success_title:'Du \u00e4r med p\u00e5 listan.', success_sub:'Vi skickar produktuppdateringar n\u00e4r konceptet utvecklas.', disclaimer:'Att g\u00e5 med i listan skapar inget konto, reserverar ingen tillg\u00e5ng och m\u00f6jligg\u00f6r ingen investeringsverksamhet. Ov\u00e9 \u00e4r inte beh\u00f6rigt att tillhandah\u00e5lla investeringstj\u00e4nster.', footer_dev:'Under utveckling.', form_note:'Att registrera sig indikerar intresse för framtida produktuppdateringar.', entity:'OVÉ är ett koncept utvecklat av Samuel Gustaf, baserat i Halmstad, Sverige.', code:'SV' },
-        es: { nav_concept:'Concepto', nav_waitlist:'Lista de espera', label:'Actualizaciones del producto', title:'Sé parte de lo que estamos construyendo.', sub:'Cada registro ayuda a validar la idea.', placeholder:'tu@ejemplo.com', consent:'Acepto recibir actualizaciones sobre Ov\u00e9 por correo electr\u00f3nico. Puedo darme de baja en cualquier momento. Consulta nuestra <a href="/privacy">Pol\u00edtica de privacidad</a>.', cta:'Unirse para actualizaciones', loading:'Por favor espera\u2026', error_consent:'Confirma que aceptas recibir actualizaciones antes de unirte.', error_generic:'Algo sali\u00f3 mal. Por favor, int\u00e9ntalo de nuevo.', error_rate:'Demasiados registros, int\u00e9ntalo de nuevo en un momento.', success_title:'Est\u00e1s en la lista.', success_sub:'Enviaremos actualizaciones del producto a medida que el concepto evolucione.', disclaimer:'Unirse a esta lista no crea una cuenta, no reserva acceso ni habilita ninguna actividad de inversi\u00f3n.', footer_dev:'Actualmente en desarrollo.', form_note:'Registrarse indica interés en futuras actualizaciones del producto.', entity:'OVÉ es un concepto desarrollado por Samuel Gustaf, con sede en Halmstad, Suecia.', code:'ES' },
-        it: { nav_concept:'Concetto', nav_waitlist:"Lista d'attesa", label:'Aggiornamenti prodotto', title:'Fai parte di ciò che stiamo costruendo.', sub:'Ogni iscrizione aiuta a convalidare l\'idea.', placeholder:'tu@esempio.com', consent:'Accetto di ricevere aggiornamenti su Ov\u00e9 via email. Posso annullare l\'iscrizione in qualsiasi momento. Consulta la nostra <a href="/privacy">Informativa sulla privacy</a>.', cta:'Iscriviti per aggiornamenti', loading:'Attendere\u2026', error_consent:'Conferma di accettare di ricevere aggiornamenti prima di iscriverti.', error_generic:'Qualcosa \u00e8 andato storto. Riprova.', error_rate:'Troppe iscrizioni, riprova tra poco.', success_title:'Sei nella lista.', success_sub:'Invieremo aggiornamenti sul prodotto man mano che il concetto si sviluppa.', disclaimer:'Iscriversi a questa lista non crea un account, non riserva l\'accesso n\u00e9 abilita alcuna attivit\u00e0 di investimento.', footer_dev:'Attualmente in fase di sviluppo.', form_note:'La registrazione indica interesse per futuri aggiornamenti del prodotto.', entity:'OVÉ è un concetto sviluppato da Samuel Gustaf, con sede a Halmstad, Svezia.', code:'IT' },
-        nl: { nav_concept:'Concept', nav_waitlist:'Wachtlijst', label:'Productupdates', title:'Maak deel uit van wat we bouwen.', sub:'Elke aanmelding helpt het idee te valideren.', placeholder:'u@voorbeeld.nl', consent:'Ik ga akkoord met het ontvangen van updates over Ové per e-mail. Ik kan me op elk moment afmelden. Zie ons <a href="/privacy">Privacybeleid</a>.', cta:'Aanmelden voor updates', loading:'Even geduld\u2026', error_consent:'Bevestig dat u akkoord gaat met het ontvangen van updates voordat u zich aanmeldt.', error_generic:'Er is iets misgegaan. Probeer het opnieuw.', error_rate:'Te veel aanmeldingen, probeer het over een ogenblik opnieuw.', success_title:'U staat op de lijst.', success_sub:'We sturen productupdates naarmate het concept zich ontwikkelt.', disclaimer:'Aanmelden voor deze lijst creëert geen account, reserveert geen toegang en maakt geen beleggingsactiviteit mogelijk.', footer_dev:'Momenteel in ontwikkeling.', form_note:'Aanmelden geeft interesse aan in toekomstige productupdates.', entity:'OVÉ is een concept ontwikkeld door Samuel Gustaf, gevestigd in Halmstad, Zweden.', code:'NL' }
+        en: { nav_concept:'Concept', nav_waitlist:'Waitlist', label:'Product updates', title:'Be part of what we\'re building.', sub:'Each signup helps validate the idea.', placeholder:'you@example.com', consent:'I agree to receive updates about Ové by email. I can unsubscribe at any time. See our <a href="/privacy">Privacy Policy</a>.', cta:'Join for updates', loading:'Please wait\u2026', error_consent:'Please confirm you agree to receive updates before joining.', error_generic:'Something went wrong. Please try again.', error_rate:'Too many signups, please try again in a little while.', success_title:'You\u2019re on the list.', success_sub:'We\u2019ll send product updates as the concept develops.', disclaimer:'OV\u00c9 is not authorised to provide investment services. This is a mailing list for product updates only.', footer_dev:'Currently in development.', entity:'OVÉ is a concept developed by Samuel Gustaf, based in Halmstad, Sweden.', code:'EN' },
+        sv: { nav_concept:'Koncept', nav_waitlist:'Väntelista', label:'Produktuppdateringar', title:'Var med och bygg det vi skapar.', sub:'Varje anmälan hjälper till att validera idén.', placeholder:'du@exempel.se', consent:'Jag godk\u00e4nner att ta emot uppdateringar om Ov\u00e9 via e-post. Jag kan avregistrera mig n\u00e4r som helst. Se v\u00e5r <a href="/privacy">integritetspolicy</a>.', cta:'Gå med för uppdateringar', loading:'V\u00e4nta\u2026', error_consent:'Bekr\u00e4fta att du godk\u00e4nner att ta emot uppdateringar innan du g\u00e5r med.', error_generic:'N\u00e5got gick fel. F\u00f6rs\u00f6k igen.', error_rate:'F\u00f6r m\u00e5nga registreringar, f\u00f6rs\u00f6k igen om en liten stund.', success_title:'Du \u00e4r med p\u00e5 listan.', success_sub:'Vi skickar produktuppdateringar n\u00e4r konceptet utvecklas.', disclaimer:'OV\u00c9 \u00e4r inte beh\u00f6rigt att tillhandah\u00e5lla investeringstj\u00e4nster. Detta \u00e4r en e-postlista f\u00f6r produktuppdateringar.', footer_dev:'Under utveckling.', entity:'OVÉ är ett koncept utvecklat av Samuel Gustaf, baserat i Halmstad, Sverige.', code:'SV' },
+        es: { nav_concept:'Concepto', nav_waitlist:'Lista de espera', label:'Actualizaciones del producto', title:'Sé parte de lo que estamos construyendo.', sub:'Cada registro ayuda a validar la idea.', placeholder:'tu@ejemplo.com', consent:'Acepto recibir actualizaciones sobre Ov\u00e9 por correo electr\u00f3nico. Puedo darme de baja en cualquier momento. Consulta nuestra <a href="/privacy">Pol\u00edtica de privacidad</a>.', cta:'Unirse para actualizaciones', loading:'Por favor espera\u2026', error_consent:'Confirma que aceptas recibir actualizaciones antes de unirte.', error_generic:'Algo sali\u00f3 mal. Por favor, int\u00e9ntalo de nuevo.', error_rate:'Demasiados registros, int\u00e9ntalo de nuevo en un momento.', success_title:'Est\u00e1s en la lista.', success_sub:'Enviaremos actualizaciones del producto a medida que el concepto evolucione.', disclaimer:'OV\u00c9 no est\u00e1 autorizado a prestar servicios de inversi\u00f3n. Esta es una lista de correo para actualizaciones del producto.', footer_dev:'Actualmente en desarrollo.', entity:'OVÉ es un concepto desarrollado por Samuel Gustaf, con sede en Halmstad, Suecia.', code:'ES' },
+        it: { nav_concept:'Concetto', nav_waitlist:"Lista d'attesa", label:'Aggiornamenti prodotto', title:'Fai parte di ciò che stiamo costruendo.', sub:'Ogni iscrizione aiuta a convalidare l\'idea.', placeholder:'tu@esempio.com', consent:'Accetto di ricevere aggiornamenti su Ov\u00e9 via email. Posso annullare l\'iscrizione in qualsiasi momento. Consulta la nostra <a href="/privacy">Informativa sulla privacy</a>.', cta:'Iscriviti per aggiornamenti', loading:'Attendere\u2026', error_consent:'Conferma di accettare di ricevere aggiornamenti prima di iscriverti.', error_generic:'Qualcosa \u00e8 andato storto. Riprova.', error_rate:'Troppe iscrizioni, riprova tra poco.', success_title:'Sei nella lista.', success_sub:'Invieremo aggiornamenti sul prodotto man mano che il concetto si sviluppa.', disclaimer:'OV\u00c9 non \u00e8 autorizzato a fornire servizi di investimento. Questa \u00e8 una mailing list per aggiornamenti sul prodotto.', footer_dev:'Attualmente in fase di sviluppo.', entity:'OVÉ è un concetto sviluppato da Samuel Gustaf, con sede a Halmstad, Svezia.', code:'IT' },
+        nl: { nav_concept:'Concept', nav_waitlist:'Wachtlijst', label:'Productupdates', title:'Maak deel uit van wat we bouwen.', sub:'Elke aanmelding helpt het idee te valideren.', placeholder:'u@voorbeeld.nl', consent:'Ik ga akkoord met het ontvangen van updates over Ové per e-mail. Ik kan me op elk moment afmelden. Zie ons <a href="/privacy">Privacybeleid</a>.', cta:'Aanmelden voor updates', loading:'Even geduld\u2026', error_consent:'Bevestig dat u akkoord gaat met het ontvangen van updates voordat u zich aanmeldt.', error_generic:'Er is iets misgegaan. Probeer het opnieuw.', error_rate:'Te veel aanmeldingen, probeer het over een ogenblik opnieuw.', success_title:'U staat op de lijst.', success_sub:'We sturen productupdates naarmate het concept zich ontwikkelt.', disclaimer:'OV\u00c9 is niet bevoegd om beleggingsdiensten te verlenen. Dit is een mailinglijst voor productupdates.', footer_dev:'Momenteel in ontwikkeling.', entity:'OVÉ is een concept ontwikkeld door Samuel Gustaf, gevestigd in Halmstad, Zweden.', code:'NL' }
     };
 
     var currentLang = 'en';
